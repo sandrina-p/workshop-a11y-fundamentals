@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/prism.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/briefing.css">
+</head>
+
+<body>
+  <main>
+  <a class="linkHome" href="../../index.html">Go Back</a>
+  <h1 id="07meaningfulcontent">07. Meaningful content</h1>
+<h2 id="motivation">Motivation</h2>
+<p>For sighted users, the context and visual appearance of an element can be enough to understand its purpose. However, the same is not true for people relying on SR (screen readers).</p>
+<p>Providing elements with accessible names is one of the most important responsibilities authors have when developing accessible web experiences.</p>
+<p>One of the most common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming techniques</a> is to add the attribute <code>aria-label</code> or <code>aria-labelledby</code>:</p>
+<pre><code class="html language-html">&lt;!-- A button to close a dialog / modal --&gt;
+&lt;button aria-label="Close modal"&gt;
+  X
+&lt;/button&gt;
+</code></pre>
+<h2 id="exercise">Exercise</h2>
+<p>Here's a page with a five common cases where an accessible name is forgotten.</p>
+<p><strong>🎯 Goal:</strong> Add accessible labels to all five elements.</p>
+<p>The <code>aria-label</code> attribute and <code>.sr-only</code> class will be your friends here!</p>
+<p><strong>Tip:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It's a nice alternative to Screen Readers most of the time!</p>
+<h2 id="notes">Notes:</h2>
+<ul>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
+<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-</code>label, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
+</ul>
+
+  <hr/>
+  </main>
+  <footer>
+    <h2 id="learningsandfeedback">Feedback</h2>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-08">leave a quick feedback</a> about this exercise.</p>
+  </footer>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+</html>

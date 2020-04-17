@@ -1,0 +1,79 @@
+<!--
+🧩 05: Hidden elements
+🎯 Goal: Make interactive elements only accessible when visible
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="05.css">
+</head>
+
+<body>
+  <header class="header">
+    <!-- Button with only an icon -->
+    <button class="menu-btn btn btnPrimary js-menuTrigger">
+      Menu
+    </button>
+    <nav class="menu js-menuTarget">
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="01.html">Exercise 1.a</a></li>
+        <li><a href="02.html" class="active">Exercise 1.b</a></li>
+        <li><a href="03.html">Exercise 1.c</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <h1 class="heading-1">
+      Hidden elements
+    </h1>
+
+    <div class="block_v">
+
+      <button class="btn btnPrimary js-coolTrigger">Toggle random article</button>
+      <div class="coolText js-coolTarget">
+        Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
+      </div>
+
+      <div class="part">
+        <label class="field">
+          <span class="field-txt">Your name</span>
+          <input type="text" placeholder="ex: web lover">
+        </label>
+      </div>
+    </div>
+  </main>
+
+  <!-- TODO EXPLAIN THIS -->
+
+  <script src="../assets/focus-visible.js"></script>
+</body>
+
+<!-- You can ignore the code bellow. -->
+<script>
+  // Menu toggle
+  const elMenuTrigger = document.getElementsByClassName('js-menuTrigger')[0]
+  const elMenuTarget = document.getElementsByClassName('js-menuTarget')[0]
+
+  elMenuTrigger.addEventListener('click', function () {
+    elMenuTarget.classList.toggle('isVisible');
+  })
+
+  // Cool text toggle
+  const elCoolTrigger = document.getElementsByClassName('js-coolTrigger')[0]
+  const elCoolTarget = document.getElementsByClassName('js-coolTarget')[0]
+
+  elCoolTrigger.addEventListener('click', function () {
+    elCoolTarget.classList.toggle('isVisible');
+  })
+</script>
+
+</html>

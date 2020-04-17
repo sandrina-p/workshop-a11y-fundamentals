@@ -1,0 +1,178 @@
+/*  ------- Solving Bonus 1:
+- Your solution may require to change .header or .header-tag
+*/
+.header {
+  display: flex;
+  flex-direction: column;
+  grid-area: header;
+}
+
+.header-tag {
+  order: -1;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #ff821f;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ------- Solving Bonus 2:
+- Add the needed CSS to the class bellow:
+*/
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code bellow  *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
+
+
+/* ------- Theme -------  */
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #f8f3ef;
+  color: #383838;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+body * {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.heading-1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.heading-2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.heading-3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 420px;
+  padding: 16px;
+}
+
+/* ------- Header -------  */
+
+.header-plantName {
+  margin-bottom: 16px;
+}
+
+.header-plantName span {
+  display: block;
+}
+
+/* ------- Info -------  */
+
+.card {
+  padding: 32px 16px 24px;
+  margin: 40px auto;
+  border: 1px solid #9b78de;
+  background-color: #fff;
+  box-shadow: 2px 2px #e9e1f8;
+}
+
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.block-part {
+  flex: 1;
+}
+
+.topic-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.topic-key {
+  font-size: 14px;
+  color: #595959;
+}
+
+.topic-value {
+  margin: 4px 0;
+}
+
+.media {
+  text-align: center;
+}
+
+.media-img {
+  max-width: 100%;
+}
+
+/* ------- Details & CTA -------  */
+
+.details {
+  border-top: 1px solid #b086d2;
+  padding: 16px 0;
+}
+
+.details-title {
+  margin-bottom: 8px;
+}
+
+.details-part:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.details-text {
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.price {
+  line-height: 1;
+}
+
+.price-original {
+  text-decoration: line-through;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.cta {
+  border: none;
+  border-radius: 4px;
+  padding: 4px 24px;
+  background-color: #8500f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-size: 16px;
+  color: #fff;
+}

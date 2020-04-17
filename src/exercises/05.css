@@ -1,0 +1,58 @@
+/*  ---------------------------------------- *\
+|*    You do not need to touch this file     *|
+|*     but you can see how it was made.      *|
+\** ---------------------------------------- */
+
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.8rem;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: 15rem;
+  height: 100%;
+  padding-top: 5rem;
+  background: #f4efff;
+  border-left: 3px solid #9d79ef;
+  transform: translateX(100%);
+  transition: transform 300ms;
+}
+
+.menu.isVisible {
+  transform: translateX(0%);
+}
+
+.menu-btn {
+  height: 3rem;
+  min-height: auto;
+  line-height: 3rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.block_v {
+  margin-bottom: 0;
+}
+
+.coolText {
+  display: none;
+  padding: 1.6rem 0 0 1.6rem;
+  font-style: italic;
+}
+
+.coolText.isVisible {
+  display: block;
+}
+
+/* used on 06.css */
+.footer {
+  text-align: center;
+  padding-top: 0;
+}

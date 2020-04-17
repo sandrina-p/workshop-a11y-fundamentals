@@ -1,0 +1,94 @@
+<!--
+🧩 01: Semantic HTML
+🎯 Goal: Improve the HTML by using semantic elements.
+
+Notes:
+- A. The order or elements is correct. You only need to change the elements tags.
+- B. You don't need to change or remove CSS classes.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+
+  <!-- 🍀 Remove all styles and see the page naked. It doesn't make much sense, right? -->
+  <link rel="stylesheet" href="../assets/reset.css">
+  <link rel="stylesheet" href="01.css">
+</head>
+
+<body>
+  <header>
+    <!-- an hypothetical page header would go here -->
+  </header>
+  <main>
+    <div class="content card">
+      <div class="header">
+        <h1 class="heading-1 header-plantName">
+          Monstera Deliciosa
+        </h1>
+        <p class="header-tag">On Sale</p>
+      </div>
+
+      <div class="block">
+        <ul class="topic block-part">
+          <li class="topic-item">
+            <span class="topic-key">Family</span>
+            <span class="topic-value heading-2">Araceae</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-key">Temperature</span>
+            <span class="topic-value heading-2">20º (70F)</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-key">Water</span>
+            <span class="topic-value heading-2">1/week</span>
+          </li>
+        </ul>
+
+        <div class="media block-part">
+          <img class="media-img" src="../assets/imgs/monstera.png" alt="the plant in a white vase">
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="details-part">
+          <h2 class="details-title heading-3">Details</h2>
+          <p class="details-text">Monstera deliciosa, also known as the Swiss cheese plant, is a species of flowering
+            plant native to tropical forests of southern Mexico, south to Panama.</p>
+        </div>
+
+        <div class="details-part">
+          <div class="price">
+            <p class="price-original">
+              <span class="visually-hidden">Old price:</span>
+              $40.00
+            </p>
+            <p class="price-value heading-2">
+              <span class="visually-hidden">New price:</span>
+              $30.00
+            </p>
+          </div>
+          <button class="cta js-addToCart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <!-- an hypothetical page footer would go here -->
+  </footer>
+</body>
+
+<!-- Note: Ignore the code bellow. -->
+<script>
+  const elExpand = document.getElementsByClassName('js-addToCart')[0]
+  elExpand.addEventListener('click', function () {
+    alert('This would add the plant to the cart.')
+  })
+</script>
+
+</html>

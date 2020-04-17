@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/prism.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/briefing.css">
+</head>
+
+<body>
+  <main>
+  <a class="linkHome" href="../../index.html">Go Back</a>
+  <h1 id="02fixedvsrelativeunits">02. Fixed vs Relative units</h1>
+<h2 id="motivation">Motivation</h2>
+<p>A current accessibility recommendation is to create websites using relative sizes instead of absolute sizes. This allows content to be readable in different sizes based on the user preferences.</p>
+<p>The relative units <code>rem</code> and <code>em</code> are the best replacers of <code>px</code>. An <code>em</code> is a unit of typography, relative to the font-size of its nearest parent. <code>rem</code> is only relative the the html (root) <code>font-size</code>.</p>
+<p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>1rem = 16px</code></strong>.</p>
+<pre><code class="css language-css">.heading-1 {
+  font-size: 1.75rem; /* 28px / 16 */
+}
+</code></pre>
+<h2 id="exercise">Exercise</h2>
+<p>Let's make sure that the page selling Monstera Deliciosas respects the users <code>font-size</code> preferences.</p>
+<p><strong>🎯 Goal:</strong> Replace fixed units (<code>px</code>) by relative units (<code>rem</code>).</p>
+<p><strong>Tip 1:</strong> Customize your browser font size to see how the page reacts as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</p>
+<p><strong>Tip 2:</strong> When converting <code>px</code> to <code>rem</code> remember to do the math <code>x/16</code> where <code>x</code> is the pixel value. ex: <code>24px/16 = 1.5rem</code></p>
+<hr />
+<h2 id="bonus">Bonus</h2>
+<p>Did you finish it on time? Don't stop now, here's some extra challenges for you:</p>
+<h3 id="1easierratio1rem10px">#1 Easier ratio: 1rem = 10px</h3>
+<p>Doing the math <code>x/16</code> can me painful when dealing with certain numbers such as 15px (0.9375rem). You may wonder: <em>Why can't 1rem equal 10px?</em> Well, there's a way! Let's set the HTML (root) font-size to 62.5%. It works because 62.5% of 16px is 10px. Now can do the direct math <code>1rem === 10px</code>.</p>
+<pre><code class="css language-css">html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem; /* 16px */
+}
+
+.heading-1 {
+  /* font-size: 28px; */ /* ---- old way */
+  /* font-size: 1.75rem; */
+  font-size: 2.8rem; /* -------- new way! */
+}
+</code></pre>
+<h2 id="notesreferences">Notes &amp; References</h2>
+<ul>
+<li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
+<li><a href="https://zellwk.com/blog/media-query-units/">PX, EM or REM in Media Queries?</a></li>
+<li><a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/visual-audio-contrast-scale.html">Criterion 1.1.4 - "Resize Text" 1.1.4</a>: Using px units on any text will fail WCAG level AA</li>
+</ul>
+
+  <hr/>
+  </main>
+  <footer>
+    <h2 id="learningsandfeedback">Feedback</h2>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-02">leave a quick feedback</a> about this exercise.</p>
+  </footer>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+</html>

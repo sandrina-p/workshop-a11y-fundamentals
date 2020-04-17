@@ -1,0 +1,102 @@
+<!--
+🧩 02: Skip Links
+🎯 Goal: Create shortcuts to certain key areas
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="06.css">
+</head>
+
+<body id="body">
+  <a href="#main" class="skipLink">Skip to main content</a>
+  <a href="#footer" class="skipLink">Skip to footer</a>
+
+  <header class="header">
+
+    <button class="menu-btn btn btnPrimary js-menuTrigger">
+      Menu
+    </button>
+
+    <div class="menu js-menuTarget">
+      <nav aria-label="workshop">
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="01.html">Exercise 1.a</a></li>
+          <li><a href="02.html" class="active">Exercise 1.b</a></li>
+          <li><a href="03.html">Exercise 1.c</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="sontact">
+        <ul>
+          <li>
+            <a href="http://codepen.io/sandrina-p">codepen</a>
+          </li>
+          <li>
+            <a href="http://twitter.com/a_sandrina_p">twitter</a>
+          </li>
+          <li>
+            <a href="mailto:a.sandrina.p@gmail.com">e-mail</a>
+          </li>
+        </ul>
+      </nav>
+  </header>
+
+  <main class="content">
+    <h1 class="heading-1">
+      Skip Navigation Links
+    </h1>
+
+    <div class="block_v">
+      <button class="btn btnPrimary js-coolTrigger">Toggle random article</button>
+      <div class="coolText js-coolTarget">
+        Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
+      </div>
+
+      <div class="part">
+        <label class="field">
+          Your name
+          <input class="textInput" type="text" placeholder="Mr. Human">
+        </label>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer content" id="footer">
+    <p class="footer-txt">
+      Made without coffee by <a href="https://sandrina-p.net">Sandrina Pereira</a>
+    </p>
+  </footer>
+  <a href="#body" class="skipLink">Back to top</a>
+
+  <script src="../assets/focus-visible.js"></script>
+</body>
+
+<!-- You can ignore the code bellow. -->
+<script>
+  // Menu toggle
+  const elMenuTrigger = document.getElementsByClassName('js-menuTrigger')[0]
+  const elMenuTarget = document.getElementsByClassName('js-menuTarget')[0]
+
+  elMenuTrigger.addEventListener('click', function () {
+    elMenuTarget.classList.toggle('isVisible');
+  })
+
+  // Cool text toggle
+  const elCoolTrigger = document.getElementsByClassName('js-coolTrigger')[0]
+  const elCoolTarget = document.getElementsByClassName('js-coolTarget')[0]
+
+  elCoolTrigger.addEventListener('click', function () {
+    elCoolTarget.classList.toggle('isVisible');
+  })
+</script>
+
+</html>

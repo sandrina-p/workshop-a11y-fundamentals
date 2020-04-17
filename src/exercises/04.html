@@ -1,0 +1,69 @@
+<!--
+🧩 03: Interactive elements
+🎯 Goal: Make all interactive elements visually accessible.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="04.css">
+</head>
+
+<body>
+  <main class="content">
+
+    <h1 class="heading-1">Interactive elements</h1>
+
+    <div class="part">
+      <!-- A breadcrumb -->
+      <nav class="crumb">
+        <ol class="crumb-list">
+          <li class="crumb-item">
+            <a class="crumb-link" href="../../index.html">Home</a>
+          </li>
+          <li class="crumb-item">
+            <a class="crumb-link isCurrent" href="../exercises/03.html">Exercise 2.a</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="block_v">
+
+      <!-- A input -->
+      <div class="part">
+        <label class="field">
+          <span class="field-txt">Your name</span>
+          <input type="text" placeholder="ex: web lover">
+        </label>
+      </div>
+
+      <div class="part">
+        <!-- Button with text -->
+        <button class="c-btn c-btnPrimary">
+          Add to cart
+        </button>
+      </div>
+
+      <div class="part">
+        <!-- Button with only an icon -->
+        <button class="c-btn c-btnCircle">
+          <svg class="c-btnCircle-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 22">
+            <path
+              d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <script src="../assets/focus-visible.js"></script>
+  </main>
+</body>
+
+</html>

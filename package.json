@@ -1,0 +1,20 @@
+{
+  "name": "a11y-fundamentals-workshop",
+  "private": true,
+  "title": "Web Accessibility Fundamentals",
+  "version": "1.0.0",
+  "description": "TODO",
+  "homepage": "TODO",
+  "main": "index.js",
+  "author": "@sandrina-p",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "start": "python -m SimpleHTTPServer 8000",
+    "build": "node scripts/create-briefings.js"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.2.2",
+    "rimraf": "^3.0.2",
+    "showdown": "^1.9.1"
+  }
+}

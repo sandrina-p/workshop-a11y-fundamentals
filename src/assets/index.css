@@ -1,0 +1,94 @@
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  max-width: 52rem;
+}
+
+.header {
+  padding-top: 4rem;
+  margin-bottom: 3.2rem;
+}
+
+.header-title {
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.header-txt {
+  margin: 0;
+}
+
+.bannerMsg {
+  background-color: #ffc4c4;
+  font-size: 2rem;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.topic-item {
+  margin-bottom: 3.2rem;
+}
+
+.topic-title {
+  margin-bottom: 1.6rem;
+}
+
+.subTopic-item {
+  background: white;
+  margin-bottom: 1.6rem;
+  padding: 2rem 1.6rem;
+  box-shadow: 0.2rem 0.2rem #e9e1f8;
+}
+
+.subTopic-heading {
+  margin: 0 0 0.8rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.subTopic-heading h3 {
+  line-height: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  margin: 0;
+}
+
+.subTopic-bullet {
+  font-size: 0.8em;
+  margin-right: 0.8rem;
+  color: #8500f2;
+}
+
+.subTopic-link:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.footer {
+  background: #fff;
+  padding: 3.2rem 0;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-txt {
+  margin: 0 0 0.8rem;
+}
+
+.footer-cr {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links a {
+  margin: 0 0.8rem;
+}

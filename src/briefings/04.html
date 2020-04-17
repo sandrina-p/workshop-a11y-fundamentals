@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/prism.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/briefing.css">
+</head>
+
+<body>
+  <main>
+  <a class="linkHome" href="../../index.html">Go Back</a>
+  <h1 id="interactiveelements">Interactive elements</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users, especially people with motor disabilities and blind people rely on a keyboard to navigate through the web. These people need an <strong>accessible focus indicators</strong> to enjoy the web.</p>
+<p>A very common practice is to hide the default focus indicator <a href="../assets/browser-focus.png">because it's ugly</a>. And that's okay. The mistake is to not create a custom one. <strong>We must include accessible focus states on our design.</strong></p>
+<pre><code class="css language-css">button:focus {
+  /* It's okay to do this... */
+  outline: none;
+
+  /* ...if we build a custom indicator: */
+  box-shadow: 0 0 3px 3px tomato;
+}
+</code></pre>
+<h2 id="exercise">Exercise</h2>
+<p>Here's a page with a bunch of interactive elements: links, buttons and form controls. However, we can't easily access them through keyboard.</p>
+<p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard.</p>
+<h2 id="bonus">Bonus</h2>
+<h3 id="1focusonlywhenusingkeyboard">1. Focus only when using keyboard</h3>
+<p>The main reason to hide the focus indicator is because it's triggered when we click the element. What if we could activate <code>:focus</code> only when using the keyboard and ignore it when using the mouse? That's where <code>:focus-visible</code> comes in! <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">See MDN docs</a>.</p>
+<p>Most browsers don't support it yet, but there's a polyfill: <a href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
+<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the page and update <code>:focus</code> styles to use focus-visible.</p>
+<pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
+&lt;script src="../assets/focus-visible.js"&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="css language-css">/*
+  This will hide the focus indicator if the element
+  receives focus via the mouse, but it will still
+  show up on keyboard focus.
+*/
+button:focus:not(.focus-visible) {
+  outline: none;
+  box-shadow: 0 0 3px 3px tomato;
+}
+</code></pre>
+<h3 id="2custominteractiveelements">2. Custom interactive elements</h3>
+<p>// CONTINUE HERE…</p>
+<pre><code class="css language-css">.select:focus {
+  opacity: 1;
+}
+
+.select:focus + .selectNative {
+  display: none;
+}
+</code></pre>
+<h2 id="notes">Notes</h2>
+
+  <hr/>
+  </main>
+  <footer>
+    <h2 id="learningsandfeedback">Feedback</h2>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-04">leave a quick feedback</a> about this exercise.</p>
+  </footer>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+</html>

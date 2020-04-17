@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Accessibility Essentials - Workshop</title>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="src/assets/theme.css" />
+  <style>
+    .content {
+      max-width: 52rem;
+    }
+
+    .field.error {
+      box-shadow: white 0 0 0 0.9rem, #d52424 0 0 0.1rem 1rem;
+    }
+
+    .field.error::after {
+      /* fancy way, but is it accessible? */
+      content: '⚠️';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .inputText {
+      display: block;
+      width: 100%;
+      max-width: 30rem;
+      height: 3.5rem;
+      font-size: inherit;
+      color: inherit;
+      padding: 0.8rem;
+      background-color: #fff;
+      border: 1px solid #a1a1a1;
+      border-radius: 0.3rem;
+    }
+
+    select:hover,
+    .inputText:hover {
+      border-color: #343434;
+    }
+
+    select:focus,
+    .inputText:focus {
+      outline: none;
+      box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+    }
+
+    select {
+      width: 100%;
+      max-width: 30rem;
+      height: 3.5rem;
+      background: white;
+      border: 1px solid #6f6f6f;
+      border-radius: 0.3rem;
+    }
+
+    .textarea {
+      height: 8rem;
+      resize: vertical;
+    }
+    
+    .field-error {
+      display: block;
+      color: #d52424;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="content">
+    <h1 class="heading-1 u-primary">
+      Accessibility Fundamentals
+    </h1>
+
+    <p>
+      Hi there! To get the most out of this workshop, please do the following things before the workshop:
+    </p>
+    <h2 class="heading-2 header-title">
+      Pre-Workshop requirements
+    </h2>
+    <ul class="list1">
+      <li>
+        <p>
+          <strong>Install <a class="link" href="https://zoom.us">Zoom</a></strong> to join the workshop.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Install a modern browser:</strong> Chrome or Firefox are recommended.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Familiarize yourself with the basics of a screen reader.</strong>
+          During a remote workshop it's not trivial to help everyone using a screen reader (SR). Please take some minutes to practice.
+          Once you are able to navigate through this page using a screen reader, consider yourself ready to go!
+        </p>
+        <ul class="list2">
+          <li>
+            Mac: You'll use VoiceOver. <a class="link" href="https://www.youtube.com/watch?v=5R-6WvAihms">Watch this VO introduction</a>.
+          </li>
+          <li>
+            Windows: Install <a class="link" href="https://www.nvaccess.org/">NVDA</a> and <a class="link" href="https://www.youtube.com/watch?v=Jao3s_CwdRU">watch this NVDA
+              introduction</a>.
+          </li>
+          <li>
+            Linux: Install <a class="link" href="https://wiki.gnome.org/Projects/Orca">Orca</a> and <a class="link" href="https://www.youtube.com/watch?v=8OWSztc3AtY">watch this Orca introduction</a>
+          </li>
+        </ul>
+        <p>          
+          Here a cheat sheet with SR keyboard shortcuts: <a class="link" href="https://dequeuniversity.com/screenreaders/survival-guide">VO and NVDA</a> and
+        <a href="https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en">Orca</a>.
+      </li>
+
+    </ul>
+    <p>
+      <strong>
+        The more prepared you are for the workshop, the better it will go for you!
+      </strong>
+    </p>
+
+    <form class="block_v form js-formWebLover">
+      <h2 class="heading-1">
+        Psst... let's practice!
+      </h2>
+      <p>
+        In order to prepare a great workshop for you, I need some extra info. I recommend you to use this form as an opportunity to practice using a screen reader!
+      </p>
+
+      <label class="field">
+        <span class="field-txt" >What's your job field?</span>
+        <input class="inputText" type="text" aria-required="true" name="role" />
+        <span class="field-tip" id="fieldTip">Designer, frontend, backend, QA, or... a unicorn?</span>
+      </label>
+
+      <fieldset class="field">
+        <span class="field-txt">What's your Operating System?</span>
+        <label class="inputRadio">
+          <input type="radio" name="so" value="windows" aria-required="true">
+          <span>Windows</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="so" value="mac" aria-required="true">
+          <span>Mac OS</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="so" value="linux" aria-required="true">
+          <span>Linux</span>
+        </label>
+      </fieldset>
+
+      <fieldset class="field">
+        <span class="field-txt">What browser will you use on the workshop?</span>
+        <label class="inputRadio">
+          <input type="radio" name="browser" value="ch" aria-required="true">
+          <span>Chrome</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="browser" value="ff" aria-required="true">
+          <span>Firefox</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="browser" value="sf" aria-required="true">
+          <span>Safari</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="browser" value="sf" aria-required="true">
+          <span>Other</span>
+        </label>
+      </fieldset>
+
+      <label class="field">
+        <span class="field-txt">How it has been using a scren reader?</span>
+        <select class="selectNative" aria-required="true" name="sr">
+          <option value="0" disabled selected>Select...</option>
+          <option value="1">1. I don't understand this</option>
+          <option value="2">2. I'm very confused</option>
+          <option value="3">3. It's fine</option>
+          <option value="4">4. It's easy</option>
+          <option value="5">5. I already knew it!</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field-txt">What's your e-mail?</span>
+        <input class="inputText" type="email" aria-required="true" name="email" />
+        <span class="field-tip">I will contact you if I have any doubt. No spam!</p>
+      </label>
+
+      <label class="field">
+        <span class="field-txt">Anything else?</span>
+        <textarea class="inputText textarea" name="extra"></textarea>
+        <span class="field-tip">Add anything you think it's relevant.</p>
+      </label>
+
+      <div class="form-footer">
+        <button class="btn btnPrimary js-btnSubmit">Send</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // Listen for form submission
+    const fields = {}
+    const validations = {
+      role: (value) => !!value,
+      so: (value) => !!value,
+      browser: (value) => !!value,
+      sr: (value) => value !== '0',
+      email: (value) => !!value,
+      extra: (value) => true,
+    }
+    const elFormWebLover = document.getElementsByClassName('js-formWebLover')[0]
+
+    elFormWebLover.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      // Validate form...
+      let hasError = false;
+      Array.from(elFormWebLover.querySelectorAll('[name]')).forEach(function (field) {
+        if (field.type === 'radio') {
+          fields[field.name] = field.checked
+            ? field.value
+            : fields[field.name] || false;
+          return;
+        }
+        fields[field.name] = field.value
+      })
+
+      for (const fieldName in validations) {
+        const isValid = validations[fieldName] || (() => false);
+        const field = elFormWebLover.querySelectorAll(`[name="${fieldName}"]`)[0]
+        if (!isValid(fields[fieldName])) {
+          console.log('field failed:', fieldName, fields[fieldName])
+          updateError(fieldName, true)
+          hasError = true;
+        } else {
+          updateError(fieldName, false)
+        }
+      }
+
+      if(hasError) {
+        console.log('Form has errors!')
+        return
+      }
+
+      // All good! Let's submit it to Netlify!
+      
+      console.log('Form submitted!', fields, hasError)
+    })
+
+    function updateError(fieldName, isTrue) {
+      const method = isTrue ? 'add' : 'remove'
+      const field = elFormWebLover.querySelectorAll(`[name="${fieldName}"]`)[0]
+      field.setAttribute('aria-invalid', isTrue)
+
+      if (fieldName === 'so' || fieldName === 'browser') {
+        field.closest('fieldset').classList[method]('error')
+      } else {
+        field.parentElement.classList[method]('error')
+      }
+
+      if (isTrue) {
+        // Listen for future field changes ...
+        if (fieldName === 'so' || fieldName === 'browser') {
+          Array.from(field.parentElement.parentElement.getElementsByTagName('input')).forEach(elInput => {
+            elInput.removeEventListener('change', handleChange)
+            elInput.addEventListener('change', handleChange)
+          })
+        } else {
+          field.removeEventListener('keyup', handleChange)
+          field.addEventListener('keyup', handleChange)
+
+          field.removeEventListener('change', handleChange)
+          field.addEventListener('change', handleChange)
+        }
+
+        // ... and remove error if it's valid again!
+        function handleChange(e) {
+          const isValid = validations[fieldName] || (() => false);
+          if (isValid(fieldName) || fieldName === 'so' || fieldName === 'browser') {
+            updateError(fieldName, false)
+            field.removeEventListener('change', handleChange)
+            field.removeEventListener('keyup', handleChange)
+          }
+        }
+      }
+    } 
+  </script>
+
+  <script src="src/assets/focus-visible.js"></script>
+</body>
+
+</html>

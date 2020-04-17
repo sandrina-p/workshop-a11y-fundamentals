@@ -1,0 +1,197 @@
+<!--
+🧩 09: Accessible forms
+🎯 Goal: Build an accessible form
+
+Notes:
+- You don't need to change or remove CSS classes unless if explicit asked.
+-->
+
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="09.css">
+</head>
+
+<body>
+  <main class="content">
+    <h1 class="heading-1">Accessible Forms</h1>
+
+    <form class="block_v form js-formWebLover">
+      <h2 class="heading-1">Web lover profile</h2>
+
+      <!--
+        Lesson #1: Every input must be connected label
+        🍀 You have 2 ways of solving this. Each one do you prefer?
+      -->
+      <div class="field">
+        <label for="uName" class="field-txt">Nickname</label>
+        <input type="text" id="uName">
+      </div>
+
+      <div class="lesson">
+        <!-- 
+          Lesson #2: Input descriptions
+          - 🍀 Add `aria-describedby` to an input to associate a description
+        -->
+
+        <div class="field">
+          <label for="uPass" class="field-txt">Most used password</label>
+          <input type="password" id="uPass" class="js-secretInput" aria-describedby="passTip">
+          <button class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
+
+          <span class="field-tip" id="passTip">A password should be unique and long.</span>
+        </div>
+      </div>
+
+      <!--
+        Lesson #3: Group checkbox/radio
+        - 🍀 Use <fieldset> and <legend> to group related inputs.
+        -->
+      <fieldset class="field">
+        <legend class="field-txt">Favorite theme</legend>
+        <label class="inputRadio">
+          <input type="radio" name="gender" value="dark">
+          <span>Dark</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="gender" value="light">
+          <span>Light</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="gender" value="whatever">
+          <span>It depends</span>
+        </label>
+      </fieldset>
+
+      <!--
+        Lesson #4: Required inputs
+        - 🍀 Use `aria-required` to mark an input as required.
+        - 🍀 Add `aria-invalid` when the input is marked as invalid (ex: after clicking submit).
+      -->
+      <label class="field js-fieldMandatory">
+        <span class="field-txt">Current open tabs *</span>
+        <input type="number" aria-required aria-labelledby="jsTabsError">
+        <span class="field-error" id="jsTabsError">You must have at least 1 open tab.</span>
+      </label>
+
+      <!-- Lesson #5: Custom inputs
+        Creating a custom element accessible is a (very) hard challenge.
+        Go try to select your role using only the keyboard and then come back here.
+        ...
+        That was an impossible mission, right? There's a trick to avoid the
+        complex task of re-creating an a11y <select>. It involves CSS!
+        The trick is to have 2 selects and show them on the right moment:
+        - a custom one: visible by default for "mouse based" users.
+        - a native one: hidden until it's focused by keyboard.
+
+        Let's do it:
+      -->
+      <div class="field">
+        <!-- 🍀 1. Create a native select. -->
+        <span class="sr-only" id="roleLabel">Main job role</span>
+        <select class="selectNative js-selectNative" aria-labelledby="roleLabel">
+          <option value="sel" disabled selected>Select role...</option>
+          <option value="des">UI/UX Designer</option>
+          <option value="fe">Frontend engineer</option>
+          <option value="be">Backend engineer</option>
+          <option value="qa">QA Engineer</option>
+          <option value="un">Unicorn</option>
+        </select>
+
+
+        <!-- 🍀 2. Hide the custom selet from screen readers using aria-hidden="true" -->
+        <div class="selectCustom js-selectCustom" aria-hidden="true">
+          <div class="selectCustom-label">Select role...</div>
+          <div class="selectCustom-options">
+            <div class="selectCustom-option" data-value="des">🎨 UI/UX Designer</div>
+            <div class="selectCustom-option" data-value="fe">👀 Frontend engineer</div>
+            <div class="selectCustom-option" data-value="be">🕶 Backend engineer</div>
+            <div class="selectCustom-option" data-value="qa">🐛 QA Engineer</div>
+            <div class="selectCustom-option" data-value="un">🦄 Unicorn</div>
+          </div>
+        </div>
+
+        <!-- 🍀 3. Go to 09.css. The magic happens there... -->
+
+        <!-- 🍀 4. Remember Lesson #1? A form control must always have a label,
+          even if visually invisible! Go add it!  -->
+      </div>
+
+      <div class="form-footer">
+        <button class="btn btnPrimary js-btnSubmit">Submit</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // -----
+    // Toggle password visibility
+    const elSecretBtn = document.getElementsByClassName('js-secretBtn')[0]
+    const elSecretInput = document.getElementsByClassName('js-secretInput')[0]
+
+    elSecretBtn.addEventListener('click', function () {
+      console.log('Toggle password clicked')
+      const isPressed = elSecretBtn.getAttribute("aria-pressed") === 'true';
+      // 1.toggle the button status visually and semantically
+      elSecretBtn.textContent = isPressed ? '👀' : '🙈'
+      elSecretBtn.setAttribute("aria-pressed", !isPressed)
+      // 2. toggle input type
+      elSecretInput.setAttribute("type", isPressed ? 'password' : 'text');
+    })
+
+    // -----
+    // Listen for "submit" button click
+    const elBtnSubmit = document.getElementsByClassName('js-btnSubmit')[0]
+
+    elBtnSubmit.addEventListener('click', function () {
+      console.log('Submit clicked')
+    })
+
+    // -----
+    // Listen for form submission
+    const elFormWebLover = document.getElementsByClassName('js-formWebLover')[0]
+
+    elFormWebLover.addEventListener('submit', (e) => {
+      e.preventDefault()
+      console.log('Form submitted!')
+    })
+
+    // -----
+    // Visual logic for selectCustom
+    const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
+
+    const elSelectCustomLabel = elSelectCustom.children[0]
+    const elSelectCustomOptions = elSelectCustom.children[1]
+    const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
+
+    // Listen for each option click
+    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
+      elOption.addEventListener('click', (e) => {
+        // Update select label text...
+        elSelectCustomLabel.textContent = e.target.textContent
+        // And close select
+        elSelectCustom.classList.remove('isActive');
+      })
+    })
+
+    // Toggle select on label click
+    elSelectCustomLabel.addEventListener('click', (e) => {
+      elSelectCustom.classList.toggle('isActive');
+    })
+
+    // Update selectCustom label on selectNative change
+    const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
+    elSelectNative.addEventListener('change', (e) => {
+      const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
+        0];
+      elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
+    })
+  </script>
+</body>
+
+</html>

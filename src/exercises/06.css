@@ -1,0 +1,26 @@
+@import url('05.css');
+
+.skipLink {
+  position: fixed;
+  top: 0.8rem;
+  left: 0.8rem;
+  display: inline-block;
+  border: 0.1rem solid #9d79ef;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0.8rem;
+}
+
+.skipLink:focus {
+  outline: none;
+  opacity: 1;
+  pointer-events: default;
+  box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+}
+
+#main:target,
+#footer:target,
+#body:target {
+  box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+}
