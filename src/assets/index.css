@@ -24,7 +24,7 @@ ol {
 }
 
 .bannerMsg {
-  background-color: #ffc4c4;
+  border: 5px dashed #e44545;
   font-size: 2rem;
   padding: 1.6rem;
   text-align: center;

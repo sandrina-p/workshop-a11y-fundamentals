@@ -55,7 +55,7 @@
       max-width: 30rem;
       height: 3.5rem;
       background: white;
-      border: 1px solid #6f6f6f;
+      border: 1px solid #a1a1a1;
       border-radius: 0.3rem;
     }
 
@@ -68,6 +68,33 @@
       display: block;
       color: #d52424;
     }
+
+    .form-footer {
+      display: block;
+    }
+
+    .form-msg_success {
+      font-size: 1.8rem;
+      color: #8500f2;
+    }
+
+    .form-msg_error {
+      color: #d52424;
+      margin-bottom: 1.6rem;
+    }
+
+    .form-msg_success,
+    .form-msg_error,
+    .form-footer.isSuccess .btn,
+    .form-footer.isSuccess .form-msg_error {
+      display: none;
+    }
+
+    .form-footer.isSuccess .form-msg_success,
+    .form-footer.isFailed .form-msg_error {
+      display: block;
+      margin: 0;
+    }
   </style>
 </head>
 
@@ -77,16 +104,16 @@
       Accessibility Fundamentals
     </h1>
 
-    <p>
-      Hi there! To get the most out of this workshop, please do the following things before the workshop:
-    </p>
     <h2 class="heading-2 header-title">
       Pre-Workshop requirements
     </h2>
+    <p>
+      Hi there! To get the most out of this workshop, please do the following things in advance:
+    </p>
     <ul class="list1">
       <li>
         <p>
-          <strong>Install <a class="link" href="https://zoom.us">Zoom</a></strong> to join the workshop.
+          <strong>Install <a class="link" href="https://zoom.us">Zoom</a></strong> to join the video call.
         </p>
       </li>
       <li>
@@ -97,8 +124,8 @@
       <li>
         <p>
           <strong>Familiarize yourself with the basics of a screen reader.</strong>
-          During a remote workshop it's not trivial to help everyone using a screen reader (SR). Please take some minutes to practice.
-          Once you are able to navigate through this page using a screen reader, consider yourself ready to go!
+          During a remote workshop it's not trivial to help everyone using a SR (screen reader). Please take some minutes to practice in advance.
+          Once you are able to navigate through this page using a SR, consider yourself ready to go!
         </p>
         <ul class="list2">
           <li>
@@ -113,7 +140,7 @@
           </li>
         </ul>
         <p>          
-          Here a cheat sheet with SR keyboard shortcuts: <a class="link" href="https://dequeuniversity.com/screenreaders/survival-guide">VO and NVDA</a> and
+          Here's a cheat sheet with SR keyboard shortcuts: <a class="link" href="https://dequeuniversity.com/screenreaders/survival-guide">VO and NVDA</a> and
         <a href="https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en">Orca</a>.
       </li>
 
@@ -124,12 +151,16 @@
       </strong>
     </p>
 
-    <form class="block_v form js-formWebLover">
+    <form class="block_v form js-form"
+      name="practice"
+      method="post"
+      data-netlify="true"
+      netlify-honeypot="bot-field">
       <h2 class="heading-1">
-        Psst... let's practice!
+        Psst... one last thing!
       </h2>
       <p>
-        In order to prepare a great workshop for you, I need some extra info. I recommend you to use this form as an opportunity to practice using a screen reader!
+        In order for me to prepare a solid workshop for you, I need some extra info. I recommend you to <strong>fill this form with a screen reader</strong> as an opportunity to practice!
       </p>
 
       <label class="field">
@@ -141,15 +172,15 @@
       <fieldset class="field">
         <span class="field-txt">What's your Operating System?</span>
         <label class="inputRadio">
-          <input type="radio" name="so" value="windows" aria-required="true">
+          <input type="radio" name="os" value="windows" aria-required="true">
           <span>Windows</span>
         </label>
         <label class="inputRadio">
-          <input type="radio" name="so" value="mac" aria-required="true">
+          <input type="radio" name="os" value="mac" aria-required="true">
           <span>Mac OS</span>
         </label>
         <label class="inputRadio">
-          <input type="radio" name="so" value="linux" aria-required="true">
+          <input type="radio" name="os" value="linux" aria-required="true">
           <span>Linux</span>
         </label>
       </fieldset>
@@ -176,7 +207,7 @@
 
       <label class="field">
         <span class="field-txt">How it has been using a scren reader?</span>
-        <select class="selectNative" aria-required="true" name="sr">
+        <select class="selectNative" aria-required="true" name="level">
           <option value="0" disabled selected>Select...</option>
           <option value="1">1. I don't understand this</option>
           <option value="2">2. I'm very confused</option>
@@ -193,12 +224,24 @@
       </label>
 
       <label class="field">
-        <span class="field-txt">Anything else?</span>
+        <span class="field-txt">Anything else I should know?</span>
         <textarea class="inputText textarea" name="extra"></textarea>
-        <span class="field-tip">Add anything you think it's relevant.</p>
+        <span class="field-tip">Add anything else you think it's relevant.</p>
       </label>
 
-      <div class="form-footer">
+      <p class="sr-only">
+        <input name="bot-field" aria-label="Do not fill this field if you're a human:"/>
+      </p>
+
+      <div class="form-footer jsFooter">
+        <p class="form-msg_success" aria-live="polite">
+          Thank you, see you soon!
+          <span class="sr-only">And you are rocking with that screen reader!</span>
+        </p>
+        <p class="form-msg_error" aria-live="polite">
+          Ups, something wen't wrong! Could you let me know about this by e-mail? There's got to be some logs on the console...
+        </p>
+        
         <button class="btn btnPrimary js-btnSubmit">Send</button>
       </div>
     </form>
@@ -206,23 +249,25 @@
 
   <script>
     // Listen for form submission
-    const fields = {}
+    const fields = {
+      'form-name': 'practice' // netlify,
+    }
     const validations = {
       role: (value) => !!value,
-      so: (value) => !!value,
+      os: (value) => !!value,
       browser: (value) => !!value,
-      sr: (value) => value !== '0',
+      level: (value) => value !== '0',
       email: (value) => !!value,
       extra: (value) => true,
     }
-    const elFormWebLover = document.getElementsByClassName('js-formWebLover')[0]
+    const elForm = document.getElementsByClassName('js-form')[0]
 
-    elFormWebLover.addEventListener('submit', (e) => {
+    elForm.addEventListener('submit', (e) => {
       e.preventDefault()
 
       // Validate form...
       let hasError = false;
-      Array.from(elFormWebLover.querySelectorAll('[name]')).forEach(function (field) {
+      Array.from(elForm.querySelectorAll('[name]')).forEach(function (field) {
         if (field.type === 'radio') {
           fields[field.name] = field.checked
             ? field.value
@@ -234,9 +279,8 @@
 
       for (const fieldName in validations) {
         const isValid = validations[fieldName] || (() => false);
-        const field = elFormWebLover.querySelectorAll(`[name="${fieldName}"]`)[0]
+        const field = elForm.querySelectorAll(`[name="${fieldName}"]`)[0]
         if (!isValid(fields[fieldName])) {
-          console.log('field failed:', fieldName, fields[fieldName])
           updateError(fieldName, true)
           hasError = true;
         } else {
@@ -245,21 +289,44 @@
       }
 
       if(hasError) {
-        console.log('Form has errors!')
+        console.warn('Form is incomplete:', fields)
         return
       }
 
       // All good! Let's submit it to Netlify!
-      
-      console.log('Form submitted!', fields, hasError)
+      console.log('Submitting form...', fields)
+
+      fetch('/', {
+        method:"POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: Object.keys(fields)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(fields[key]))
+        .join('&')
+      })
+        .then(result => {
+          if(!result.ok) {
+            console.error('Form not ok!', result)
+            throw Error(result.statusText)
+          }
+          const elSuccess = document.getElementsByClassName('jsFooter')[0]
+          console.log('Form submitted!', fields, result)
+          elSuccess.classList.remove('isFailed')
+          elSuccess.classList.add('isSuccess')
+        })
+        .catch(error => {
+          const elSuccess = document.getElementsByClassName('jsFooter')[0]
+          elSuccess.classList.add('isFailed')
+          console.error('Form failed!', error)
+        });
     })
 
     function updateError(fieldName, isTrue) {
       const method = isTrue ? 'add' : 'remove'
-      const field = elFormWebLover.querySelectorAll(`[name="${fieldName}"]`)[0]
+      const field = elForm.querySelectorAll(`[name="${fieldName}"]`)[0]
+      const isRadio = fieldName === 'os' || fieldName === 'browser'
       field.setAttribute('aria-invalid', isTrue)
 
-      if (fieldName === 'so' || fieldName === 'browser') {
+      if (isRadio) {
         field.closest('fieldset').classList[method]('error')
       } else {
         field.parentElement.classList[method]('error')
@@ -267,7 +334,7 @@
 
       if (isTrue) {
         // Listen for future field changes ...
-        if (fieldName === 'so' || fieldName === 'browser') {
+        if (isRadio) {
           Array.from(field.parentElement.parentElement.getElementsByTagName('input')).forEach(elInput => {
             elInput.removeEventListener('change', handleChange)
             elInput.addEventListener('change', handleChange)
@@ -283,7 +350,7 @@
         // ... and remove error if it's valid again!
         function handleChange(e) {
           const isValid = validations[fieldName] || (() => false);
-          if (isValid(fieldName) || fieldName === 'so' || fieldName === 'browser') {
+          if (isValid(fieldName) || isRadio) {
             updateError(fieldName, false)
             field.removeEventListener('change', handleChange)
             field.removeEventListener('keyup', handleChange)
