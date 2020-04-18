@@ -1,5 +1,6 @@
 <!--
-🧩 02: Skip Links
+
+🧩 06: Navigation Shortcuts
 🎯 Goal: Create shortcuts to certain key areas
 -->
 
@@ -17,17 +18,18 @@
 </head>
 
 <body id="body">
+  <!-- 🍀 Skip Navigation links are the first thing in a page.
+    Let's create 2: one for #main and another for the  -->
   <a href="#main" class="skipLink">Skip to main content</a>
   <a href="#footer" class="skipLink">Skip to footer</a>
 
   <header class="header">
-
     <button class="menu-btn btn btnPrimary js-menuTrigger">
       Menu
     </button>
 
-    <div class="menu js-menuTarget">
-      <nav aria-label="workshop">
+    <div class="menu js-menuTarget" inert="true">
+      <nav>
         <ul>
           <li><a href="../../index.html">Home</a></li>
           <li><a href="01.html">Exercise 1.1</a></li>
@@ -35,68 +37,52 @@
           <li><a href="03.html">Exercise 1.3</a></li>
         </ul>
       </nav>
-
-      <nav aria-label="sontact">
-        <ul>
-          <li>
-            <a href="http://codepen.io/sandrina-p">codepen</a>
-          </li>
-          <li>
-            <a href="http://twitter.com/a_sandrina_p">twitter</a>
-          </li>
-          <li>
-            <a href="mailto:a.sandrina.p@gmail.com">e-mail</a>
-          </li>
-        </ul>
-      </nav>
+    </div>
   </header>
 
-  <main class="content">
+  <main class="content" id="main" target="-1">
     <h1 class="heading-1">
-      Skip Navigation Links
+      Navigation shortcuts
     </h1>
 
     <div class="block_v">
-      <button class="btn btnPrimary js-coolTrigger">Toggle random article</button>
-      <div class="coolText js-coolTarget">
-        Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
-      </div>
-
       <div class="part">
         <label class="field">
-          Your name
-          <input class="textInput" type="text" placeholder="Mr. Human">
+          <span class="field-txt">Your name</span>
+          <input type="text" placeholder="ex: Web Lover">
         </label>
       </div>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book.
+      </p>
     </div>
   </main>
 
-  <footer class="footer content" id="footer">
+  <footer class="footer content" id="footer" target="-1">
     <p class="footer-txt">
-      Made without coffee by <a href="https://sandrina-p.net">Sandrina Pereira</a>
+      Learn more about <a href="https://webaim.org/techniques/skipnav/">Skip Navigation Links</a> technique.
     </p>
   </footer>
+
+  <!-- 🍀 When reaching the end of the page,
+    a shortcut to go back to the top is also useful. -->
   <a href="#body" class="skipLink">Back to top</a>
 
-  <script src="../assets/polyfill-focus-visible.js"></script>
+  <script src="../assets/polyfill-inert.js"></script>
 </body>
 
 <!-- You can ignore the code bellow. -->
 <script>
-  // Menu toggle
   const elMenuTrigger = document.getElementsByClassName('js-menuTrigger')[0]
   const elMenuTarget = document.getElementsByClassName('js-menuTarget')[0]
 
   elMenuTrigger.addEventListener('click', function () {
-    elMenuTarget.classList.toggle('isVisible');
-  })
-
-  // Cool text toggle
-  const elCoolTrigger = document.getElementsByClassName('js-coolTrigger')[0]
-  const elCoolTarget = document.getElementsByClassName('js-coolTarget')[0]
-
-  elCoolTrigger.addEventListener('click', function () {
-    elCoolTarget.classList.toggle('isVisible');
+    const isVisible = elMenuTarget.classList.contains('isVisible')
+    const method = isVisible ? 'remove' : 'add';
+    elMenuTarget.classList[method]('isVisible');
+    elMenuTarget.inert = isVisible
   })
 </script>
 

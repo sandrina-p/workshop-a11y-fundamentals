@@ -1,5 +1,7 @@
 @import url('05.css');
 
+/* 🍀 Create your skipLink class here */
+
 .skipLink {
   position: fixed;
   top: 0.8rem;
@@ -7,9 +9,9 @@
   display: inline-block;
   border: 0.1rem solid #9d79ef;
   background-color: #fff;
+  padding: 0.8rem;
   opacity: 0;
   pointer-events: none;
-  padding: 0.8rem;
 }
 
 .skipLink:focus {
@@ -19,8 +21,38 @@
   box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
 }
 
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code bellow  *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
+
+
+/* Prevent some browser sfrom showing
+the ugly outline on focus */
+[tabindex="-1"] {
+  outline: none;
+}
+
+/* CSS animation shown when the element
+receives focus from an href="#" */
 #main:target,
 #footer:target,
 #body:target {
-  box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+  animation: tempRing 1000ms
+}
+
+@-webkit-keyframes tempRing {
+
+  30%,
+  75% {
+    box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+  }
+}
+
+@keyframes tempRing {
+
+  30%,
+  75% {
+    box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+  }
 }

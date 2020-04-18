@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
+
 <head>
   <title>Brienfig 01</title>
   <meta charset="utf-8">
@@ -13,36 +14,58 @@
 
 <body>
   <main>
-  <a class="linkHome" href="../../index.html">Go Back</a>
-  <h1 id="1asemantichtml">1.a Semantic HTML</h1>
-<h2 id="motivation">Motivation</h2>
-<p>Web standards are rules and guidelines used to promote code consistency when building a web page. We should follow these standards so that anyone (people and robots) can access and understand a webpage content properly, in a meaningful way.</p>
-<p>One of the Web standards is to write semantic HTML markup: Go beyond <code>&lt;div /&gt;</code> and <code>&lt;span&gt;</code> (non-semantic elements) and replace them by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">semantics elements</a>. Use them where it makes sense: to describe sections, text, media, and so on. This way, we are not only writing <strong>readable code</strong>, but we also making the a more <strong>accessible place</strong>.</p>
-<h2 id="exercise">Exercise</h2>
-<p>Your colleague implemented a page and the designer approved it because it looks as expected!
-However, under the hood, if we see the page naked (without CSS styles), it doesn't
-make much sense. People who read this page through a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader">Screen Reader</a> won't understand it properly.</p>
-<p><strong>🎯 Goal:</strong> Improve the HTML by using semantic elements.</p>
-<p><strong>Tip:</strong> You can start by removing the styles and try to read the page as if it was a book. Plain old text. Improve the HTML until this book makes sense to you.</p>
-<h2 id="bonus">Bonus</h2>
-<p>Did you finish it on time? Don't stop now, here's some extra challenges for you:</p>
-<h3 id="1orderofcontent">1. Order of content</h3>
-<p>In a book, the title is always the first thing to show up. However, in this page, the tag "Limited edition" appears before the title. Your goal is to <em>reorder the HTML elements</em> so the title and the tag appear on the correct order. But the design should not change! How can we do it? Perhaps some flexbox trick can help us to <em>reverse the order</em> visually?</p>
-<h3 id="2missingcontent">2. Missing content</h3>
-<p>In this page we can visually understand that the plant is on sale ($40 to $30). However, if we see the page naked (without styles), it doesn't make much sense. We see 2 amounts but we don't know the difference between them. Some people may not even understand that's the plant price! Your goal is to add the missing words and hide them visually when the page is displayed with styles.</p>
-<pre><code class="html language-html">&lt;span class="visually-hidden"&gt;Price:&lt;/span&gt;
+    <a class="linkHome" href="../../index.html">Go Back</a>
+    <h1 id="1asemantichtml">1.1 Semantic HTML</h1>
+    <h2 id="motivation">Motivation</h2>
+    <p>Web standards are rules and guidelines used to promote code consistency when building a web page. We should
+      follow these standards so that anyone (people and robots) can access and understand a webpage content properly, in
+      a meaningful way.</p>
+    <p>One of the Web standards is to write semantic HTML markup: Go beyond <code>&lt;div /&gt;</code> and
+      <code>&lt;span&gt;</code> (non-semantic elements) and replace them by <a
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">semantics elements</a>. Use them where it makes
+      sense: to describe sections, text, media, and so on. This way, we are not only writing <strong>readable
+        code</strong>, but we also making the a more <strong>accessible place</strong>.</p>
+    <h2 id="exercise">Exercise</h2>
+    <p>Your colleague implemented a page and the designer approved it because it looks as expected!
+      However, under the hood, if we see the page naked (without CSS styles), it doesn't
+      make much sense. People who read this page through a <a
+        href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader">Screen Reader</a> won't understand it
+      properly.</p>
+    <p><strong>🎯 Goal:</strong> Improve the HTML by using semantic elements.</p>
+    <p><strong>Tip:</strong> You can start by removing the styles and try to read the page as if it was a book. Plain
+      old text. Improve the HTML until this book makes sense to you.</p>
+    <h2 id="bonus">Bonus</h2>
+    <p>Did you finish it on time? Don't stop now, here's some extra challenges for you:</p>
+    <h3 id="1orderofcontent">1. Order of content</h3>
+    <p>In a book, the title is always the first thing to show up. However, in this page, the tag "Limited edition"
+      appears before the title. Your goal is to <em>reorder the HTML elements</em> so the title and the tag appear on
+      the correct order. But the design should not change! How can we do it? Perhaps some flexbox trick can help us to
+      <em>reverse the order</em> visually?</p>
+    <h3 id="2missingcontent">2. Missing content</h3>
+    <p>In this page we can visually understand that the plant is on sale ($40 to $30). However, if we see the page naked
+      (without styles), it doesn't make much sense. We see 2 amounts but we don't know the difference between them. Some
+      people may not even understand that's the plant price! Your goal is to add the missing words and hide them
+      visually when the page is displayed with styles.</p>
+    <pre><code class="html language-html">&lt;span class="visually-hidden"&gt;Price:&lt;/span&gt;
 </code></pre>
-<p><strong>Tip:</strong> What CSS will you use at <code>.visually-hidden</code>? There are <a href="https://a11yproject.com/posts/how-to-hide-content/">better ways to hide content</a>, than using <code>display: none;</code>!</p>
-<h2 id="notes">Notes</h2>
-<p><strong>Did you know?</strong> There's a global <a href="https://css-naked-day.github.io/">CSS naked day</a> on April 9. In this day, developers release their websites without styles, showing only the HTML behind it. The idea behind this event is to promote Web Standards. This includes proper use of HTML, semantic markup, a good hierarchy structure, and of course, a good old play on words.</p>
+    <p><strong>Tip:</strong> What CSS will you use at <code>.visually-hidden</code>? There are <a
+        href="https://a11yproject.com/posts/how-to-hide-content/">better ways to hide content</a>, than using
+      <code>display: none;</code>!</p>
+    <h2 id="notes">Notes</h2>
+    <p><strong>Did you know?</strong> There's a global <a href="https://css-naked-day.github.io/">CSS naked day</a> on
+      April 9. In this day, developers release their websites without styles, showing only the HTML behind it. The idea
+      behind this event is to promote Web Standards. This includes proper use of HTML, semantic markup, a good hierarchy
+      structure, and of course, a good old play on words.</p>
 
-  <hr/>
+    <hr />
   </main>
   <footer>
     <h2 id="learningsandfeedback">Feedback</h2>
-    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-01">leave a quick feedback</a> about this exercise.</p>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-01">leave a quick
+        feedback</a> about this exercise.</p>
   </footer>
 
   <script src="../assets/prism.js" defer></script>
 </body>
+
 </html>
