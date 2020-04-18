@@ -4,9 +4,10 @@
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <title>Exercise 5</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -16,11 +17,12 @@
 
 <body>
   <header class="header">
-    <!-- Button with only an icon -->
     <button class="menu-btn btn btnPrimary js-menuTrigger">
       Menu
     </button>
-    <nav class="menu js-menuTarget">
+
+    <!-- 🍀 1/3 Add inert attribute to the nav -->
+    <nav class="menu js-menuTarget" inert="true">
       <ul>
         <li><a href="../../index.html">Home</a></li>
         <li><a href="01.html">Exercise 1.a</a></li>
@@ -40,6 +42,7 @@
 
       <button class="btn btnPrimary js-coolTrigger">Toggle random article</button>
       <div class="coolText js-coolTarget">
+        <!-- This link is hidden with display: none; so we cannot access it. -->
         Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
       </div>
 
@@ -49,23 +52,39 @@
           <input type="text" placeholder="ex: web lover">
         </label>
       </div>
+
+      <div class="part">
+        <label class="c-checkbox">
+          <!-- 🍀 Part #2 the fix should be done on the respective CSS file -->
+          <input type="checkbox">
+          <span>I mark solo checkboxs without reading them.</span>
+        </label>
+      </div>
     </div>
   </main>
 
-  <!-- TODO EXPLAIN THIS -->
-
-  <script src="../assets/focus-visible.js"></script>
+  <!-- 🍀 2/3 Add inert polifyll -->
+  <script src="../assets/polyfill-inert.js"></script>
 </body>
 
-<!-- You can ignore the code bellow. -->
 <script>
   // Menu toggle
   const elMenuTrigger = document.getElementsByClassName('js-menuTrigger')[0]
   const elMenuTarget = document.getElementsByClassName('js-menuTarget')[0]
 
   elMenuTrigger.addEventListener('click', function () {
-    elMenuTarget.classList.toggle('isVisible');
+    const isVisible = elMenuTarget.classList.contains('isVisible')
+    const method = isVisible ? 'remove' : 'add';
+    elMenuTarget.classList[method]('isVisible');
+
+    // 🍀 3/3 Update elMenuTarget.inert based on isVisible
+    elMenuTarget.inert = isVisible
   })
+
+  /*  ----------------------------------------- *\
+  |*  You do not need to touch the code bellow  *|
+  |*     but you can see how it was made.       *|
+  \** ----------------------------------------- */
 
   // Cool text toggle
   const elCoolTrigger = document.getElementsByClassName('js-coolTrigger')[0]

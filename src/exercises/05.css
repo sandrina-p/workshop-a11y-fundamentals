@@ -1,7 +1,78 @@
-/*  ---------------------------------------- *\
-|*    You do not need to touch this file     *|
-|*     but you can see how it was made.      *|
-\** ---------------------------------------- */
+.c-checkbox {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 1.5rem;
+  font-size: 14px;
+}
+
+.c-checkbox input {
+  /* 🍀 Write your solution here!
+  We shouldn't use display:none, right?
+  Instead let's hide the element visually only */
+  /* display: none; */
+  opacity: 0;
+  position: absolute;
+}
+
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code bellow  *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
+
+
+.c-checkbox:hover+ :last-child::before {
+  border-color: #939393;
+}
+
+.c-checkbox input:focus+ :last-child::before {
+  border-color: #8500f2;
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
+.c-checkbox:last-child::before,
+.c-checkbox:last-child::after {
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.c-checkbox :last-child::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 0.5rem;
+  border-radius: 2px;
+  border: 1px solid #939393;
+  transform: translateY(2px);
+  transition: box-shadow 150ms, background-color 150ms;
+}
+
+.c-checkbox :last-child::after {
+  content: '✓';
+  line-height: 1;
+  font-size: 14px;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 7px;
+  left: 6px;
+  color: #fff;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 150ms;
+}
+
+
+.c-checkbox input:checked+ :last-child::before {
+  border-color: #8500f2;
+  background-color: #8500f2;
+}
+
+.c-checkbox input:checked+ :last-child::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ------- HEADER + MENU -------  */
 
 .header {
   position: fixed;
@@ -9,6 +80,7 @@
   display: flex;
   justify-content: flex-end;
   padding: 0.8rem;
+  z-index: 2;
 }
 
 .menu {
@@ -37,14 +109,11 @@
   padding-bottom: 0;
 }
 
-.block_v {
-  margin-bottom: 0;
-}
+/* ------- OTHER STUFF -------  */
 
 .coolText {
   display: none;
   padding: 1.6rem 0 0 1.6rem;
-  font-style: italic;
 }
 
 .coolText.isVisible {
@@ -52,6 +121,11 @@
 }
 
 /* used on 06.css */
+
+.block_v {
+  margin-bottom: 0;
+}
+
 .footer {
   text-align: center;
   padding-top: 0;

@@ -1,12 +1,13 @@
 <!--
-🧩 03: Interactive elements
-🎯 Goal: Make all interactive elements visually accessible.
+🧩 04: Interactive elements
+🎯 Goal: Make all interactive elements accessible by keyboard.
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <title>Exercise #04</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -19,51 +20,104 @@
 
     <h1 class="heading-1">Interactive elements</h1>
 
-    <div class="part">
-      <!-- A breadcrumb -->
-      <nav class="crumb">
-        <ol class="crumb-list">
-          <li class="crumb-item">
-            <a class="crumb-link" href="../../index.html">Home</a>
-          </li>
-          <li class="crumb-item">
-            <a class="crumb-link isCurrent" href="../exercises/03.html">Exercise 2.a</a>
-          </li>
-        </ol>
-      </nav>
-    </div>
-
     <div class="block_v">
-
-      <!-- A input -->
+      <!-- Case #1: -->
       <div class="part">
         <label class="field">
-          <span class="field-txt">Your name</span>
-          <input type="text" placeholder="ex: web lover">
+          <span class="field-txt">Your nickname</span>
+          <input class="textInput" type="text" placeholder="ex: webLover">
         </label>
       </div>
 
+      <!-- Case #2: -->
       <div class="part">
-        <!-- Button with text -->
         <button class="c-btn c-btnPrimary">
-          Add to cart
+          Get started today!
         </button>
       </div>
 
+      <!-- Case #3: -->
       <div class="part">
-        <!-- Button with only an icon -->
-        <button class="c-btn c-btnCircle">
-          <svg class="c-btnCircle-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 22">
-            <path
-              d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
-          </svg>
-        </button>
+        <a class="c-link" href="../../index.html">Go Home</a>
       </div>
 
-    </div>
+      <!-- Case #4 (BONUS #1): Custom inputs -->
+      <div class="part">
+        <div class="field">
 
-    <script src="../assets/focus-visible.js"></script>
+          <span class="field-txt" id="roleLabel">Main job role</span>
+
+          <!-- 
+            🍀 4.1. Create a native select.
+            To save you time, here's the native element: -->
+          <select class="selectNative js-selectNative" aria-labelledby="roleLabel">
+            <option value="sel" disabled selected>Select role...</option>
+            <option value="des">UI/UX Designer</option>
+            <option value="fe">Frontend engineer</option>
+            <option value="be">Backend engineer</option>
+            <option value="qa">QA Engineer</option>
+            <option value="un">Unicorn</option>
+          </select>
+
+          <!-- 🍀 4.2. Hide the custom select using display: none; -->
+          <div class="selectCustom js-selectCustom">
+            <div class="selectCustom-label">Select role...</div>
+            <div class="selectCustom-options">
+              <div class="selectCustom-option" data-value="des">🎨 UI/UX Designer</div>
+              <div class="selectCustom-option" data-value="fe">👀 Frontend engineer</div>
+              <div class="selectCustom-option" data-value="be">🕶 Backend engineer</div>
+              <div class="selectCustom-option" data-value="qa">🐛 QA Engineer</div>
+              <div class="selectCustom-option" data-value="un">🦄 Unicorn</div>
+            </div>
+          </div>
+          <!-- 🍀 4.3. Go to the CSS file. The magic happens there... -->
+
+        </div>
+      </div>
+
+      <!-- 🍀 BONUS #2. Add focus-visible.js here: -->
+      <script src="../assets/polyfill-focus-visible.js"></script>
   </main>
+
+  <script>
+    /*  ----------------------------------------- *\
+    |*  You do not need to touch the code bellow  *|
+    |*     but you can see how it was made.       *|
+    \** ----------------------------------------- */
+
+    // Visual logic for selectCustom
+    const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
+
+    const elSelectCustomLabel = elSelectCustom.children[0]
+    const elSelectCustomOptions = elSelectCustom.children[1]
+    const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
+
+    // Listen for each option click
+    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
+      elOption.addEventListener('click', (e) => {
+        // Update select label text...
+        elSelectCustomLabel.textContent = e.target.textContent
+        // And close select
+        elSelectCustom.classList.remove('isActive');
+      })
+    })
+
+    // Toggle select on label click
+    elSelectCustomLabel.addEventListener('click', (e) => {
+      elSelectCustom.classList.toggle('isActive');
+    })
+
+    // Update selectCustom label on selectNative change
+    const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
+
+    if (elSelectNative) {
+      elSelectNative.addEventListener('change', (e) => {
+        const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
+          0];
+        elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
+      })
+    }
+  </script>
 </body>
 
 </html>

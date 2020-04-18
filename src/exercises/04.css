@@ -1,96 +1,8 @@
-/* Do never ever do this 🥺. Delete this selector! */
-
-*:focus {
+/* Do never ever do this 🥺.
+ 🍀 Delete this declaration! */
+/* *:focus {
   outline: none;
-}
-
-
-/* ------- BREADCRUMB -------  */
-
-.crumb-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-}
-
-.crumb-item {
-  margin: 0;
-  margin-right: 0.8rem;
-}
-
-.crumb-link {
-  color: grey;
-}
-
-.crumb-link.isCurrent {
-  color: #7b60bc;
-}
-
-.crumb-item:not(:last-of-type)::after {
-  margin-left: 0.8rem;
-  content: '/'
-}
-
-/* 🍀 add your styles here! */
-.crumb-link:hover {}
-
-.crumb-link:focus {}
-
-
-
-/* ------- BUTTON -------  */
-
-.c-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 4.4rem;
-  font-size: 1.6rem;
-  border: none;
-  padding: 0.8rem 2.4rem;
-  background-color: #7E06E0;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 0.6rem;
-}
-
-/* 🍀 add your styles here! */
-.c-btnPrimary:hover {}
-
-.c-btnPrimary:focus {}
-
-/* TODO - EXTRA 1 */
-.c-btnPrimary:focus:not(.focus-visible) {
-  outline: none;
-}
-
-.c-btnCircle {
-  width: 4.4rem;
-  padding: 0;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid #939393;
-}
-
-.c-btnCircle-svg {
-  fill: #939393;
-}
-
-.c-btnCircle:hover {
-  cursor: pointer;
-}
-
-/* 🍀 add your styles here! */
-.c-btnCircle:hover .c-btnCircle-svg {
-  fill: #6f4bc6;
-}
-
-.c-btnCircle:hover .c-btnCircle {}
-
-.c-btnCircle:focus {}
-
-.c-btnCircle:focus .c-btnCircle {}
+} */
 
 
 /* ------- FORM INPUTS -------  */
@@ -107,6 +19,155 @@
 /* 🍀 add your styles here!
 - How does the input looks like when disabled or :focused? Try it out! 
 */
-.textInput:hover {}
+.textInput:hover {
+  border-color: #7E06E0;
+}
 
-.textInput:focus {}
+.textInput:focus {
+  outline: none;
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
+
+/* ------- BUTTON -------  */
+
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.4rem;
+  font-size: 1.6rem;
+  border: none;
+  padding: 0.8rem 2.4rem;
+  background-color: #7E06E0;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.6rem;
+}
+
+.c-btnPrimary:hover {
+  opacity: 0.8;
+}
+
+/* 🍀 add your styles here! */
+.js-focus-visible .c-btnPrimary:focus {
+  outline: none;
+}
+
+.c-btnPrimary:focus.focus-visible {
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
+/* ------- LINK -------  */
+
+/* 🍀 add your styles here! */
+.c-link {
+  color: grey;
+  padding: 0.1rem 0.2rem;
+  transform: translateX(-0.1em);
+  margin-right: -0.1em;
+}
+
+.c-link:hover {
+  color: #7e06e0;
+}
+
+.c-link:focus {
+  outline: none;
+  color: #7e06e0;
+  background-color: #e9e1f8;
+}
+
+/* ------- SELECT (BONUS #1) -------  */
+
+.selectCustom,
+.selectNative {
+  position: relative;
+  width: 22rem;
+  height: 3.8rem;
+}
+
+/*  🍀 Write the select styles from here... */
+.selectNative {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.selectNative:focus {
+  position: relative;
+  opacity: 1;
+}
+
+.selectNative:focus+.selectCustom {
+  display: none;
+}
+
+/* When you make the native select work, come back to 09.html to step 4. */
+
+/*  ... until here 🍀 */
+
+
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code bellow  *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
+
+.selectCustom-label {
+  position: relative;
+  width: 100%;
+  height: 3.8rem;
+  background-color: #fff;
+  border: 1px solid #939393;
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.8rem;
+}
+
+.selectCustom-label::after {
+  content: '▾';
+  position: absolute;
+  top: 0;
+  line-height: 3.8rem;
+  right: 0.8rem;
+}
+
+.selectCustom-label:hover {
+  border-color: #8500f2;
+}
+
+.selectCustom-options {
+  position: absolute;
+  top: calc(3.8rem + 0.8rem);
+  left: 0;
+  width: 100%;
+  border: 1px solid #939393;
+  border-radius: 0.4rem;
+  background-color: #fff;
+  box-shadow: 0 0 4px #e9e1f8;
+  z-index: 1;
+  padding: 0.8rem 0;
+  display: none;
+}
+
+.selectCustom.isActive .selectCustom-options {
+  display: block;
+}
+
+.selectCustom-option {
+  position: relative;
+  padding: 0.8rem;
+}
+
+.selectCustom-option:hover {
+  background-color: #f7ecff;
+}
+
+.selectCustom-option:not(:last-of-type)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.8rem;
+  width: calc(100% - 1.6rem);
+  border-bottom: 1px solid #d3d3d3;
+}
