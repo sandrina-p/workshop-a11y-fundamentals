@@ -1,6 +1,6 @@
 <!--
-🧩 06: Language of page
-🎯 Goal: Add the correct language for each part of the page.
+🧩 07: Page Landmarks
+🎯 Goal: Provide Landmarks
 
 Notes:
 - The elements are correct. You only need to add lang and aria-hidden attributes.
@@ -20,13 +20,28 @@ Notes:
 
 <body>
   <div class="content">
+    <header class="headerRow" role="banner">
+      <!-- 🍀 1/4 Here's a nav landmark -->
+      <nav aria-label="Site">
+        <ul class="breadcrumb">
+          <li><a href="#1" class="link">Home</a></li>
+          <li><a href="#1" class="link isCurrent" aria-current="true">Exercise 3.1</a></li>
+        </ul>
+      </nav>
+
+      <!-- 🍀 2/4 Here's a search landmark -->
+      <div role="search">
+        <input type="text" placeholder="Search...">
+      </div>
+    </header>
+
     <main>
-      <h1 class="heading-1">Language of the page</h1>
+      <h1 class="heading-1">Global languages</h1>
       <div class="block_v">
         <h2 class="heading-2">Good morning across the world</h2>
         <p>
           In a world of around 6,000 languages, there are tons of ways to greet each other and say good morning.
-          Here's some examples:
+          Here's 3 examples:
         </p>
 
         <ul class="list">
@@ -35,28 +50,8 @@ Notes:
             <span lang="fr">Bonjour</span> - French
           </li>
           <li>
-            <span aria-hidden="hidden">🇩🇪</span>
-            <span lang="de">Guten Morgen</span> - German
-          </li>
-          <li>
-            <span aria-hidden="hidden">🇮🇹</span>
-            <span lang="it">Buon giorno</span> - Italian
-          </li>
-          <li>
-            <span aria-hidden="hidden">🇯🇵</span>
-            <span lang="ja">お早うございます</span> - Japanese
-          </li>
-          <li>
             <span aria-hidden="hidden">🇵🇹</span>
             <span lang="pt-PT">Bom dia</span> - Portuguese (Portugal)
-          </li>
-          <li>
-            <span aria-hidden="hidden">🇧🇷</span>
-            <span lang="pt-BR">Bom dia</span> - Porguese (Brazilian)
-          </li>
-          <li>
-            <span aria-hidden="hidden">🇪🇸</span>
-            <span lang="es">Buenos días</span> - Spanish
           </li>
           <li>
             <span aria-hidden="hidden">🇹🇷</span>
@@ -66,9 +61,25 @@ Notes:
 
         Learn to say "Good morning" in
         <a href="https://www.indifferentlanguages.com/words/good_morning">many different languages</a>.
-
       </div>
     </main>
+
+    <!-- 🍀 3/4 We can create custom landmarks if we thi-->
+    <div class="block" role="region" aria-label="comments">
+      <i>Nobody left a comment yet...</i>
+    </div>
+
+    <footer class="block r-footerG">
+      <!-- 🍀 4/4 Here's a 2nd nav landmark.
+        We should distinguish both using aria-label -->
+      <nav aria-label="Website links">
+        <ul class="r-listNull u-rowCenterY">
+          <li><a href="#" class="link">About us</a></li>
+          <li><a href="#" class="link">Contact</a></li>
+          <li><a href="#" class="link">Feedback</a></li>
+        </ul>
+      </nav>
+    </footer>
   </div>
 </body>
 

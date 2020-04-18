@@ -14,15 +14,39 @@
 <body>
   <main>
   <a class="linkHome" href="../../index.html">Go Back</a>
-  <h1 id="02meaningfulimages">02. Meaningful images</h1>
+  <h1 id="07pagelandmarks">07. Page Landmarks</h1>
 <h2 id="motivation">Motivation</h2>
-<p>talk about role!</p>
+<p>Here's a myth: <em>"People using screen readers read all the text."</em> They usually don't. As any person, we all are impacient when exploring websites. We scan the content looking for keywords until something catches our attention, and only then we start actually reading it. <em>We all are lazy web lovers.</em></p>
+<p>SR users usually navigate the page through <em>headings</em> and <em>landmarks</em>. We already know the importance of a solid heading structure. Let's now talk about landmarks.</p>
+<p>Landmarks identify sections of a page. This allows SR users to orient themselves in the page and help them navigate easily to various sections, skipping blocks of content.</p>
+<p>Some elements are landmarks by default such as <code>&lt;main&gt;</code> and <code>&lt;nav&gt;</code>, but most of the cases we need to explicit add its <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Landmark_roles">landmark role</a>.</p>
+<pre><code class="html language-html">&lt;!-- It's sounds redudant but it's needed! --&gt;
+&lt;header role="banner"&gt;...&lt;/header&gt;
+
+&lt;!-- An extra label should be added when a
+landmark is used multiple times. --&gt;
+&lt;nav aria-label="website"&gt;...&lt;/nav&gt;
+&lt;nav aria-label="T.O.C."&gt;...&lt;/nav&gt;
+</code></pre>
 <h2 id="exercise">Exercise</h2>
-<p><strong>🎯 Goal:</strong> Add the correct language for each part of the page.</p>
+<p>In the exercise page, there are at least four landmarks besides the main content: the primary navigation, the search, a custom landmark and another navigation on the bottom of the page.</p>
+<p><strong>🎯 Goal:</strong> Identify each landmark using <code>role</code> attribute.</p>
+<h2 id="bonus">Bonus</h2>
+<h3 id="languageofpage">Language of page</h3>
+<p>If you used a SR to read the main part of the exercise page, you may have noticed that "Good morning" is not pronounced correctly in the 3 different idioms.</p>
+<p>This can be a very annoying issue for SR users that visit a page in a language different from their SR default settings.</p>
+<p>To fix this A11Y issue we must provide the <code>lang</code> attribute to the element that contains a different idiom.</p>
+<pre><code class="html language-html">&lt;!-- "Hello world!" in portuguese --&gt;
+&lt;p lang="pt-PT"&gt;Ola mundo&lt;/p&gt;
+</code></pre>
+<p><strong>🎯 Goal:</strong> Add the idiom of any different content.</p>
+<p>Note that all pages in this workshop have <code>&lt;html lang="en"&gt;</code> for convenience.</p>
+<p>Tip: Here's a list of all <a href="http://www.lingoes.net/en/translator/langcode.htm">ISO Language Codes</a> to help you.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html">wcag 3.1.1 A - Language of page</a></li>
-<li><a href="http://www.lingoes.net/en/translator/langcode.htm">ISO Language Codes</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">Aria Roles</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/main.html">W3C Landmarks Example</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html">WCAG 3.1.1 A - Language of page</a></li>
 </ul>
 
   <hr/>

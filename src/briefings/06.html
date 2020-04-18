@@ -14,15 +14,40 @@
 <body>
   <main>
   <a class="linkHome" href="../../index.html">Go Back</a>
-  <h1 id="02hiddenelements">02. Hidden elements</h1>
+  <h1 id="06navigationshortcuts">06. Navigation Shortcuts</h1>
 <h2 id="motivation">Motivation</h2>
-<p>talk about tabindex</p>
+<p>Many sites have a lot of links at the top of the page before the actual main content.</p>
+<p>All these links force the people using keyboard-only to tab through every single link before they can reach or interact with the main content. We, as web creators, can make better than that, right?</p>
+<p>A common simple pattern to bypass this is to create "Skip Navigation Links". The basic concept involves two elements: A <em>trigger</em> and a <em>target</em>.</p>
+<pre><code class="html language-html">&lt;!-- Trigger: a link pointing to an #id --&gt;
+&lt;a href="#main" class="skipLink"&gt;Skip to main content&lt;/a&gt;
+
+&lt;!-- Target: A part of the page with the same id --&gt;
+&lt;!-- Some browser will focus only if tabindex="-1" is used --&gt;
+&lt;main id="main"&gt;
+  ...
+&lt;/main&gt;
+</code></pre>
+<p>Making these links always visible can be ugly, so usually thse are visually hidden by default and shown when focused.</p>
+<pre><code class="css language-css">.skipLink {
+  /* hide visually the link */
+  opacity: 0;
+  /* make it unreachable by mouse */
+  pointer-events: none;
+}
+
+.skipLink:focus {
+  /* show the link on focus */
+  opacity: 1;
+}
+</code></pre>
 <h2 id="exercise">Exercise</h2>
-<p><strong>🎯 Goal:</strong> Create navigation shortcuts to the content.</p>
-<h2 id="bonus">Bonus</h2>
-<p>…</p>
+<p>In the exercise page, similar to the previous one, let's create some "Skip" links to jump directly to the main of the page and the footer.</p>
+<p><strong>🎯 Goal:</strong> Create navigation shortcuts through the page.</p>
 <h2 id="notes">Notes</h2>
-<p>…</p>
+<ul>
+<li><a href="https://webaim.org/techniques/skipnav/">Skip Navigation Links</a></li>
+</ul>
 
   <hr/>
   </main>

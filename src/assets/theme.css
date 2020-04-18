@@ -70,18 +70,6 @@ img {
   margin-right: 0.8rem;
 }
 
-.list1 {
-  padding-left: 1.6rem;
-}
-
-.list1 p {
-  margin: 0.4rem;
-}
-
-.list2 {
-  padding-left: 1.6rem;
-}
-
 /* ------- TYPOGRAPHY -------  */
 
 .heading-1 {
@@ -194,6 +182,31 @@ img {
   fill: #8500f2;
 }
 
+/* ------- BREADCRUMB -------  */
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.2rem;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  margin-right: 0.8rem;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '▸';
+  margin-left: 0.8rem;
+}
+
+
 /* ------- LINKS -------  */
 
 .link {
@@ -212,6 +225,10 @@ img {
 .link:focus {
   outline: none;
   background-color: #e9e1f8;
+}
+
+.link.isCurrent {
+  font-weight: 600;
 }
 
 /* ------- FORM CONTROLS -------  */
@@ -265,4 +282,29 @@ fieldset.field {
 
 .inputRadio input {
   margin-right: 0.4rem;
+}
+
+
+/* ------- RANDOM NONSENSE CLASSES -------  */
+
+
+.r-listNull {
+  padding: 0;
+  list-style-type: none;
+}
+
+.r-list1 {
+  padding-left: 1.6rem;
+}
+
+.r-list1 p {
+  margin: 0.4rem;
+}
+
+.r-list2 {
+  padding-left: 1.6rem;
+}
+
+.r-footerG {
+  border-top: 1px solid #b086d2;
 }
