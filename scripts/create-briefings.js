@@ -6,7 +6,7 @@ const showdown = require("showdown");
 
 const converter = new showdown.Converter();
 
-const briefPatterns = path.resolve("./src/briefings", "**/*.md");
+const briefPatterns = path.resolve("./src/exercises", "**/*.md");
 const briefFiles = glob.sync(briefPatterns);
 
 briefFiles.forEach((brief) => {
@@ -18,9 +18,10 @@ briefFiles.forEach((brief) => {
   fs.writeFileSync(
     `src/briefings/${briefName}.html`,
     `<!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
 <head>
+  <title>Brienfig ${briefName}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">

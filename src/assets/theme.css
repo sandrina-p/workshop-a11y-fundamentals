@@ -61,6 +61,15 @@ img {
   color: #9b78de;
 }
 
+.u-rowCenterY {
+  display: flex;
+  align-items: center;
+}
+
+.u-rowCenterY * {
+  margin-right: 0.8rem;
+}
+
 .list1 {
   padding-left: 1.6rem;
 }

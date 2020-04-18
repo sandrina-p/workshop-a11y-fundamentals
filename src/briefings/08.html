@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
 <head>
+  <title>Brienfig 08</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -13,25 +14,34 @@
 <body>
   <main>
   <a class="linkHome" href="../../index.html">Go Back</a>
-  <h1 id="07meaningfulcontent">07. Meaningful content</h1>
+  <h1 id="08meaningfulcontent">08. Meaningful content</h1>
 <h2 id="motivation">Motivation</h2>
-<p>For sighted users, the context and visual appearance of an element can be enough to understand its purpose. However, the same is not true for people relying on SR (screen readers).</p>
-<p>Providing elements with accessible names is one of the most important responsibilities authors have when developing accessible web experiences.</p>
-<p>One of the most common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming techniques</a> is to add the attribute <code>aria-label</code> or <code>aria-labelledby</code>:</p>
+<p>Every created content should provide 3 essential pieces of information to explain its purpose:</p>
+<ul>
+<li><strong>Role</strong> - The type of element. For example, a button, a heading or a list.</li>
+<li><strong>Name</strong> - The text to identify /describe the element.</li>
+<li><strong>State</strong> - Needed in dynamic elements. For example, if a button is pressed or a menu opened.</li>
+</ul>
+<p>For sighted users, the context and visual appearance of an element can be enough to understand its purpose. However, the same is not true for people relying on assistive technologies.</p>
+<p>Most of the time, <em>role</em> and <em>name</em> are automatically done throught semantic HTML. However, in some cases it's not enough. That's were <code>aria-*</code> attribute comes in.</p>
+<p>For example, providing elements with accessible names is one of the most important responsibilities authors have when developing accessible web experiences. A common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the attribute <code>aria-label</code>.</p>
 <pre><code class="html language-html">&lt;!-- A button to close a dialog / modal --&gt;
 &lt;button aria-label="Close modal"&gt;
   X
 &lt;/button&gt;
 </code></pre>
+<p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll start by exploring the most common.</p>
 <h2 id="exercise">Exercise</h2>
-<p>Here's a page with a five common cases where an accessible name is forgotten.</p>
-<p><strong>🎯 Goal:</strong> Add accessible labels to all five elements.</p>
+<p>In the exercise page, there are six common cases where some piece of information is forgotten or missused.</p>
+<p><strong>🎯 Goal:</strong> Add accessible names / status to all elements.</p>
 <p>The <code>aria-label</code> attribute and <code>.sr-only</code> class will be your friends here!</p>
-<p><strong>Tip:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It's a nice alternative to Screen Readers most of the time!</p>
-<h2 id="notes">Notes:</h2>
+<p><strong>Tip:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be a nice alternative to Screen Readers!</p>
+<h2 id="notes">Notes</h2>
 <ul>
+<li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Understanding Firefox Accessibility Inspector</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA - MDN docs</a></li>
 <li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
-<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-</code>label, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
+<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
 </ul>
 
   <hr/>

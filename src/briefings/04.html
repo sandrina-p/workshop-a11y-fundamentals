@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
 <head>
+  <title>Brienfig 04</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
   <h1 id="interactiveelements">Interactive elements</h1>
 <h2 id="motivation">Motivation</h2>
 <p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users, especially people with motor disabilities and blind people rely on a keyboard to navigate through the web. These people need an <strong>accessible focus indicators</strong> to enjoy the web.</p>
-<p>A very common practice is to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a>. And that's okay. The mistake is to not provide a proper focus state. <strong>We must include accessible focus states on our design.</strong></p>
+<p>A very common practice is to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and <a href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different across browsers</a>. And that's okay. The mistake is to not provide a proper focus state. <strong>We must include accessible focus states on our design.</strong></p>
 <pre><code class="css language-css">button:focus {
   /* It's okay to do this... */
   outline: none;
