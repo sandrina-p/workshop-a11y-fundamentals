@@ -20,6 +20,45 @@
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
 
+/* ------- HEADER + MENU -------  */
+
+.headerFixed {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.8rem;
+  z-index: 2;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: 15rem;
+  height: 100%;
+  padding-top: 5rem;
+  background: #f4efff;
+  border-left: 3px solid #9d79ef;
+  transform: translateX(100%);
+  transition: transform 300ms;
+}
+
+.menu.isVisible {
+  transform: translateX(0%);
+}
+
+.menu-btn {
+  height: 3rem;
+  min-height: auto;
+  line-height: 3rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ------- CHECKBOX -------  */
+
 
 .c-checkbox:hover+ :last-child::before {
   border-color: #939393;
@@ -70,43 +109,6 @@
 
 .c-checkbox input:checked+ :last-child::after {
   transform: translate(-50%, -50%) scale(1);
-}
-
-/* ------- HEADER + MENU -------  */
-
-.header {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.8rem;
-  z-index: 2;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  width: 15rem;
-  height: 100%;
-  padding-top: 5rem;
-  background: #f4efff;
-  border-left: 3px solid #9d79ef;
-  transform: translateX(100%);
-  transition: transform 300ms;
-}
-
-.menu.isVisible {
-  transform: translateX(0%);
-}
-
-.menu-btn {
-  height: 3rem;
-  min-height: auto;
-  line-height: 3rem;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 /* ------- OTHER STUFF -------  */

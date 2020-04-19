@@ -15,7 +15,6 @@ Notes:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/theme.css">
-  <link rel="stylesheet" href="3.3.css">
 </head>
 
 <body>
@@ -23,7 +22,7 @@ Notes:
     <h1 class="heading-1">Accessible Forms</h1>
 
     <form class="block_v form js-formWebLover">
-      <h2 class="heading-1">Web lover profile</h2>
+      <h2 class="heading-2">Web lover profile</h2>
 
       <!--
         Lesson #1: Every input must have a connected label
@@ -41,27 +40,12 @@ Notes:
         -->
 
         <div class="field">
-          <label for="uPass" class="field-txt">Most used password</label>
+          <label for="uPass" class="field-txt">Worst password ever</label>
           <input type="password" id="uPass" class="js-secretInput" aria-describedby="passTip">
           <button class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
 
-          <span class="field-tip" id="passTip">A password should be unique and long.</span>
+          <span class="field-tip" id="passTip">A password should be dumb and short.</span>
         </div>
-      </div>
-
-      <!-- 🍀 Lesson #2.2: Inputs descriptions
-        Users with SR usually fill forms through tab. When doing that they
-        will miss the following sentence: -->
-      <div class="field">
-        <p>
-          To be here, you need to agree with our <a href="/code-of-conduct-TODO">code of conduct</a>.
-        </p>
-        <!-- We can fix this with `aria-describbedby` or by placing the text inside <label />.
-        SR will automatically read everything inside it. -->
-        <label>
-          <input type="checkbox" /> Check this if you agree with our code of conduct.
-        </label>
-      </div>
       </div>
 
       <!--
@@ -95,8 +79,24 @@ Notes:
         <span class="field-error" id="jsTabsError">You must have at least 1 open tab.</span>
       </label>
 
+
+      <!-- 🍀 Lesson #5: Inputs descriptions p2
+        Users with SR usually fill forms through tab. When doing that they
+        will miss the following sentence: -->
+      <div class="field">
+        <span class="u-block">
+          To be here, you should care about web accessibility.
+        </span>
+        <!-- We can fix this with `aria-describbedby` or by placing the text inside <label />.
+          SR will automatically read everything inside it. -->
+        <label>
+          <input type="checkbox" /> Tick here if you agree with this sentence.
+        </label>
+      </div>
+
+
       <div class="form-footer">
-        <!-- Lesson #5 Form messages - aria-live -->
+        <!-- Lesson #6 Form messages - aria-live -->
         <button class="btn btnPrimary js-btnSubmit">Submit</button>
       </div>
     </form>

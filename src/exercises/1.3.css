@@ -9,19 +9,19 @@
 }
 
 .case1 img {
-  width: 48px;
-  height: 48px;
+  width: 4.8rem;
+  height: 4.8rem;
   border-radius: 50%;
 }
 
 .case1-content {
-  margin-left: 16px;
+  margin-left: 1.6rem;
 }
 
 .case1-name {
   display: block;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 0.4rem;
 }
 
 .case1-quote {
@@ -35,9 +35,13 @@
 
 /* Lesson 2 */
 .case2 {
-  max-width: 250px;
-  border: 1px solid grey;
-  padding: 16px;
+  max-width: 25rem;
+  border: 0.1rem solid grey;
+  padding: 1.6rem;
+}
+
+.case2 figure {
+  margin: 0;
 }
 
 .case2-img {
@@ -47,8 +51,8 @@
 
 .case2-caption {
   font-style: italic;
-  font-size: 14px;
-  margin-top: 4px;
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
 }
 
 /* Lesson 3 */
@@ -70,10 +74,10 @@
 .case3-text {
   position: relative;
   margin: 0;
-  padding: 40px 16px;
-  font-size: 32px;
+  padding: 4rem 1.6rem;
+  font-size: 3.2rem;
   color: white;
-  text-shadow: 1px 1px 3px #00000080;
+  text-shadow: 0.1rem 0.1rem 0.3rem #00000080;
 }
 
 /* Lesson 4 */
@@ -83,5 +87,5 @@
 }
 
 .case4-text {
-  margin-left: 4px;
+  margin-left: 0.4rem;
 }

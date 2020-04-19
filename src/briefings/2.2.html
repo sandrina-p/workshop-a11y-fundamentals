@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
-  <title>Brienfig 2.2</title>
+  <title>Brienfig #2.2</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -14,62 +13,51 @@
 
 <body>
   <main>
-    <a class="linkHome" href="../index.html">Go Back</a>
-    <h1 id="05hiddenelements">05. Hidden elements</h1>
-    <h2 id="Introduction">Introduction</h2>
-    <p>With the evolution of clean and focused design approach, we tend to hide the information until it's absolute
-      necessary. That means the internet is full of hidden secrets behind diversed animated components: menus, drawers,
-      modals, tooltips… you name it!</p>
-    <p>Sometimes when we hide content visually, we forget to hide them completely. When this happens the interactive
-      elements are still accessible, even when invisible. That will cause confusion / frustation for those that lose
-      track of the focus indicator while navigating the page.</p>
-    <p>These are common ways to hide content:</p>
-    <pre><code class="css language-css">/* Visually hidden but accessible by keyboard */
+  <a class="linkHome" href="../index.html">Go Back</a>
+  <h1 id="22hiddenelements">2.2. Hidden elements</h1>
+<h2 id="introduction">Introduction</h2>
+<p>With the evolution of clean and focused design approach, we tend to hide the information until it's absolute necessary. That means the internet is full of hidden secrets behind diversed animated components: menus, drawers, modals, tooltips… you name it!</p>
+<p>Sometimes when we hide content visually, we forget to hide them completely. When this happens the interactive elements are still accessible, even when invisible. That will cause confusion / frustation for those that lose track of the focus indicator while navigating the page.</p>
+<p>These are common ways to hide content:</p>
+<pre><code class="css language-css">/* Visually hidden but accessible by keyboard */
 opacity: 0;
 
 /* Completely hidden: visually and by keyboard */
 display: none;
 visibility: hidden;
 </code></pre>
-    <p>In some cases we can't avoid avoid using <code>opacity</code> to visually hide some content. In those cases, we
-      can use the attribute <code>inert</code>. This will tell the browser to "ignore" the elements inside as if they
-      didn't exist.</p>
-    <pre><code class="html language-html">&lt;!-- Even invisible, "Get started" can be clicked / focused --&gt;
+<p>In some cases we can't avoid avoid using <code>opacity</code> to visually hide some content. In those cases, we can use the attribute <code>inert</code>. This will tell the browser to "ignore" the elements inside as if they didn't exist.</p>
+<pre><code class="html language-html">&lt;!-- Even invisible, "Get started" can be clicked / focused --&gt;
 &lt;div style="opacity: 0"&gt;
   &lt;button&gt;Get started&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-    <pre><code class="html language-html">&lt;!-- With `inert`, we cannot long interact with "Add to cart" --&gt;
+<pre><code class="html language-html">&lt;!-- With `inert`, we cannot long interact with "Add to cart" --&gt;
 &lt;div style="opacity: 0" inert="true"&gt;
   &lt;button&gt;Get started&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-    <h2 id="exercise">Exercise</h2>
-    <p>In the exercise page, there is Menu that can be toggled through a <code>&lt;button&gt;</code>. Use your keyboard
-      to navigate through the page. You'll notice the links inside the menu are still accessible even if the menu is
-      hidden.</p>
-    <p><strong>🎯 Goal:</strong> Make interactive elements only accessible when visible.</p>
-    <p>The attribute <code>inert</code> lacks browser support, so we need to use a <a
-        href="https://github.com/WICG/inert">inert polifyl</a>.</p>
-    <pre><code class="html language-html">&lt;!-- Include the inert polyfill at the bottom of the page --&gt;
+<h2 id="exercise">Exercise</h2>
+<p>In the <a href="../exercises/2.2.html">exercise page</a>,
+there is Menu that can be toggled through a <code>&lt;button&gt;</code>. Use your keyboard to navigate through the page. You'll notice the links inside the menu are still accessible even if the menu is hidden.</p>
+<p><strong>🎯 Goal:</strong> Make interactive elements only accessible when visible.</p>
+<p>Note: The attribute <code>inert</code> lacks browser support, so we need to add a <a href="https://github.com/WICG/inert">inert polifyll</a>.</p>
+<pre><code class="html language-html">&lt;!-- Include the inert polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-inert.js"&gt;&lt;/script&gt;
 </code></pre>
-    <h2 id="notes">Notes</h2>
-    <ul>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert"><code>inert</code> attribute</a>
-      </li>
-      <li><a href="https://www.scottohara.me/blog/2018/09/03/details-and-summary.html">Tag details and summary</a></li>
-    </ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert"><code>inert</code> attribute</a></li>
+<li><a href="https://www.scottohara.me/blog/2018/09/03/details-and-summary.html">Tag details and summary</a></li>
+</ul>
 
-    <hr />
+  <hr/>
   </main>
   <footer>
     <h2 id="learningsandfeedback">Feedback</h2>
-    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-2.2">leave a quick
-        feedback</a> about this exercise.</p>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-2.2">leave a quick feedback</a> about this exercise.</p>
   </footer>
 
   <script src="../assets/prism.js" defer></script>
 </body>
-
 </html>

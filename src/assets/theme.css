@@ -50,7 +50,7 @@ img {
 }
 
 .part {
-  margin: 2.4rem 0;
+  margin-bottom: 3.2rem;
 }
 
 .u-secondary {
@@ -61,13 +61,21 @@ img {
   color: #9b78de;
 }
 
+.u-small {
+  font-size: 1.4rem;
+}
+
+.u-block {
+  display: block;
+}
+
 .u-rowCenterY {
   display: flex;
   align-items: center;
 }
 
 .u-rowCenterY * {
-  margin-right: 0.8rem;
+  margin-right: 1.6rem;
 }
 
 /* ------- TYPOGRAPHY -------  */

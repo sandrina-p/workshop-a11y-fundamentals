@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
-  <title>Brienfig 3.2</title>
+  <title>Brienfig #3.2</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -14,56 +13,49 @@
 
 <body>
   <main>
-    <a class="linkHome" href="../index.html">Go Back</a>
-    <h1 id="08meaningfulcontent">08. Meaningful content</h1>
-    <h2 id="Introduction">Introduction</h2>
-    <p>Every created content should provide 3 essential pieces of information to explain its purpose:</p>
-    <ul>
-      <li><strong>Role</strong> - The type of element. For example, a button, a heading or a list.</li>
-      <li><strong>Name</strong> - The text to identify /describe the element.</li>
-      <li><strong>State</strong> - Needed in dynamic elements. For example, if a button is pressed or a menu opened.
-      </li>
-    </ul>
-    <p>For sighted users, the context and visual appearance of an element can be enough to understand its purpose.
-      However, the same is not true for people relying on assistive technologies.</p>
-    <p>Most of the time, <em>role</em> and <em>name</em> are automatically done throught semantic HTML. However, in some
-      cases it's not enough. That's were <code>aria-*</code> attribute comes in.</p>
-    <p>For example, providing elements with accessible names is one of the most important responsibilities authors have
-      when developing accessible web experiences. A common <a
-        href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the
-      attribute <code>aria-label</code>.</p>
-    <pre><code class="html language-html">&lt;!-- A button to close a dialog / modal --&gt;
-&lt;button aria-label="Close modal"&gt;
-  X
-&lt;/button&gt;
-</code></pre>
-    <p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code>
-        attributes</a>. Today we'll start by exploring the most common.</p>
-    <h2 id="exercise">Exercise</h2>
-    <p>In the exercise page, there are six common cases where some piece of information is forgotten or missused.</p>
-    <p><strong>🎯 Goal:</strong> Add accessible names / status to all elements.</p>
-    <p>Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here!</p>
-    <p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can
-      be a nice alternative to Screen Readers!</p>
-    <h2 id="notes">Notes</h2>
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Understanding Firefox Accessibility Inspector</a></li>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA - MDN docs</a></li>
-      <li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
-      <li><a
-          href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short
-          note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
-    </ul>
+  <a class="linkHome" href="../index.html">Go Back</a>
+  <h1 id="32pagelandmarks">3.2. Page Landmarks</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Here's a myth: <em>"People using screen readers read all the text."</em> They usually don't. As any person, we all are impacient when exploring websites. We scan the content looking for keywords until something catches our attention, and only then we start actually reading it. <em>We all are lazy web lovers.</em></p>
+<p>SR users usually navigate the page through <em>headings</em> and <em>landmarks</em>. We already know the importance of a solid heading structure. Let's now talk about landmarks.</p>
+<p>Landmarks identify sections of a page. This allows SR users to orient themselves in the page and help them navigate easily to various sections, skipping blocks of content.</p>
+<p>Some elements are landmarks by default such as <code>&lt;main&gt;</code> and <code>&lt;nav&gt;</code>, but most of the cases we need to explicit add its <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Landmark_roles">landmark role</a>.</p>
+<pre><code class="html language-html">&lt;!-- It's sounds redudant but it's needed! --&gt;
+&lt;header role="banner"&gt;...&lt;/header&gt;
 
-    <hr />
+&lt;!-- An extra label should be added when a
+landmark is used multiple times. --&gt;
+&lt;nav aria-label="website"&gt;...&lt;/nav&gt;
+&lt;nav aria-label="T.O.C."&gt;...&lt;/nav&gt;
+</code></pre>
+<h2 id="exercise">Exercise</h2>
+<p>In the exercise page, there are at least four landmarks besides the main content: the primary navigation, the search, a custom landmark and another navigation on the bottom of the page.</p>
+<p><strong>🎯 Goal:</strong> Identify each landmark using <code>role</code> attribute.</p>
+<h2 id="bonus">Bonus</h2>
+<h3 id="languageofpage">Language of page</h3>
+<p>If you used a SR to read the main part of the exercise page, you may have noticed that "Good morning" is not pronounced correctly in the 3 different idioms.</p>
+<p>This can be a very annoying issue for SR users that visit a page in a language different from their SR default settings.</p>
+<p>To fix this A11Y issue we must provide the <code>lang</code> attribute to the element that contains a different idiom.</p>
+<pre><code class="html language-html">&lt;!-- "Hello world!" in portuguese --&gt;
+&lt;p lang="pt-PT"&gt;Ola mundo&lt;/p&gt;
+</code></pre>
+<p><strong>🎯 Goal:</strong> Add the idiom of any different content.</p>
+<p>Note that all pages in this workshop have <code>&lt;html lang="en"&gt;</code> for convenience.</p>
+<p>Tip: Here's a list of all <a href="http://www.lingoes.net/en/translator/langcode.htm">ISO Language Codes</a> to help you.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">Aria Roles</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/main.html">W3C Landmarks Example</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html">WCAG 3.1.1 A - Language of page</a></li>
+</ul>
+
+  <hr/>
   </main>
   <footer>
     <h2 id="learningsandfeedback">Feedback</h2>
-    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-3.2">leave a quick
-        feedback</a> about this exercise.</p>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-3.2">leave a quick feedback</a> about this exercise.</p>
   </footer>
 
   <script src="../assets/prism.js" defer></script>
 </body>
-
 </html>

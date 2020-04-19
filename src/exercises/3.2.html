@@ -1,10 +1,10 @@
 <!--
-🧩 3.2: Meaningful content
-🎯 Goal: Add accessible labels to all elements
+🧩 3.2: Page Landmarks
+🎯 Goal: Provide Landmarks
 
 Notes:
-- The elements are correct. You only need to add / change attributes.
-- You don't need to modify the CSS.
+- The elements are correct. You only need to add lang and aria-hidden attributes.
+- You don't need to change or remove CSS classes.
 -->
 
 <!DOCTYPE html>
@@ -19,116 +19,68 @@ Notes:
 </head>
 
 <body>
-  <main class="content">
-    <h1 class="heading-1">Meaningful content</h1>
+  <div class="content">
+    <header class="headerRow" role="banner">
+      <!-- 🍀 1/4 Here's a nav landmark -->
+      <nav aria-label="Site">
+        <ul class="breadcrumb">
+          <li><a href="#1" class="link">Home</a></li>
+          <li><a href="#1" class="link isCurrent" aria-current="location">Exercise 3.1</a></li>
+        </ul>
+      </nav>
 
-    <!-- Lesson #1 -->
-    <!-- A link to go to the profile page -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #1</h2>
-      <!-- 🍀Add an accessible label to this link with aria-label -->
-      <a href="profile" class="btn btnCircle" aria-label="Go to profile">
-        <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
-          <path
-            d="M224 256a128 128 0 100-256 128 128 0 000 256zm90 32h-17a174 174 0 01-146 0h-17C60 288 0 348 0 422v42c0 27 22 48 48 48h352c27 0 48-21 48-48v-42c0-74-60-134-134-134z" />
-        </svg>
-      </a>
-    </div>
-
-    <!-- Lesson #2 -->
-    <!-- A toggle button to like a post -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #2</h2>
-      <!-- 🍀 Besides the missing accessible label, we should also tell if the button is pressed
-        or not. Use aria-pressed="true|false" for that. -->
-      <button class="btn btnToggle js-addToFavorite" aria-label="Add to favorites" aria-pressed="false">
-        <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
-          <path
-            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-          </path>
-        </svg>
-      </button>
-      <script>
-        // The JS part is already done, so you don't need to worry about it.
-        var elToggle = document.getElementsByClassName('js-addToFavorite')[0];
-
-        elToggle.addEventListener('click', function () {
-          const isPressed = elToggle.classList.contains('isPressed');
-          const method = isPressed ? 'remove' : 'add'
-          // Toggle the button status visually
-          elToggle.classList[method]('isPressed');
-          // and semantically
-          elToggle.setAttribute("aria-pressed", !isPressed);
-        })
-      </script>
-    </div>
-
-    <!-- Lesson #3 -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #3</h2>
-      <!--
-        🍀 This button instruction is confusing for a SR user because they don't
-        know if they should press enter on the button or on the instruction. -->
-      <div class="u-rowCenterY">
-        <!-- 1/2 use aria-describedby="id" to associate the instruction  -->
-        <button class="btn btnPrimary" aria-describedby="startHint">
-          Start
-        </button>
-        <!-- 2/2 and hide the actual instruction from SR using aria-hidden="true" -->
-        <span id="startHint" aria-hidden="true">Press ENTER</span>
+      <!-- 🍀 2/4 Here's a search landmark -->
+      <div role="search">
+        <input type="text" placeholder="Search...">
       </div>
+    </header>
+
+    <main>
+      <h1 class="heading-1">Global languages</h1>
+      <div class="block_v">
+        <h2 class="heading-2">Good morning across the world</h2>
+        <p>
+          In a world of around 6,000 languages, there are tons of ways to greet each other and say good morning.
+          Here's 3 examples:
+        </p>
+
+        <ul class="list">
+          <li>
+            <span aria-hidden="true">🇫🇷</span>
+            <span lang="fr">Bonjour</span> - French
+          </li>
+          <li>
+            <span aria-hidden="true">🇵🇹</span>
+            <span lang="pt-PT">Bom dia</span> - Portuguese (Portugal)
+          </li>
+          <li>
+            <span aria-hidden="true">🇹🇷</span>
+            <span lang="tr">Günaydin</span> - Turkish
+          </li>
+        </ul>
+
+        Learn to say "Good morning" in
+        <a href="https://www.indifferentlanguages.com/words/good_morning">many different languages</a>.
+      </div>
+    </main>
+
+    <!-- 🍀 3/4 We can create custom landmarks if we thi-->
+    <div class="block" role="region" aria-label="comments">
+      <i>Nobody left a comment yet...</i>
     </div>
 
-
-    <!-- Lesson #4 -->
-    <!-- A "read more" link -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #4</h2>
-      <p>
-        Links should make sense out of context. Phrases such as "click here," "more," "click for details," and so on
-        are ambiguous when read out of context.
-        <!-- 🍀 Could you provide a better link description? -->
-        <a href="https://webaim.org/techniques/hypertext/" aria-label="Read hypertext techniques article">
-          Click for more.
-        </a>
-      </p>
-    </div>
-
-    <!-- Lesson #5 -->
-    <!-- Accessible Emojis. -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #5</h2>
-      <!-- 🍀 Read this sentence with the following sentence with screen reader.
-        The emojis can confusing. We can hide them from SR using aria-hidden
-        and provide alternate descriptions with .sr-only if necessary -->
-      <p>
-        Made with
-        love <span aria-hidden="true">❤️</span>
-        instead of <span class="sr-only">coffee</span> <span aria-hidden="true">☕</span>,
-        just for you!
-      </p>
-    </div>
-
-    <!-- Lesson #6 -->
-    <!--
-      This is a "picture" but made of characters. What could we do here?
-      - Option A: Add role="img" attribute
-      - Option B: Hide <pre> from SR and add an element with .sr-only.
-    -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #6</h2>
-      <pre role="img" aria-label="An ASCII art of an elephant">
-          __     __
-         /  \~~~/  \
-   ,----(     ..    )
-  /      \__     __/
- /|         (\  |(
-^ \   /___\  /\ | ` 
-  |__|    |__| -"   
-      </pre>
-      <p>ASCII art is awesome but dangerous for Screen Readers.</p>
-    </div>
-  </main>
+    <footer class="block r-footerG">
+      <!-- 🍀 4/4 Here's a 2nd nav landmark.
+        We should distinguish both using aria-label -->
+      <nav aria-label="Website links">
+        <ul class="r-listNull u-rowCenterY">
+          <li><a href="#" class="link">About us</a></li>
+          <li><a href="#" class="link">Contact</a></li>
+          <li><a href="#" class="link">Feedback</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
 </body>
 
 </html>
