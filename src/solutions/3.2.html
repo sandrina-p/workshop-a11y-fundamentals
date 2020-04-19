@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+🧩 3.2: Page Landmarks
+🎯 Goal: Provide Landmarks
+
+Notes:
+- The elements are correct. You only need to add lang and aria-hidden attributes.
+- You don't need to change or remove CSS classes.
+-->
+<html lang="en">
+
+<head>
+  <title>Exercise #3.2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+</head>
+
+<body>
+  <div class="content">
+    <header class="headerRow" role="banner">
+      <!-- 🍀 1/4 Here's a nav landmark -->
+      <nav aria-label="Site">
+        <ul class="breadcrumb">
+          <li><a href="#1" class="link">Home</a></li>
+          <li><a href="#1" class="link isCurrent" aria-current="location">Exercise 3.1</a></li>
+        </ul>
+      </nav>
+
+      <!-- 🍀 2/4 Here's a search landmark -->
+      <div role="search">
+        <input type="text" placeholder="Search...">
+      </div>
+    </header>
+
+    <main>
+      <h1 class="heading-1">Global languages</h1>
+      <div class="block_v">
+        <h2 class="heading-2">Good morning across the world</h2>
+        <p>
+          In a world of around 6,000 languages, there are tons of ways to greet each other and say good morning.
+          Here's 3 examples:
+        </p>
+
+        <ul class="list">
+          <li>
+            <span aria-hidden="true">🇫🇷</span>
+            <span lang="fr">Bonjour</span> - French
+          </li>
+          <li>
+            <span aria-hidden="true">🇵🇹</span>
+            <span lang="pt-PT">Bom dia</span> - Portuguese (Portugal)
+          </li>
+          <li>
+            <span aria-hidden="true">🇹🇷</span>
+            <span lang="tr">Günaydin</span> - Turkish
+          </li>
+        </ul>
+
+        Learn to say "Good morning" in
+        <a href="https://www.indifferentlanguages.com/words/good_morning" class="link">many languages</a>.
+      </div>
+    </main>
+
+    <!-- 🍀 3/4 We can create custom landmarks if we thi-->
+    <div class="block" role="region" aria-label="comments">
+      <i>Nobody left a comment yet...</i>
+    </div>
+
+    <footer class="block r-footerG">
+      <!-- 🍀 4/4 Here's a 2nd nav landmark.
+        We should distinguish both using aria-label -->
+      <nav aria-label="Website links">
+        <ul class="r-listNull u-rowCenterY">
+          <li><a href="#" class="link">About us</a></li>
+          <li><a href="#" class="link">Contact</a></li>
+          <li><a href="#" class="link">Feedback</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+</body>
+
+</html>

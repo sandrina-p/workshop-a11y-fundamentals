@@ -1,8 +1,8 @@
-/* Do never ever do this 🥺
+/* Do never ever do this 🥺.
  🍀 Delete this declaration! */
-*:focus {
+/* *:focus {
   outline: none;
-}
+} */
 
 /* ------- BUTTON -------  */
 
@@ -25,15 +25,38 @@
   opacity: 0.8;
 }
 
-/* 🍀 add .textInput styles here!
-- How does the input looks like when disabled or :focused? Try it out! 
-- Tip: Add a nice box-shadow on focus:
-  box-shadow: #fff 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
-*/
+/* 🍀 add your styles here! */
+.js-focus-visible .c-btnPrimary:focus {
+  outline: none;
+}
+
+.c-btnPrimary:focus.focus-visible {
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
+/* ------- FORM INPUTS -------  */
+
+.textInput {
+  width: 100%;
+  max-width: 20rem;
+  height: 3.2rem;
+  padding: 0.4rem 0.8rem;
+  font-size: inherit;
+  border: 0.1rem solid grey;
+}
+
+.textInput:hover {
+  border-color: #7E06E0;
+}
+
+.textInput:focus {
+  outline: none;
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
 
 /* ------- LINK -------  */
 
-/* 🍀 add your styles here! */
 .c-link {
   color: grey;
   padding: 0.1rem 0.2rem;
@@ -45,31 +68,11 @@
   color: #7e06e0;
 }
 
-/* 🍀 add link focus styles here!
-- Tip: you could change the background to a very light purple */
-
-
-/* ------- TEXT INPUT -------  */
-
-.textInput {
-  width: 100%;
-  max-width: 20rem;
-  height: 3.2rem;
-  padding: 0.4rem 0.8rem;
-  font-size: inherit;
-  border: 0.1rem solid grey;
+.c-link:focus {
+  outline: none;
+  color: #7e06e0;
+  background-color: #e9e1f8;
 }
-
-.textInput:hover,
-.textInput:focus {
-  border-color: #7E06E0;
-}
-
-/* 🍀 add .textInput styles here!
-- How does the input looks like when disabled or focused? Try it out! 
-- Tip: Change the border color on hover or focus
-*/
-
 
 /* ------- SELECT (BONUS #1) -------  */
 
@@ -80,17 +83,21 @@
   height: 3.8rem;
 }
 
-/*  🍀 Write the select styles from here... */
-.selectNative {}
+.selectNative {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 
-.selectNative:focus {}
+}
 
-.selectNative:focus+.selectCustom {}
+.selectNative:focus {
+  position: relative;
+  opacity: 1;
+}
 
-/*  ... until here 🍀 */
-
-/* Once you make the native select work, that's all! */
-
+.selectNative:focus+.selectCustom {
+  display: none;
+}
 
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code bellow  *|

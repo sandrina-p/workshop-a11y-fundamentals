@@ -1,8 +1,5 @@
-/*  🍀 Bonus #1:
-  There are 2 ways to display the tag before the title:
-  - reverse the order with `flex-direction: column-reverse;`
-  or
-  - put the .header-tag on first place adding `order: -1;`
+/*  ------- Solving Bonus 1:
+- 🍀Your solution may require to change .header or .header-tag
 */
 .header {
   display: flex;
@@ -11,15 +8,24 @@
 }
 
 .header-tag {
+  order: -1;
   margin: 0;
 }
 
-/* 🍀 Bonus #2:
-  Add the needed CSS to the class bellow:
+/* ------- Solving Bonus 2:
+- Add the needed CSS to the class bellow:
 */
 .visually-hidden {
-  /* ... */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
+
 
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code bellow  *|

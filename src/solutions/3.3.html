@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!--
+🧩 3.3: Accessible forms
+🎯 Goal: Build an accessible form
+
+Notes:
+- You don't need to change or remove CSS classes.
+-->
+
+<html lang="en">
+
+<head>
+  <title>Exercise #3.3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+</head>
+
+<body>
+  <main class="content">
+    <h1 class="heading-1">Accessible Forms</h1>
+
+    <form class="block_v form js-formWebLover">
+      <h2 class="heading-2">Web lover profile</h2>
+
+      <!--
+        Lesson #1: Every input must have a connected label
+        🍀 You have 2 ways of solving this. Each one do you prefer?
+      -->
+      <div class="field">
+        <label for="uName" class="field-txt">Nickname</label>
+        <input type="text" id="uName">
+      </div>
+
+      <div class="lesson">
+        <!-- 
+          Lesson #2.1: Input descriptions
+          - 🍀 Add `aria-describedby` to an input to associate a description
+        -->
+
+        <div class="field">
+          <label for="uPass" class="field-txt">Worst password ever</label>
+          <input type="password" id="uPass" class="js-secretInput" aria-describedby="passTip">
+          <button class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
+
+          <span class="field-tip" id="passTip">A password should be dumb and short.</span>
+        </div>
+      </div>
+
+      <!--
+        Lesson #3: Group checkbox/radio
+        - 🍀 Use <fieldset> and <legend> to group related inputs.
+        -->
+      <fieldset class="field">
+        <legend class="field-txt">Favorite theme</legend>
+        <label class="inputRadio">
+          <input type="radio" name="gender" value="dark">
+          <span>Dark</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="gender" value="light">
+          <span>Light</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="gender" value="whatever">
+          <span>It depends</span>
+        </label>
+      </fieldset>
+
+      <!--
+        Lesson #4: Required inputs
+        - 🍀 Use `aria-required` to mark an input as required.
+        - 🍀 Add `aria-invalid` when the input is marked as invalid (ex: after clicking submit).
+      -->
+      <label class="field js-fieldMandatory">
+        <span class="field-txt">Current open tabs *</span>
+        <input type="number" aria-required aria-labelledby="jsTabsError">
+        <span class="field-error" id="jsTabsError">You must have at least 1 open tab.</span>
+      </label>
+
+
+      <!-- 🍀 Lesson #5: Inputs descriptions p2
+        Users with SR usually fill forms through tab. When doing that they
+        will miss the following sentence: -->
+      <div class="field">
+        <span class="u-block">
+          To be here, you should care about web accessibility.
+        </span>
+        <!-- We can fix this with `aria-describbedby` or by placing the text inside <label />.
+          SR will automatically read everything inside it. -->
+        <label>
+          <input type="checkbox" /> Tick here if you agree with this sentence.
+        </label>
+      </div>
+
+
+      <div class="form-footer">
+        <!-- Lesson #6 Form messages - aria-live -->
+        <button class="btn btnPrimary js-btnSubmit">Submit</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // -----
+    // Toggle password visibility
+    const elSecretBtn = document.getElementsByClassName('js-secretBtn')[0]
+    const elSecretInput = document.getElementsByClassName('js-secretInput')[0]
+
+    elSecretBtn.addEventListener('click', function () {
+      console.log('Toggle password clicked')
+      const isPressed = elSecretBtn.getAttribute("aria-pressed") === 'true';
+      // 1.toggle the button status visually and semantically
+      elSecretBtn.textContent = isPressed ? '👀' : '🙈'
+      elSecretBtn.setAttribute("aria-pressed", !isPressed)
+      // 2. toggle input type
+      elSecretInput.setAttribute("type", isPressed ? 'password' : 'text');
+    })
+
+    // -----
+    // Listen for "submit" button click
+    const elBtnSubmit = document.getElementsByClassName('js-btnSubmit')[0]
+
+    elBtnSubmit.addEventListener('click', function () {
+      console.log('Submit clicked')
+    })
+
+    // -----
+    // Listen for form submission
+    const elFormWebLover = document.getElementsByClassName('js-formWebLover')[0]
+
+    elFormWebLover.addEventListener('submit', (e) => {
+      e.preventDefault()
+      console.log('Form submitted!')
+    })
+  </script>
+</body>
+
+</html>

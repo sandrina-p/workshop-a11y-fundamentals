@@ -15,8 +15,7 @@ Notes:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
 
-  <!-- 🍀 Remove all styles and see the page naked. It doesn't make much sense, right?
-    Let's try to fix the page without even looking to the styles -->
+  <!-- 🍀 Remove all styles and see the page naked. It doesn't make much sense, right? -->
   <link rel="stylesheet" href="../assets/theme.css">
   <link rel="stylesheet" href="1.2.css">
 </head>
@@ -27,31 +26,27 @@ Notes:
       <div class="block_v">
 
         <div class="header">
-          <span class="header-tag tagSecondary">On Sale</span>
-          <!-- 🍀 This is clearly the main heading of the page.
-          Every page must have at least one heading starting at <h1> -->
-          <div class="heading-1 header-plantName">
+          <h1 class="heading-1 header-plantName">
             Monstera Deliciosa
-          </div>
+          </h1>
+          <p class="header-tag tagSecondary">On Sale</p>
         </div>
 
         <div class="info">
-          <!-- 🍀 This info look like a list right?
-            We can use <ul> and <li> for each item -->
-          <div class="topic info-part">
-            <span class="topic-item">
+          <ul class="topic info-part">
+            <li class="topic-item">
               <span class="topic-key">Family</span>
               <span class="topic-value heading-2">Araceae</span>
-            </span>
-            <span class="topic-item">
+            </li>
+            <li class="topic-item">
               <span class="topic-key">Temperature</span>
               <span class="topic-value heading-2">20º (70F)</span>
-            </span>
-            <span class="topic-item">
+            </li>
+            <li class="topic-item">
               <span class="topic-key">Water</span>
               <span class="topic-value heading-2">1/week</span>
-            </span>
-          </div>
+            </li>
+          </ul>
 
           <div class="media info-part">
             <img class="media-img" src="../assets/imgs/monstera.png" alt="the plant in a white vase">
@@ -60,28 +55,23 @@ Notes:
 
         <div class="details">
           <div class="details-part">
-            <!-- 🍀 Having a solid correct heading hierarchy is crutial.
-            Although this title looks like a "heading-2" (styles) in reality
-            it should be a h2 because it comes after the h1 on line 30
-             -->
-            <h3 class="details-title heading-3">Details</h3>
+            <h2 class="details-title heading-3">Details</h2>
             <p class="details-text">Monstera deliciosa, also known as the Swiss cheese plant, is a species of flowering
               plant native to tropical forests of southern Mexico, south to Panama.</p>
           </div>
 
           <div class="details-part">
             <div class="price">
-              <span class="price-original">
+              <p class="price-original">
+                <span class="visually-hidden">Old price:</span>
                 $40.00
-              </span>
-              <!-- 🍀Once again, this may look like a "heading-2" but semantically
-              it's just "normal text" without any special meaning -->
-              <h2 class="price-final heading-2">
+              </p>
+              <p class="price-final heading-2">
+                <span class="visually-hidden">New price:</span>
                 $30.00
-              </h2>
+              </p>
             </div>
-            <!-- 🍀 4/4 This element is clickable, what better element could it be? -->
-            <div class="btn btnPrimary js-addToCart">Add to cart</div>
+            <button class="btn btnPrimary js-addToCart">Add to cart</button>
           </div>
         </div>
       </div>
@@ -89,7 +79,7 @@ Notes:
   </main>
 </body>
 
-<!-- You can ignore the code bellow. -->
+<!-- Note: Ignore the code bellow. -->
 <script>
   const elExpand = document.getElementsByClassName('js-addToCart')[0]
   elExpand.addEventListener('click', function () {

@@ -5,16 +5,22 @@
   --bg_1: #fff;
   --text_0: #383838;
   --primary: #7e06e0;
+  --secondary: #bd5809;
+
 }
 
-/* 🍀Create the @media query for dark theme here */
-/* @media ( ... ) {
+@media (prefers-color-scheme: dark) {
   :root {
     --bg_0: #383838;
     --bg_1: #2e2a2f;
     --text_0: #f8f3ef;
+    --secondary: #ffa35b;
   }
-} */
+}
+
+html {
+  font-size: 62.5%
+}
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
@@ -22,8 +28,7 @@ body {
   color: var(--text_0);
   box-sizing: border-box;
   font-weight: 400;
-  /* 🍀 Here's the first fixed unit (px) to be converted to rem */
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.5;
 }
 
@@ -36,20 +41,20 @@ body * {
 .content {
   position: relative;
   margin: 0 auto;
-  max-width: 480px;
-  padding: 64px 16px;
+  max-width: 48rem;
+  padding: 6.4rem 1.6rem;
 }
 
 .card {
   position: relative;
-  padding: 24px 16px;
+  padding: 2.4rem 1.6rem;
   background-color: var(--bg_1);
-  border: 1px solid #9b78de;
-  box-shadow: 2px 2px #e9e1f8;
+  border: 0.1rem solid #9b78de;
+  box-shadow: 0.2rem 0.2rem #e9e1f8;
 }
 
 /* 🍀 `em` are the only consistent unit in @media queries. */
-@media (min-width: 320px) {
+@media (min-width: 30em) {
   .card {
     display: flex;
   }
@@ -60,18 +65,19 @@ body * {
 
   .card> :nth-child(2) {
     flex: 2;
-    padding-left: 16px;
+    padding-left: 1.6rem;
   }
 }
+
 
 .btnBell {
   display: flex;
   align-items: center;
-  min-height: 35px;
-  font-size: 16px;
-  border: 1px solid var(--primary);
-  border-radius: 3px;
-  padding: 8px;
+  min-height: 3.5rem;
+  font-size: 1.6rem;
+  border: 0.1rem solid var(--primary);
+  border-radius: 0.3rem;
+  padding: 0.8rem;
   background-color: var(--bg_0);
   color: var(--text_);
   cursor: pointer;
@@ -82,19 +88,22 @@ body * {
 }
 
 .btnBell-svg {
-  width: 16px;
-  max-height: 16px;
+  width: 1.6rem;
+  max-height: 1.6rem;
   fill: currentColor;
-  margin-right: 8px;
+  margin-right: 0.8rem;
   animation: shakeSometimes 4000ms infinite;
 }
 
-/* 🍀 Create the reduced motion query and remove the animation.  */
-/* @media (...) {
+@media (prefers-reduced-motion: reduce) {
   .btnBell-svg {
-
+    animation: none;
+    /* We can create different visual ways
+    to communicate something without using animations */
+    fill: var(--primary);
+    transform: rotate(-10deg);
   }
-} */
+}
 
 .btnBell-svg:focus {
   outline: none;
@@ -103,28 +112,26 @@ body * {
 
 .u-fixedTop {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 1.6rem;
+  right: 1.6rem;
 }
 
 .tag {
-  /* 🍀 Does this color respects AA level? */
-  color: #ffa35b;
+  color: var(--secondary);
 
-  margin-bottom: 4px;
+  margin-bottom: 0.4rem;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
 }
 
 .heading-1 {
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 600;
   line-height: 1.2;
-  margin: 0 0 16px;
+  margin: 0 0 1.6rem;
 }
-
 
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code bellow  *|
