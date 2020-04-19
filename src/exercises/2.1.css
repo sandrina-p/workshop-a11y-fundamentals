@@ -86,6 +86,7 @@
   position: relative;
   width: 22rem;
   height: 3.8rem;
+  padding-left: 0.8rem;
 }
 
 /*  🍀 Write the select styles from here... */
@@ -93,6 +94,7 @@
   position: absolute;
   opacity: 0;
   pointer-events: none;
+
 }
 
 .selectNative:focus {
@@ -104,7 +106,7 @@
   display: none;
 }
 
-/* When you make the native select work, come back to 09.html to step 4. */
+/* Once you make the native select work, that's all! */
 
 /*  ... until here 🍀 */
 
@@ -113,6 +115,15 @@
 |*  You do not need to touch the code bellow  *|
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
+
+.selectNative {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 0.8rem;
+}
 
 .selectCustom-label {
   position: relative;
