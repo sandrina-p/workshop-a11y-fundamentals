@@ -1,0 +1,141 @@
+@import url("../assets/normalize.css");
+
+/* TODO simplify this! */
+:root {
+  --bg_0: #f8f3ef;
+  --bg_1: #fff;
+  --text_0: #383838;
+  --primary: #7e06e0;
+  --secondary: #ffa35b;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --bg_0: #383838;
+    --bg_1: #2e2a2f;
+    --text_0: #f8f3ef;
+  }
+} */
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: var(--bg_0);
+  color: var(--text_0);
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+body * {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fixedTop {
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+
+.btnBell {
+  display: flex;
+  min-height: 35px;
+  font-size: 16px;
+  line-height: 1;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  padding: 8px;
+  background-color: var(--bg_0);
+  color: var(--text_);
+  cursor: pointer;
+}
+
+.btnBell:hover {
+  color: var(--primary);
+}
+
+
+.btnBell-svg {
+  width: 16px;
+  max-height: 16px;
+  fill: currentColor;
+  margin-right: 8px;
+  animation: shakeSometimes 4000ms infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btnBell-svg {
+    animation: none;
+    fill: var(--primary);
+  }
+}
+
+.btnBell-svg:focus {
+  outline: none;
+  box-shadow: var(--bg_0) 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
+
+.tag {
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--secondary);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.heading-1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.card {
+  position: relative;
+  margin: 80px auto 40px;
+  max-width: 480px;
+  padding: 40px 16px;
+  padding: 32px 16px 24px;
+  border: 1px solid #9b78de;
+  background-color: var(--bg_1);
+  box-shadow: 2px 2px #e9e1f8;
+}
+
+/* 🍀 `em` are the only consistent unit in @media queries. */
+@media (min-width: 960px) {
+  .card {
+    box-shadow: 0 0 2px 4px #9b78de;
+  }
+}
+
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code bellow  *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
+
+@keyframes shakeSometimes {
+
+  40%,
+  60% {
+    transform: rotate(0deg);
+  }
+
+  42.5%,
+  57.5% {
+    transform: rotate(10deg);
+  }
+
+  45%,
+  50%,
+  55% {
+    transform: rotate(-20deg);
+  }
+
+  47.5%,
+  52.5% {
+    transform: rotate(20deg);
+  }
+}

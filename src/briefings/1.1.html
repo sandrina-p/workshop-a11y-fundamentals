@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
+
+<head>
+  <title>Brienfig 1.1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/prism.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/briefing.css">
+</head>
+
+<body>
+  <main>
+    <a class="linkHome" href="../index.html">Go Back</a>
+    <h1 id="11appearance">1.1 Appearance</h1>
+    <h2 id="Introduction">Introduction</h2>
+    <p>Accessibility is not just about making information available to people with disabilities.
+      It's also about respecting people's preferences, including appearance preferences.
+      Three common appearance preferences are <em>color</em>, <em>motion</em> and <em>size</em>.</p>
+    <h3 id="colorpreference">Color preference</h3>
+    <p>Any person, with or without disabilities must be able to perceive content with ease. <a
+        href="https://webaim.org/resources/contrastchecker/">WebAIM contract checker</a>, <a
+        href="https://colorable.jxnblk.com/001b66/00ffa2">Colorable</a> and <a href="https://www.getstark.co/">Stark</a>
+      are just three of the many free tools available to help us follow the <a
+        href="https://webaim.org/articles/contrast/">WCAG color contrast guidelines</a>.</p>
+    <p>In case we create multiple themes, we can use the CSS media query <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a>
+      that allow us to set the default theme based on the user color preferences.</p>
+    <pre><code class="css language-css">body {
+  background: white;
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+    color: white;
+  }
+}
+</code></pre>
+    <h3 id="motionpreference">Motion preference</h3>
+    <p>Modern websites tend to use motion techniques as a way to communicate information. However, some people find them
+      distracting or uncomfortable and others can't perceive the animations at all, in particular people with cognitive
+      disabilities or that use slow devices.</p>
+    <p>Despite of the growing desire to create an immersive experience, we must not forget that <strong>animations are
+        an enhancement</strong> and should not be a barrier to understand the content.</p>
+    <p>The CSS media query <code>preferes-reduced-motion</code> allow us to respect the user motion preferences.</p>
+    <pre><code class="css language-css">.error {
+  animation: shake 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error {
+    animation: none;
+  }
+}
+</code></pre>
+    <h3 id="sizepreference">Size Preference</h3>
+    <p>Websites should adapt its content size based on the user preferences. This can be achieved by using relative
+      sizes instead of absolute sizes.</p>
+    <p>The relative units <code>rem</code> and <code>em</code> are the best replacers of <code>px</code>. An
+      <code>em</code> is a unit of typography, relative to the font-size of its nearest parent. <code>rem</code> is only
+      relative the the html (root) <code>font-size</code>.</p>
+    <p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that
+      <strong><code>1rem = 16px</code></strong>.</p>
+    <pre><code class="css language-css">.heading-1 {
+  font-size: 1.75rem; /* same as 28px (28/16) */
+}
+</code></pre>
+    <h2 id="exercise">Exercise</h2>
+    <p>Let's wrap up all the 3 appearance preferences in 3 quick exercises.
+      In the <a href="#TODO">exercise page</a>, there are 3 accessible problems:</p>
+    <ul>
+      <li>Color: The label "New In" and the button "Add to favorites" are not accessible.</li>
+      <li>Motion: The icon "Notifications" has a constant shake animation.</li>
+      <li>Size: The page is written with absolute units.</li>
+    </ul>
+    <p><strong>🎯 Goal:</strong> Make the page respect common appearance preferences.</p>
+    <ul>
+      <li><strong>Hint 1:</strong> Use the DevTools color picker to detect contrasts issues.</li>
+      <li><strong>Hint 2:</strong> Customize your browser font size to see how the page reacts as you update the code
+        from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</li>
+      <li><strong>Hint 3:</strong> When converting <code>px</code> to <code>rem</code> remember to do the math
+        <code>x/16</code> where <code>x</code> is the pixel value. ex: <code>24px/16 = 1.5rem</code></li>
+    </ul>
+    <hr />
+    <h2 id="bonus">Bonus</h2>
+    <h3 id="1easierratio1rem10px">#1 Easier ratio: 1rem = 10px</h3>
+    <p>Doing the math <code>x/16</code> can me painful when dealing with certain numbers such as 15px (0.9375rem). You
+      may wonder: <em>Why can't 1rem equal 10px?</em> Well, there's a way! Let's set the HTML (root) font-size to 62.5%.
+      It works because 62.5% of 16px is 10px. Now can do the direct math <code>1rem === 10px</code>.</p>
+    <pre><code class="css language-css">html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem; /* 16px */
+}
+
+.heading-1 {
+  /* font-size: 28px; */ /* ---- old way */
+  /* font-size: 1.75rem; */
+  font-size: 2.8rem; /* -------- new way! */
+}
+</code></pre>
+    <h2 id="notes">Notes</h2>
+    <ul>
+      <li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
+      <li><a href="https://zellwk.com/blog/media-query-units/">PX, EM or REM in Media Queries?</a></li>
+      <li><a
+          href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/visual-audio-contrast-scale.html">Criterion
+          1.1.4 - "Resize Text" 1.1.4</a>: Using px units on any text will fail WCAG level AA</li>
+      <li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color
+          contrast accessibility</a></li>
+      <li><a href="https://css-tricks.com/introduction-reduced-motion-media-query/">An Introduction to the Reduced
+          Motion Media Query</a></li>
+    </ul>
+
+    <hr />
+  </main>
+  <footer>
+    <h2 id="learningsandfeedback">Feedback</h2>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-1.1">leave a quick
+        feedback</a> about this exercise.</p>
+  </footer>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+
+</html>

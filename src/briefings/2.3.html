@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
+
+<head>
+  <title>Brienfig 2.3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/prism.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/briefing.css">
+</head>
+
+<body>
+  <main>
+    <a class="linkHome" href="../index.html">Go Back</a>
+    <h1 id="06navigationshortcuts">06. Navigation Shortcuts</h1>
+    <h2 id="Introduction">Introduction</h2>
+    <p>Many sites have a lot of links at the top of the page before the actual main content.</p>
+    <p>All these links force the people using keyboard-only to tab through every single link before they can reach or
+      interact with the main content. We, as web creators, can make better than that, right?</p>
+    <p>A common simple pattern to bypass this is to create "Skip Navigation Links". The basic concept involves two
+      elements: A <em>trigger</em> and a <em>target</em>.</p>
+    <pre><code class="html language-html">&lt;!-- Trigger: a link pointing to an #id --&gt;
+&lt;a href="#main" class="skipLink"&gt;Skip to main content&lt;/a&gt;
+
+&lt;!-- Target: A part of the page with the same id --&gt;
+&lt;!-- Some browser will focus only if tabindex="-1" is used --&gt;
+&lt;main id="main"&gt;
+  ...
+&lt;/main&gt;
+</code></pre>
+    <p>Making these links always visible can be ugly, so usually thse are visually hidden by default and shown when
+      focused.</p>
+    <pre><code class="css language-css">.skipLink {
+  /* hide visually the link */
+  opacity: 0;
+  /* make it unreachable by mouse */
+  pointer-events: none;
+}
+
+.skipLink:focus {
+  /* show the link on focus */
+  opacity: 1;
+}
+</code></pre>
+    <h2 id="exercise">Exercise</h2>
+    <p>In the exercise page, similar to the previous one, let's create some "Skip" links to jump directly to the main of
+      the page and the footer.</p>
+    <p><strong>🎯 Goal:</strong> Create navigation shortcuts through the page.</p>
+    <h2 id="notes">Notes</h2>
+    <ul>
+      <li><a href="https://webaim.org/techniques/skipnav/">Skip Navigation Links</a></li>
+    </ul>
+
+    <hr />
+  </main>
+  <footer>
+    <h2 id="learningsandfeedback">Feedback</h2>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-2.3">leave a quick
+        feedback</a> about this exercise.</p>
+  </footer>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+
+</html>

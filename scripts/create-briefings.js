@@ -32,7 +32,7 @@ briefFiles.forEach((brief) => {
 
 <body>
   <main>
-  <a class="linkHome" href="../../index.html">Go Back</a>
+  <a class="linkHome" href="../index.html">Go Back</a>
   ${html}
 
   <hr/>

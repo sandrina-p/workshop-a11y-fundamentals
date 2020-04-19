@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
+
+<head>
+  <title>Brienfig 2.1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/prism.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="../assets/briefing.css">
+</head>
+
+<body>
+  <main>
+    <a class="linkHome" href="../index.html">Go Back</a>
+    <h1 id="interactiveelements">Interactive elements</h1>
+    <h2 id="Introduction">Introduction</h2>
+    <p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users, especially people
+      with motor disabilities and blind people rely on a keyboard to navigate through the web. These people need an
+      <strong>accessible focus indicators</strong> to enjoy the web.</p>
+    <p>A very common practice is to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because
+        it's ugly</a> and <a
+        href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different
+        across browsers</a>. And that's okay. The mistake is to not provide a proper focus state. <strong>We must
+        include accessible focus states on our design.</strong></p>
+    <pre><code class="css language-css">button:focus {
+  /* It's okay to do this... */
+  outline: none;
+
+  /* ...if we build a custom indicator */
+  box-shadow: 0 0 0.3rem 0.3rem tomato;
+}
+</code></pre>
+    <h2 id="exercise">Exercise</h2>
+    <p>In this page, we have a bunch of interactive elements: links, buttons and form controls. However, we can't easily
+      access them through keyboard.</p>
+    <p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard.</p>
+    <p>We don't have any explicit design here, so let's have some free style.
+      Adding some opacity, change the button color or border are common design patterns.</p>
+    <h2 id="bonus">Bonus</h2>
+    <h3 id="1custominteractiveelements">#1 Custom interactive elements</h3>
+    <p>Creating a custom accessible element sometimes is a (very) hard challenge.
+      Go try to select "Your role" using only the keyboard and then come back here.</p>
+    <p>That was an impossible mission, right? There's a trick to avoid the
+      complex task of re-creating an a11y <code>&lt;select&gt;</code>. It involves CSS!</p>
+    <p>The trick is to have 2 selects and show them on the right moment. A custom one visible by default for "mouse
+      based" users and a native one hidden until it's focused by keyboard.</p>
+    <pre><code class="css language-css">/* visually hide selectNative  */
+.selectNative {
+  opacity: 0;
+}
+
+/* show it on focus  */
+.selectNative:focus {
+  opacity: 1;
+}
+
+/* hide selectCustom on selectNative:focus  */
+.selectNative:focus + .selectCustom {
+  display: none;
+}
+</code></pre>
+    <p><strong>🎯 Goal:</strong> Create a simpler <code>select</code> accessible version</p>
+    <p>This technique is what it's called <em>graceful degradation technique</em>. Add a fallback version when the ideal
+      does not work. This experience is not as good, but it still delivers the essential functionality for everyone.
+      <strong>Things won't break for anyone</strong>.</p>
+    <h3 id="2focusonlywhenusingkeyboard">#2 Focus only when using keyboard</h3>
+    <p>The main reason to hide the focus indicator is because it's triggered when we click the element. What if we could
+      activate <code>:focus</code> only when using the keyboard and ignore it when using the mouse? That's where <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!
+    </p>
+    <p>Most browsers do not support it yet, but there is a tiny polyfill: <a
+        href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
+    <p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> and update buttons and anchor <code>:focus</code> styles
+      to use it.</p>
+    <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
+&lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
+</code></pre>
+    <pre><code class="css language-css">/* hide the focus indicator always */
+.js-focus-visible button:focus {
+  outline: none;
+}
+
+/* show the focus only with keyboard */
+.js-focus-visible button:focus.focus-visible {
+  outline: none;
+  box-shadow: 0 0 0.3rem 0.3rem tomato;
+}
+</code></pre>
+    <h2 id="notes">Notes</h2>
+    <ul>
+      <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and
+          buttons</a></li>
+      <li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs
+          Progressive enhancement</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN
+          spec</a></li>
+      <li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
+    </ul>
+
+    <hr />
+  </main>
+  <footer>
+    <h2 id="learningsandfeedback">Feedback</h2>
+    <p>After we go through the solution together, please take a minute to <a href="#TODO-LINK-2.1">leave a quick
+        feedback</a> about this exercise.</p>
+  </footer>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+
+</html>

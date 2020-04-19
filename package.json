@@ -9,7 +9,7 @@
   "author": "@sandrina-p",
   "license": "GPL-3.0-only",
   "scripts": {
-    "start": "python -m SimpleHTTPServer 8000",
+    "start": "cd src && python -m SimpleHTTPServer 8000",
     "build": "node scripts/create-briefings.js"
   },
   "devDependencies": {
