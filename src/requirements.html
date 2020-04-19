@@ -62,7 +62,7 @@
       height: 8rem;
       resize: vertical;
     }
-    
+
     .field-error {
       display: block;
       color: #d52424;
@@ -107,7 +107,8 @@
       Pre-Workshop requirements
     </h2>
     <p>
-      Hi there! To get the most out of this workshop, please complete the following things in advance. This should take you between 5 to 30 minutes.
+      Hi there! To get the most out of this workshop, please complete the following things in advance. This should take
+      you between 5 to 30 minutes.
     </p>
     <ul class="r-list1">
       <li>
@@ -123,24 +124,29 @@
       <li>
         <p>
           <strong>Familiarize yourself with the basics of a screen reader.</strong>
-          During a remote workshop it's not trivial to help everyone using a SR (screen reader). Please take some minutes to practice in advance.
+          During a remote workshop it's not practical to help everyone using a SR (screen reader). So I'd like to ask to
+          please take some minutes to practice in advance.
           Once you are able to navigate through this page using a SR, consider yourself ready to go!
         </p>
         <ul class="r-list2">
           <li>
-            Mac: You'll use VoiceOver. <a class="link" href="https://www.youtube.com/watch?v=5R-6WvAihms">Watch this VO introduction</a>.
-          </li>
-          <li>
-            Windows: Install <a class="link" href="https://www.nvaccess.org/">NVDA</a> and <a class="link" href="https://www.youtube.com/watch?v=Jao3s_CwdRU">watch this NVDA
+            Mac: You'll use VoiceOver. <a class="link" href="https://www.youtube.com/watch?v=5R-6WvAihms">Watch this VO
               introduction</a>.
           </li>
           <li>
-            Linux: Install <a class="link" href="https://wiki.gnome.org/Projects/Orca">Orca</a> and <a class="link" href="https://www.youtube.com/watch?v=8OWSztc3AtY">watch this Orca introduction</a>.
+            Windows: Install <a class="link" href="https://www.nvaccess.org/">NVDA</a> and <a class="link"
+              href="https://www.youtube.com/watch?v=Jao3s_CwdRU">watch this NVDA
+              introduction</a>.
+          </li>
+          <li>
+            Linux: Install <a class="link" href="https://wiki.gnome.org/Projects/Orca">Orca</a> and <a class="link"
+              href="https://www.youtube.com/watch?v=8OWSztc3AtY">watch this Orca introduction</a>.
           </li>
         </ul>
-        <p>          
-          Here's a cheat sheet with SR keyboard shortcuts: <a class="link" href="https://dequeuniversity.com/screenreaders/survival-guide">VO and NVDA</a> and
-        <a href="https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en">Orca</a>.
+        <p>
+          Here's a cheat sheet with SR keyboard shortcuts: <a class="link"
+            href="https://dequeuniversity.com/screenreaders/survival-guide">VO and NVDA</a> and
+          <a href="https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en">Orca</a>.
         </p>
       </li>
 
@@ -151,20 +157,17 @@
       </strong>
     </p>
 
-    <form class="block_v form js-form"
-      name="practice"
-      method="post"
-      data-netlify="true"
-      netlify-honeypot="bot-field">
+    <form class="block_v form js-form" name="practice" method="post" data-netlify="true" netlify-honeypot="bot-field">
       <h2 class="heading-1">
         Psst... one last thing!
       </h2>
       <p>
-        In order for me to prepare a solid workshop for you, I need some extra info. I recommend you to <strong>fill this form with a screen reader</strong> as an opportunity to practice!
+        In order for me to prepare a solid workshop for you, I need some extra info. I recommend you to <strong>fill
+          this form with a screen reader</strong> as an opportunity to practice!
       </p>
 
       <label class="field">
-        <span class="field-txt" >What's your job field?</span>
+        <span class="field-txt">What's your job field?</span>
         <input class="inputText" type="text" aria-required="true" name="role" />
         <span class="field-tip" id="fieldTip">Designer, frontend, backend, QA, or... a unicorn?</span>
       </label>
@@ -230,7 +233,7 @@
       </label>
 
       <p class="sr-only">
-        <input name="bot-field" aria-label="Do not fill this field if you're a human."/>
+        <input name="bot-field" aria-label="Do not fill this field if you're a human." />
       </p>
 
       <div class="form-footer jsFooter">
@@ -239,9 +242,10 @@
           <span class="sr-only">And you are rocking with that screen reader!</span>
         </p>
         <p class="form-msg_error" aria-live="polite">
-          Ups, something wen't wrong! Could you let me know about this by e-mail? There's got to be some logs on the console...
+          Ups, something wen't wrong! Could you let me know about this by e-mail? There's got to be some logs on the
+          console...
         </p>
-        
+
         <button class="btn btnPrimary js-btnSubmit">Send</button>
       </div>
     </form>
@@ -269,9 +273,9 @@
       let hasError = false;
       Array.from(elForm.querySelectorAll('[name]')).forEach(function (field) {
         if (field.type === 'radio') {
-          fields[field.name] = field.checked
-            ? field.value
-            : fields[field.name] || false;
+          fields[field.name] = field.checked ?
+            field.value :
+            fields[field.name] || false;
           return;
         }
         fields[field.name] = field.value
@@ -288,7 +292,7 @@
         }
       }
 
-      if(hasError) {
+      if (hasError) {
         console.warn('Form is incomplete:', fields)
         return
       }
@@ -297,14 +301,16 @@
       console.log('Submitting form...', fields)
 
       fetch('/', {
-        method:"POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: Object.keys(fields)
-        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(fields[key]))
-        .join('&')
-      })
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: Object.keys(fields)
+            .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(fields[key]))
+            .join('&')
+        })
         .then(result => {
-          if(!result.ok) {
+          if (!result.ok) {
             console.error('Form not ok!', result)
             throw Error(result.statusText)
           }
@@ -357,7 +363,7 @@
           }
         }
       }
-    } 
+    }
   </script>
 
   <script src="src/assets/focus-visible.js"></script>
