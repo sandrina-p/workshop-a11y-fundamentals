@@ -16,19 +16,19 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <h1 id="23navigationshortcuts">2.3. Navigation Shortcuts</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Many sites have a lot of links at the top of the page before the actual main content.</p>
-<p>All these links force the people using keyboard-only to tab through every single link before they can reach or interact with the main content. We, as web creators, can make better than that, right?</p>
-<p>A common simple pattern to bypass this is to create "Skip Navigation Links". The basic concept involves two elements: A <em>trigger</em> and a <em>target</em>.</p>
+<p>Many websites have a lot of links at the top of the page before the actual main content.</p>
+<p>All these links force th keyboard-only users to tab through every single link before they can reach or interact with the main content. We, as web creators, can make better than that, right?</p>
+<p>A common way to bypass this is to create "Skip Navigation Links". The basic concept involves two elements: A <em>trigger</em> and a <em>target</em>.</p>
 <pre><code class="html language-html">&lt;!-- Trigger: a link pointing to an #id --&gt;
 &lt;a href="#main" class="skipLink"&gt;Skip to main content&lt;/a&gt;
 
 &lt;!-- Target: A part of the page with the same id --&gt;
-&lt;!-- Some browser will focus only if tabindex="-1" is used --&gt;
+&lt;!-- Some browsers will only focus if tabindex="-1" is used --&gt;
 &lt;main id="main"&gt;
   ...
 &lt;/main&gt;
 </code></pre>
-<p>Making these links always visible can be ugly, so usually thse are visually hidden by default and shown when focused.</p>
+<p>Making these links always visible can be ugly, so usually these are visually hidden by default and only shown when focused.</p>
 <pre><code class="css language-css">.skipLink {
   /* hide visually the link */
   opacity: 0;
@@ -44,7 +44,7 @@
 <p>The visual location of the link doesn't matter much. The key is to make sure the link is one of the first items to be accessed.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/2.3.html">exercise page</a>,
-let's create some "Skip Navigation" links to jump directly to the main of the page and the footer.</p>
+let's create some "Skip Navigation" links to jump directly to the main section of the page.</p>
 <p><strong>🎯 Goal:</strong> Create navigation shortcuts through the page.</p>
 <h2 id="notes">Notes</h2>
 <ul>

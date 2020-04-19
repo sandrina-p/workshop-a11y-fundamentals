@@ -18,7 +18,7 @@
 
 ### Conclusion
 
-By just using HTML elements correctly we are already making the web accessible.
+By just using correctly HTML elements we are already making the web accessible.
 The internet is accessible by default. The problem is that we kill accessibility without even knowing it.
 
 ---
@@ -79,7 +79,7 @@ Theory:
 ## Lvl 5: A11Y with product team
 
 - 10. 🎯 Accessible Acceptance Criteria
-      Context: Show a e-commerce page to add a product to favorites.
+      Context: Show an e-commerce page to add a product to favorites.
       Goal: Write an acceptance criteria witth A11Y in mind.
 
 ## Next steps

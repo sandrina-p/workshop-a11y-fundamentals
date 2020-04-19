@@ -16,11 +16,11 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <h1 id="32pagelandmarks">3.2. Page Landmarks</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Here's a myth: <em>"People using screen readers read all the text."</em> They usually don't. As any person, we all are impacient when exploring websites. We scan the content looking for keywords until something catches our attention, and only then we start actually reading it. <em>We all are lazy web lovers.</em></p>
-<p>SR users usually navigate the page through <em>headings</em> and <em>landmarks</em>. We already know the importance of a solid heading structure. Let's now talk about landmarks.</p>
-<p>Landmarks identify sections of a page. This allows SR users to orient themselves in the page and help them navigate easily to various sections, skipping blocks of content.</p>
-<p>Some elements are landmarks by default such as <code>&lt;main&gt;</code> and <code>&lt;nav&gt;</code>, but most of the cases we need to explicit add its <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Landmark_roles">landmark role</a>.</p>
-<pre><code class="html language-html">&lt;!-- It's sounds redudant but it's needed! --&gt;
+<p>Here's a myth: <em>"People using screen readers read all the text."</em> They usually don't. We are all impacient when exploring websites. We scan the content looking for keywords until something catches our attention, and only then we start actually reading it. <em>We are all lazy web lovers.</em></p>
+<p>SR users usually navigate the page through <em>headings</em> and <em>landmarks</em>. We already know the importance of a solid heading structure, now let's talk about landmarks.</p>
+<p>Landmarks identify sections of a page. This allows SR users to orient themselves in the page and helps them navigating easily to various sections while skipping blocks of content.</p>
+<p>Some elements are landmarks by default, such as <code>&lt;main&gt;</code> and <code>&lt;nav&gt;</code>, but in most of the cases we need to explicitly add its <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Landmark_roles">landmark role</a>.</p>
+<pre><code class="html language-html">&lt;!-- It's sounds redundant but it's needed! --&gt;
 &lt;header role="banner"&gt;...&lt;/header&gt;
 
 &lt;!-- An extra label should be added when a
@@ -33,11 +33,11 @@ landmark is used multiple times. --&gt;
 there are at least four landmarks besides the main content: the primary navigation, the search, a custom landmark and another navigation on the bottom of the page.</p>
 <p><strong>🎯 Goal:</strong> Specify each landmark using <code>role</code> attribute.</p>
 <h2 id="bonus">Bonus</h2>
-<h3 id="languageofpage">Language of page</h3>
-<p>If you used a SR to read the main part of the exercise page, you may have noticed that "Good morning" is not pronounced correctly in the 3 different idioms.</p>
-<p>This can be a very annoying issue for SR users that visit a page in a language different from their SR default settings.</p>
+<h3 id="languageofthepage">Language of the page</h3>
+<p>If you used a SR to read the main part of the exercise page, you may have noticed that "Good morning" is not pronounced correctly in the 3 different idioms presented.</p>
+<p>This can be a very annoying issue for SR users that visit a page in a language that's different from their SR default settings.</p>
 <p>To fix this A11Y issue we must provide the <code>lang</code> attribute to the element that contains a different idiom.</p>
-<pre><code class="html language-html">&lt;!-- "Hello world!" in portuguese --&gt;
+<pre><code class="html language-html">&lt;!-- "Hello world!" in Portuguese --&gt;
 &lt;p lang="pt-PT"&gt;Ola mundo&lt;/p&gt;
 </code></pre>
 <p><strong>🎯 Goal:</strong> Add the idiom of any different content.</p>
