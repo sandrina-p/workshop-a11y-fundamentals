@@ -16,8 +16,8 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <h1 id="22hiddenelements">2.2. Hidden elements</h1>
 <h2 id="introduction">Introduction</h2>
-<p>With the evolution of clean and focused design approach, we tend to hide the information until it's absolute necessary. That means the internet is full of hidden secrets behind diversed animated components: menus, drawers, modals, tooltips… you name it!</p>
-<p>Sometimes when we hide content visually, we forget to hide them completely. When this happens the interactive elements are still accessible, even when invisible. That will cause confusion / frustation for those that lose track of the focus indicator while navigating the page.</p>
+<p>With the evolution of clean and focused design approach, we tend to hide the information until it's absolute necessary. That means the internet is full of hidden secrets behind diverse animated components: menus, drawers, modals, tooltips… you name it!</p>
+<p>Sometimes when we hide content visually, we forget to hide them completely. When this happens, the interactive elements are still accessible, even when invisible. This will cause confusion and frustation for those who lose track of the focus indicator while navigating the page.</p>
 <p>These are common ways to hide content:</p>
 <pre><code class="css language-css">/* Visually hidden but accessible by keyboard */
 opacity: 0;
@@ -39,8 +39,8 @@ visibility: hidden;
 </code></pre>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/2.2.html">exercise page</a>,
-there is Menu that can be toggled through a <code>&lt;button&gt;</code>. Use your keyboard to navigate through the page. You'll notice the links inside the menu are still accessible even if the menu is hidden.</p>
-<p><strong>🎯 Goal:</strong> Make interactive elements only accessible when visible.</p>
+there is a Menu that can be toggled through a <code>&lt;button&gt;</code>. Use your keyboard to navigate through the page. You'll notice the links inside the menu are still accessible even if the menu is hidden.</p>
+<p><strong>🎯 Goal:</strong> Make the interactive elements only accessible when visible.</p>
 <p>Note: The attribute <code>inert</code> lacks browser support, so we need to add a <a href="https://github.com/WICG/inert">inert polifyll</a>.</p>
 <pre><code class="html language-html">&lt;!-- Include the inert polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-inert.js"&gt;&lt;/script&gt;

@@ -16,7 +16,7 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <h1 id="33accessibleforms">3.3. Accessible forms</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Forms are used for many types of interactions on the web. When we talk about the accessibility of forms, we are usually referring to their accessibility to people who use screen readers or keyboards. However <strong>everyone benefits from a well-organized, highly usable form</strong>, especially those with cognitive disabilities. Forms should be clear and intuitive.</p>
+<p>Forms are used for many types of interactions on the web. When we talk about the accessibility of forms we are usually referring to their accessibility regarding people who use screen readers or keyboards. However <strong>everyone benefits from a well-organized, highly usable form</strong>, especially those with cognitive disabilities. Forms should be clear and intuitive.</p>
 <p>When building forms we should make sure that:</p>
 <ul>
 <li>Every form control has a label</li>
@@ -24,12 +24,13 @@
 <li>Explicit formatting requirements</li>
 <li>They are keyboard accessible</li>
 </ul>
-<p>The most basic and simple rule is to make sure every form control has a respective label.</p>
+<p>The most basic rule is to make sure every form control has a respective label.</p>
 <pre><code class="html language-html">&lt;!-- Option A: Use for="" and id="" to connect the label to the input --&gt;
 &lt;label for="uName"&gt;Name&lt;/label&gt;
 &lt;input type="text" id="uName" /&gt;
 
-&lt;!-- Option B: Wrap the text and the input in a &lt;label&gt;. The browser will link both. --&gt;
+&lt;!-- Option B: Wrap the text and the input in a &lt;label&gt;.
+  The browser will then link both. --&gt;
 &lt;label&gt;
   &lt;label&gt;Name&lt;/label&gt;
   &lt;input type="text" /&gt;
@@ -37,28 +38,30 @@
 </code></pre>
 <p>If we do that with every form element, it's already a step forward! There's a lot more about <a href="https://webaim.org/techniques/forms/">creating accessible forms</a> that we'll learn step by step.</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/3.1.html">exercise page</a>, there's a page with a 5 common form controls. However, each one has an accessibility issue.</p>
+<p>In the <a href="../exercises/3.1.html">exercise page</a>, there's a page with 5 form controls. However, each one has an accessibility issue.</p>
 <p><strong>🎯 Goal:</strong> Make the form accessible for keyboard and screen readers.</p>
 <p><strong>Hint 1:</strong> As you go, keep the article <a href="https://webaim.org/techniques/forms/">Creating Accessible Forms</a> by yourside. It will help you!</p>
 <p><strong>Hint 2:</strong> Use the Accessibility tab on DevTools to know how a form control is pronounced by a screen reader.</p>
 <h2 id="bonus">Bonus</h2>
 <h3 id="1unexpectedformsubmission">1. Unexpected form submission</h3>
 <p>When the form is submitted, you'll see a log <code>Form submitted!</code> on the DevTools console.
-Give it a try now: Go click "Submit" to see it by yourself.</p>
+Give it a try now: Click "Submit" to see it by yourself.</p>
 <p>There are 2 bugs happening in this form:</p>
 <ul>
-<li>When we press the password visibility button (by mouse or keyboard) the form is also submitted (you'll see the same log).</li>
+<li>When we press the password's visibility button (by mouse or keyboard) the form is also submitted (you'll see the same log).</li>
 <li>When we press "Enter" in any input, the password is algo toggled!</li>
 </ul>
 <p>Why does that happen? The default type of a <code>&lt;button&gt;</code> is <code>"submit"</code>. When a button inside
 a <code>&lt;form&gt;</code> is clicked, the form will look for the first "submit" button and trigger it.</p>
-<p>Your goal is to fix the 2 bugs by declaring the buttons type.</p>
-<p><strong>Takeaway:</strong> When using a button inside a form explicit add <code>type="button"</code> to avoid unwanted form submissions.</p>
+<p>Your goal is to fix the 2 bugs by declaring the type of the toggl password button.</p>
+<p><strong>Takeaway:</strong> Always explicit the button type (<code>type="button"</code> or <code>type="submit"</code>) when used inside forms to avoid unwanted form submissions.</p>
+<h2 id="2liveregions">2. Live regions</h2>
 <h2 id="notes">Notes</h2>
 <ul>
 <li><a href="https://webaim.org/techniques/forms/">Creating Accessible Forms</a></li>
 <li><a href="https://css-tricks.com/everything-you-ever-wanted-to-know-about-inputmode/">Everything you need to know about <code>inputmode</code></a></li>
 <li><a href="https://codepen.io/sandrina-p/pen/oNXyGPE">Codepen: 1 label can only have 1 input</a></li>
+<li><a href="https://bitsofco.de/using-aria-live/">Using <code>aria-live</code></a></li>
 </ul>
 
   <hr/>

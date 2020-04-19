@@ -16,8 +16,8 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <h1 id="interactiveelements">Interactive elements</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users, especially people with motor disabilities and blind people rely on a keyboard to navigate through the web. These people need an <strong>accessible focus indicators</strong> to enjoy the web.</p>
-<p>A very common practice is to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and <a href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different across browsers</a>. And that's okay. The mistake is to not provide a proper focus state. <strong>We must include accessible focus states on our design.</strong></p>
+<p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users, especially people with motor disabilities and blind people rely on a keyboard to navigate through the web. These people need <strong>accessible focus indicators</strong> to enjoy the web.</p>
+<p>A very common practice is to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and <a href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different across browsers</a>, and that's okay. The mistake is to not provide a proper focus state. <strong>We must provide accessible focus states on our apps.</strong></p>
 <pre><code class="css language-css">button:focus {
   /* It's okay to do this... */
   outline: none;
@@ -28,21 +28,21 @@
 </code></pre>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/2.1.html">exercise page</a>,
-there are a bunch of interactive elements: links, buttons and form controls. However, we can't easily access them through keyboard.</p>
+there are a 4 interactive elements: buttons, links, and 2 form controls. However, we can't easily access them through the keyboard.</p>
 <p>You can use <code>Tab</code> and <code>Shift + Tab</code> to go forwards and backwards respectively across the interactive elements.</p>
-<p>There isn't any explicit design requirements, so you can go free style!
-Adding some opacity or change the color are common design approaches.
+<p>There aren't any explicit design requirements, so you can go free style!
+Adding some opacity or changing the color are common design approaches.
 Creating both <code>:hover</code> and <code>:focus</code> states is the requirement.</p>
 <p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard.</p>
-<p><strong>Note Safari:</strong> By default <code>Tab</code> doesn't work on links and buttons. You need to activate it at <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em></p>
+<p><strong>Note Safari:</strong> By default <code>Tab</code> doesn't work on links and buttons. You need to activate it in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em></p>
 <h2 id="bonus">Bonus</h2>
 <h3 id="1custominteractiveelements">#1 Custom interactive elements</h3>
-<p>Creating a custom accessible element sometimes is a (very) hard challenge.
+<p>Creating a custom accessible element sometimes can be a (very) hard challenge.
 Go try to select "Your role" using only the keyboard and then come back here.</p>
-<p>That was an impossible mission, right? There's a trick to avoid the
+<p>That was an impossible mission, right? No the fun part: there's a trick to avoid the
 complex task of re-creating an a11y <code>&lt;select&gt;</code> and it involves CSS!</p>
-<p>The trick is to create 2 selects and show them on the right moment.
-A custom one visible by default for "mouse based" users and a native one hidden until it's focused by keyboard.</p>
+<p>It consists in creating 2 selects and showing them at the right moment.
+A custom one, visible by default for "mouse based" users, and a native one hidden until it's focused by keyboard.</p>
 <pre><code class="css language-css">/* visually hide selectNative  */
 .selectNative {
   opacity: 0;
@@ -60,7 +60,7 @@ A custom one visible by default for "mouse based" users and a native one hidden 
 </code></pre>
 <p><strong>🎯 Goal:</strong> Create a simpler <code>select</code> accessible version</p>
 <p>This technique is what it's called <em>graceful degradation technique</em>.
-Add a fallback version when the ideal does not work. This experience is not as good, but it does deliver the essential functionality for everyone. <strong>Things won't break for anyone</strong>.</p>
+Add a fallback version when the ideal does not work. The experience is not as good, but it does deliver the essential functionality for everyone. <strong>Things won't break for anyone</strong>.</p>
 <h3 id="2focusonlywhenusingkeyboard">#2 Focus only when using keyboard</h3>
 <p>One of the main reasons to hide the focus indicator on buttons and links is because it's triggered when we click them.
 What if we could activate <code>:focus</code> only when using the keyboard and ignore it when using the mouse?
@@ -80,7 +80,7 @@ That's where <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-vi
   box-shadow: 0 0 0.3rem 0.3rem tomato;
 }
 </code></pre>
-<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> and update buttons and anchor <code>:focus</code> styles to use it.</p>
+<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> and update the buttons and anchor <code>:focus</code> styles to use it.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>

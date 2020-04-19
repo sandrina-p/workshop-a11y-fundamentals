@@ -16,14 +16,14 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <h1 id="31meaningfulcontent">3.1. Meaningful content</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Every created content should provide 3 essential pieces of information to explain its purpose:</p>
+<p>Every content created should provide 3 essential pieces of information to explain its purpose:</p>
 <ul>
-<li><strong>Role</strong> - The type of element. For example, a button, a heading or a list.</li>
-<li><strong>Name</strong> - The text to identify /describe the element.</li>
-<li><strong>State</strong> - Needed in dynamic elements. For example, if a button is pressed or a menu opened.</li>
+<li><strong>Role</strong> - The type of element - for example, a button, a heading or a list.</li>
+<li><strong>Name</strong> - The text to identify / describe the element.</li>
+<li><strong>State</strong> - Needed in dynamic elements - for example, if a button is pressed or a menu opened.</li>
 </ul>
 <p>For sighted users, the context and visual appearance of an element can be enough to understand its purpose. However, the same is not true for people relying on assistive technologies.</p>
-<p>Most of the time, <em>role</em> and <em>name</em> are automatically done throught semantic HTML. However, in some cases it's not enough. That's were <code>aria-*</code> attribute comes in.</p>
+<p>Most of the time, <em>role</em> and <em>name</em> are automatically included throught semantic HTML. However, in some cases it's not enough. That's were <code>aria-*</code> attribute comes in.</p>
 <p>For example, providing elements with accessible names is one of the most important responsibilities authors have when developing accessible web experiences. A common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the attribute <code>aria-label</code>.</p>
 <pre><code class="html language-html">&lt;!-- A button to close a dialog / modal --&gt;
 &lt;button aria-label="Close modal"&gt;
@@ -33,9 +33,8 @@
 <p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll start by exploring the most common.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.1.html">exercise page</a>,
-there are 7 cases where some piece of information was forgot or missused.</p>
+there are 7 cases where some pieces of information were forgotten or missused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
 <p><strong>🎯 Goal:</strong> Add accessible names / status to all elements.</p>
-<p>Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here!</p>
 <p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be a nice alternative to screen readers.</p>
 <h2 id="notes">Notes</h2>
 <ul>
