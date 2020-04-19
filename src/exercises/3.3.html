@@ -13,9 +13,9 @@ Notes:
   <title>Exercise #09</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/theme.css">
-  <link rel="stylesheet" href="09.css">
+  <link rel="stylesheet" href="3.3.css">
 </head>
 
 <body>
@@ -133,37 +133,6 @@ Notes:
     elFormWebLover.addEventListener('submit', (e) => {
       e.preventDefault()
       console.log('Form submitted!')
-    })
-
-    // -----
-    // Visual logic for selectCustom
-    const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
-
-    const elSelectCustomLabel = elSelectCustom.children[0]
-    const elSelectCustomOptions = elSelectCustom.children[1]
-    const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
-
-    // Listen for each option click
-    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
-      elOption.addEventListener('click', (e) => {
-        // Update select label text...
-        elSelectCustomLabel.textContent = e.target.textContent
-        // And close select
-        elSelectCustom.classList.remove('isActive');
-      })
-    })
-
-    // Toggle select on label click
-    elSelectCustomLabel.addEventListener('click', (e) => {
-      elSelectCustom.classList.toggle('isActive');
-    })
-
-    // Update selectCustom label on selectNative change
-    const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
-    elSelectNative.addEventListener('change', (e) => {
-      const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
-        0];
-      elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
     })
   </script>
 </body>
