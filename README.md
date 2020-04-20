@@ -1,4 +1,4 @@
-# Web Accessibility Essentials
+# Web Accessibility Fundamentals
 
 _The web is awesome and everyone should be able to enjoy it._
 
@@ -26,26 +26,37 @@ To get the most out of the workshop, please do the following things in advance:
 
 The better prepared you are for the workshop, the more you will learn from it!
 
-## Setup the project in your computer
+## Setup the workshop
 
-🚧 Under construction 🚧
+Uh, you are an early bird! Some final touches are still being done. If you clone this project now, remember to pull the latest version before the workshop starts :)
 
-Uh! You are an early bird! Come back tomorrow ;)
+### Recommended
 
-### Locally
+Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before proceding. Otherwise jump to the next _Alternatives_ section.
 
-- Clone or [download](https://github.com/sandrina-p/a11y-fundamentals-ws/archive/master.zip) this repository.
-
-```
+```bash
+# Clone the repository
 git clone https://github.com/sandrina-p/a11y-fundamentals.git
+
+# Go to workshop folder
 cd a11y-fundamentals
+
+# Install the dependencies
+npm install
+
+# Run the project
+npm start
 ```
 
-- Open `src/index.html` and you are ready to go! There's no need to install any dependecy.
+### Alternatives
 
-#### In the cloud:
+#### A: Locally
 
-- If you don't have a local text editor, you can [run the workshop on codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals).
+Just [download the project](https://github.com/sandrina-p/a11y-fundamentals/archive/master.zip), open `src/index.html` and you are ready to go.
+
+#### B: In the browser
+
+You may go throught the [workshop on Codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals). Open the link and fork the project. Make sure to open each individual exercise page in a new window so that you can use DevTools more easily.
 
 ### Project structure
 
@@ -55,8 +66,8 @@ src
 ├── exercises     # Where you'll be working
     ├── xx.html     # The exercise html
     ├── xx.css      # The exercise styles
-|-- solutions    # The final solutions
-|-- index.html   # Workshop entry point
+|-- solutions     # The final solutions
+|-- index.html    # Workshop entry point
 ```
 
 ## Workshop Outline
