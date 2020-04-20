@@ -4,11 +4,9 @@ _The web is awesome and everyone should be able to enjoy it._
 
 ---
 
-These are the material resources for my [Web Accessibility Fundamentals Workshop](https://www.sandrina-p.net/workshop-a11y-fundamentals/).
-
----
-
 Hi there! I'm [Sandrina Pereira](https://www.sandrina-p.net/) and I belive that making the web accessible is one of our duties as web developers.
+
+These are the material resources for my [Web Accessibility Fundamentals Workshop](https://www.sandrina-p.net/workshop-a11y-fundamentals/).
 
 ## Pre-Workshop requirements
 
@@ -32,7 +30,7 @@ The better prepared you are for the workshop, the more you will learn from it!
 
 🚧 Under construction 🚧
 
-Uh! You are an early bird! Come back next Monday ;)
+Uh! You are an early bird! Come back tomorrow ;)
 
 ### Download
 
@@ -56,37 +54,38 @@ git clone https://github.com/TODO-LINK
 
 ```bash
 src
-├── assets  # extra files needed to support the exercises
-├── briefings    # Exercise instructions
-├── exercises
-    ├── xx.html  # The exercise
-    ├── xx.css   # The exercise styles
-|-- solutions # Exercise solutions
+├── briefings     # Exercise instructions
+├── exercises     # Where you'll be working
+    ├── xx.html     # The exercise html
+    ├── xx.css      # The exercise styles
+|-- solutions    # The final solutions
 |-- index.html   # Workshop entry point
 ```
+
+**Note:**
 
 ## Workshop Outline
 
 - 📡 Syncing...
-- 🎯 Lvl 1: Accessible by default
+- 🎯 **#1: Accessible by default**
+  - Appearance
   - Semantic HTML
-  - Relative units
   - Meaningful images
 - 🏖 10 minutes break
-- 🎯 Lvl 2: Keyboard Navigation
+- 🎯 **#2: Keyboard Navigation**
   - Interactive elements
   - Hidden elements
-  - Skip Navigation Links
+  - Navigation shortcuts
 - 🏖 15 minutes break
-- 🎯 Lvl 3: Screen Readers
-  - Language of the page
+- 🎯 **#3: Screen Readers**
   - Meaningful content
-  - Accessible Forms
+  - Page Landmarks
+  - Accessible forms
 - 🏖 5 minutes break
-- 🎯 Lvl 4: A11Y in team
+- 🎯 **#4: Next steps in A11Y**
   - Pairing devs and designers
   - Accessible Acceptance Criteria
-- Next steps into A11Y
+  - Final Q&A
 
 ---
 
