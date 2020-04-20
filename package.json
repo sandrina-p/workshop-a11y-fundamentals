@@ -3,9 +3,9 @@
   "private": true,
   "title": "Web Accessibility Fundamentals",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "In this workshop we'll explore every common accessibility no-nos and learn how to make them work properly for everyone using a mouse or a keyboard.",
   "homepage": "TODO",
-  "main": "index.js",
+  "main": "src/index.html",
   "author": "@sandrina-p",
   "license": "GPL-3.0-only",
   "scripts": {

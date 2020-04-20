@@ -32,23 +32,20 @@ The better prepared you are for the workshop, the more you will learn from it!
 
 Uh! You are an early bird! Come back tomorrow ;)
 
-### Download
+### Locally
 
 - Clone or [download](https://github.com/sandrina-p/a11y-fundamentals-ws/archive/master.zip) this repository.
 
 ```
-git clone https://github.com/TODO-LINK
+git clone https://github.com/sandrina-p/a11y-fundamentals.git
+cd a11y-fundamentals
 ```
 
-### Run
+- Open `src/index.html` and you are ready to go! There's no need to install any dependecy.
 
-#### Option A:
+#### In the cloud:
 
-- Static: Open `src/index.html` and you are ready to go!
-
-#### Option B:
-
-- Codesandbox: If you prefer, you can [run the workshop on codesandbox](#TODO-link).
+- If you don't have a local text editor, you can [run the workshop on codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals).
 
 ### Project structure
 
@@ -61,8 +58,6 @@ src
 |-- solutions    # The final solutions
 |-- index.html   # Workshop entry point
 ```
-
-**Note:**
 
 ## Workshop Outline
 
