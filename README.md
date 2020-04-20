@@ -97,7 +97,7 @@ src
 
 ## Workshop Feedback
 
-Please take a couple of minutes to [give me your feedback](#TODO-LINK), as it will help me improving the next editions of this workshop 🤗
+Please take a couple of minutes to [give me your feedback](https://docs.google.com/forms/d/e/1FAIpQLScLhrB3DvEF51Y43DxoQMz2pUxzkGNk3XLo6Lf5odsjJXznFA/viewform?usp=sf_link), as it will help me improving the next editions of this workshop 🤗
 
 ## License
 

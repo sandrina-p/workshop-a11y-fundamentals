@@ -12,7 +12,6 @@ briefFiles.forEach((brief) => {
   const briefName = path.basename(brief, ".md");
   const content = fs.readFileSync(brief, "utf8");
   const html = converter.makeHtml(content);
-  const formLink = `#TODO-LINK-${briefName}`;
 
   fs.writeFileSync(
     `src/briefings/${briefName}.html`,
