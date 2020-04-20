@@ -59,11 +59,11 @@
 
 
 .c-checkbox:hover+ :last-child::before {
-  border-color: #939393;
+  border-color: #6f6f6f;
 }
 
 .c-checkbox input:focus+ :last-child::before {
-  border-color: #8500f2;
+  border-color: #8c00ff;
   box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
 }
 
@@ -80,7 +80,7 @@
   height: 14px;
   margin-right: 0.5rem;
   border-radius: 2px;
-  border: 1px solid #939393;
+  border: 1px solid #6f6f6f;
   transform: translateY(2px);
   transition: box-shadow 150ms, background-color 150ms;
 }
@@ -101,8 +101,8 @@
 
 
 .c-checkbox input:checked+ :last-child::before {
-  border-color: #8500f2;
-  background-color: #8500f2;
+  border-color: #8c00ff;
+  background-color: #8c00ff;
 }
 
 .c-checkbox input:checked+ :last-child::after {

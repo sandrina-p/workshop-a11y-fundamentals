@@ -18,7 +18,7 @@ a {
   display: inline-block;
   padding: 0.1rem 0.2rem;
   color: inherit;
-  text-decoration-color: #7e06e0;
+  text-decoration-color: #8c00ff;
   transform: translateX(-0.1em);
   margin-right: -0.1em;
 }
@@ -28,7 +28,7 @@ ul a {
 }
 
 a:hover {
-  color: #7e06e0;
+  color: #8c00ff;
 }
 
 a:focus {
@@ -85,7 +85,7 @@ h3 {
 hr {
   margin: 3.2rem 0 0;
   border: none;
-  border-bottom: 0.1rem solid #8500f2;
+  border-bottom: 0.1rem solid #8c00ff;
 }
 
 .linkHome {

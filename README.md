@@ -4,7 +4,7 @@ _The web is awesome and everyone should be able to enjoy it._
 
 ---
 
-Hi there! I'm [Sandrina Pereira](https://www.sandrina-p.net/) and I belive that making the web accessible is one of our duties as web developers.
+Hi there! I'm [Sandrina Pereira](https://www.sandrina-p.net/) and I believe that making the web accessible is one of our duties as web developers.
 
 These are the material resources for my [Web Accessibility Fundamentals Workshop](https://www.sandrina-p.net/workshop-a11y-fundamentals/).
 
@@ -16,7 +16,7 @@ To get the most out of the workshop, please do the following things in advance:
   - Turn on your video if possible, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
 - Install a modern browser: Chrome or Firefox are recommended.
-- Familiarize yourself with the basics of a screen reader. During a remote workshop it's not practical to help everyone using a screen reader (SR), so please take some minutes to practice. Once you are able to navigate through this page using a screen reader, consider yourself ready to go!
+- Familiarize yourself with the basics of a screen reader. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
 
   - Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s)
   - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).

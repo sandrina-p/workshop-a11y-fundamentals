@@ -138,7 +138,7 @@ img {
   font-size: 1.6rem;
   border: none;
   padding: 0.8rem 2.4rem;
-  background-color: #7e06e0;
+  background-color: #8c00ff;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -147,13 +147,13 @@ img {
 
 .btnOutline {
   padding: 0.8rem 2.4rem;
-  border: 1px solid #7e06e0;
+  border: 1px solid #8c00ff;
   background-color: transparent;
   color: currentColor;
 }
 
 .btnOutline:hover {
-  color: #7e06e0;
+  color: #8c00ff;
 }
 
 .btnCircle,
@@ -183,16 +183,16 @@ img {
 
 .btnToggle {
   background: #ffffff;
-  border: 1px solid #939393;
+  border: 1px solid #6f6f6f;
 }
 
 .btnToggle .btn-svg {
-  fill: #939393;
+  fill: #6f6f6f;
 }
 
 .btnToggle:hover,
 .btnToggle:focus {
-  border-color: #8500f2;
+  border-color: #8c00ff;
 }
 
 .btnToggle:focus {
@@ -202,7 +202,7 @@ img {
 
 .btnToggle.isPressed .btn-svg,
 .btnToggle[aria-pressed="true"] .btn-svg {
-  fill: #8500f2;
+  fill: #8c00ff;
 }
 
 /* ------- BREADCRUMB -------  */
@@ -235,14 +235,14 @@ img {
 .link {
   display: inline-block;
   color: inherit;
-  text-decoration-color: #b086d2;
+  text-decoration-color: #9b78de;
   padding: 0.1rem 0.2rem;
   transform: translateX(-0.1em);
   margin-right: -0.1em;
 }
 
 .link:hover {
-  color: #7e06e0;
+  color: #8c00ff;
 }
 
 .link:focus {
@@ -303,7 +303,7 @@ fieldset.field {
 /* Don't judge... it works! I'll improve this later. */
 .form-footer {
   margin-top: 2.4rem;
-  border-top: 1px solid #939393;
+  border-top: 1px solid #6f6f6f;
   padding: 2.4rem 0 1.6rem;
 }
 
@@ -336,5 +336,5 @@ fieldset.field {
 }
 
 .r-footerG {
-  border-top: 1px solid #b086d2;
+  border-top: 1px solid #9b78de;
 }
