@@ -11,7 +11,7 @@ Notes:
 <html lang="en">
 
 <head>
-  <title>Exercise #3.3</title>
+  <title>Solution #3.3</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -22,37 +22,16 @@ Notes:
   <main class="content">
     <h1 class="heading-1">Accessible Forms</h1>
 
-    <form class="block_v form js-formWebLover">
-      <h2 class="heading-2">Web lover profile</h2>
+    <form class="block_v form js-formItself">
+      <h2 class="heading-2">Form: Web lover profile</h2>
 
-      <!--
-        Lesson #1 - Every input must have a connected label
-        🍀 You have 2 ways of solving this. Each one do you prefer?
-      -->
+      <!-- Lesson #1 - Input labels -->
       <div class="field">
         <label for="uName" class="field-txt">Nickname</label>
         <input type="text" id="uName">
       </div>
 
-      <div class="lesson">
-        <!-- 
-          Lesson #2.1 - Input descriptions
-          - 🍀 Add `aria-describedby` to an input to associate a description
-        -->
-
-        <div class="field">
-          <label for="uPass" class="field-txt">Worst password ever</label>
-          <input type="password" id="uPass" class="js-secretInput" aria-describedby="passTip">
-          <button class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
-
-          <span class="field-tip" id="passTip">A password should be dumb and short.</span>
-        </div>
-      </div>
-
-      <!--
-        Lesson #3 - Group checkbox/radio
-        - 🍀 Use <fieldset> and <legend> to group related inputs.
-        -->
+      <!-- Lesson #2 - Group checkbox/radio -->
       <fieldset class="field">
         <legend class="field-txt">Favorite theme</legend>
         <label class="inputRadio">
@@ -69,40 +48,36 @@ Notes:
         </label>
       </fieldset>
 
-      <!--
-        Lesson #4 - Required inputs
-        - 🍀 Use `aria-required` to mark an input as required.
-        - 🍀 Add `aria-invalid` when the input is marked as invalid (ex: after clicking submit).
-      -->
+      <!-- Lesson #3 - Required inputs -->
       <label class="field js-fieldMandatory">
-        <span class="field-txt">Current open tabs <span class="u-danger">*</span></span>
-        <input type="number" aria-required aria-labelledby="jsTabsError">
-        <span class="field-error" id="jsTabsError">You must have at least 1 open tab.</span>
+        <span class="field-txt">Year of your first computer <span class="u-danger">*</span></span>
+        <!-- Lesson #3.1 - Input types -->
+        <input type="text" aria-required aria-describedby="jsYearError" inputmode="numeric" pattern="[0-9]*"
+          class="js-fieldYear">
+        <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
       </label>
 
-
-      <!-- 🍀 Lesson #5 - Inputs descriptions p2
-        Users with SR usually fill forms through tab. When doing that they
-        will miss the following sentence: -->
+      <!-- Lesson #4.1 - Input descriptions p1 -->
       <div class="field">
+        <label for="uPass" class="field-txt">Worst password ever</label>
+        <input type="password" id="uPass" class="js-secretInput" aria-describedby="passTip">
+        <button class="js-secretBtn" aria-pressed="false" aria-label="Show password" type="button">👀</button>
+
+        <span class="field-tip" id="passTip">The password usually is dumb and short.</span>
+      </div>
+
+      <!-- 🍀 Lesson #4.2 - Inputs descriptions p1 -->
+      <label class="field">
         <span class="u-block">
           To be here, you should care about web accessibility.
         </span>
-        <!-- We can fix this with `aria-describbedby` or by placing the text inside <label />.
-          SR will automatically read everything inside it. -->
-        <label>
-          <input type="checkbox" /> Tick here if you agree with this sentence.
-        </label>
-      </div>
+        <input type="checkbox" /> Tick here if you agree with this.
+      </label>
 
-      <!-- 🍀 BONUS #2 - Live Regions (TODO) -->
-      <div class="formFooter js-formFeedback">
-        <!-- These 2 messages are shown dynamically based on the form submission result.
-          SR users may miss these messages because we didn't explicit say "hey, here's the submit result!"
-          To help us expose this dynamic content we need to add "aria-live" or role="alet". to each
-         -->
-        <p class="formMsg_success" aria-live="polite">All good, thanks!</p>
-        <p class="formMsg_invalid" aria-live="polite">Ups, there are invalid fields. Please review them!</p>
+
+      <!-- 🍀 BONUS #1 - Live Regions -->
+      <div class="form-footer">
+        <p class="formMsg js-formFeedback" aria-live="polite"></p>
         <button class="btn btnPrimary js-btnSubmit">Submit</button>
       </div>
     </form>
@@ -121,7 +96,7 @@ Notes:
       const isPressed = elSecretBtn.getAttribute("aria-pressed") === 'true';
       // 1.toggle the button status visually and semantically
       elSecretBtn.textContent = isPressed ? '👀' : '🙈'
-      elSecretBtn.setAttribute("aria-pressed", !isPressed)
+      elSecretBtn.setAttribute("aria-pressed", !isPressed) // 🍀 #4.2.
       // 2. toggle input type
       elSecretInput.setAttribute("type", isPressed ? 'password' : 'text');
     })
@@ -137,7 +112,7 @@ Notes:
     // Listen for form submission
     const elFormItself = document.getElementsByClassName('js-formItself')[0]
     const elFormFeedback = document.getElementsByClassName('js-formFeedback')[0]
-    const elFieldTabs = document.getElementsByClassName('js-fieldTabs')[0]
+    const elFieldYear = document.getElementsByClassName('js-fieldYear')[0]
 
     elFormItself.addEventListener('submit', (e) => {
       e.preventDefault()
@@ -146,8 +121,8 @@ Notes:
       updateFormMsg() // clear the form msg
 
       // Check if input tabs has a valid value
-      if (!Number(elFieldTabs.value)) {
-        updateInlineError(elFieldTabs, true)
+      if (!Number(elFieldYear.value)) {
+        updateInlineError(elFieldYear, true, '⚠️ This year is required.')
         updateFormMsg('invalid')
         return
       }
@@ -157,25 +132,30 @@ Notes:
     function updateFormMsg(status) {
       switch (status) {
         case 'invalid':
-          elFormFeedback.classList.add('isInvalid')
-          elFormFeedback.classList.remove('isSuccess')
+          elFormFeedback.classList.add('u-danger')
+          elFormFeedback.classList.remove('u-success')
+          elFormFeedback.innerHTML = 'Ups! There are invalid fields, please review them.'
           break;
         case 'success':
-          elFormFeedback.classList.remove('isInvalid')
-          elFormFeedback.classList.add('isSuccess')
+          elFormFeedback.classList.remove('u-danger')
+          elFormFeedback.classList.add('u-success')
+          elFormFeedback.innerHTML = 'All good, thank you!'
           break;
         default:
-          elFormFeedback.classList.remove('isInvalid')
-          elFormFeedback.classList.remove('isSuccess')
+          elFormFeedback.classList.remove('u-invalid', 'u-success')
+          elFormFeedback.innerHTML = ''
           break;
       }
     }
 
-    function updateInlineError(field, isTrue) {
-      field.setAttribute('aria-invalid', isTrue)
-      elFieldTabs.nextElementSibling.style.display = isTrue ? 'block' : 'none';
+    function updateInlineError(field, hasError, errorMsg) {
+      elFieldYear.nextElementSibling.innerText = errorMsg || '';
+      elFieldYear.nextElementSibling.style.display = hasError ? 'block' : 'none';
 
-      if (isTrue) {
+      // 🍀 Update aria-invalid attribute
+      field.setAttribute('aria-invalid', hasError)
+
+      if (hasError) {
         // Listen for future field changes ...
         field.removeEventListener('keyup', handleChange)
         field.addEventListener('keyup', handleChange)
@@ -185,7 +165,7 @@ Notes:
 
         // ... and remove error if it's valid again!
         function handleChange(e) {
-          if (!!elFieldTabs.value) {
+          if (!!elFieldYear.value) {
             updateInlineError(e.target, false)
             field.removeEventListener('change', handleChange)
             field.removeEventListener('keyup', handleChange)

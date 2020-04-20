@@ -1,5 +1,10 @@
 @import url("./normalize.css");
 
+/*  ---------------------------------------- *\
+|*    You do not need to touch this file     *|
+|*     but you can see how it was made.      *|
+\** ---------------------------------------- */
+
 html {
   font-size: 62.5%;
 }
@@ -53,6 +58,8 @@ img {
   margin: 3.2rem 0;
 }
 
+/* ------- UTILS -------  */
+
 .u-secondary {
   color: #6f6f6f;
 }
@@ -63,6 +70,10 @@ img {
 
 .u-danger {
   color: #e44545;
+}
+
+.u-success {
+  color: #328401;
 }
 
 .u-small {
@@ -290,43 +301,22 @@ fieldset.field {
 }
 
 /* Don't judge... it works! I'll improve this later. */
-.formFooter,
 .form-footer {
   margin-top: 2.4rem;
   border-top: 1px solid #939393;
   padding: 2.4rem 0 1.6rem;
 }
 
-.form-footer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.formMsg_success {
-  font-size: 1.8rem;
-  color: #8500f2;
-}
-
-.formMsg_invalid {
-  color: #d52424;
-  margin-bottom: 1.6rem;
-}
-
-.formMsg_success,
-.formMsg_invalid,
-.formFooter.isSuccess .formMsg_invalid {
-  display: none;
-}
-
-.formFooter.isSuccess .formMsg_success,
-.formFooter.isInvalid .formMsg_invalid {
+.formMsg {
   display: block;
   margin: 0 0 1.6rem;
 }
 
+.formMsg:empty {
+  margin: 0;
+}
 
 /* ------- RANDOM NONSENSE CLASSES -------  */
-
 
 .r-listNull {
   padding: 0;

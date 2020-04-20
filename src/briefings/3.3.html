@@ -39,30 +39,49 @@
 </code></pre>
 <p>If we do that with every form element, it's already a step forward! There's a lot more about <a href="https://webaim.org/techniques/forms/">creating accessible forms</a> that we'll learn step by step.</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/3.1.html">exercise page</a>, there's a page with 5 form controls. However, each one has an accessibility issue.</p>
+<p>In the <a href="../exercises/3.3.html">exercise page</a>, there are 5 form controls. However, each one has a particular accessibility issue.</p>
 <p><strong>🎯 Goal:</strong> Make the form accessible for keyboard and screen readers.</p>
-<p><strong>Hint 1:</strong> As you go, keep the article <a href="https://webaim.org/techniques/forms/">Creating Accessible Forms</a> by yourside. It will help you!</p>
-<p><strong>Hint 2:</strong> Use the Accessibility tab on DevTools to know how a form control is pronounced by a screen reader.</p>
+<p><strong>Hint 1:</strong> SR users usually fill forms using <code>Tab</code> key only. Do the same to detect A11Y issues.</p>
+<p><strong>Hint 2:</strong> You can also use the Accessibility tab on DevTools to know how a form control is pronounced by a screen reader.</p>
 <h2 id="bonus">Bonus</h2>
-<h3 id="1unexpectedformsubmission">1. Unexpected form submission</h3>
+<h3 id="1arialiveregions">#1 ARIA Live regions</h3>
+<p>When submitting the form, a message is shown dynamically based on the submission result (success or invalid).</p>
+<p>While these changes are visually apparent to users who can see the page,
+they may not be obvious to AT users, such as screen reader users.</p>
+<p>ARIA live regions fill this gap helping to expose this dynamic content.</p>
+<pre><code class="html language-html">&lt;!-- The content is announce immediately when added to the DOM.
+Use it when it's critical information.  --&gt;
+&lt;div aria-live="assertive"&gt;The form you tried to submit is invalid.&lt;/div&gt;
+
+&lt;!-- The content is announced when there's a change (idle).
+Use it when this do not influence the user main task.  --&gt;
+&lt;div aria-live="polite"&gt;Now playing "Pink Floyd - Time"&lt;/div&gt;
+</code></pre>
+<p><strong>🎯 Goal:</strong> Explicit mark the form feedback messages as dynamic content.</p>
+<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise the code is ready to follow the approach #3.</p>
+<h3 id="2usingbuttonsinsideforms">#2 Using buttons inside forms</h3>
+<p><em>This is already done, but let me explain this common form mistake:</em></p>
+<p>You may have noticed that each button in the form has its <code>type</code> explicit.
+Usually this isn't done because we think it's not needed. Let's remove the 2 types (button and submit) and see what happens.</p>
 <p>When the form is submitted, you'll see a log <code>Form submitted!</code> on the DevTools console.
 Give it a try now: Click "Submit" to see it by yourself.</p>
-<p>There are 2 bugs happening in this form:</p>
+<p>There are now 2 bugs happening:</p>
 <ul>
 <li>When we press the password's visibility button (by mouse or keyboard) the form is also submitted (you'll see the same log).</li>
-<li>When we press "Enter" in any input, the password is algo toggled!</li>
+<li>When we press "Enter" in any input, the password is algo toggled.</li>
 </ul>
 <p>Why does that happen? The default type of a <code>&lt;button&gt;</code> is <code>"submit"</code>. When a button inside
-a <code>&lt;form&gt;</code> is clicked, the form will look for the first "submit" button and trigger it.</p>
-<p>Your goal is to fix the 2 bugs by declaring the type of the toggl password button.</p>
+a <code>&lt;form&gt;</code> is clicked, the form will look for the first "submit" button and trigger it.
+In this form the first button is the toggle password. That's why when we click it, the form is also submitted.</p>
 <p><strong>Takeaway:</strong> Always explicit the button type (<code>type="button"</code> or <code>type="submit"</code>) when used inside forms to avoid unwanted form submissions.</p>
-<h2 id="2liveregions">2. Live regions</h2>
 <h2 id="notes">Notes</h2>
 <ul>
 <li><a href="https://webaim.org/techniques/forms/">Creating Accessible Forms</a></li>
-<li><a href="https://css-tricks.com/everything-you-ever-wanted-to-know-about-inputmode/">Everything you need to know about <code>inputmode</code></a></li>
 <li><a href="https://codepen.io/sandrina-p/pen/oNXyGPE">Codepen: 1 label can only have 1 input</a></li>
+<li><a href="https://css-tricks.com/everything-you-ever-wanted-to-know-about-inputmode/">Everything you need to know about <code>inputmode</code></a></li>
+<li><a href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">Why the Gov UK changed the input type for numbers</a></li>
 <li><a href="https://bitsofco.de/using-aria-live/">Using <code>aria-live</code></a></li>
+<li><a href="https://codepen.io/vloux/details/jxPrWy"><code>aria-live</code> codepen demo</a></li>
 </ul>
 
   </main>
