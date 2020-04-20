@@ -6,8 +6,7 @@ const showdown = require("showdown");
 
 const converter = new showdown.Converter();
 
-const briefPatterns = path.resolve("./src/exercises", "**/*.md");
-const briefFiles = glob.sync(briefPatterns);
+const briefFiles = glob.sync("./src/briefings/*.md");
 
 briefFiles.forEach((brief) => {
   const briefName = path.basename(brief, ".md");
@@ -31,17 +30,12 @@ briefFiles.forEach((brief) => {
 </head>
 
 <body>
-  <main>
   <a class="linkHome" href="../index.html">Go Back</a>
-  ${html}
+  <main>
+  
+${html}
 
-  <hr/>
   </main>
-  <footer>
-    <h2 id="learningsandfeedback">Feedback</h2>
-    <p>After we go through the solution together, please take a minute to <a href="${formLink}">leave a quick feedback</a> about this exercise.</p>
-  </footer>
-
   <script src="../assets/prism.js" defer></script>
 </body>
 </html>`,
