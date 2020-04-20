@@ -22,11 +22,11 @@ Notes:
   <main class="content">
     <h1 class="heading-1">Accessible Forms</h1>
 
-    <form class="block_v form js-formWebLover">
+    <form class="block_v form js-formItself">
       <h2 class="heading-2">Web lover profile</h2>
 
       <!--
-        Lesson #1: Every input must have a connected label
+        Lesson #1 - Every input must have a connected label
         🍀 You have 2 ways of solving this. Each one do you prefer?
       -->
       <div class="field">
@@ -50,7 +50,7 @@ Notes:
       </div>
 
       <!--
-        Lesson #3: Group checkbox/radio
+        Lesson #3 - Group checkbox/radio
         - 🍀 Use <fieldset> and <legend> to group related inputs.
         -->
       <fieldset class="field">
@@ -70,40 +70,51 @@ Notes:
       </fieldset>
 
       <!--
-        Lesson #4: Required inputs
+        Lesson #4 - Required inputs
         - 🍀 Use `aria-required` to mark an input as required.
         - 🍀 Add `aria-invalid` when the input is marked as invalid (ex: after clicking submit).
       -->
-      <label class="field js-fieldMandatory">
-        <span class="field-txt">Current open tabs *</span>
-        <input type="number" aria-required aria-labelledby="jsTabsError">
-        <span class="field-error" id="jsTabsError">You must have at least 1 open tab.</span>
+      <label class="field">
+        <span class="field-txt">Current open tabs <span class="u-danger">*</span></span>
+        <input type="number" class="js-fieldTabs">
+        <span class="field-error" id="jsTabsError">⚠️ You must have at least 1 open tab.</span>
       </label>
 
 
-      <!-- 🍀 Lesson #5: Inputs descriptions p2
-        Users with SR usually fill forms through tab. When doing that they
-        will miss the following sentence: -->
+      <!-- 🍀 Lesson #5 - Inputs descriptions p2 -->
       <div class="field">
+        <!-- Users with SR usually fill forms using tab key. When doing that
+          they will miss the following sentence -->
         <span class="u-block">
           To be here, you should care about web accessibility.
         </span>
-        <!-- We can fix this with `aria-describbedby` or by placing the text inside <label />.
-          SR will automatically read everything inside it. -->
+        <!-- We must connect all input descriptions to the input itself:
+          Option A: add `aria-describbedby` to <input />
+          Option B: place the sentence inside <label />.
+            SR will automatically read it when input gets focused.
+        -->
         <label>
-          <input type="checkbox" /> Tick here if you agree with this sentence.
+          <input type="checkbox" /> Tick this if you agree with it.
         </label>
       </div>
 
 
-      <div class="form-footer">
-        <!-- Lesson #6 Form messages - aria-live -->
+      <!-- 🍀 BONUS #2 - Live Regions (TODO) -->
+      <div class="formFooter js-formFeedback">
+        <!-- These 2 messages are shown dynamically based on the form submission result.
+          SR users may miss these messages because we didn't explicit say "hey, here's the submit result!"
+          To help us expose this dynamic content we need to add "aria-live" or role="alet". to each
+         -->
+        <p class="formMsg_success" aria-live="polite">All good, thanks!</p>
+        <p class="formMsg_invalid" aria-live="polite">Ups, there are invalid fields. Please review them!</p>
         <button class="btn btnPrimary js-btnSubmit">Submit</button>
       </div>
     </form>
   </main>
 
   <script>
+    // The JS part is already done for you.
+
     // -----
     // Toggle password visibility
     const elSecretBtn = document.getElementsByClassName('js-secretBtn')[0]
@@ -122,19 +133,70 @@ Notes:
     // -----
     // Listen for "submit" button click
     const elBtnSubmit = document.getElementsByClassName('js-btnSubmit')[0]
-
-    elBtnSubmit.addEventListener('click', function () {
+    document.getElementsByClassName('js-btnSubmit')[0].addEventListener('click', function () {
       console.log('Submit clicked')
     })
 
     // -----
     // Listen for form submission
-    const elFormWebLover = document.getElementsByClassName('js-formWebLover')[0]
+    const elFormItself = document.getElementsByClassName('js-formItself')[0]
+    const elFormFeedback = document.getElementsByClassName('js-formFeedback')[0]
+    const elFieldTabs = document.getElementsByClassName('js-fieldTabs')[0]
 
-    elFormWebLover.addEventListener('submit', (e) => {
+    elFormItself.addEventListener('submit', (e) => {
       e.preventDefault()
-      console.log('Form submitted!')
+      console.log('Form submitting...')
+
+      updateFormMsg() // clear the form msg
+
+      // Check if input tabs has a valid value
+      if (!Number(elFieldTabs.value)) {
+        updateInlineError(elFieldTabs, true)
+        updateFormMsg('invalid')
+        return
+      }
+      updateFormMsg('success')
     })
+
+    function updateFormMsg(status) {
+      switch (status) {
+        case 'invalid':
+          elFormFeedback.classList.add('isInvalid')
+          elFormFeedback.classList.remove('isSuccess')
+          break;
+        case 'success':
+          elFormFeedback.classList.remove('isInvalid')
+          elFormFeedback.classList.add('isSuccess')
+          break;
+        default:
+          elFormFeedback.classList.remove('isInvalid')
+          elFormFeedback.classList.remove('isSuccess')
+          break;
+      }
+    }
+
+    function updateInlineError(field, isTrue) {
+      field.setAttribute('aria-invalid', isTrue)
+      elFieldTabs.nextElementSibling.style.display = isTrue ? 'block' : 'none';
+
+      if (isTrue) {
+        // Listen for future field changes ...
+        field.removeEventListener('keyup', handleChange)
+        field.addEventListener('keyup', handleChange)
+
+        field.removeEventListener('change', handleChange)
+        field.addEventListener('change', handleChange)
+
+        // ... and remove error if it's valid again!
+        function handleChange(e) {
+          if (!!elFieldTabs.value) {
+            updateInlineError(e.target, false)
+            field.removeEventListener('change', handleChange)
+            field.removeEventListener('keyup', handleChange)
+          }
+        }
+      }
+    }
   </script>
 </body>
 

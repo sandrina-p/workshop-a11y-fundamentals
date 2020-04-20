@@ -61,6 +61,10 @@ img {
   color: #9b78de;
 }
 
+.u-danger {
+  color: #e44545;
+}
+
 .u-small {
   font-size: 1.4rem;
 }
@@ -245,14 +249,6 @@ img {
   margin-bottom: 50vh;
 }
 
-.form-footer {
-  margin-top: 2.4rem;
-  border-top: 1px solid #939393;
-  padding: 2.4rem 0 1.6rem;
-  display: flex;
-  justify-content: space-between;
-}
-
 .field {
   display: block;
   position: relative;
@@ -281,6 +277,7 @@ fieldset.field {
 .field-error {
   opacity: 1;
   color: #e44545;
+  display: none;
 }
 
 .inputRadio {
@@ -290,6 +287,41 @@ fieldset.field {
 
 .inputRadio input {
   margin-right: 0.4rem;
+}
+
+/* Don't judge... it works! I'll improve this later. */
+.formFooter,
+.form-footer {
+  margin-top: 2.4rem;
+  border-top: 1px solid #939393;
+  padding: 2.4rem 0 1.6rem;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formMsg_success {
+  font-size: 1.8rem;
+  color: #8500f2;
+}
+
+.formMsg_invalid {
+  color: #d52424;
+  margin-bottom: 1.6rem;
+}
+
+.formMsg_success,
+.formMsg_invalid,
+.formFooter.isSuccess .formMsg_invalid {
+  display: none;
+}
+
+.formFooter.isSuccess .formMsg_success,
+.formFooter.isInvalid .formMsg_invalid {
+  display: block;
+  margin: 0 0 1.6rem;
 }
 
 

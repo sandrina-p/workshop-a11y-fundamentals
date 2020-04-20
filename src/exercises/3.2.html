@@ -4,7 +4,7 @@
 🎯 Goal: Provide Landmarks
 
 Notes:
-- The elements are correct. You only need to add lang and aria-hidden attributes.
+- The elements are correct. You only need to add HTML attributes.
 - You don't need to change or remove CSS classes.
 -->
 <html lang="en">
@@ -20,8 +20,8 @@ Notes:
 <body>
   <div class="content">
     <header class="headerRow" role="banner">
-      <!-- 🍀 1/4 Here's a nav landmark -->
-      <nav aria-label="Site">
+      <!-- 🍀 1/4 Here's the first nav landmark -->
+      <nav>
         <ul class="breadcrumb">
           <li><a href="#1" class="link">Home</a></li>
           <li><a href="#1" class="link isCurrent" aria-current="location">Exercise 3.1</a></li>
@@ -29,7 +29,7 @@ Notes:
       </nav>
 
       <!-- 🍀 2/4 Here's a search landmark -->
-      <div role="search">
+      <div>
         <input type="text" placeholder="Search...">
       </div>
     </header>
@@ -46,15 +46,15 @@ Notes:
         <ul class="list">
           <li>
             <span aria-hidden="true">🇫🇷</span>
-            <span lang="fr">Bonjour</span> - French
+            <span>Bonjour</span> - French
           </li>
           <li>
             <span aria-hidden="true">🇵🇹</span>
-            <span lang="pt-PT">Bom dia</span> - Portuguese (Portugal)
+            <span>Bom dia</span> - Portuguese (Portugal)
           </li>
           <li>
             <span aria-hidden="true">🇹🇷</span>
-            <span lang="tr">Günaydin</span> - Turkish
+            <span>Günaydin</span> - Turkish
           </li>
         </ul>
 
@@ -63,15 +63,15 @@ Notes:
       </div>
     </main>
 
-    <!-- 🍀 3/4 We can create custom landmarks if we thi-->
-    <div class="block" role="region" aria-label="comments">
+    <!-- 🍀 3/4 We can create custom landmarks if needed -->
+    <div class="block">
       <i>Nobody left a comment yet...</i>
     </div>
 
     <footer class="block r-footerG">
       <!-- 🍀 4/4 Here's a 2nd nav landmark.
-        We should distinguish both using aria-label -->
-      <nav aria-label="Website links">
+        We should distinguish both navs using aria-label -->
+      <nav>
         <ul class="r-listNull u-rowCenterY">
           <li><a href="#" class="link">About us</a></li>
           <li><a href="#" class="link">Contact</a></li>
