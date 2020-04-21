@@ -28,8 +28,6 @@ The better prepared you are for the workshop, the more you will learn from it!
 
 ## Setup the workshop
 
-Uh, you are an early bird! Some final touches are still being done. If you clone this project now, remember to pull the latest version before the workshop starts :)
-
 ### Recommended
 
 Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before proceding. Otherwise jump to the next _Alternatives_ section.
@@ -73,6 +71,7 @@ src
 ## Workshop Outline
 
 - 📡 Syncing...
+- 🧠 **#0: Accessibility overview**
 - 🎯 **#1: Accessible by default**
   - Appearance
   - Semantic HTML

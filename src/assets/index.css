@@ -113,6 +113,7 @@ ol {
   padding: 0.5rem 1rem;
   font-size: inherit;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .donate-btn:hover {

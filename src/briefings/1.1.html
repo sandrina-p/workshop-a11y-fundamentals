@@ -20,7 +20,7 @@
 <p>Accessibility is not just about making information available to people with disabilities.
 It's also about respecting people's preferences, including appearance preferences.
 Three common appearance preferences are <em>color</em>, <em>motion</em> and <em>size</em>.</p>
-<h3 id="colorpreference">Color preference</h3>
+<h3 id="color">Color</h3>
 <p>Any person, with or without disabilities must be able to perceive content with ease. <a href="https://webaim.org/resources/contrastchecker/">WebAIM contract checker</a>, <a href="https://colorable.jxnblk.com/001b66/00ffa2">Colorable</a> and <a href="https://www.getstark.co/">Stark</a> are just three of the many free tools available to help us follow the <a href="https://webaim.org/articles/contrast/">WCAG color contrast guidelines</a>.</p>
 <p>In case we create multiple themes, we can use the CSS media query <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a> that allows us to set the default theme based on the user color preferences.</p>
 <pre><code class="css language-css">body {
@@ -35,7 +35,7 @@ Three common appearance preferences are <em>color</em>, <em>motion</em> and <em>
   }
 }
 </code></pre>
-<h3 id="motionpreference">Motion preference</h3>
+<h3 id="motion">Motion</h3>
 <p>Modern websites tend to use motion techniques as a way to communicate information. However, some people find them distracting or uncomfortable and others can't perceive the animations at all, particularrly people with cognitive disabilities or slow devices owners.</p>
 <p>In spite of the growing desire to create an immersive experience, we must not forget that <strong>animations are an enhancement</strong> and should not be a barrier to understand the content.</p>
 <p>The CSS media query <code>preferes-reduced-motion</code> allows us to respect the user's motion preferences.</p>
@@ -49,7 +49,7 @@ Three common appearance preferences are <em>color</em>, <em>motion</em> and <em>
   }
 }
 </code></pre>
-<h3 id="sizepreference">Size Preference</h3>
+<h3 id="size">Size</h3>
 <p>Websites should adapt their content size based on the user's preferences. This can be achieved by using relative sizes instead of absolute sizes.</p>
 <p>The relative units <code>rem</code> and <code>em</code> are the best replacments for <code>px</code>. An <code>em</code> is an unit of typography, relative to the font-size of its nearest parent. <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
 <p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>1rem = 16px</code></strong>.</p>
