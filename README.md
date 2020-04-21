@@ -91,9 +91,6 @@ src
   - Accessible forms
 - 🏖 5 minutes break
 - 🎯 **#4: Next steps in A11Y**
-  - Pairing devs and designers
-  - Accessible Acceptance Criteria
-  - Final Q&A
 
 ---
 
