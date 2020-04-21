@@ -42,7 +42,7 @@
   height: 3.2rem;
   padding: 0.4rem 0.8rem;
   font-size: inherit;
-  border: 0.1rem solid grey;
+  border: 0.1rem solid #6f6f6f;
 }
 
 .textInput:hover {
@@ -58,7 +58,7 @@
 /* ------- LINK -------  */
 
 .c-link {
-  color: grey;
+  color: #6f6f6f;
   padding: 0.1rem 0.2rem;
   transform: translateX(-0.1em);
   margin-right: -0.1em;

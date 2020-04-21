@@ -143,6 +143,7 @@ body * {
   40%,
   60% {
     transform: rotate(0deg);
+    color: inherit;
   }
 
   42.5%,
@@ -154,6 +155,7 @@ body * {
   50%,
   55% {
     transform: rotate(-20deg);
+    color: var(--primary);
   }
 
   47.5%,
@@ -167,6 +169,7 @@ body * {
   40%,
   60% {
     transform: rotate(0deg);
+    color: inherit;
   }
 
   42.5%,
@@ -178,6 +181,7 @@ body * {
   50%,
   55% {
     transform: rotate(-20deg);
+    color: var(--primary);
   }
 
   47.5%,

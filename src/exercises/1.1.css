@@ -49,7 +49,7 @@ body * {
 }
 
 /* 🍀 `em` are the only consistent unit in @media queries. */
-@media (min-width: 320px) {
+@media (min-width: 480px) {
   .card {
     display: flex;
   }
@@ -136,6 +136,7 @@ body * {
   40%,
   60% {
     transform: rotate(0deg);
+    color: inherit;
   }
 
   42.5%,
@@ -147,6 +148,7 @@ body * {
   50%,
   55% {
     transform: rotate(-20deg);
+    color: var(--primary);
   }
 
   47.5%,
@@ -160,6 +162,7 @@ body * {
   40%,
   60% {
     transform: rotate(0deg);
+    color: inherit;
   }
 
   42.5%,
@@ -171,6 +174,7 @@ body * {
   50%,
   55% {
     transform: rotate(-20deg);
+    color: var(--primary);
   }
 
   47.5%,
