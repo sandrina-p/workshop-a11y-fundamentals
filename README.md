@@ -12,11 +12,11 @@ These are the material resources for my [Web Accessibility Fundamentals Workshop
 
 To get the most out of the workshop, please do the following things in advance:
 
-- Install [Zoom](https://zoom.us) to join the video call.
+- **Install [Zoom](https://zoom.us)** to join the video call.
   - Turn on your video if possible, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
-- Install a modern browser: Chrome or Firefox are recommended.
-- Familiarize yourself with the basics of a screen reader. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
+- **Install a modern browser**. Chrome or Firefox are recommended.
+- **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
 
   - Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s)
   - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
@@ -54,7 +54,7 @@ Just [download the project](https://github.com/sandrina-p/a11y-fundamentals/arch
 
 #### B: In the browser
 
-You may go throught the [workshop on Codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals). Open the link and fork the project. Make sure to open each individual exercise page in a new window so that you can use DevTools more easily.
+You may go through the [workshop on Codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals). Open the link and fork the project. Make sure to open each individual exercise page in a new window so that you can use DevTools more easily.
 
 ### Project structure
 
