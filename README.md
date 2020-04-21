@@ -68,6 +68,9 @@ src
 |-- index.html    # Workshop entry point
 ```
 
+- In each exercise you'll find the lucky clover emoji 🍀 to guide you. It's not expected for you to complete all the exercises on time. The goal is to introduce you to new things and **make you think about it and ask me questions** as we go though the content.
+- The solutions are there too, but **see the solutions only as a last resource.** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle when you solve the exercise. It's part of the learning proccess. :)
+
 ## Workshop Outline
 
 - 📡 Syncing...
