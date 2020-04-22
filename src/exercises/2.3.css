@@ -18,7 +18,7 @@
 .skipLink:focus {
   outline: none;
   opacity: 1;
-  pointer-events: default;
+  pointer-events: auto;
   box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
 }
 
