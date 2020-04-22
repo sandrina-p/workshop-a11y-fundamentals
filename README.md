@@ -54,7 +54,7 @@ Just [download the project](https://github.com/sandrina-p/a11y-fundamentals/arch
 
 #### B: In the browser
 
-You may go through the [workshop on Codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals). Open the link and fork the project. Make sure to open each individual exercise page in a new window so that you can use DevTools more easily.
+You may go through the [workshop on Codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals?initialpath=/src/index.html). Open the link and fork the project. Make sure to open each individual exercise page in a new window so that you can use DevTools more easily.
 
 ### Project structure
 
