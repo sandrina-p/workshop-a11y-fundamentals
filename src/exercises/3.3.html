@@ -27,7 +27,7 @@ Notes:
 
       <!--
         Lesson #1 - Input labels
-        🍀 Every input must have a label. There are 2 ways to solve this.
+        💡 Every input must have a label. There are 2 ways to solve this.
         Each one do you prefer?
       -->
       <div class="field">
@@ -37,7 +37,7 @@ Notes:
 
       <!--
         Lesson #2 - Group checkbox/radio
-        - 🍀 Related inputs must be grouped. Use <fieldset> and <legend> for that.
+        - 💡 Related inputs must be grouped. Use <fieldset> and <legend> for that.
         -->
       <div class="field">
         <span class="field-txt">Favorite theme</span>
@@ -57,8 +57,8 @@ Notes:
 
       <!--
         Lesson #3 - Required inputs
-        - 🍀 1. Use `aria-required="true"` to the input to mark it as required.
-        - 🍀 2. Add `aria-invalid="false"` to the input and update its value when is
+        - 💡 1. Use `aria-required="true"` to the input to mark it as required.
+        - 💡 2. Add `aria-invalid="false"` to the input and update its value when is
             invalid. JS code needs to be changed too. Look for #3.2 on line ~188.
       -->
       <label class="field">
@@ -67,7 +67,7 @@ Notes:
         <span class="field-error"></span> <!-- innerText added by JS -->
 
         <!-- Lesson #3.2 - Keyboard modes:
-          🍀 When possible specifiy the type of input so that it displays
+          💡 When possible specifiy the type of input so that it displays
           the best virtual keyboard layout on mobile.
           - You may know about type="number", but there is another way that don't
             affect the way the browser interprets the input:
@@ -78,7 +78,7 @@ Notes:
 
       <!-- 
         Lesson #4.1 Input descriptions p1
-        - 🍀 When possible, also connect the input description / tip to the input.
+        - 💡 When possible, also connect the input description / tip to the input.
           Add `aria-describedby="id"` to the <input /> to associate the description bellow.
       -->
       <div class="field">
@@ -89,7 +89,7 @@ Notes:
         <span class="field-tip">The password usually is dumb and short.</span>
       </div>
 
-      <!-- 🍀 Lesson #4.2 - Inputs descriptions p2 -->
+      <!-- 💡 Lesson #4.2 - Inputs descriptions p2 -->
       <div class="field">
         <!-- Users with SR usually fill forms using tab key. When doing that
           they will miss this important sentence -->
@@ -107,7 +107,7 @@ Notes:
       </div>
 
 
-      <!-- 🍀 BONUS #1 - Live Regions -->
+      <!-- 💡 BONUS #1 - Live Regions -->
       <div class="form-footer">
         <p class="formMsg js-formFeedback"></p>
         <button class="btn btnPrimary js-btnSubmit" type="submit">Submit</button>
@@ -185,7 +185,7 @@ Notes:
       elFieldYear.nextElementSibling.innerText = errorMsg || '';
       elFieldYear.nextElementSibling.style.display = hasError ? 'block' : 'none';
 
-      // 🍀 #3.2. Update the aria-invalid attribute
+      // 💡 #3.2. Update the aria-invalid attribute
       // field.setAttribute('aria-invalid', hasError)
 
       if (hasError) {

@@ -1,6 +1,6 @@
-@import url('2.2.css');
+@import url("2.2.css");
 
-/* 🍀 Create your skipLink class here */
+/* 💡 Create your skipLink class here */
 
 .skipLink {
   position: fixed;
@@ -27,7 +27,6 @@
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
 
-
 /* Prevent some browser sfrom showing
 the ugly outline on focus */
 [tabindex="-1"] {
@@ -37,11 +36,10 @@ the ugly outline on focus */
 /* CSS animation shown when the element
 receives focus from an href="#" */
 #main:target {
-  animation: tempRing 1500ms
+  animation: tempRing 1500ms;
 }
 
 @-webkit-keyframes tempRing {
-
   30%,
   75% {
     box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
@@ -49,7 +47,6 @@ receives focus from an href="#" */
 }
 
 @keyframes tempRing {
-
   30%,
   75% {
     box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;

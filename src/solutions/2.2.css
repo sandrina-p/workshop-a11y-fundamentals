@@ -7,7 +7,7 @@
 }
 
 .c-checkbox input {
-  /* 🍀 Write your solution here!
+  /* 💡 Write your solution here!
   We shouldn't use display:none, right?
   Instead let's hide the element visually only */
   /* display: none; */
@@ -59,12 +59,11 @@
 
 /* ------- CHECKBOX -------  */
 
-
-.c-checkbox:hover+ :last-child::before {
+.c-checkbox:hover + :last-child::before {
   border-color: #6f6f6f;
 }
 
-.c-checkbox input:focus+ :last-child::before {
+.c-checkbox input:focus + :last-child::before {
   border-color: #8c00ff;
   box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
 }
@@ -88,7 +87,7 @@
 }
 
 .c-checkbox :last-child::after {
-  content: '✓';
+  content: "✓";
   line-height: 1;
   font-size: 14px;
   position: absolute;
@@ -101,13 +100,12 @@
   transition: transform 150ms;
 }
 
-
-.c-checkbox input:checked+ :last-child::before {
+.c-checkbox input:checked + :last-child::before {
   border-color: #8c00ff;
   background-color: #8c00ff;
 }
 
-.c-checkbox input:checked+ :last-child::after {
+.c-checkbox input:checked + :last-child::after {
   transform: translate(-50%, -50%) scale(1);
 }
 

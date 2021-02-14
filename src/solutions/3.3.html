@@ -66,7 +66,7 @@ Notes:
         <span class="field-tip" id="passTip">The password usually is dumb and short.</span>
       </div>
 
-      <!-- 🍀 Lesson #4.2 - Inputs descriptions p1 -->
+      <!-- 💡 Lesson #4.2 - Inputs descriptions p1 -->
       <label class="field">
         <span class="u-block">
           To be here, you should care about web accessibility.
@@ -75,7 +75,7 @@ Notes:
       </label>
 
 
-      <!-- 🍀 BONUS #1 - Live Regions -->
+      <!-- 💡 BONUS #1 - Live Regions -->
       <div class="form-footer">
         <p class="formMsg js-formFeedback" aria-live="polite"></p>
         <button class="btn btnPrimary js-btnSubmit">Submit</button>
@@ -96,7 +96,7 @@ Notes:
       const isPressed = elSecretBtn.getAttribute("aria-pressed") === 'true';
       // 1.toggle the button status visually and semantically
       elSecretBtn.textContent = isPressed ? '👀' : '🙈'
-      elSecretBtn.setAttribute("aria-pressed", !isPressed) // 🍀 #4.2.
+      elSecretBtn.setAttribute("aria-pressed", !isPressed) // 💡 #4.2.
       // 2. toggle input type
       elSecretInput.setAttribute("type", isPressed ? 'password' : 'text');
     })
@@ -152,7 +152,7 @@ Notes:
       elFieldYear.nextElementSibling.innerText = errorMsg || '';
       elFieldYear.nextElementSibling.style.display = hasError ? 'block' : 'none';
 
-      // 🍀 Update aria-invalid attribute
+      // 💡 Update aria-invalid attribute
       field.setAttribute('aria-invalid', hasError)
 
       if (hasError) {

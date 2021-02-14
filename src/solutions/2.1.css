@@ -1,5 +1,5 @@
 /* Do never ever do this 🥺.
- 🍀 Delete this declaration! */
+ 💡 Delete this declaration! */
 /* *:focus {
   outline: none;
 } */
@@ -25,7 +25,7 @@
   opacity: 0.8;
 }
 
-/* 🍀 add your styles here! */
+/* 💡 add your styles here! */
 .js-focus-visible .c-btnPrimary:focus {
   outline: none;
 }
@@ -53,7 +53,6 @@
   outline: none;
   box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
 }
-
 
 /* ------- LINK -------  */
 
@@ -87,7 +86,6 @@
   position: absolute;
   opacity: 0;
   pointer-events: none;
-
 }
 
 .selectNative:focus {
@@ -95,7 +93,7 @@
   opacity: 1;
 }
 
-.selectNative:focus+.selectCustom {
+.selectNative:focus + .selectCustom {
   display: none;
 }
 
@@ -125,7 +123,7 @@
 }
 
 .selectCustom-label::after {
-  content: '▾';
+  content: "▾";
   position: absolute;
   top: 0;
   line-height: 3.8rem;
@@ -164,7 +162,7 @@
 }
 
 .selectCustom-option:not(:last-of-type)::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0.8rem;
