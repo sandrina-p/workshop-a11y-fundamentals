@@ -1,5 +1,5 @@
 /* Do never ever do this 🥺
- 🍀 Delete this declaration! */
+ 💡 Delete this declaration! */
 *:focus {
   outline: none;
 }
@@ -25,7 +25,7 @@
   opacity: 0.8;
 }
 
-/* 🍀 add .textInput styles here!
+/* 💡 add .textInput styles here!
 - How does the input looks like when disabled or :focused? Try it out! 
 - Tip: Add a nice box-shadow on focus:
   box-shadow: #fff 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
@@ -33,7 +33,7 @@
 
 /* ------- LINK -------  */
 
-/* 🍀 add your styles here! */
+/* 💡 add your styles here! */
 .c-link {
   color: #6f6f6f;
   padding: 0.1rem 0.2rem;
@@ -45,9 +45,8 @@
   color: #8c00ff;
 }
 
-/* 🍀 add link focus styles here!
+/* 💡 add link focus styles here!
 - Tip: you could change the background to a very light purple */
-
 
 /* ------- TEXT INPUT -------  */
 
@@ -65,11 +64,10 @@
   border-color: #8c00ff;
 }
 
-/* 🍀 add .textInput styles here!
+/* 💡 add .textInput styles here!
 - How does the input looks like when disabled or focused? Try it out! 
 - Tip: Change the border color on hover or focus
 */
-
 
 /* ------- SELECT (BONUS #1) -------  */
 
@@ -80,17 +78,19 @@
   height: 3.8rem;
 }
 
-/*  🍀 Write the select styles from here... */
-.selectNative {}
+/*  💡 Write the select styles from here... */
+.selectNative {
+}
 
-.selectNative:focus {}
+.selectNative:focus {
+}
 
-.selectNative:focus+.selectCustom {}
+.selectNative:focus + .selectCustom {
+}
 
-/*  ... until here 🍀 */
+/*  ... until here 💡 */
 
 /* Once you make the native select work, that's all! */
-
 
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code bellow  *|
@@ -118,7 +118,7 @@
 }
 
 .selectCustom-label::after {
-  content: '▾';
+  content: "▾";
   position: absolute;
   top: 0;
   line-height: 3.8rem;
@@ -157,7 +157,7 @@
 }
 
 .selectCustom-option:not(:last-of-type)::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0.8rem;

@@ -24,7 +24,7 @@ Notes:
     <!-- Lesson #1 - A link with icon only -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #1</h2>
-      <!-- 🍀 A links must have a name, always. Add aria-label -->
+      <!-- 💡 A links must have a name, always. Add aria-label -->
       <a href="#profile" class="btn btnCircle">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
           <path
@@ -36,7 +36,7 @@ Notes:
     <!-- Lesson #2 - A toggle button "add to favorites" -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #2</h2>
-      <!-- 🍀 Besides the missing accessible label, we should also indicate
+      <!-- 💡 Besides the missing accessible label, we should also indicate
         if the button is pressed or not. Use aria-pressed="true|false" for that. -->
       <button class="btn btnToggle js-addToFavorite">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
@@ -54,7 +54,7 @@ Notes:
           const method = isPressed ? 'remove' : 'add'
           // Toggle the button status visually
           elToggle.classList[method]('isPressed');
-          // and semantically 🍀
+          // and semantically 💡
           elToggle.setAttribute("aria-pressed", !isPressed);
         })
       </script>
@@ -64,7 +64,7 @@ Notes:
     <div class="block_v">
       <h2 class="heading-2">Lesson #3</h2>
       <!--
-        🍀 This button instruction is confusing for a SR user because they don't
+        💡 This button instruction is confusing for a SR user because they don't
         know if they should press enter when on the button or on the instruction. -->
       <div class="u-rowCenterY">
         <!-- 1/2 use aria-describedby="id" to associate the instruction -->
@@ -82,7 +82,7 @@ Notes:
       <p>
         Links should make sense out of context. Phrases such as "click here," "more," "click for details," and so on
         are ambiguous when read out of context.
-        <!-- 🍀 Could we provide a better link description? -->
+        <!-- 💡 Could we provide a better link description? -->
         <a href="https://webaim.org/techniques/hypertext/link_text" class="link">
           Read more.
         </a>
@@ -92,7 +92,7 @@ Notes:
     <!-- Lesson #5 - The current link -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #5</h2>
-      <!-- 🍀 We can visually understand what's the current element in a list thanks to CSS.
+      <!-- 💡 We can visually understand what's the current element in a list thanks to CSS.
         A similar information can be provided to AT using aria-current.
         The following article explains the acceptable values for this attribute.
         https://tink.uk/using-the-aria-current-attribute/
@@ -110,7 +110,7 @@ Notes:
     <!-- Lesson #6 - Accessible Emojis -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #6</h2>
-      <!-- 🍀 Read the following sentence with a screen reader.
+      <!-- 💡 Read the following sentence with a screen reader.
         The emojis are confusing, right? To hide them from SR use aria-hidden
         and provide descriptalions with .sr-only when necessary -->
       <p>
@@ -125,7 +125,7 @@ Notes:
     <div class="block_v">
       <h2 class="heading-2">Lesson #7</h2>
       <!--
-        🍀 Here's "picture" made of characters.
+        💡 Here's "picture" made of characters.
         This is the worst nightmare for a SR user. What can we do here?
         - Option A: Add role="img" attribute with alt=""
         - Option B: Hide <pre> from SR and add a description with .sr-only.

@@ -6,7 +6,6 @@
   --text_0: #383838;
   --primary: #8c00ff;
   --secondary: #bd5809;
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,7 +18,7 @@
 }
 
 html {
-  font-size: 62.5%
+  font-size: 62.5%;
 }
 
 body {
@@ -53,22 +52,21 @@ body * {
   box-shadow: 0.2rem 0.2rem #e9e1f8;
 }
 
-/* 🍀 `em` are the only consistent unit in @media queries. */
+/* 💡 `em` are the only consistent unit in @media queries. */
 @media (min-width: 30em) {
   .card {
     display: flex;
   }
 
-  .card> :nth-child(1) {
+  .card > :nth-child(1) {
     flex: 1;
   }
 
-  .card> :nth-child(2) {
+  .card > :nth-child(2) {
     flex: 2;
     padding-left: 1.6rem;
   }
 }
-
 
 .btnBell {
   display: flex;
@@ -139,7 +137,6 @@ body * {
 \** ----------------------------------------- */
 
 @keyframes shakeSometimes {
-
   40%,
   60% {
     transform: rotate(0deg);
@@ -165,7 +162,6 @@ body * {
 }
 
 @-webkit-keyframes shakeSometimes {
-
   40%,
   60% {
     transform: rotate(0deg);

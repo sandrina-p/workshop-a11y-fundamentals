@@ -1,5 +1,5 @@
 /*  ------- Solving Bonus 1:
-- 🍀Your solution may require to change .header or .header-tag
+- 💡Your solution may require to change .header or .header-tag
 */
 .header {
   display: flex;
@@ -25,7 +25,6 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
 
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code bellow  *|
