@@ -16,6 +16,7 @@ To get the most out of the workshop, please do the following things in advance:
   - Turn on your video if possible, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
 - **Install a modern browser**. Chrome or Firefox are recommended.
+- **Setup the project** prior to the workshop to avoid unexpected installation issues.
 - **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
   - Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
   - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
@@ -35,7 +36,7 @@ Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before 
 git clone https://github.com/sandrina-p/workshop-a11y-fundamentals.git
 
 # Go to workshop folder
-cd a11y-fundamentals
+cd workshop-a11y--farfetch
 
 # Install the dependencies
 npm install
@@ -46,55 +47,54 @@ npm start
 
 ### Alternatives
 
-#### A: Locally
+#### Locally
 
 Just [download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/master.zip), open `src/index.html` and you are ready to go.
 
-#### B: In the browser
-
-You may go through the [workshop on Codesandbox](https://codesandbox.io/s/github/sandrina-p/a11y-fundamentals?initialpath=/src/index.html). Open the link and fork the project. Make sure to open each individual exercise page in a new window so that you can use DevTools more easily.
+# Workshop Dynamic
 
 ### Project structure
 
+The workshop consists of a set of challenges.
+Each one introduces a new topic, followed by a code exercise for you to apply the concepts learned.
+After each challenge, we'll go through the solution together and clarify questions.
+
 ```bash
-src
-├── briefings     # Exercise instructions
-├── exercises     # Where you'll be working
-    ├── xx.html     # The exercise html
-    ├── xx.css      # The exercise styles
-|-- solutions     # The final solutions
-|-- index.html    # Workshop entry point
+src/
+  exercises/     # Where you'll be working
+    *.md       # The exercise briefing
+    *.html     # The exercise html
+    *.css      # The exercise styles
+  solutions/     # The final solutions
+  index.html    # Workshop entry point
 ```
 
-- In each exercise, you'll find the lucky clover emoji 🍀 to guide you. I don't expecte you to complete all the exercises on time. The goal is to introduce you to new things, and **make you think about it, and ask me questions** as we go through the content.
-- Learning Tip: **Check the solutions only as a last resource.** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
+**Notes:**
+
+- **Setup is done:** All libraries/tools needed are already installed, ready to be used by you.
+- **Check solutions as a last resource** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
+- **Time expectations:** I don't expect you to complete the entire exercise on time. The goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the content.
+- **Guidance & tips:** In the code, you'll find the _light bulb_ emoji 💡 to guide you, and the _lucky clover_ emoji 🍀 with extra tips.
 
 ## Workshop Outline
 
-- 📡 Syncing...
+- 👋 Welcoming everyone
 - 🧠 **#0: Web Accessibility overview**
 - 🎯 **#1: Accessible by default**
   - Appearance
   - Semantic HTML
   - Meaningful images
-- 🏖 10 minutes break
 - 🎯 **#2: Keyboard Navigation**
   - Interactive elements
   - Hidden elements
   - Navigation shortcuts
-- 🏖 15 minutes break
 - 🎯 **#3: Screen Readers**
   - Meaningful content
   - Page Landmarks
   - Accessible forms
-- 🏖 5 minutes break
-- 🎯 **#4: Next steps in A11Y**
+- 🎯 **#4: Next steps into A11Y**
 
 ---
-
-## Workshop Feedback
-
-Please take a couple of minutes to [give me your feedback](https://docs.google.com/forms/d/e/1FAIpQLScLhrB3DvEF51Y43DxoQMz2pUxzkGNk3XLo6Lf5odsjJXznFA/viewform?usp=sf_link), as it will help me improving the next editions of this workshop 🤗
 
 ## License
 
