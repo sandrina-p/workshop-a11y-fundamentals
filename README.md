@@ -34,7 +34,7 @@ Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before 
 
 ```bash
 # Clone the repository
-git clone https://github.com/sandrina-p/a11y-fundamentals.git
+git clone https://github.com/sandrina-p/workshop-a11y-fundamentals.git
 
 # Go to workshop folder
 cd a11y-fundamentals
@@ -50,7 +50,7 @@ npm start
 
 #### A: Locally
 
-Just [download the project](https://github.com/sandrina-p/a11y-fundamentals/archive/master.zip), open `src/index.html` and you are ready to go.
+Just [download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/master.zip), open `src/index.html` and you are ready to go.
 
 #### B: In the browser
 
@@ -68,8 +68,8 @@ src
 |-- index.html    # Workshop entry point
 ```
 
-- In each exercise you'll find the lucky clover emoji 🍀 to guide you. I don't expected you to complete all the exercises on time. The goal is to introduce you to new things and **make you think about it and ask me questions** as we go though the content.
-- Learning Tip: **Check the solutions only as a last resource.** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning proccess. :)
+- In each exercise, you'll find the lucky clover emoji 🍀 to guide you. I don't expecte you to complete all the exercises on time. The goal is to introduce you to new things, and **make you think about it, and ask me questions** as we go through the content.
+- Learning Tip: **Check the solutions only as a last resource.** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
 
 ## Workshop Outline
 

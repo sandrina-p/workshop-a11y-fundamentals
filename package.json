@@ -1,9 +1,9 @@
 {
-  "name": "a11y-fundamentals-workshop",
+  "name": "workshop-a11y-fundamentals",
   "private": true,
   "title": "Web Accessibility Fundamentals",
   "version": "1.0.0",
-  "description": "In this workshop we'll explore every common accessibility no-nos and learn how to make them work properly for everyone using a mouse or a keyboard.",
+  "description": "In this workshop, we'll explore every common accessibility no-nos and learn how to make them work properly for everyone using a mouse or a keyboard.",
   "main": "src/index.html",
   "author": "@sandrina-p",
   "license": "GPL-3.0-only",
