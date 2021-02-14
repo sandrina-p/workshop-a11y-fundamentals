@@ -2,7 +2,7 @@
   "name": "workshop-a11y-fundamentals",
   "private": true,
   "title": "Web Accessibility Fundamentals",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "In this workshop, we'll explore every common accessibility no-nos and learn how to make them work properly for everyone using a mouse or a keyboard.",
   "main": "src/index.html",
   "author": "@sandrina-p",
@@ -14,7 +14,7 @@
   "devDependencies": {
     "fast-glob": "^3.2.2",
     "rimraf": "^3.0.2",
-    "serve": "^11.3.0",
+    "serve": "^11.3.2",
     "showdown": "^1.9.1"
   }
 }
