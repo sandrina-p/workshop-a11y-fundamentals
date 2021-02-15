@@ -17,65 +17,28 @@
   
 <h1 id="11appearance">1.1 Appearance</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Accessibility is not just about making information available to people with disabilities.
-It's also about respecting people's preferences, including appearance preferences.
-Three common appearance preferences are <em>color</em>, <em>motion</em> and <em>size</em>.</p>
+<p>Accessibility (A11Y) is more than making information available to people.</p>
+<p>Any person should perceive content with ease. For that, we should respect people's disabilities and preferences.
+Let's start with the two most common appearance topics: <em>color</em> and <em>proportions</em>.</p>
 <h3 id="color">Color</h3>
-<p>Any person, with or without disabilities must be able to perceive content with ease. <a href="https://webaim.org/resources/contrastchecker/">WebAIM contract checker</a>, <a href="https://colorable.jxnblk.com/001b66/00ffa2">Colorable</a> and <a href="https://www.getstark.co/">Stark</a> are just three of the many free tools available to help us follow the <a href="https://webaim.org/articles/contrast/">WCAG color contrast guidelines</a>.</p>
-<p>In case we create multiple themes, we can use the CSS media query <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a> that allows us to set the default theme based on the user color preferences.</p>
-<pre><code class="css language-css">body {
-  background: white;
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: black;
-    color: white;
-  }
-}
-</code></pre>
-<h3 id="motion">Motion</h3>
-<p>Modern websites tend to use motion techniques as a way to communicate information. However, some people find them distracting or uncomfortable and others can't perceive the animations at all, particularrly people with cognitive disabilities or slow devices owners.</p>
-<p>In spite of the growing desire to create an immersive experience, we must not forget that <strong>animations are an enhancement</strong> and should not be a barrier to understand the content.</p>
-<p>The CSS media query <code>preferes-reduced-motion</code> allows us to respect the user's motion preferences.</p>
-<pre><code class="css language-css">.error {
-  animation: shake 400ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .error {
-    animation: none;
-  }
-}
-</code></pre>
-<h3 id="size">Size</h3>
-<p>Websites should adapt their content size based on the user's preferences. This can be achieved by using relative sizes instead of absolute sizes.</p>
-<p>The relative units <code>rem</code> and <code>em</code> are the best replacments for <code>px</code>. An <code>em</code> is an unit of typography, relative to the font-size of its nearest parent. <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
+<p>Color contrast is the <a href="https://webaim.org/projects/million/#wcag">biggest A11Y issue</a>, yet one of the easiest to fix, by following the <a href="https://webaim.org/articles/contrast/">WCAG color contrast guidelines</a>. Here's some of my favorite free tools:</p>
+<ul>
+<li><a href="https://webaim.org/resources/contrastchecker/">WebAIM contract checker</a></li>
+<li><a href="https://colourcontrast.cc/">Colour Contract</a> - Chrome extension</li>
+<li><a href="https://www.getstark.co/">Stark</a> - Figma plugin</li>
+</ul>
+<h3 id="proportionssize">Proportions (size)</h3>
+<p>It's out of our control to know the exact size or font that will be presented to people because a webpage can be consumed in multiple mediums.</p>
+<p>For that reason, it's safer to <strong>think about <em>proportions</em> insted of <em>sizes</em> when building interfaces</strong>. This can be achieved by using relative units instead of absolute units for text size.</p>
+<p>The relative units <code>rem</code> and <code>em</code> are the best replacements for <code>px</code>. An <code>em</code> is an unit of typography, relative to the <code>font-size</code> of its nearest parent. A <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
 <p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>1rem = 16px</code></strong>.</p>
-<p>The math is <code>x/16</code> where <code>x</code> is the pixel value. ex: <code>24px/16 = 1.5rem</code></p>
-<pre><code class="css language-css">.heading-1 {
-  font-size: 1.75rem; /* same as 28px (28/16) */
+<pre><code class="css language-css">.title {
+  font-size: 1.5rem; /* same as 24px (24/16 or 16*1.5) */
 }
 </code></pre>
-<h2 id="exercise">Exercise</h2>
-<p>Let's wrap up all the 3 appearance preferences in the first exercise.
-In the <a href="../exercises/1.1.html">exercise page</a>, there are 3 accessibility problems:</p>
-<ul>
-<li>Color: The text "Breaking news" is not accessible.</li>
-<li>Motion: The icon "Notifications" has a constant shaky animation.</li>
-<li>Size: The page is built with absolute units.</li>
-</ul>
-<p><strong>🎯 Goal:</strong> Make the page follow appearance guidelines.</p>
-<ul>
-<li><strong>Hin 1:</strong> Use Accessibility Insights to detect color contrast issues.</li>
-<li><strong>Hint 2:</strong> Use the Chrome DevTools color picker to find a color that respects level AA.</li>
-<li><strong>Hint 3:</strong> Customize your browser font size to see how the page reacts as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</li>
-</ul>
-<h2 id="bonus">Bonus</h2>
-<h3 id="1easierratio1rem10px">#1 Easier ratio: 1rem = 10px</h3>
-<p>Doing the math <code>x/16</code> can be painful when dealing with certain numbers such as 15px (0.9375rem). You may wonder: <em>Why can't 1rem equal 10px?</em> Well, there's a way! Let's set the HTML (root) font-size to 62.5%. It works because 62.5% of 16px is 10px. Now you can do the direct math <code>1rem === 10px</code>.</p>
+<p><strong>Math simplified:</strong> The math <code>x/16</code> can be painful when dealing with certain numbers. (eg 15px equals 0.9375rem). We can simplify that by setting the root size to 62.5%, which means <code>1rem</code> equals <code>10px</code>.</p>
 <pre><code class="css language-css">html {
+  /* 62.5% of 16px is 10px.  */
   font-size: 62.5%;
 }
 
@@ -88,15 +51,72 @@ body {
   font-size: 2.8rem; /* ------ new way */
 }
 </code></pre>
-<h2 id="notes">Notes</h2>
+<h2 id="exercise">Exercise</h2>
+<p>In the <a href="../exercises/1.1.html">exercise page</a>, there are multiple accessibility problems related with color and proportions:</p>
 <ul>
-<li><a href="https://accessibilityinsights.io/">Accessibility Insights</a>(https://wave.webaim.org/extension/)</li>
+<li>Color: Some text has not enough color contrast.</li>
+<li>Size: The text size is written with absolute units.</li>
+</ul>
+<p><strong>🎯 Goal:</strong> Make the page follow appearance guidelines that respect level AA.</p>
+<ul>
+<li><strong>Hint 1:</strong> Use an <a href="#extensions">A11Y extension</a> to help you detect color contrast issues.</li>
+<li><strong>Hint 2:</strong> Use the Chrome DevTools color picker to find a color that respects level AA.</li>
+<li><strong>Hint 3:</strong> Customize your browser font size to see how the content is displayed as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</li>
+</ul>
+<h2 id="bonusachievinglevelaaa">Bonus - Achieving level AAA</h2>
+<h3 id="1colortheming">1. Color: Theming</h3>
+<p>When creating multiple themes, we can use the CSS media query <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a> to set the default theme based on the user color preferences.</p>
+<p><strong>🎯 Goal:</strong> Add a <code>dark</code> theme to the page. Here are its colors:</p>
+<pre><code class="css language-css">--bg_0: #383838;
+--bg_1: #2e2a2f;
+--text_0: #f8f3ef;
+</code></pre>
+<p><strong>🍀 Tip:</strong> In Chrome, you can change rendering preferences. In Dev Tools, go to Settings &gt; Rendering. Scroll down until "Emulate CSS media" and select the preferred scheme.</p>
+<h3 id="2motionpreference">2. Motion preference</h3>
+<p>We tend to use motion techniques as a way to communicate information. However, some people find them distracting or uncomfortable. Others can't even see the animations, particularly people with cognitive disabilities or slow devices.</p>
+<p>In spite of the growing desire to create an immersive experience, remember that <strong>animations are an enhancement</strong> and should not be a barrier to understand the content.</p>
+<p>The CSS media query <code>preferes-reduced-motion</code> allows us to respect the user's motion preferences.</p>
+<pre><code class="css language-css">.error {
+  animation: shake 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error {
+    animation: none;
+  }
+}
+</code></pre>
+<p><strong>🎯 Goal:</strong> Remove the notification bell animation</p>
+<p><strong>🍀 Tip:</strong> This is also available in Chrome "Rendering" panel.</p>
+<h3 id="3visualpresentation">3. Visual presentation</h3>
+<p>There are a few small tweaks we can still do, following the WCGAG recommendations for blocks of text, such as:</p>
+<ul>
+<li>Width is no more than 80 characters or glyphs.</li>
+<li>Text is not justified.</li>
+<li>Paragraph line-height is at least 1.5 the font size.</li>
+</ul>
+<p><strong>🎯 Goal:</strong> Update the page to follow the criterion above.</p>
+<h2 id="furtherreading">Further reading</h2>
+<h3 id="extensions">Extensions</h3>
+<ul>
+<li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
 <li><a href="https://wave.webaim.org/extension/">WAVE extension</a></li>
+</ul>
+<h3 id="articles">Articles</h3>
+<ul>
 <li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color contrast accessibility</a></li>
-<li><a href="https://css-tricks.com/introduction-reduced-motion-media-query/">An Introduction to the Reduced Motion Media Query</a></li>
+<li><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">The complete guide to dark mode on the web</a>.</li>
 <li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
 <li><a href="https://zellwk.com/blog/media-query-units/">PX, EM or REM in Media Queries?</a></li>
-<li><a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/visual-audio-contrast-scale.html">Criterion 1.1.4 - "Resize Text" 1.1.4</a>: Using px units on any text will fail WCAG level AA</li>
+<li><a href="https://css-tricks.com/introduction-reduced-motion-media-query/">An Introduction to the Reduced Motion Media Query</a></li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">WCAG 1.4.3 Contrast (Minimum) - AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#resize-text">WCAG 1.4.4 Resize text - AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">WCAG 1.4.8 Visual Presentation - AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#text-spacing">WCAG 1.4.12 Text spacing - AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">WCAG 2.3.3 Animation from interactions - AAA</a></li>
 </ul>
 
   </main>
