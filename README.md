@@ -51,7 +51,15 @@ npm start
 
 Just [download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/master.zip), open `src/index.html` and you are ready to go.
 
-# Workshop Dynamic
+## Optional: Developer extensions
+
+During the workshop, we'll use these extensions:
+
+- [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome, Firefox, Edge
+- [Accessibility Insights for Web](https://accessibilityinsights.io/en/downloads/) - Chrome only
+- [Colour contract checker](https://colourcontrast.cc/) - Chrome only
+
+## Workshop Dynamic
 
 ### Project structure
 
@@ -71,7 +79,6 @@ src/
 
 **Notes:**
 
-- **Setup is done:** All libraries/tools needed are already installed, ready to be used by you.
 - **Check solutions as a last resource** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
 - **Time expectations:** I don't expect you to complete the entire exercise on time. The goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the content.
 - **Guidance & tips:** In the code, you'll find the _light bulb_ emoji 💡 to guide you, and the _lucky clover_ emoji 🍀 with extra tips.
@@ -126,3 +133,10 @@ Here are some guidelines for things that are **OK** and **Not OK** based on this
 &copy; 2021 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved
 
 **This material cannot be used for workshops, training, or any other form of instructing or teaching, without express written consent.**
+
+<!--
+A11Y Linter with CSS // TODO
+
+- [Alt img](https://twitter.com/geoffreycrofte/status/1274652138854121474?s=21)
+- [Invalid links](https://twitter.com/argyleink/status/1274364131928309762?s=21)
+-->
