@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/theme.css" />
   <style>
     .content {
-      max-width: 52rem;
+      max-width: 55rem;
     }
 
     .field.error {
@@ -23,6 +23,20 @@
       position: absolute;
       top: 0;
       right: 0;
+    }
+
+    /** workaround. styling <legend> is tricky and ugly */
+    fieldset.field {
+      padding-top: 1rem;
+      margin-top: -1rem;
+    }
+
+    fieldset.field legend {
+      transform: translateY(1rem);
+    }
+
+    fieldset.field.error::after {
+      top: -2rem;
     }
 
     .inputText {
@@ -112,16 +126,15 @@
       following things in advance. This should take between 5 to 30 minutes.
     </p>
     <ul class="r-list1">
-      <li>
+      <!-- <li>
         <p>
           <strong>Install <a class="link" href="https://zoom.us">Zoom</a></strong>
           to join the video call.
         </p>
-      </li>
+      </li> -->
       <li>
         <p>
-          <strong>Install a modern browser:</strong> Chrome or Firefox are
-          recommended.
+          <strong>Install a modern browser:</strong> Chrome or Firefox Dev Edition is recommended.
         </p>
       </li>
       <li>
@@ -134,7 +147,7 @@
         </p>
         <ul class="r-list2">
           <li>
-            Mac: You'll use VoiceOver.
+            Mac: You'll be using VoiceOver.
             <a class="link" href="https://www.youtube.com/watch?v=5R-6WvAihms">Watch this VO introduction</a>.
           </li>
           <li>
@@ -150,17 +163,16 @@
           </li>
         </ul>
         <p>
-          Here's a cheat sheet with SR keyboard shortcuts:
+          SR keyboard shortcuts:
           <a class="link" href="https://dequeuniversity.com/screenreaders/survival-guide">VO and NVDA</a>
           and
-          <a href="https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en">Orca</a>.
+          <a class="link" href="https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en">Orca</a>.
         </p>
       </li>
     </ul>
     <p>
       <strong>
-        The better prepared you are for the workshop, the more you will learn
-        from it!
+        The better prepared you are for the workshop, the more you will learn from it!
       </strong>
     </p>
 
@@ -182,7 +194,7 @@
       </label>
 
       <fieldset class="field">
-        <span class="field-txt">What's your Operating System?</span>
+        <legend class="field-txt">What's your Operating System?</legend>
         <label class="inputRadio">
           <input type="radio" name="os" value="windows" aria-required="true" />
           <span>Windows</span>
@@ -198,7 +210,7 @@
       </fieldset>
 
       <fieldset class="field">
-        <span class="field-txt">What browser will you be using on the workshop?</span>
+        <legend class="field-txt">What browser will you be using on the workshop?</legend>
         <label class="inputRadio">
           <input type="radio" name="browser" value="ch" aria-required="true" />
           <span>Chrome</span>
@@ -229,16 +241,16 @@
         </select>
       </label>
 
-      <label class="field">
+      <!-- <label class="field">
         <span class="field-txt">What's your e-mail?</span>
         <input class="inputText" type="email" aria-required="true" name="email" />
         <span class="field-tip">I will contact you if I have any doubt. No spam!</span>
-      </label>
+      </label> -->
 
       <label class="field">
-        <span class="field-txt">Anything else?</span>
+        <span class="field-txt">Wishlist</span>
         <textarea class="inputText textarea" name="extra"></textarea>
-        <span class="field-tip">Add whatever you think it's relevant for me to know.</span>
+        <span class="field-tip">Any particular thing you'd like to explore in the workshop?</span>
       </label>
 
       <p class="sr-only">
@@ -248,7 +260,7 @@
       <div class="form-footer jsFooter">
         <p class="form-msg_success" aria-live="polite">
           Thank you, see you soon!
-          <span class="sr-only">And you are rocking with that screen reader!</span>
+          <span class="sr-only">Oh, you are rocking with that screen reader!</span>
         </p>
         <p class="form-msg_error" aria-live="polite">
           Ups, something wen't wrong! Could you let me know about this by
@@ -270,7 +282,7 @@
       os: (value) => !!value,
       browser: (value) => !!value,
       level: (value) => value !== "0",
-      email: (value) => !!value,
+      // email: (value) => !!value,
       extra: (value) => true,
     };
     const elForm = document.getElementsByClassName("js-form")[0];
@@ -310,17 +322,17 @@
       console.log("Submitting form...", fields);
 
       fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: Object.keys(fields)
-            .map(
-              (key) =>
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: Object.keys(fields)
+          .map(
+            (key) =>
               encodeURIComponent(key) + "=" + encodeURIComponent(fields[key])
-            )
-            .join("&"),
-        })
+          )
+          .join("&"),
+      })
         .then((result) => {
           if (!result.ok) {
             console.error("Form not ok!", result);
