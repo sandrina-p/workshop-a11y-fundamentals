@@ -49,11 +49,12 @@ npm start
 
 #### Locally
 
-Just [download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/master.zip), open `src/index.html` and you are ready to go.
+- [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip)
+- Open `src/index.html`, and you are ready to go.
 
 ## Optional: Developer extensions
 
-During the workshop, we'll use these extensions:
+During the workshop, these extensions may help you:
 
 - [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome, Firefox, Edge
 - [Accessibility Insights for Web](https://accessibilityinsights.io/en/downloads/) - Chrome only
@@ -69,11 +70,12 @@ After each challenge, we'll go through the solution together and clarify questio
 
 ```bash
 src/
-  exercises/     # Where you'll be working
-    *.md       # The exercise briefing
-    *.html     # The exercise html
-    *.css      # The exercise styles
-  solutions/     # The final solutions
+  briefings/
+    *.md      # The exercise briefing
+  exercises/  # Where you'll be working
+    *.html      # The exercise html
+    *.css       # The exercise styles
+  solutions/  # The final solutions
   index.html    # Workshop entry point
 ```
 
