@@ -5,64 +5,12 @@
 
 /* Lesson 1 */
 .case1 {
-  display: flex;
-}
-
-.case1 img {
-  width: 4.8rem;
-  height: 4.8rem;
-  border-radius: 50%;
-}
-
-.case1-content {
-  margin-left: 1.6rem;
-}
-
-.case1-name {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.case1-quote {
-  font-style: italic;
-}
-
-.case1-quote::before,
-.case1-quote::after {
-  content: '';
-}
-
-/* Lesson 2 */
-.case2 {
-  max-width: 25rem;
-  border: 0.1rem solid #6f6f6f;
-  padding: 1.6rem;
-}
-
-.case2 figure {
-  margin: 0;
-}
-
-.case2-img {
-  width: 100%;
-  display: block;
-}
-
-.case2-caption {
-  font-style: italic;
-  font-size: 1.4rem;
-  margin-top: 0.4rem;
-}
-
-/* Lesson 3 */
-.case3 {
   position: relative;
   width: 100%;
-  background: #613232;
+  padding: 0;
 }
 
-.case3-img {
+.case1-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,13 +19,65 @@
   object-fit: cover;
 }
 
-.case3-text {
+.case1-text {
   position: relative;
   margin: 0;
-  padding: 4rem 1.6rem;
+  padding: 4rem 2.4rem;
   font-size: 3.2rem;
   color: white;
   text-shadow: 0.1rem 0.1rem 0.3rem #00000080;
+}
+
+/* Lesson 2 */
+.case2 {
+  display: flex;
+}
+
+.case2 img {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+}
+
+.case2-content {
+  margin-left: 1.6rem;
+}
+
+.case2-name {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.case2-quote {
+  font-style: italic;
+}
+
+.case2-quote::before,
+.case2-quote::after {
+  content: "";
+}
+
+/* Lesson 3 */
+.case3 {
+  max-width: 25rem;
+  border: 0.1rem solid #6f6f6f;
+  padding: 1.6rem;
+}
+
+.case3 figure {
+  margin: 0;
+}
+
+.case3-img {
+  width: 100%;
+  display: block;
+}
+
+.case3-caption {
+  font-style: italic;
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
 }
 
 /* Lesson 4 */
