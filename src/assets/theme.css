@@ -7,6 +7,12 @@
 
 html {
   font-size: 62.5%;
+  --theme-width: 53rem;
+  --theme-primary: #9b78de;
+  --theme-primary-strong: #8c00ff;
+  --theme-primary-light: #e9e1f8;
+  --theme-secondary: #ff821f;
+  --theme-text_1: #6f6f6f;
 }
 
 body {
@@ -48,10 +54,10 @@ img {
 .block_v {
   padding: 2.4rem 1.6rem;
   margin: 4rem auto;
-  border: 0.1rem solid #9b78de;
+  border: 0.1rem solid var(--theme-primary);
   border-radius: 0.3rem;
   background-color: #fff;
-  box-shadow: 0.2rem 0.2rem #e9e1f8;
+  box-shadow: 0.2rem 0.2rem var(--theme-primary-light);
 }
 
 .part {
@@ -60,12 +66,8 @@ img {
 
 /* ------- UTILS -------  */
 
-.u-secondary {
-  color: #6f6f6f;
-}
-
 .u-primary {
-  color: #9b78de;
+  color: var(--theme-primary);
 }
 
 .u-danger {
@@ -138,7 +140,7 @@ img {
   font-size: 1.6rem;
   border: none;
   padding: 0.8rem 2.4rem;
-  background-color: #8c00ff;
+  background-color: var(--theme-primary-strong);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -147,13 +149,13 @@ img {
 
 .btnOutline {
   padding: 0.8rem 2.4rem;
-  border: 1px solid #8c00ff;
+  border: 1px solid var(--theme-primary-strong);
   background-color: transparent;
   color: currentColor;
 }
 
 .btnOutline:hover {
-  color: #8c00ff;
+  color: var(--theme-primary-strong);
 }
 
 .btnCircle,
@@ -172,7 +174,7 @@ img {
 .btnOutline:focus,
 .btnCircle:focus {
   outline: none;
-  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 0.2rem, var(--theme-secondary) 0 0 0 0.4rem;
 }
 
 .btn-svg {
@@ -183,26 +185,26 @@ img {
 
 .btnToggle {
   background: #ffffff;
-  border: 1px solid #6f6f6f;
+  border: 1px solid var(--theme-text_1);
 }
 
 .btnToggle .btn-svg {
-  fill: #6f6f6f;
+  fill: var(--theme-text_1);
 }
 
 .btnToggle:hover,
 .btnToggle:focus {
-  border-color: #8c00ff;
+  border-color: var(--theme-primary-strong);
 }
 
 .btnToggle:focus {
   outline: none;
-  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 0.2rem, var(--theme-secondary) 0 0 0 0.4rem;
 }
 
 .btnToggle.isPressed .btn-svg,
 .btnToggle[aria-pressed="true"] .btn-svg {
-  fill: #8c00ff;
+  fill: var(--theme-primary-strong);
 }
 
 /* ------- BREADCRUMB -------  */
@@ -225,29 +227,28 @@ img {
 }
 
 .breadcrumb li:not(:last-child)::after {
-  content: '▸';
+  content: "▸";
   margin-left: 0.8rem;
 }
-
 
 /* ------- LINKS -------  */
 
 .link {
   display: inline-block;
   color: inherit;
-  text-decoration-color: #9b78de;
+  text-decoration-color: var(--theme-primary);
   padding: 0.1rem 0.2rem;
   transform: translateX(-0.1em);
   margin-right: -0.1em;
 }
 
 .link:hover {
-  color: #8c00ff;
+  color: var(--theme-primary-strong);
 }
 
 .link:focus {
   outline: none;
-  background-color: #e9e1f8;
+  background-color: var(--theme-primary-light);
 }
 
 .link.isCurrent {
@@ -303,7 +304,7 @@ fieldset.field {
 /* Don't judge... it works! I'll improve this later. */
 .form-footer {
   margin-top: 2.4rem;
-  border-top: 1px solid #6f6f6f;
+  border-top: 1px solid var(--theme-text_1);
   padding: 2.4rem 0 1.6rem;
 }
 
@@ -336,5 +337,5 @@ fieldset.field {
 }
 
 .r-footerG {
-  border-top: 1px solid #9b78de;
+  border-top: 1px solid var(--theme-primary);
 }

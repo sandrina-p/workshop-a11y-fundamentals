@@ -1,12 +1,12 @@
 main {
   margin: 0 auto;
-  max-width: 52rem;
+  max-width: var(--theme-width);
   padding: 4rem 1.6rem 1.6rem;
 }
 
 footer {
   margin: 0 auto;
-  max-width: 52rem;
+  max-width: var(--theme-width);
   padding: 2.4rem 1.6rem;
 }
 
@@ -44,8 +44,8 @@ pre {
   border-left: 3px solid #9b78de;
 }
 
-code[class*=language-],
-pre[class*=language-] {
+code[class*="language-"],
+pre[class*="language-"] {
   /* override prims */
   font-size: 1.2rem;
 }
