@@ -17,15 +17,15 @@
   
 <h1 id="33accessibleforms">3.3. Accessible forms</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Forms are used for many types of interactions on the web. When we talk about the accessibility of forms we are usually referring to their accessibility regarding people who use screen readers or keyboards. However <strong>everyone benefits from a well-organized, highly usable form</strong>, especially those with cognitive disabilities. Forms should be clear and intuitive.</p>
-<p>When building forms we should make sure that:</p>
+<p>When talking about the accessibility of a form, usually we are talking about their accessibility regarding people who use screen readers or keyboards. However <strong>everyone benefits from a well-organized and usable form</strong>, especially those with cognitive disabilities. Forms should be clear and intuitive.</p>
+<p>When building forms, we should make sure that:</p>
 <ul>
 <li>Every form control has a label</li>
 <li>Explicit required form fields</li>
 <li>Explicit formatting requirements</li>
-<li>They are keyboard accessible</li>
+<li>Forms are keyboard accessible</li>
 </ul>
-<p>The most basic rule is to make sure every form control has a respective label.</p>
+<p>First things first, a form control must always have a respective label.</p>
 <pre><code class="html language-html">&lt;!-- Option A: Use for="" and id="" to connect the label to the input --&gt;
 &lt;label for="uName"&gt;Name&lt;/label&gt;
 &lt;input type="text" id="uName" /&gt;
@@ -37,17 +37,17 @@
   &lt;input type="text" /&gt;
 &lt;/label&gt;
 </code></pre>
-<p>If we do that with every form element, it's already a step forward! There's a lot more about <a href="https://webaim.org/techniques/forms/">creating accessible forms</a> that we'll learn step by step.</p>
+<p>If we do that with every form element, it's already a step forward! There's a lot more about <a href="https://webaim.org/techniques/forms/">creating accessible forms</a>, that we'll practice today.</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/3.3.html">exercise page</a>, there are 5 form controls. However, each one has a particular accessibility issue.</p>
+<p>In the <a href="../exercises/3.3.html">exercise page</a>, there are 5 form controls. Each one has a particular accessibility issue.</p>
 <p><strong>🎯 Goal:</strong> Make the form accessible for keyboard and screen readers.</p>
 <p><strong>Hint 1:</strong> SR users usually fill forms using <code>Tab</code> key only. Do the same to detect A11Y issues.</p>
-<p><strong>Hint 2:</strong> You can also use the Accessibility tab on DevTools to know how a form control is pronounced by a screen reader.</p>
+<p><strong>Hint 2:</strong> Use the Accessibility Tree tab on DevTools, to know how a form control is announced.</p>
 <h2 id="bonus">Bonus</h2>
 <h3 id="1arialiveregions">#1 ARIA Live regions</h3>
-<p>When submitting the form, a message is shown dynamically based on the submission result (success or invalid).</p>
+<p>When submitting the form, a feedback message is displayed, based on the submission result (success or invalid).</p>
 <p>While these changes are visually apparent to users who can see the page,
-they may not be obvious to AT users, such as screen reader users.</p>
+they aren't obvious to screen reader users.</p>
 <p>ARIA live regions fill this gap helping to expose this dynamic content.</p>
 <pre><code class="html language-html">&lt;!-- The content is announce immediately when added to the DOM.
 Use it when it's critical information.  --&gt;
@@ -55,24 +55,24 @@ Use it when it's critical information.  --&gt;
 
 &lt;!-- The content is announced when there's a change (idle).
 Use it when this do not influence the user main task.  --&gt;
-&lt;div aria-live="polite"&gt;Now playing "Pink Floyd - Time"&lt;/div&gt;
+&lt;div aria-live="polite"&gt;Playing now: "Pink Floyd - Time"&lt;/div&gt;
 </code></pre>
 <p><strong>🎯 Goal:</strong> Explicit mark the form feedback messages as dynamic content.</p>
 <p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise the code is ready to follow the approach #3.</p>
 <h3 id="2usingbuttonsinsideforms">#2 Using buttons inside forms</h3>
 <p><em>This is already done, but let me explain this common form mistake:</em></p>
-<p>You may have noticed that each button in the form has its <code>type</code> explicit.
-Usually this isn't done because we think it's not needed. Let's remove the 2 types (button and submit) and see what happens.</p>
-<p>When the form is submitted, you'll see a log <code>Form submitted!</code> on the DevTools console.
-Give it a try now: Click "Submit" to see it by yourself.</p>
-<p>There are now 2 bugs happening:</p>
+<ol>
+<li>Go to the exercise page, to both <code>&lt;button&gt;</code> elements and remove <code>type</code> attribute.</li>
+</ol>
+<p>This creates 2 bugs:</p>
 <ul>
-<li>When we press the password's visibility button (by mouse or keyboard) the form is also submitted (you'll see the same log).</li>
-<li>When we press "Enter" in any input, the password is algo toggled.</li>
+<li>Press the password's visibility button (by mouse or keyboard). The form is also submitted (check the logs in the console).</li>
+<li>Press "Enter" in any input, the password is also toggled.</li>
 </ul>
-<p>Why does that happen? The default type of a <code>&lt;button&gt;</code> is <code>"submit"</code>. When a button inside
-a <code>&lt;form&gt;</code> is clicked, the form will look for the first "submit" button and trigger it.
-In this form the first button is the toggle password. That's why when we click it, the form is also submitted.</p>
+<p><strong>Why does that happen?</strong></p>
+<p>The default type of a <code>&lt;button&gt;</code> is <code>"submit"</code>.
+When a button inside a <code>&lt;form&gt;</code> is clicked, the form will look for the first "submit" button and trigger it.
+In this form, the first button is the password toggle. That's why when we click it, it submits the form too.</p>
 <p><strong>Takeaway:</strong> Always explicit the button type (<code>type="button"</code> or <code>type="submit"</code>) when used inside forms to avoid unwanted form submissions.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
@@ -82,7 +82,6 @@ In this form the first button is the toggle password. That's why when we click i
 <li><a href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">Why the Gov UK changed the input type for numbers</a></li>
 <li><a href="https://bitsofco.de/using-aria-live/">Using <code>aria-live</code></a></li>
 <li><a href="https://codepen.io/vloux/details/jxPrWy"><code>aria-live</code> codepen demo</a></li>
-<li><a href="https://twitter.com/zersiax/status/1267392416086097920">Using <code>aria-live</code></a> TODO/REVIEW solo exercise.</li>
 </ul>
 
   </main>
