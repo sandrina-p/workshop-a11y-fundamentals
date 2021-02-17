@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+🧩 3.4: Meaningful content - part 2
+🎯 Goal: Improve the accessibility of each case
+-->
+<html lang="en">
+
+<head>
+  <title>Solution #3.4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+</head>
+
+<body>
+  <main class="content">
+    <h1 class="heading-1">Meaningful content</h1>
+
+
+    <!-- Lesson #1 - The current link -->
+    <div class="block_v">
+      <h2 class="heading-2">Lesson #1</h2>
+      <!-- 💡 We can visually get what's the current element in list thanks to CSS.
+        A similar information can be provided with aria-current.
+        The following article explains the acceptable values for this attribute.
+        https://tink.uk/using-the-aria-current-attribute/
+
+        Note: Chrome does not support aria-current yet, but Firefox and Safari do!
+       -->
+      <nav>
+        <ul>
+          <li><a href="../briefings/3.1.html" class="link isCurrent" aria-current="page"> Exercise 3.1</a></li>
+          <li><a href="../briefings/3.2.html" class="link">Exercise 3.2</a></li>
+          <li><a href="../briefings/3.3.html" class="link">Exercise 3.3</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <!-- TODO Lesson #2: Toggle button vs Action Button 
+    <div class="block_v">
+      <h2 class="heading-2">Lesson #8</h2>
+      Add to bag
+      Remove from bag
+
+      Mute Mic
+
+      btn.pressed="true" Mic muted
+      btn.pressed="false" Mic on
+    </div>
+    -->
+    <!-- TODO Lesson #4: Clickable cards -->
+
+    <!-- TODO Lesson #5: Table, Edit edit edit -->
+
+    <!-- TODO Lesson #6: Hibrid select -->
+
+  </main>
+</body>
+
+</html>
