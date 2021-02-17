@@ -1,5 +1,4 @@
 /* Do never ever do this 🥺.
- 💡 Delete this declaration! */
 /* *:focus {
   outline: none;
 } */
@@ -25,7 +24,6 @@
   opacity: 0.8;
 }
 
-/* 💡 add your styles here! */
 .js-focus-visible .c-btnPrimary:focus {
   outline: none;
 }
@@ -73,34 +71,79 @@
   background-color: #e9e1f8;
 }
 
-/* ------- SELECT (BONUS #1) -------  */
+/* ------- SELECT (BONUS #2) -------  */
 
-.selectCustom,
-.selectNative {
+/* Both native and custom selects must have the same width/height. */
+.selectNative,
+.selectCustom {
   position: relative;
   width: 22rem;
-  height: 3.8rem;
+  height: 4rem;
 }
 
-.selectNative {
+/* Make sure the custom select does not mess with the layout */
+.selectCustom {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
 }
 
-.selectNative:focus {
-  position: relative;
-  opacity: 1;
-}
-
-.selectNative:focus + .selectCustom {
+.selectCustom {
   display: none;
+}
+
+@media (hover: hover) {
+  .selectCustom {
+    display: block;
+  }
+
+  .selectNative:focus + .selectCustom {
+    display: none;
+  }
+}
+
+/* Add the focus states too, they matter, always! */
+.selectNative:focus,
+.selectCustom.isActive .selectCustom-trigger {
+  outline: none;
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
 }
 
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code bellow  *|
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
+
+/* highlight the custom select when is clicked */
+.selectCustom.isActive .selectCustom-trigger {
+  outline: none;
+  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+}
+
+/* Rest of the styles to create the custom select. */
+/* Just make sure the native and the custom have a similar "box" (the trigger). */
+
+.select {
+  position: relative;
+}
+
+.selectLabel {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectNative,
+.selectCustom-trigger {
+  font-size: 1.6rem;
+  background-color: #fff;
+  border: 1px solid #6f6f6f;
+  border-radius: 0.4rem;
+}
 
 .selectNative {
   -webkit-appearance: none;
@@ -109,20 +152,19 @@
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 0.8rem;
-  padding-left: 0.8rem;
+  padding: 0rem 0.8rem;
 }
 
-.selectCustom-label {
+.selectCustom-trigger {
   position: relative;
   width: 100%;
-  height: 3.8rem;
+  height: 100%;
   background-color: #fff;
-  border: 1px solid #6f6f6f;
-  border-radius: 0.4rem;
-  padding: 0.6rem 0.8rem;
+  padding: 0.8rem 0.8rem;
+  cursor: pointer;
 }
 
-.selectCustom-label::after {
+.selectCustom-trigger::after {
   content: "▾";
   position: absolute;
   top: 0;
@@ -130,7 +172,7 @@
   right: 0.8rem;
 }
 
-.selectCustom-label:hover {
+.selectCustom-trigger:hover {
   border-color: #8c00ff;
 }
 
@@ -155,17 +197,27 @@
 .selectCustom-option {
   position: relative;
   padding: 0.8rem;
+  padding-left: 2.5rem;
 }
 
+.selectCustom-option.isHover,
 .selectCustom-option:hover {
-  background-color: #f7ecff;
+  background-color: #865bd7; /* contrast AA */
+  color: white;
+  cursor: default;
 }
 
 .selectCustom-option:not(:last-of-type)::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0.8rem;
-  width: calc(100% - 1.6rem);
+  left: 0;
+  width: 100%;
   border-bottom: 1px solid #d3d3d3;
+}
+
+.selectCustom-option.isActive::before {
+  content: "✓";
+  position: absolute;
+  left: 0.8rem;
 }

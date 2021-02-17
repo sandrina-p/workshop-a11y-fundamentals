@@ -17,56 +17,29 @@
   
 <h1 id="interactiveelements">Interactive elements</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Keyboard accessibility is one of the most important aspects of web accessibility. Many users, especially people with motor disabilities and blind people rely on a keyboard to navigate through the web. These people need <strong>accessible focus indicators</strong> to enjoy the web.</p>
-<p>A very common practice is to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and <a href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different across browsers</a>, and that's okay. The mistake is to not provide a proper focus state. <strong>We must provide accessible focus states on our apps.</strong></p>
+<p>Many users, especially people with motor disabilities or visual disabilities, rely on a keyboard to navigate the web. These people need <strong>visual focus indicators</strong> to enjoy the web.</p>
+<p>It's common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and [it's different across browsers](https://allyjs.io/tests/focus-outline-styles/#style=focus&amp;key=text,radio,checkbox,textarea,button,link,div&amp;browser=firefox,chrome,safari,ie11. That's okay though. What's not okay is to not build an alternative. <strong>We must provide accessible focus states on our apps.</strong></p>
 <pre><code class="css language-css">button:focus {
   /* It's okay to do this... */
   outline: none;
 
   /* ...if we build a custom indicator */
-  box-shadow: 0 0 0.3rem 0.3rem tomato;
+  box-shadow: 0 0 3px 3px tomato;
 }
 </code></pre>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/2.1.html">exercise page</a>,
-there are a 4 interactive elements: buttons, links, and 2 form controls. However, we can't easily access them through the keyboard.</p>
-<p>You can use <code>Tab</code> and <code>Shift + Tab</code> to go forwards and backwards respectively across the interactive elements.</p>
-<p>There aren't any explicit design requirements, so you can go free style!
-Adding some opacity or changing the color are common design approaches.
-Creating both <code>:hover</code> and <code>:focus</code> states is the requirement.</p>
-<p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard.</p>
-<p><strong>Note Safari:</strong> By default <code>Tab</code> doesn't work on links and buttons. You need to activate it in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
+there are 4 interactive elements. However, we can't easily access them through the keyboard.</p>
+<p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard with <code>:hover</code> and <code>:focus</code>.</p>
+<p><strong>Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forwards and backwards respectively across the interactive elements.</p>
+<p>There aren't any explicit design requirements, so you can go <em>free-style</em>!
+Adding some opacity or changing the color are common design approaches.</p>
+<p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
 <h2 id="bonus">Bonus</h2>
-<h3 id="1custominteractiveelements">#1 Custom interactive elements</h3>
-<p>Creating a custom accessible element sometimes can be a (very) hard challenge.
-Go try to select "Your role" using only the keyboard and then come back here.</p>
-<p>That was an impossible mission, right? No the fun part: there's a trick to avoid the
-complex task of re-creating an a11y <code>&lt;select&gt;</code> and it involves CSS!</p>
-<p>It consists in creating 2 selects and showing them at the right moment.
-A custom one, visible by default for "mouse based" users, and a native one hidden until it's focused by keyboard.</p>
-<pre><code class="css language-css">/* visually hide selectNative  */
-.selectNative {
-  opacity: 0;
-}
-
-/* show it on focus  */
-.selectNative:focus {
-  opacity: 1;
-}
-
-/* hide selectCustom on selectNative:focus  */
-.selectNative:focus + .selectCustom {
-  display: none;
-}
-</code></pre>
-<p><strong>🎯 Goal:</strong> Create a simpler <code>select</code> accessible version</p>
-<p>This technique is what it's called <em>graceful degradation technique</em>.
-Add a fallback version when the ideal does not work. The experience is not as good, but it does deliver the essential functionality for everyone. <strong>Things won't break for anyone</strong>.</p>
-<h3 id="2focusonlywhenusingkeyboard">#2 Focus only when using keyboard</h3>
-<p>One of the main reasons to hide the focus indicator on buttons and links is because it's triggered when we click them.
-What if we could activate <code>:focus</code> only when using the keyboard and ignore it when using the mouse?
-That's where <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
-<p>Most browsers do not support it yet, but there is a tiny polyfill: <a href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
+<h3 id="1focusonlywhenusingthekeyboard">#1 Focus only when using the keyboard</h3>
+<p>Another reason to hide the focus indicator on buttons and links is because the focus is triggered when clicking them.</p>
+<p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
+<p>Most browsers do not support it yet, so we need the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
 <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
 </code></pre>
@@ -81,13 +54,42 @@ That's where <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-vi
   box-shadow: 0 0 0.3rem 0.3rem tomato;
 }
 </code></pre>
-<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> and update the buttons and anchor <code>:focus</code> styles to use it.</p>
+<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
+<h3 id="2customselect">#2 Custom select</h3>
+<p>A custom accessible select is one of the trickiest things to create. Short answer: <strong>Avoid them if you can</strong>.</p>
+<p>But let’s face reality: a custom select is still our best solution sometimes.</p>
+<p>There's a relative simple technique enhance these custom selects. I called this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
+<ul>
+<li>A native select, visible and accessible by default</li>
+<li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
+</ul>
+<p>The trick is to show each one at the right moment:</p>
+<pre><code class="css language-css">.selectCustom {
+  display: none;
+}
+
+/* show the custom select only on devices with hovers (aka mouse) */
+@media (hover: hover) {
+  .selectCustom {
+    display: block;
+  }
+
+  /* In a computer, but using the keyboard?
+  Then hide the custom select when the native is focused: */
+  .selectNative:focus + .selectCustom {
+    display: none;
+  }
+}
+</code></pre>
+<p><strong>🎯 Goal:</strong> Create a simple "hybrid select".</p>
+<p><strong>Important:</strong> This select still has A11Y issues. This is a "partial solution" of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select"</a> experiment. If you use this in the future, please build the full implementation.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
 <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>
-<li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN spec</a></li>
 <li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
+<li><a href="https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/">Tips for designing usable focus indicators</a></li>
+<li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
 </ul>
 
   </main>
