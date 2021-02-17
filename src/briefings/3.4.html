@@ -32,11 +32,11 @@ there are 4 cases not accessible. Using <code>aria-*</code> attributes and <code
 <li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
 </ul>
 <p>The trick is to show each one at the right moment:</p>
-<pre><code class="css language-css">.selectCustom {
+<pre><code class="css language-css">/* show the custom select only on devices with hovers (aka mouse) */
+
+.selectCustom {
   display: none;
 }
-
-/* show the custom select only on devices with hovers (aka mouse) */
 @media (hover: hover) {
   .selectCustom {
     display: block;

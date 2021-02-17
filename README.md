@@ -135,10 +135,3 @@ Here are some guidelines for things that are **OK** and **Not OK** based on this
 &copy; 2021 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved
 
 **This material cannot be used for workshops, training, or any other form of instructing or teaching, without express written consent.**
-
-<!--
-A11Y Linter with CSS // TODO
-
-- [Alt img](https://twitter.com/geoffreycrofte/status/1274652138854121474?s=21)
-- [Invalid links](https://twitter.com/argyleink/status/1274364131928309762?s=21)
--->
