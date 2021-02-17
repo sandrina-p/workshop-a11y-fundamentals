@@ -18,7 +18,8 @@
 <h1 id="interactiveelements">Interactive elements</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Many users, especially people with motor disabilities or visual disabilities, rely on a keyboard to navigate the web. These people need <strong>visual focus indicators</strong> to enjoy the web.</p>
-<p>It's common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and [it's different across browsers](https://allyjs.io/tests/focus-outline-styles/#style=focus&amp;key=text,radio,checkbox,textarea,button,link,div&amp;browser=firefox,chrome,safari,ie11. That's okay though. What's not okay is to not build an alternative. <strong>We must provide accessible focus states on our apps.</strong></p>
+<p>It is common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and [different across browsers](https://allyjs.io/tests/focus-outline-styles/#style=focus&amp;key=text,radio,checkbox,textarea,button,link,div&amp;browser=firefox,chrome,safari,ie11]. That's okay, though. What isn't okay is to not build an alternative.</p>
+<p>We must provide accessible focus states on our apps.</p>
 <pre><code class="css language-css">button:focus {
   /* It's okay to do this... */
   outline: none;
@@ -55,41 +56,13 @@ Adding some opacity or changing the color are common design approaches.</p>
 }
 </code></pre>
 <p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
-<h3 id="2customselect">#2 Custom select</h3>
-<p>A custom accessible select is one of the trickiest things to create. Short answer: <strong>Avoid them if you can</strong>.</p>
-<p>But let’s face reality: a custom select is still our best solution sometimes.</p>
-<p>There's a relative simple technique enhance these custom selects. I called this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
-<ul>
-<li>A native select, visible and accessible by default</li>
-<li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
-</ul>
-<p>The trick is to show each one at the right moment:</p>
-<pre><code class="css language-css">.selectCustom {
-  display: none;
-}
-
-/* show the custom select only on devices with hovers (aka mouse) */
-@media (hover: hover) {
-  .selectCustom {
-    display: block;
-  }
-
-  /* In a computer, but using the keyboard?
-  Then hide the custom select when the native is focused: */
-  .selectNative:focus + .selectCustom {
-    display: none;
-  }
-}
-</code></pre>
-<p><strong>🎯 Goal:</strong> Create a simple "hybrid select".</p>
-<p><strong>Important:</strong> This select still has A11Y issues. This is a "partial solution" of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select"</a> experiment. If you use this in the future, please build the full implementation.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
 <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN spec</a></li>
 <li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
 <li><a href="https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/">Tips for designing usable focus indicators</a></li>
-<li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
+<li><a href="https://twitter.com/argyleink/status/1274364131928309762?s=21">Use CSS to lint invalid links</a></li>
 </ul>
 
   </main>

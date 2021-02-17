@@ -15,17 +15,47 @@
   <a class="linkHome" href="../index.html">Go Back</a>
   <main>
   
-<h1 id="34meaningfulcontentpart2">3.4. Meaningful content - part 2</h1>
+<h1 id="34meaningfulcontentextras">3.4. Meaningful content - extras</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Let's explore even more common layouts/patterns and how they can be accessible.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.1.html">exercise page</a>,
 there are 4 cases not accessible. Using <code>aria-*</code> attributes and <code>.sr-only</code> can help but might not be the only solution!</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of each case.</p>
+<h2 id="bonus">Bonus</h2>
+<h3 id="1customselect">#1 Custom select</h3>
+<p>A custom accessible select is one of the trickiest things to create. Short answer: <strong>Avoid them if you can</strong>.</p>
+<p>But let’s face reality: a custom select is still our best solution sometimes.</p>
+<p>There's a relative simple technique to enhance these custom selects. I named this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
+<ul>
+<li>A native select, visible and accessible by default</li>
+<li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
+</ul>
+<p>The trick is to show each one at the right moment:</p>
+<pre><code class="css language-css">.selectCustom {
+  display: none;
+}
+
+/* show the custom select only on devices with hovers (aka mouse) */
+@media (hover: hover) {
+  .selectCustom {
+    display: block;
+  }
+
+  /* In a computer, but using the keyboard?
+  Then hide the custom select when the native is focused: */
+  .selectNative:focus + .selectCustom {
+    display: none;
+  }
+}
+</code></pre>
+<p><strong>🎯 Goal:</strong> Refactor the select to be a "hybrid select".</p>
+<p><strong>Important:</strong> This select still has A11Y issues. This is a "partial solution" of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select"</a> experiment. If you use this in the future, please build the full implementation.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
-<li><a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">Aria attributes</a>.</li>
-<li>TODO…</li>
+<li><p><a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">Aria attributes</a>.</p></li>
+<li><p><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></p></li>
+<li><p>TODO…</p></li>
 </ul>
 
   </main>
