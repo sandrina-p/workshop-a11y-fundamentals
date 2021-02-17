@@ -98,4 +98,31 @@ Please take a couple of minutes to [give me your feedback](https://docs.google.c
 
 ## License
 
-This is only available for private, non-commercial use under the [GPL version 3](http://www.gnu.org/licenses/gpl-3.0-standalone.html).
+This project is available for private, non-commercial use under the BSD 3-Clause License.
+
+The workshop exercises are proprietary and are licensed on a per-individual basis,
+usually as a result of purchasing a ticket to a workshop, or being a participant
+in a private training.
+
+Here are some guidelines for things that are **OK** and **Not OK** based on this license:
+
+#### OK
+
+- Using everything in this project other than the briefings and exercises
+  to build a project used for your own free or commercial training material;
+- Copying code from build scripts, configuration files, tests and development
+  harnesses that are not part of the exercises specifically, for your own projects;
+- As an owner of an individual license, using code from tests, exercises, or
+  exercise solutions for your own non-training-related project.
+
+#### Not OK (without express written consent)
+
+- Using this project, or any subset of exercises contained within this project to run your own workshops;
+- Writing a book that uses the code from these exercises;
+- Recording a screencast that contains one or more of this project's exercises.
+
+## Copyright
+
+&copy; 2021 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved
+
+**This material cannot be used for workshops, training, or any other form of instructing or teaching, without express written consent.**
