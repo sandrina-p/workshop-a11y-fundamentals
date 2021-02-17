@@ -12,7 +12,7 @@ These are the material resources for my [Web Accessibility Fundamentals Workshop
 
 To get the most out of the workshop, please do the following things in advance:
 
-- **Install [Zoom](https://zoom.us)** to join the video call.
+- **Install the needed video tool** to join the video call.
   - Turn on your video if possible, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
 - **Install a modern browser**. Chrome or Firefox are recommended.
