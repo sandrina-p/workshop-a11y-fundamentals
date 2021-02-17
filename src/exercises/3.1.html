@@ -24,7 +24,7 @@ Notes:
     <!-- Lesson #1 - A link with icon only -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #1</h2>
-      <!-- 💡 A links must have a name, always. Add aria-label -->
+      <!-- 💡 A links must have a name, always. -->
       <a href="#profile" class="btn btnCircle">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
           <path
@@ -37,7 +37,7 @@ Notes:
     <div class="block_v">
       <h2 class="heading-2">Lesson #2</h2>
       <!-- 💡 Besides the missing accessible label, we should also indicate
-        if the button is pressed or not. Use aria-pressed="true|false" for that. -->
+        if the button is *pressed* or not. That's aria-pressed -->
       <button class="btn btnToggle js-addToFavorite">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
           <path
@@ -64,14 +64,15 @@ Notes:
     <div class="block_v">
       <h2 class="heading-2">Lesson #3</h2>
       <!--
-        💡 This button instruction is confusing for a SR user because they don't
-        know if they should press enter when on the button or on the instruction. -->
+        💡 This button instruction is confusing for a SR user. They don't
+        know if they should press "enter" on the button or on the instruction.
+        How you would solve this?
+        Hint: aria-describedby and aria-hidden can be an solution.
+      -->
       <div class="u-rowCenterY">
-        <!-- 1/2 use aria-describedby="id" to associate the instruction -->
         <button class="btn btnPrimary">
           Start
         </button>
-        <!-- 2/2 and hide the actual instruction from SR using aria-hidden="true" -->
         <span id="startHint">Press ENTER</span>
       </div>
     </div>
@@ -89,30 +90,11 @@ Notes:
       </p>
     </div>
 
-    <!-- Lesson #5 - The current link -->
+    <!-- Lesson #5 - Accessible Emojis -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #5</h2>
-      <!-- 💡 We can visually understand what's the current element in a list thanks to CSS.
-        A similar information can be provided to AT using aria-current.
-        The following article explains the acceptable values for this attribute.
-        https://tink.uk/using-the-aria-current-attribute/
-        Note: Chrome does not support aria-current yet, but Firefox and Safari do!
-       -->
-      <nav>
-        <ul>
-          <li><a href="../briefings/3.1.html" class="link isCurrent">Exercise 3.1</a></li>
-          <li><a href="../briefings/3.2.html" class="link">Exercise 3.2</a></li>
-          <li><a href="../briefings/3.3.html" class="link">Exercise 3.3</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Lesson #6 - Accessible Emojis -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #6</h2>
       <!-- 💡 Read the following sentence with a screen reader.
-        The emojis are confusing, right? To hide them from SR use aria-hidden
-        and provide descriptalions with .sr-only when necessary -->
+        The emojis are confusing, right? A mix of aria-hidden and .sr-only can be a solution. -->
       <p>
         Made with
         love ❤️
@@ -121,42 +103,25 @@ Notes:
       </p>
     </div>
 
-    <!-- Lesson #7: ASCII art -->
+    <!-- Lesson #6 - ASCII art -->
     <div class="block_v">
-      <h2 class="heading-2">Lesson #7</h2>
+      <h2 class="heading-2">Lesson #6</h2>
       <!--
-        💡 Here's "picture" made of characters.
+        Here's "picture" but made of characters.
         This is the worst nightmare for a SR user. What can we do here?
-        - Option A: Add role="img" attribute with alt=""
-        - Option B: Hide <pre> from SR and add a description with .sr-only.
-      -->
+        How can we tell everyone about this cute elephant?
+        -->
       <pre>
-          __     __
-         /  \~~~/  \
-   ,----(     ..    )
-  /      \__     __/
- /|         (\  |(
-^ \   /___\  /\ | ` 
-  |__|    |__| -"   
-      </pre>
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )
+    /      \__     __/
+   /|         (\  |(
+  ^ \   /___\  /\ | ` 
+    |__|    |__| -"   
+        </pre>
       <p>ASCII art is awesome but pointless for screen readers.</p>
     </div>
-
-    <!-- TODO Lesson #8: Toggle button vs Action Button 
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #8</h2>
-      Add to bag
-      Remove from bag
-
-      Mute Mic
-
-      btn.pressed="true" Mic muted
-      btn.pressed="false" Mic on
-    </div>
-    -->
-    <!-- TODO Lesson #9: Clickable cards -->
-
-    <!-- TODO Lesson #10: Table, Edit edit edit -->
   </main>
 </body>
 

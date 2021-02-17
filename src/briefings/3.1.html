@@ -17,32 +17,33 @@
   
 <h1 id="31meaningfulcontent">3.1. Meaningful content</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Every content created should provide 3 essential pieces of information to explain its purpose:</p>
+<p>Every content has to provide three essential pieces of information to explain its purpose:</p>
 <ul>
-<li><strong>Role</strong> - The type of element - for example, a button, a heading or a list.</li>
+<li><strong>Role</strong> - The type of element. E.g a button, a heading or a list.</li>
 <li><strong>Name</strong> - The text to identify / describe the element.</li>
-<li><strong>State</strong> - Needed in dynamic elements - for example, if a button is pressed or a menu opened.</li>
+<li><strong>State</strong> - Needed in dynamic elements - E.g, if a button is pressed or a menu opened.</li>
 </ul>
-<p>For sighted users, the context and visual appearance of an element can be enough to understand its purpose. However, the same is not true for people relying on assistive technologies.</p>
-<p>Most of the time, <em>role</em> and <em>name</em> are automatically included throught semantic HTML. However, in some cases it's not enough. That's were ARIA (Accessible Rich Internet Applications) attributes comes in.</p>
-<p>For example, providing elements with accessible names is one of the most important responsibilities authors have when developing accessible web experiences. A common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the attribute <code>aria-label</code>.</p>
+<p>For sighted users, the page context and visual appearance can be enough to understand an element's purpose. However, the same doesn't apply to people relying on assistive technologies.</p>
+<p>Most of the time, <em>role</em> and <em>name</em> are automatically included through semantic HTML. However, when that's not enough. That's where ARIA (Accessible Rich Internet Applications) attributes come in.</p>
+<p>It's our responsibility to providing elements with accessible names. A common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the attribute <code>aria-label</code>.</p>
 <pre><code class="html language-html">&lt;!-- A button to close a dialog / modal --&gt;
 &lt;button aria-label="Close modal"&gt;X&lt;/button&gt;
 </code></pre>
 <p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll start by exploring the most common.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.1.html">exercise page</a>,
-there are 7 cases where some pieces of information were forgotten or missused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
-<p><strong>🎯 Goal:</strong> Add accessible names / status to all elements.</p>
-<p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be a nice alternative to screen readers.</p>
+there are 5 cases where some pieces of information were forgotten or missused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
+<p><strong>🎯 Goal:</strong> Add accessible names or status to all elements.</p>
+<p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be an alternative to screen readers.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
-<li><p><a href="https://www.youtube.com/watch?v=xWPMfcjhts8">Accessibility Inspector (Chrome)</a></p></li>
-<li><p><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Accessibility Inspector (Firefox)</a></p></li>
-<li><p><a href="https://w3c.github.io/using-aria/#rule1">First rule of ARIA use: don't use ARIA</a></p></li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA - MDN docs</a></p></li>
-<li><p><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></p></li>
-<li><p><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</p></li>
+<li><a href="https://www.youtube.com/watch?v=xWPMfcjhts8">Accessibility Inspector (Chrome)</a></li>
+<li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Accessibility Inspector (Firefox)</a></li>
+<li><a href="https://w3c.github.io/using-aria/#rule1">First rule of ARIA use: don't use ARIA</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA - MDN docs</a></li>
+<li><a href="https://tink.uk/using-the-aria-current-attribute/">Using <code>aria-current</code></a></li>
+<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
 </ul>
 
   </main>

@@ -24,7 +24,6 @@ Notes:
     <!-- Lesson #1 - A link with icon only -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #1</h2>
-      <!-- 💡 A links must have a name, always. Add aria-label -->
       <a href="profile" class="btn btnCircle" aria-label="Go to profile">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
           <path
@@ -36,8 +35,6 @@ Notes:
     <!-- Lesson #2 - A toggle button "add to favorites" -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #2</h2>
-      <!-- 💡 Besides the missing accessible label, we should also indicate
-        if the button is pressed or not. Use aria-pressed="true|false" for that. -->
       <button class="btn btnToggle js-addToFavorite" aria-label="Add to favorites" aria-pressed="false">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
           <path
@@ -63,9 +60,6 @@ Notes:
     <!-- Lesson #3 - Confusing descriptions -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #3</h2>
-      <!--
-        💡 This button instruction is confusing for a SR user because they don't
-        know if they should press enter on the button or on the instruction. -->
       <div class="u-rowCenterY">
         <!-- 1/2 use aria-describedby="id" to associate the instruction  -->
         <button class="btn btnPrimary" aria-describedby="startHint">
@@ -82,7 +76,6 @@ Notes:
       <p>
         Links should make sense out of context. Phrases such as "click here," "more," "click for details," and so on
         are ambiguous when read out of context.
-        <!-- 💡 Could you provide a better link description? -->
         <a href="https://webaim.org/techniques/hypertext/link_text" class="link"
           aria-label="Read hypertext techniques article">
           Read more.
@@ -90,31 +83,9 @@ Notes:
       </p>
     </div>
 
-    <!-- Lesson #5 - The current link -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #5</h2>
-      <!-- 💡 We can visually get what's the current element in list thanks to CSS.
-        A similar information can be provided with aria-current.
-        The following article explains the acceptable values for this attribute.
-        https://tink.uk/using-the-aria-current-attribute/
-
-        Note: Chrome does not support aria-current yet, but Firefox and Safari do!
-       -->
-      <nav>
-        <ul>
-          <li><a href="../briefings/3.1.html" class="link isCurrent" aria-current="page"> Exercise 3.1</a></li>
-          <li><a href="../briefings/3.2.html" class="link">Exercise 3.2</a></li>
-          <li><a href="../briefings/3.3.html" class="link">Exercise 3.3</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Lesson #6 - Accessible Emojis -->
+    <!-- Lesson #5 - Accessible Emojis -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #6</h2>
-      <!-- 💡 Read the following sentence with a screen reader.
-        The emojis can be confusing. To hide them from SR use aria-hidden
-        and provide alternate descriptions with .sr-only if necessary -->
       <p>
         Made with
         love <span aria-hidden="true">❤️</span>
@@ -123,24 +94,23 @@ Notes:
       </p>
     </div>
 
-    <!-- Lesson #7 - ASCII art -->
+    <!-- Lesson #6 - ASCII art -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #7</h2>
       <!--
-        Here's "picture" but made of characters.
-        This is the worst nightmare for a SR user. What can we do here?
-        - Option A: Add role="img" attribute with alt=""
-        - Option B: Hide <pre> from SR and add a description with .sr-only.
-      -->
+          Here's two possible solutions:  
+          - Option A: Add role="img" attribute with alt=""
+          - Option B: Hide <pre> from SR and add a description with .sr-only.
+        -->
       <pre role="img" aria-label="An ASCII art of a sweet elephant">
-          __     __
-         /  \~~~/  \
-   ,----(     ..    )
-  /      \__     __/
- /|         (\  |(
-^ \   /___\  /\ | ` 
-  |__|    |__| -"   
-      </pre>
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )
+    /      \__     __/
+   /|         (\  |(
+  ^ \   /___\  /\ | ` 
+    |__|    |__| -"   
+        </pre>
       <p>ASCII art is awesome but pointless for screen readers.</p>
     </div>
   </main>
