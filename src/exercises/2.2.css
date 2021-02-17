@@ -7,9 +7,7 @@
 }
 
 .c-checkbox input {
-  /* 💡 Write your solution here!
-  We shouldn't use display:none, right?
-  Instead let's hide the element visually only */
+  /* 💡 We shouldn't use display:none, right?  */
   display: none;
 }
 
@@ -117,8 +115,6 @@
 .coolText.isVisible {
   display: block;
 }
-
-/* used on 2.2.css */
 
 .block_v {
   margin-bottom: 0;

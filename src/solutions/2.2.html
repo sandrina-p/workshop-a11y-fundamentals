@@ -16,12 +16,12 @@
 
 <body>
   <header class="headerFixed">
-    <button class="menu-btn btn btnPrimary js-menuTrigger">
+    <button class="menu-btn btn btnPrimary js-navTrigger" aria-pressed="false">
       Menu
     </button>
 
     <!-- 💡 1/3 Add inert attribute to the nav -->
-    <div class="menu js-menuTarget" inert="true">
+    <div class="menu js-navTarget" inert="true">
       <nav>
         <ul>
           <li><a href="../index.html">Home</a></li>
@@ -40,7 +40,8 @@
 
     <div class="block_v">
 
-      <button class="btn btnPrimary js-coolTrigger">Toggle random article</button>
+      <button class="btn btnPrimary js-coolTrigger" aria-pressed="false">Toggle random article</button>
+
       <div class="coolText js-coolTarget">
         <!-- When hidden, we cannot access it (as expected) because of display:none;. -->
         Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
@@ -55,7 +56,7 @@
 
       <div class="part">
         <label class="c-checkbox">
-          <!-- 💡 Part #2 the fix should be done on the respective CSS file -->
+          <!-- 💡 2/3 the fix should be done on the respective CSS file -->
           <input type="checkbox">
           <span>I mark solo checkboxs without reading them.</span>
         </label>
@@ -63,22 +64,24 @@
     </div>
   </main>
 
-  <!-- 💡 2/3 Add inert polifyll -->
+  <!-- 💡 3.1/3 Add inert polifyll. -->
   <script src="../assets/polyfill-inert.js"></script>
 </body>
 
 <script>
-  // Menu toggle
-  const elMenuTrigger = document.getElementsByClassName('js-menuTrigger')[0]
-  const elMenuTarget = document.getElementsByClassName('js-menuTarget')[0]
+  // Navigation toggle
+  const elNavTrigger = document.getElementsByClassName('js-navTrigger')[0]
+  const elNavTarget = document.getElementsByClassName('js-navTarget')[0]
 
-  elMenuTrigger.addEventListener('click', function () {
-    const isVisible = elMenuTarget.classList.contains('isVisible')
-    const method = isVisible ? 'remove' : 'add';
-    elMenuTarget.classList[method]('isVisible');
+  elNavTrigger.addEventListener('click', function () {
+    const isPressed = elNavTrigger.getAttribute('aria-pressed') === 'true'
 
-    // 💡 3/3 The JS part to upda inert is already done
-    elMenuTarget.inert = isVisible
+    const method = isPressed ? 'remove' : 'add';
+    elNavTarget.classList[method]('isVisible');
+    // 💡 3.2/3 Toggle inert
+    elNavTarget.inert = isPressed
+
+    elNavTrigger.setAttribute('aria-pressed', !isPressed)
   })
 
   /*  ----------------------------------------- *\
@@ -91,7 +94,12 @@
   const elCoolTarget = document.getElementsByClassName('js-coolTarget')[0]
 
   elCoolTrigger.addEventListener('click', function () {
-    elCoolTarget.classList.toggle('isVisible');
+    const isPressed = elCoolTrigger.getAttribute('aria-pressed') === 'true'
+
+    elCoolTrigger.setAttribute('aria-pressed', !isPressed)
+
+    const method = isPressed ? 'remove' : 'add';
+    elCoolTarget.classList[method]('isVisible');
   })
 </script>
 
