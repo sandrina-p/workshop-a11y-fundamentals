@@ -57,9 +57,9 @@ Notes:
 
       <!--
         Lesson #3 - Required inputs
-        - 💡 1. Use `aria-required="true"` to the input to mark it as required.
-        - 💡 2. Add `aria-invalid="false"` to the input and update its value when is
-            invalid. JS code needs to be changed too. Look for #3.2 on line ~188.
+        - 💡 1. Use aria-required to mark an input as required.
+        - 💡 2. Use aria-invalid to mark an input value as invalid. The JS code
+                  needs to be changed too. Look for #3.2 on line ~188.
       -->
       <label class="field">
         <span class="field-txt">Year of your first computer <span class="u-danger">*</span></span>
@@ -72,14 +72,14 @@ Notes:
           - You may know about type="number", but there is another way that don't
             affect the way the browser interprets the input:
             inputmode="numeric" pattern="[0-9]*"
-          Checkout the exercise notes to know more about inputmode
+          Read the exercise references to know more about inputmode
           -->
       </label>
 
       <!-- 
         Lesson #4.1 Input descriptions p1
-        - 💡 When possible, also connect the input description / tip to the input.
-          Add `aria-describedby="id"` to the <input /> to associate the description bellow.
+        - 💡 When possible, also connect the input description / hint to the input.
+          Use aria-describedby for that.
       -->
       <div class="field">
         <label for="uPass" class="field-txt">Worst password ever</label>
@@ -97,9 +97,7 @@ Notes:
           To be here, you should care about web accessibility.
         </span>
         <!-- We must connect all input descriptions to the input itself:
-          Option A: add `aria-describbedby` to <input /> as in #4.1
-          Option B: place the sentence inside <label />.
-            SR will automatically read it when input gets focused.
+          How would you solve this?
         -->
         <label>
           <input type="checkbox" /> Tick here if you agree with this.
@@ -110,7 +108,7 @@ Notes:
       <!-- 💡 BONUS #1 - Live Regions -->
       <div class="form-footer">
         <p class="formMsg js-formFeedback"></p>
-        <button class="btn btnPrimary js-btnSubmit" type="submit">Submit</button>
+        <button class="btn btnPrimary js-btnSubmit" type="submit">Send</button>
       </div>
     </form>
   </main>
