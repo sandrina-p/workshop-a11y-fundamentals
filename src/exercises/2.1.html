@@ -41,97 +41,11 @@
           <input class="textInput" type="text" placeholder="ex: webLover">
         </label>
       </div>
-
-      <!-- Lesson #4 (BONUS #2 - do bonus #1 first) -->
-      <div class="part">
-        <div class="field">
-
-          <span class="selectLabel" id="jobLabel"> Main job role</span>
-
-          <div class="selectWrapper">
-
-            <!-- 
-            💡 1/3. Create a native select.
-            To save you time, here's the native element: -->
-            <!--
-            <select class="selectNative js-selectNative" aria-labelledby="jobLabel">
-              <option value="sel" disabled="" selected=""> Select role...</option>
-              <option value="ds">UI/UX Designer</option>
-              <option value="fe">Frontend Engineer</option>
-              <option value="be">Backend Engineer</option>
-              <option value="qa">QA Engineer</option>
-              <option value="un">Unicorn</option>
-            </select>
-           -->
-
-            <!-- 🍀 The custom select needs to be hidden from screen readers, even when visible. That's why it has aria-hidden -->
-            <div class="selectCustom js-selectCustom" aria-hidden="true">
-              <div class="selectCustom-label">Select role...</div>
-              <div class="selectCustom-options">
-                <div class="selectCustom-option" data-value="des">🎨 UI/UX Designer</div>
-                <div class="selectCustom-option" data-value="fe">👀 Frontend engineer</div>
-                <div class="selectCustom-option" data-value="be">🕶 Backend engineer</div>
-                <div class="selectCustom-option" data-value="qa">🐛 QA Engineer</div>
-                <div class="selectCustom-option" data-value="un">🦄 Unicorn</div>
-              </div>
-            </div>
-          </div>
-          <!-- 💡 2/3. Go to the CSS file. The magic happens there... -->
-          <!-- 💡 3/3. The JS part for this is already done below. -->
-        </div>
-      </div>
     </div>
   </main>
 
   <!-- 💡 BONUS #1. Add focus-visible.js here -->
   <!-- <script src="../assets/polyfill-focus-visible.js"></script> -->
-
-
-  <script>
-    /*  ----------------------------------------- *\
-    |*  You do not need to touch the code bellow  *|
-    |*     but you can see how it was made.       *|
-    \** ----------------------------------------- */
-
-    // IMPORTANT: This code is a incomplete NOT ACCESSIBLE solution
-    // Some of the stuff missing:
-    // - Navigate through options when using keyboard up/down
-    // - Pressing Enter or Space selects the current hovered option
-
-    // Check the full solution: https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/
-    // Visual logic for selectCustom
-    const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
-
-    const elSelectCustomLabel = elSelectCustom.children[0]
-    const elSelectCustomOptions = elSelectCustom.children[1]
-    const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
-
-    // Listen for each option click
-    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
-      elOption.addEventListener('click', (e) => {
-        // Update select label text...
-        elSelectCustomLabel.textContent = e.target.textContent
-        // And close select
-        elSelectCustom.classList.remove('isActive');
-      })
-    })
-
-    // Toggle select on label click
-    elSelectCustomLabel.addEventListener('click', (e) => {
-      elSelectCustom.classList.toggle('isActive');
-    })
-
-    // Update selectCustom label on selectNative change
-    const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
-
-    if (elSelectNative) {
-      elSelectNative.addEventListener('change', (e) => {
-        const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
-          0];
-        elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
-      })
-    }
-  </script>
 </body>
 
 </html>
