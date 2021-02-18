@@ -188,6 +188,11 @@
       </p>
 
       <label class="field">
+        <span class="field-txt">What's your name?</span>
+        <input class="inputText" type="text" aria-required="true" name="name" />
+      </label>
+
+      <label class="field">
         <span class="field-txt">What's your work field?</span>
         <input class="inputText" type="text" aria-required="true" name="role" />
         <span class="field-tip" id="fieldTip">Designer, frontend, backend, QA, or... a unicorn?</span>
@@ -196,12 +201,12 @@
       <fieldset class="field">
         <legend class="field-txt">What's your Operating System?</legend>
         <label class="inputRadio">
-          <input type="radio" name="os" value="windows" aria-required="true" />
-          <span>Windows</span>
-        </label>
-        <label class="inputRadio">
           <input type="radio" name="os" value="mac" aria-required="true" />
           <span>Mac OS</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="os" value="windows" aria-required="true" />
+          <span>Windows</span>
         </label>
         <label class="inputRadio">
           <input type="radio" name="os" value="linux" aria-required="true" />
@@ -278,6 +283,7 @@
       "form-name": "practice", // netlify,
     };
     const validations = {
+      name: (value) => !!value,
       role: (value) => !!value,
       os: (value) => !!value,
       browser: (value) => !!value,
