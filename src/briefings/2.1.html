@@ -18,7 +18,7 @@
 <h1 id="interactiveelements">Interactive elements</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Many users, especially people with motor disabilities or visual disabilities, rely on a keyboard to navigate the web. These people need <strong>visual focus indicators</strong> to enjoy the web.</p>
-<p>It is common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and [different across browsers](https://allyjs.io/tests/focus-outline-styles/#style=focus&amp;key=text,radio,checkbox,textarea,button,link,div&amp;browser=firefox,chrome,safari,ie11]. That's okay, though. What isn't okay is to not build an alternative.</p>
+<p>It is common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and <a href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different across browsers</a>. That's okay, though. What isn't okay is to not build an alternative.</p>
 <p>We must provide accessible focus states on our apps.</p>
 <pre><code class="css language-css">button:focus {
   /* It's okay to do this... */
@@ -32,7 +32,7 @@
 <p>In the <a href="../exercises/2.1.html">exercise page</a>,
 there are 4 interactive elements. However, we can't easily access them through the keyboard.</p>
 <p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard with <code>:hover</code> and <code>:focus</code>.</p>
-<p><strong>Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forwards and backwards respectively across the interactive elements.</p>
+<p><strong>🍀 Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forwards and backwards respectively across the interactive elements.</p>
 <p>There aren't any explicit design requirements, so you can go <em>free-style</em>!
 Adding some opacity or changing the color are common design approaches.</p>
 <p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
@@ -56,6 +56,7 @@ Adding some opacity or changing the color are common design approaches.</p>
 }
 </code></pre>
 <p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
+<p><strong>🍀 Tip:</strong> When using styles dependent on JavaScript, take into account websites without Javascript.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
 <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>

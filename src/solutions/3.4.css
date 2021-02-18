@@ -10,7 +10,7 @@
 
 /* Make sure the custom select does not mess with the layout */
 .selectCustom {
-  /* position: absolute; */
+  position: absolute;
   top: 0;
   left: 0;
 }
