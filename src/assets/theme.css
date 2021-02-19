@@ -8,6 +8,8 @@
 html {
   font-size: 62.5%;
   --theme-width: 53rem;
+  --theme-bg_0: #f8f3ef;
+  --theme-bg_1: #fff;
   --theme-primary: #9b78de;
   --theme-primary-strong: #8c00ff;
   --theme-primary-light: #e9e1f8;

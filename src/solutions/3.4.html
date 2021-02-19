@@ -22,22 +22,102 @@
     <!-- Lesson #1 - The current link -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #1</h2>
-      <!-- 💡 We can visually get what's the current element in the list, however that's
-        not understanble for blind people. We can accomplish it with aria-current.
-        Note: Chrome does not support aria-current yet, but Firefox and Safari do!
-       -->
       <nav>
         <ul>
-          <li><a href="../briefings/3.1.html" class="link isCurrent" aria-current="page"> Exercise 3.1</a></li>
-          <li><a href="../briefings/3.2.html" class="link">Exercise 3.2</a></li>
+          <li><a href="../briefings/3.1.html" class="link"> Exercise 3.1</a></li>
+          <li><a href="../briefings/3.2.html" class="link isCurrent" aria-current="page">Exercise 3.2</a></li>
           <li><a href="../briefings/3.3.html" class="link">Exercise 3.3</a></li>
         </ul>
       </nav>
     </div>
 
-    <!-- Lesson #6 Custom select -->
+    <!-- TODO Lesson #2: Clickable cards -->
     <div class="block_v">
-      <h2 class="heading-2">Lesson #6</h2>
+      <h2 class="heading-2">Lesson #2</h2>
+
+      <!-- This solution approach:
+      - Remove the global <a> (link) to avoid reading the entire cart.
+      - Wrap the card with <article>.
+      - Reorder the DOM so that the title is the first element in the article. (I love CSS grid!)
+      - Add the link to inside the title - it's the more meaningful/unique part of the article.
+      - Highlight the link text on interaction. This shows what exactly is the link.
+      - Use JS as an enhancement to make the whole card clickable.
+
+      - Downside: Right click (open in a new tab) only works if we click directly on the link.
+    
+      - Bonus: We can have multiple secondary links inside the card!
+      -->
+
+      <p>Stay up to date with the recent news:</p>
+      <div class="cardParent">
+        <article class="card jsCard">
+          <span class="card-decoration"></span>
+          <h3 class="card-title">
+            <a class="card-link jsCard-link" href="#/link-to-video-stage">
+              Embrace the stage
+            </a>
+          </h3>
+          <span class="card-tag">
+            <span class="sr-only">Tag:</span>
+            <!--
+              🍀 If a link is not that relevant for UX,
+              we can use tabindex="-1" to skip them for keyboard navigation.
+              (And still benefit from SEO)
+            -->
+            <a class="card-linkTag" href="#link-to-Confidence" tabindex="-1">Confidence</a>
+          </span>
+          <span class="card-date">2 days ago</span>
+          <p class="card-text">This is a short video about how to overcome stress during the spotlight</p>
+          <span class="card-cta">Learn more</span>
+        </article>
+
+        <article class="card jsCard">
+          <span class="card-decoration"></span>
+          <h3 class="card-title">
+            <a class="card-link jsCard-link" href="#/link-to-video-cat">
+              Science benefits of being a cat lover
+            </a>
+          </h3>
+          <span class="card-tag">
+            <span class="sr-only">Tag:</span>
+            <a class="card-linkTag" href="#link-to-Science">Science</a>
+          </span>
+          <span class="card-date">Last Friday</span>
+          <p class="card-text">Discover how cats can be a cure for your mental health and reduce your streeses.</p>
+          <span class="card-cta">Learn more</span>
+        </article>
+      </div>
+      <p>There are no more news for you today.</p>
+
+      <script>
+        const elCards = document.querySelectorAll(".jsCard");
+
+        function handleCardClick(event, elMainLink) {
+          const hasTextSelected = !window.getSelection().toString();
+
+          if (!hasTextSelected) return
+
+          elMainLink.click();
+
+          // 🍀 TODO: We could support cmd+click too (open in new tab)
+        }
+
+        elCards.forEach((elCard) => {
+          const elMainLink = elCard.querySelector(".jsCard-link");
+          const elSecondaryLinks = elCard.querySelectorAll("a");
+
+          elSecondaryLinks.forEach((elLink) =>
+            elLink.addEventListener("click", (e) => e.stopPropagation())
+          );
+
+          elCard.addEventListener("click", (e) => handleCardClick(e, elMainLink));
+        })
+      </script>
+    </div>
+
+    <!-- Lesson #3 Custom select -->
+    <div class="block_v">
+      <h2 class="heading-2">Lesson #3</h2>
 
       <div class="field">
         <span class="selectLabel" id="jobLabel"> Main job role</span>
@@ -65,7 +145,11 @@
       </div>
     </div>
 
-    <!-- TODO Lesson #2:
+    <div class="block_v">
+      <h2 class="heading-2">Lesson #4</h2>
+      <p>TODO: Toggle button vs checkbox</p>
+
+      <!-- 
       - Toggle button label consistency
       - checkbox vs toggle buttons
       Mute Mic
@@ -74,25 +158,19 @@
       btn.pressed="false" Mic on
     </div>
     -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #2</h2>
-      <p>TODO: Toggle button vs checkbox</p>
     </div>
 
-    <!-- TODO Lesson #3: Cards -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #3</h2>
-      <p>TODO: Interactive Cards</p>
-    </div>
-
-    <!-- TODO Lesson #4: Loading / Skeletons -->
-    <div class="block_v">
-      <h2 class="heading-2">Lesson #4</h2>
-      <p>TODO: Loading skeletons</p>
-    </div>
-    <!-- TODO Lesson #5: Tooltips -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #5</h2>
+      <!-- <p>TODO: Loading skeletons</p>
+      - be careful with aria-live in the parent.
+      - aria-busy
+      - disabled vs aria-disabled
+      - skeletons: https://adrianroselli.com/2020/11/more-accessible-skeletons.html -->
+    </div>
+
+    <div class="block_v">
+      <h2 class="heading-2">Lesson #6</h2>
       <p>TODO: Tooltips</p>
     </div>
 

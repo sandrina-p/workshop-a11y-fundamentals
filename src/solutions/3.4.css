@@ -1,4 +1,114 @@
-/* ------- SELECT (BONUS #1) -------  */
+/* ------- LESSON #2 Cards -------  */
+
+.cardParent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto 1fr;
+  grid-template-areas:
+    "placeholder placeholder"
+    "tag date"
+    "title title"
+    "text text"
+    "cta cta";
+  width: calc(50% - 0.8rem);
+  border: 1px solid gray;
+  border-radius: 1px;
+  padding: 0.8rem;
+}
+
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 🍀 Used focus-within to detect elements focused within an element */
+.card:focus-within,
+.card:hover {
+  border-color: var(--theme-primary);
+  cursor: pointer;
+}
+
+.card-link:focus {
+  outline: none;
+}
+
+.card:hover .card-decoration,
+.card:focus-within .card-decoration {
+  background: var(--theme-primary);
+}
+
+.card:hover .card-title,
+.card:focus-within .card-title {
+  color: var(--theme-primary);
+}
+
+.card-decoration {
+  grid-area: placeholder;
+  height: 5rem;
+  width: calc(100% + 1.6rem);
+  margin: -0.8rem 0 0 -0.8rem;
+  background: var(--theme-primary-light);
+}
+
+.card-tag {
+  grid-area: tag;
+  align-self: center;
+  color: gray;
+  padding-top: 1.6rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.card-linkTag {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-linkTag:hover,
+.card-linkTag:focus {
+  color: var(--theme-secondary);
+}
+
+.card-date {
+  grid-area: date;
+  align-self: center;
+  justify-self: end;
+  color: gray;
+  padding-top: 1.6rem;
+  font-size: 1.2rem;
+}
+
+.card-title {
+  grid-area: title;
+  margin: 0;
+  padding: 0.4rem 0 0.8rem;
+  line-height: 1.2;
+}
+
+.card-text {
+  grid-area: text;
+  margin: 0;
+  color: var(--theme-text_1);
+}
+
+.card-cta {
+  grid-area: cta;
+  color: inherit;
+  text-decoration: none;
+  color: var(--theme-primary);
+  text-decoration: underline;
+  align-self: end;
+  padding-top: 0.8rem;
+}
+
+/* ------- LESSON #5 CUSTOM SELECT -------  */
 
 /* Both native and custom selects must have the same width/height. */
 .selectNative,

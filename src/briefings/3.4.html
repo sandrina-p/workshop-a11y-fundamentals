@@ -19,15 +19,38 @@
 <h2 id="introduction">Introduction</h2>
 <p>Until now, we have been exploring fairly simple cases, but let me tell you something:</p>
 <p>When it comes to accessibility, there isn't one single right way to do most of stuff. Once you find a solution, look for other solutions.</p>
-<p>Each approach has positive and negative consequences. We should aim for understanding their impacts and assume the trade-offs rather than pretending they don't exist.</p>
+<p>Each approach has positive and negative consequences. We should <strong>aim for understanding their impacts and assume the trade-offs</strong> rather than pretending they don't exist.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.4.html">exercise page</a>,
-there are a few more common cases not accessible. Each one might have multiple solutions and trade-offs.</p>
+there are a few more common cases not accessible.</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of each case.</p>
-<h2 id="bonus">Bonus</h2>
-<h3 id="1customselect">#1 Custom select</h3>
-<p>A custom accessible select is one of the trickiest things to create. Short answer: <strong>Avoid them if you can</strong>. But let’s face reality: a custom select is still our best solution sometimes.</p>
-<p>There's a relative simple technique to enhance these custom selects. I named this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
+<p>Each case might have multiple solutions. For that reason, you won't find a "direct" suggestion/solution like on the exercises before.</p>
+<p>Instead, I encourage you to study each case and <strong>come up with your own audits.</strong> Below you can find some hints and <em>food for thought</em>.</p>
+<h2 id="hintstrybeforereading">🍀 Hints (try before reading!)</h2>
+<h3 id="lesson1lists">Lesson #1 - Lists</h3>
+<p>Visually, it's perceivable what's the current element in the list,
+however that's not true for blind people. Here it comes <code>aria-current</code>.</p>
+<p><strong>Note:</strong> Chrome does not support it yet, but Firefox and Safari do!</p>
+<ul>
+<li><a href="https://tink.uk/using-the-aria-current-attribute/">Using <code>aria-current</code></a></li>
+</ul>
+<h3 id="lesson2clickablecards">Lesson #2 Clickable cards</h3>
+<p>You notice the cards are totally clicable - with touch, mouse and keyboard. Here's some things for you to consider:</p>
+<p>Try read it with screen reader….</p>
+<ul>
+<li>If you jump directly to the title and read after it, you won't notice the video category/date.</li>
+<li>Does the date announcement sounds right?</li>
+</ul>
+<p>Try to select the card text. (eg try to copy the title). Could you do it?</p>
+<h4 id="references">References</h4>
+<ul>
+<li><a href="https://css-tricks.com/link-header-header-link/">Link in header? Or header in link?</a></li>
+<li><a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">Block links: The search for a perfect solution</a></li>
+</ul>
+<h3 id="lesson3customselect">Lesson #3 - Custom select</h3>
+<p>A custom accessible select is one of the trickiest things to create.</p>
+<p>Among many studies (read references bellwo) around selects, I can give you the short answer: <strong>Avoid selectors if you can</strong>. But let’s face reality: a custom select is still our best solution sometimes.</p>
+<p>There's a relative simple technique to enhance these custom selects. I personally named this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
 <ul>
 <li>A native select, visible and accessible by default</li>
 <li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
@@ -50,15 +73,21 @@ there are a few more common cases not accessible. Each one might have multiple s
   }
 }
 </code></pre>
-<p><strong>🎯 Goal:</strong> Refactor the select to be a "hybrid select".</p>
-<p><strong>Important:</strong> This select still has A11Y issues. This is a "partial solution" of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select" experiment</a>. If you use this in the future, please take into considerations its limitations.</p>
-<h2 id="furtherreading">Further reading</h2>
+<p><strong>Important:</strong> This still has A11Y issues. It's a partial solution of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select" experiment</a>. If you use this in the future, please take into considerations its limitations.</p>
+<h4 id="references-1">References</h4>
 <ul>
-<li><a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">Aria attributes</a>.</li>
-<li><a href="https://tink.uk/using-the-aria-current-attribute/">Using <code>aria-current</code></a></li>
+<li><a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a Balance Between Native and Custom Select Elements</a></li>
 <li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
-<li>TODO…</li>
 </ul>
+<h3 id="lesson4togglebuttons">Lesson #4 - Toggle buttons</h3>
+<p><em>TODO: Coming…</em></p>
+<h4 id="references-2">References</h4>
+<h3 id="lesson5loadingstates">Lesson #5 - Loading states</h3>
+<p><em>TODO: Coming…</em></p>
+<h4 id="references-3">References</h4>
+<h3 id="lesson6tooltips">Lesson #6 - Tooltips</h3>
+<p><em>TODO: Coming…</em></p>
+<h4 id="references-4">References</h4>
 
   </main>
   <script src="../assets/prism.js" defer></script>
