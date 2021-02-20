@@ -14,6 +14,7 @@ html {
   --theme-primary-strong: #8c00ff;
   --theme-primary-light: #e9e1f8;
   --theme-secondary: #ff821f;
+  --theme-text_0: #343434;
   --theme-text_1: #6f6f6f;
 }
 
@@ -59,7 +60,7 @@ img {
   border: 0.1rem solid var(--theme-primary);
   border-radius: 0.3rem;
   background-color: #fff;
-  box-shadow: 0.2rem 0.2rem var(--theme-primary-light);
+  box-shadow: 2px 2px var(--theme-primary-light);
 }
 
 .part {
@@ -142,22 +143,19 @@ img {
   font-size: 1.6rem;
   border: none;
   padding: 0.8rem 2.4rem;
-  background-color: var(--theme-primary-strong);
-  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 0.6rem;
 }
 
-.btnOutline {
-  padding: 0.8rem 2.4rem;
-  border: 1px solid var(--theme-primary-strong);
-  background-color: transparent;
-  color: currentColor;
+.btnPrimary {
+  background-color: var(--theme-primary-strong);
+  color: #fff;
 }
 
-.btnOutline:hover {
-  color: var(--theme-primary-strong);
+.btnOutline {
+  background: var(--theme-primary-light);
+  color: var(--color);
 }
 
 .btnCircle,
@@ -176,7 +174,7 @@ img {
 .btnOutline:focus,
 .btnCircle:focus {
   outline: none;
-  box-shadow: white 0 0 0 0.2rem, var(--theme-secondary) 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 2px, var(--theme-secondary) 0 0 0 4px;
 }
 
 .btn-svg {
@@ -201,10 +199,11 @@ img {
 
 .btnToggle:focus {
   outline: none;
-  box-shadow: white 0 0 0 0.2rem, var(--theme-secondary) 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 2px, var(--theme-secondary) 0 0 0 4px;
 }
 
 .btnToggle.isPressed .btn-svg,
+/* 🍀 We can use the attributes to style as well! */
 .btnToggle[aria-pressed="true"] .btn-svg {
   fill: var(--theme-primary-strong);
 }
@@ -239,7 +238,7 @@ img {
   display: inline-block;
   color: inherit;
   text-decoration-color: var(--theme-primary);
-  padding: 0.1rem 0.2rem;
+  padding: 1px 2px;
   transform: translateX(-0.1em);
   margin-right: -0.1em;
 }
@@ -285,7 +284,7 @@ fieldset.field {
   display: block;
   opacity: 0.8;
   font-size: 1.4rem;
-  margin-top: 0.4rem;
+  margin-top: 4px;
 }
 
 .field-error {
@@ -296,11 +295,11 @@ fieldset.field {
 
 .inputRadio {
   display: inline-block;
-  margin: 0 2.4rem 0 0.4rem;
+  margin: 0 2.4rem 0 4px;
 }
 
 .inputRadio input {
-  margin-right: 0.4rem;
+  margin-right: 4px;
 }
 
 /* Don't judge... it works! I'll improve this later. */
@@ -331,7 +330,7 @@ fieldset.field {
 }
 
 .r-list1 p {
-  margin: 0.4rem;
+  margin: 4px;
 }
 
 .r-list2 {

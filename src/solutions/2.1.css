@@ -29,7 +29,7 @@
 }
 
 .c-btnPrimary:focus.focus-visible {
-  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
 }
 
 /* ------- FORM INPUTS -------  */
@@ -49,7 +49,7 @@
 
 .textInput:focus {
   outline: none;
-  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
 }
 
 /* ------- LINK -------  */

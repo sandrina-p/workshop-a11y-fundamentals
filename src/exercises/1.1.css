@@ -86,7 +86,7 @@ body * {
 
 .btnBell-svg:focus {
   outline: none;
-  box-shadow: var(--bg_0) 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: var(--bg_0) 0 0 0 2px, #ff821f 0 0 0 4px;
 }
 
 .u-fixedTop {

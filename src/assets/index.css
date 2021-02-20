@@ -43,7 +43,7 @@ ol {
   background: #fff;
   margin-bottom: 1.6rem;
   padding: 2rem 1.6rem;
-  box-shadow: 0.2rem 0.2rem #e9e1f8;
+  box-shadow: 2px 2px #e9e1f8;
 }
 
 .subTopic-heading {
@@ -124,7 +124,7 @@ ol {
 
 .donate-btn:focus {
   outline: none;
-  box-shadow: #fff 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: #fff 0 0 0 2px, #ff821f 0 0 0 4px;
 }
 
 .donate-btn img {

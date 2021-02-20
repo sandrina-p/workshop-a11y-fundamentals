@@ -76,16 +76,23 @@ h2 {
 }
 
 h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
+h4 {
   font-size: 1.8rem;
   font-weight: 600;
-  margin: 3.2rem 0 1.6rem;
+  margin: 1.6rem 0 -1rem;
   line-height: 1.2;
 }
 
 hr {
   margin: 3.2rem 0 0;
   border: none;
-  border-bottom: 0.1rem solid #8c00ff;
+  border-bottom: 0.1rem solid var(--theme-primary-light);
 }
 
 .linkHome {
@@ -93,11 +100,11 @@ hr {
   top: 0;
   left: 0;
   background: white;
-  box-shadow: 0 0 0 0.2rem #9b78de;
+  box-shadow: 0 0 0 2px var(--theme-primary);
   padding: 0.4rem 1.6rem;
   text-decoration: none;
 }
 
 .linkHome:focus {
-  box-shadow: #f8f3ef 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: #f8f3ef 0 0 0 2px, #ff821f 0 0 0 4px;
 }
