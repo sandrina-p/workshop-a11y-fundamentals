@@ -48,11 +48,10 @@ Notes:
         const elToggle = document.getElementsByClassName('js-addToFavorite')[0];
 
         elToggle.addEventListener('click', function () {
-          const isPressed = elToggle.classList.contains('isPressed');
+          const isPressed = elToggle.getAttribute('aria-pressed') === 'true';
           const method = isPressed ? 'remove' : 'add'
-          // Toggle the button status visually
-          elToggle.classList[method]('isPressed');
-          // and semantically 💡
+          // Toggle the button status.
+          // 🍀 We can use the ARIA attr to style it visually too.
           elToggle.setAttribute("aria-pressed", !isPressed);
         })
       </script>
