@@ -19,7 +19,7 @@
     <h1 class="heading-1">Meaningful content - extras</h1>
 
 
-    <!-- Lesson #1 - The current link -->
+    <!-- Lesson #1 - Current location -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #1</h2>
       <nav>
@@ -31,7 +31,7 @@
       </nav>
     </div>
 
-    <!-- TODO Lesson #2: Clickable cards -->
+    <!-- Lesson #2 - Cards clickable -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #2</h2>
 
@@ -87,7 +87,7 @@
           <span class="card-cta">Learn more</span>
         </article>
       </div>
-      <p>There are no more news for you today.</p>
+      <p>These are the only news for today.</p>
 
       <script>
         const elCards = document.querySelectorAll(".jsCard");
@@ -115,7 +115,7 @@
       </script>
     </div>
 
-    <!-- Lesson #3 Custom select -->
+    <!-- Lesson #3 - Custom select -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #3</h2>
 
@@ -143,25 +143,171 @@
           </div>
         </div>
       </div>
+
+      <script>
+        /*  ----------------------------------------- *\
+        |*  You do not need to touch the code bellow  *|
+        |*     but you can see how it was made.       *|
+        \** ----------------------------------------- */
+
+        // IMPORTANT: This code is a incomplete NOT ACCESSIBLE solution
+        // Some of the stuff missing:
+        // - Navigate through options when using keyboard up/down
+        // - Pressing Enter or Space selects the current hovered option
+
+        // Check the full solution: https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/
+
+        // Visual logic for selectCustom
+        const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
+
+        const elSelectCustomLabel = elSelectCustom.children[0]
+        const elSelectCustomOptions = elSelectCustom.children[1]
+        const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
+
+        // Listen for each option click
+        Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
+          elOption.addEventListener('click', (e) => {
+            // Update select label text...
+            elSelectCustomLabel.textContent = e.target.textContent
+            // And close select
+            elSelectCustom.classList.remove('isActive');
+          })
+        })
+
+        // Toggle select on label click
+        elSelectCustomLabel.addEventListener('click', (e) => {
+          elSelectCustom.classList.toggle('isActive');
+        })
+
+        // Update selectCustom label on selectNative change
+        const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
+
+        if (elSelectNative) {
+          elSelectNative.addEventListener('change', (e) => {
+            const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
+              0];
+            elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
+          })
+        }
+      </script>
     </div>
 
-    <div class="block_v">
+    <!-- Lesson #4 - Toogle buttons -->
+    <div class="block_v stgs js-lesson4" data-sound="off" data-theme="light" data-size="md">
       <h2 class="heading-2">Lesson #4</h2>
-      <p>TODO: Toggle button vs checkbox</p>
 
-      <!-- 
-      - Toggle button label consistency
-      - checkbox vs toggle buttons
-      Mute Mic
+      <p>Settings customization for this lesson.</p>
 
-      btn.pressed="true" Mic muted
-      btn.pressed="false" Mic on
+      <div class="part">
+        <!-- Solution:
+          - Keep the aria-pressed
+          - Override the button name for screen readers only
+        -->
+        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
+          <span class="sr-only">Enable Sound</span>
+          <span class="off" aria-hidden="true">
+            <span>🤐</span> Sound off
+          </span>
+          <span class="on" aria-hidden="true">
+            <span>🔊</span> Sound on
+          </span>
+        </button>
+      </div>
+
+      <div class="part">
+        <!-- Using input is okay. Another solution: Replace the input with a button.
+        Downside: Can't use the Space key to activate the button. -->
+        <button class="stgs-toggleTheme js-theme" aria-pressed="false">
+          Dark theme
+        </button>
+      </div>
+
+      <div class="part">
+        <!-- Solution:
+          - Replace inputs for 3 buttons. 
+          - Note: A more complete solution for the toolbar would include support
+          for navigation using arrow keys.
+          Read exercise references for further details.
+        -->
+        <div class="stgs-toolbar">
+          <span class="stgs-toolbar-title">Text size</span>
+          <button class="stgs-toolbar-item js-size" aria-pressed="false" data-value="sm">
+            Small
+          </button>
+          <button class="stgs-toolbar-item js-size" aria-pressed="true" data-value="md">
+            Medium
+          </button>
+          <button class="stgs-toolbar-item js-size" aria-pressed="false" data-value="lg">
+            Large
+          </button>
+          <button class="stgs-toolbar-item js-size" aria-disabled="true">
+            Custom (PRO)
+          </button>
+        </div>
+        <!-- P.S. Ignore the fact that the design isn't the same. [SANDRINA_TODO] -->
+
+
+        <script>
+          const elLesson4 = document.getElementsByClassName('js-lesson4')[0];
+          const elSound = document.getElementsByClassName('js-sound')[0];
+          const elTheme = document.getElementsByClassName('js-theme')[0];
+          const elsSize = document.getElementsByClassName('js-size');
+
+          const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
+          const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
+
+          elSound.addEventListener('click', function () {
+            const isPressed = elSound.getAttribute('aria-pressed') === 'true';
+            elSound.setAttribute("aria-pressed", !isPressed);
+
+            // 💡📣 You can uncomment this for extra fun!
+            // if (!isPressed) {
+            //   audioOn.play();
+            // } else {
+            //   audioOff.play()
+            // }
+          })
+
+          elTheme.addEventListener('click', function (e) {
+            const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
+            elTheme.setAttribute("aria-pressed", !isPressed);
+            elLesson4.setAttribute('data-theme', isPressed ? 'light' : 'dark')
+          })
+
+          Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
+            const isDisabled = el.getAttribute('aria-disabled') === 'true';
+
+            if (isDisabled) {
+              e.preventDefault();
+              el.blur(); // prevent focus on click.
+              return
+            }
+
+            // If it's already pressed, do nothing.
+            const isPressed = el.getAttribute('aria-pressed') === 'true';
+            if (isPressed) {
+              return
+            }
+
+            // Otherwise, mark it as pressed...
+            const currentValue = elLesson4.getAttribute('data-size');
+            el.setAttribute("aria-pressed", 'true');
+            elLesson4.setAttribute('data-size', el.getAttribute('data-value'));
+
+            // ...and unpress previously pressed size
+            if (currentValue) {
+              document.querySelector(`.js-size[data-value="${currentValue}"]`).setAttribute('aria-pressed', 'false')
+            }
+          }))
+
+        </script>
+      </div>
     </div>
-    -->
-    </div>
 
+    <!-- Lesson #5 - Loading states -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #5</h2>
+      <p>TODO: Loading states</p>
       <!-- <p>TODO: Loading skeletons</p>
       - be careful with aria-live in the parent.
       - aria-busy
@@ -169,59 +315,13 @@
       - skeletons: https://adrianroselli.com/2020/11/more-accessible-skeletons.html -->
     </div>
 
+    <!-- Lesson #6 - Tooltips -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #6</h2>
       <p>TODO: Tooltips</p>
     </div>
 
   </main>
-
-  <script>
-    /*  ----------------------------------------- *\
-    |*  You do not need to touch the code bellow  *|
-    |*     but you can see how it was made.       *|
-    \** ----------------------------------------- */
-
-    // IMPORTANT: This code is a incomplete NOT ACCESSIBLE solution
-    // Some of the stuff missing:
-    // - Navigate through options when using keyboard up/down
-    // - Pressing Enter or Space selects the current hovered option
-
-    // Check the full solution: https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/
-
-    // Visual logic for selectCustom
-    const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
-
-    const elSelectCustomLabel = elSelectCustom.children[0]
-    const elSelectCustomOptions = elSelectCustom.children[1]
-    const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
-
-    // Listen for each option click
-    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
-      elOption.addEventListener('click', (e) => {
-        // Update select label text...
-        elSelectCustomLabel.textContent = e.target.textContent
-        // And close select
-        elSelectCustom.classList.remove('isActive');
-      })
-    })
-
-    // Toggle select on label click
-    elSelectCustomLabel.addEventListener('click', (e) => {
-      elSelectCustom.classList.toggle('isActive');
-    })
-
-    // Update selectCustom label on selectNative change
-    const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
-
-    if (elSelectNative) {
-      elSelectNative.addEventListener('change', (e) => {
-        const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
-          0];
-        elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
-      })
-    }
-  </script>
 </body>
 
 </html>

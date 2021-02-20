@@ -1,4 +1,12 @@
-/* ------- LESSON #2 Cards -------  */
+/* ---------------------------------------  */
+/* ----------- LESSON #1 LISTS -----------  */
+/* ---------------------------------------  */
+
+/* CSS not needed */
+
+/* ---------------------------------------  */
+/* ------ LESSON #2 CARDS CLICKABLE-------  */
+/* ---------------------------------------  */
 
 .cardParent {
   display: flex;
@@ -100,7 +108,9 @@
   padding-top: 0.8rem;
 }
 
-/* ------- LESSON #5 CUSTOM SELECT -------  */
+/* ---------------------------------------  */
+/* ------- LESSON #3 CUSTOM SELECT -------  */
+/* ---------------------------------------  */
 
 /* Both native and custom selects must have the same width/height. */
 .selectNative,
@@ -140,7 +150,7 @@
 /* highlight the custom select when is clicked */
 .selectCustom.isActive .selectCustom-trigger {
   outline: none;
-  box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
 }
 
 /* Rest of the styles to create the custom select. */
@@ -244,3 +254,100 @@
   position: absolute;
   left: 0.8rem;
 }
+
+/* ---------------------------------------  */
+/* ------- LESSON #4 TOGGLE BUTTON -------  */
+/* ---------------------------------------  */
+
+.stgs button:focus {
+  outline: none;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
+}
+
+.stgs input:focus {
+  outline: 4px solid #ff821f;
+}
+
+.stgs[data-theme="light"] {
+  background: var(--theme-bg_1);
+  color: var(--theme-text_0);
+  /* nothing... */
+}
+.stgs[data-theme="dark"] {
+  background: var(--theme-text_0);
+  color: var(--theme-bg_0);
+}
+
+.stgs[data-size="sm"] {
+  font-size: 1.4rem;
+}
+.stgs[data-size="md"] {
+  font-size: 1.6rem;
+}
+.stgs[data-size="lg"] {
+  font-size: 1.9rem;
+}
+
+/* Sound toggle */
+.stgs-btnOnOff {
+  background: transparent;
+  color: inherit;
+  padding: 1.2rem 1.6rem;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.stgs-btnOnOff .on,
+.stgs-btnOnOff .off {
+  display: none;
+}
+.stgs-btnOnOff[aria-pressed="true"] .on {
+  display: block;
+}
+.stgs-btnOnOff[aria-pressed="false"] .off {
+  display: block;
+}
+
+/* Theme toggle */
+.stgs-toggleTheme {
+  background: transparent;
+  color: inherit;
+  padding: 1.2rem 1.6rem;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.stgs-toggleTheme:focus-within {
+  outline: none;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
+}
+
+.stgs-toggleTheme input {
+  position: absolute;
+  opacity: 0;
+}
+
+.stgs-toggleTheme input + .stgs-toggleTheme-fakeCheck::before {
+  content: "✅";
+  content: "✅" / "";
+  margin-right: 0.8rem;
+}
+.stgs-toggleTheme input:checked + .stgs-toggleTheme-fakeCheck::before {
+  content: "🔲";
+  content: "🔲" / "";
+  margin-right: 0.8rem;
+}
+
+/* Font size options */
+.stgs-toolbar-title,
+.stgs-toolbar label {
+  display: block;
+}
+
+/* ---------------------------------------  */
+/* ------- LESSON #5 LOADING STATES ------  */
+/* ---------------------------------------  */
+
+/* ---------------------------------------  */
+/* --------- LESSON #6 TOOLTIPS ----------  */
+/* ---------------------------------------  */
