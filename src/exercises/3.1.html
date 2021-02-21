@@ -46,7 +46,7 @@ Notes:
         </svg>
       </button>
       <script>
-        // The JS part to update aria-pressed is already done for you.
+        // 💡 The JS part to update aria-pressed is already done for you.
         const elToggle = document.getElementsByClassName('js-addToFavorite')[0];
 
         elToggle.addEventListener('click', function () {
@@ -66,8 +66,7 @@ Notes:
       <!--
         💡 This button instruction is confusing for a SR user. They don't
         know if they should press "enter" on the button or on the instruction.
-        How you would solve this?
-        Hint: aria-describedby and aria-hidden can be an solution.
+        How you would solve this? Perhaphs we could remove the redudancy?
       -->
       <div class="u-rowCenterY">
         <button class="btn btnPrimary">
@@ -110,6 +109,8 @@ Notes:
         Here's "picture" but made of characters.
         This is the worst nightmare for a SR user. What can we do here?
         How can we tell everyone about this cute elephant?
+         - Option A: Add role="img" attribute with an empty alt
+         - Option B: Hide <pre> from SR and add a custom description for SR only.
         -->
       <pre>
             __     __

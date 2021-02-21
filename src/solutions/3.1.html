@@ -61,12 +61,12 @@ Notes:
     <div class="block_v">
       <h2 class="heading-2">Lesson #3</h2>
       <div class="u-rowCenterY">
-        <!-- 1/2 use aria-describedby="id" to associate the instruction  -->
-        <button class="btn btnPrimary" aria-describedby="startHint">
-          Start
+        <!-- 1/2 Give a more meaningful purpose to start. Start what?  -->
+        <button class="btn btnPrimary">
+          Start <span class="sr-only">chapter 3</span>
         </button>
-        <!-- 2/2 and hide the actual instruction from SR using aria-hidden="true" -->
-        <span id="startHint" aria-hidden="true">Press ENTER</span>
+        <!-- 2/2 Hide the actual instruction from SR using aria-hidden="true" -->
+        <span aria-hidden="true">or press ENTER</span>
       </div>
     </div>
 
