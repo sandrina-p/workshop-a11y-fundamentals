@@ -44,6 +44,7 @@ ol {
   margin-bottom: 1.6rem;
   padding: 2rem 1.6rem;
   box-shadow: 2px 2px #e9e1f8;
+  border-radius: 4px;
 }
 
 .subTopic-heading {
