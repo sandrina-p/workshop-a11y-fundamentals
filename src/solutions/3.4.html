@@ -15,6 +15,21 @@
 </head>
 
 <body>
+  <script>
+    function ignoreIfDisabled(event) {
+      const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
+
+      if (isDisabled) {
+        event.preventDefault();
+        event.target.blur(); // prevent focus on click.
+        console.log('disabled - click ignored')
+        return true
+      }
+
+      return false
+    }
+  </script>
+
   <main class="content">
     <h1 class="heading-1">Meaningful content - extras</h1>
 
@@ -224,28 +239,28 @@
 
       <div class="part">
         <!-- Solution:
-          - Replace inputs for 3 buttons. 
-          - Note: A more complete solution for the toolbar would include support
-          for navigation using arrow keys.
-          Read exercise references for further details.
+          - Replace native inputs for buttons with role="radio".
+            - The SR will recognize the related options inside radiogroup. 
+          - Improvement: A even more complete solution would be to include
+          support for navigation using arrow keys.
+          Read exercise references about toolbars for further details.
         -->
-        <div class="stgs-toolbar">
-          <span class="stgs-toolbar-title">Text size</span>
-          <button class="stgs-toolbar-item js-size" aria-pressed="false" data-value="sm">
+        <div class="stgs-toolbar" role="radiogroup">
+          <legend class="stgs-toolbar-title">Text size</legend>
+          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="sm">
             Small
           </button>
-          <button class="stgs-toolbar-item js-size" aria-pressed="true" data-value="md">
+          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="true" data-value="md">
             Medium
           </button>
-          <button class="stgs-toolbar-item js-size" aria-pressed="false" data-value="lg">
+          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="lg">
             Large
           </button>
-          <button class="stgs-toolbar-item js-size" aria-disabled="true">
+          <button class="stgs-toolbar-item js-size" role="radio" aria-disabled="true">
             Custom (PRO)
           </button>
         </div>
         <!-- P.S. Ignore the fact that the design isn't the same. [SANDRINA_TODO] -->
-
 
         <script>
           const elLesson4 = document.getElementsByClassName('js-lesson4')[0];
@@ -275,28 +290,23 @@
           })
 
           Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
-            const isDisabled = el.getAttribute('aria-disabled') === 'true';
-
-            if (isDisabled) {
-              e.preventDefault();
-              el.blur(); // prevent focus on click.
-              return
-            }
+            const isDisabled = ignoreIfDisabled(e)
+            if (isDisabled) return false
 
             // If it's already pressed, do nothing.
-            const isPressed = el.getAttribute('aria-pressed') === 'true';
+            const isPressed = el.getAttribute('aria-checked') === 'true';
             if (isPressed) {
               return
             }
 
             // Otherwise, mark it as pressed...
             const currentValue = elLesson4.getAttribute('data-size');
-            el.setAttribute("aria-pressed", 'true');
+            el.setAttribute("aria-checked", 'true');
             elLesson4.setAttribute('data-size', el.getAttribute('data-value'));
 
             // ...and unpress previously pressed size
             if (currentValue) {
-              document.querySelector(`.js-size[data-value="${currentValue}"]`).setAttribute('aria-pressed', 'false')
+              document.querySelector(`.js-size[data-value="${currentValue}"]`).setAttribute('aria-checked', 'false')
             }
           }))
 
@@ -307,12 +317,79 @@
     <!-- Lesson #5 - Loading states -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #5</h2>
-      <p>TODO: Loading states</p>
-      <!-- <p>TODO: Loading skeletons</p>
-      - be careful with aria-live in the parent.
-      - aria-busy
-      - disabled vs aria-disabled
-      - skeletons: https://adrianroselli.com/2020/11/more-accessible-skeletons.html -->
+      <!-- Solution:
+        - Replace disabled with aria-disabled to remain focused while loading.
+        - Add aria-live to the loading element no announce when it starts/ends.
+        - Add aria-busy to the content being loaded. Although it's not well supported.
+      -->
+      <div>
+        <button class="btn btnPrimary js-luckyTrigger">
+          Load lucky numbers
+        </button>
+
+        <div class="luckyArea">
+
+          <div class="js-luckyEmpty">
+            No lucky numbers yet.
+          </div>
+
+          <!-- Use aria-live to let the user know about the loading.
+          Note: Do NOT use it on the element that will contain the loaded content,
+          otherwise the AT would announce the entire content, which can be annoying. -->
+          <div class="js-luckyLoader" aria-live="polite"></div>
+
+          <div class="js-luckyTarget js-isHidden">
+            <p>The lucky numbers are <span class="js-luckyNrs"></span>.</p>
+          </div>
+        </div>
+        <p>Actually these numbers may be <a href="https://en.wikipedia.org/wiki/Luck#Numerology">unlucky numbers</a> as
+          well.</p>
+      </div>
+
+      <script>
+        const elLuckyTrigger = document.getElementsByClassName('js-luckyTrigger')[0];
+        const elLuckyLoader = document.getElementsByClassName('js-luckyLoader')[0];
+        const elLuckyEmpty = document.getElementsByClassName('js-luckyEmpty')[0];
+        const elLuckyTarget = document.getElementsByClassName('js-luckyTarget')[0];
+        const elLuckyNrs = document.getElementsByClassName('js-luckyNrs')[0];
+
+        const getRandomNr = () => Math.floor(Math.random() * 9) + 1;
+        const loadingTime = 2500 // 2.5s          
+
+        elLuckyTrigger.addEventListener('click', function (e) {
+          const isDisabled = ignoreIfDisabled(e)
+          if (isDisabled) return false
+
+          // Use "aria-disabled="true" instead of "disabled" to allow the button
+          // to be focused, even when during the loading state.
+          elLuckyTrigger.setAttribute('aria-disabled', 'true')
+          elLuckyEmpty.classList.add('js-isHidden')
+
+          // Let AT know it's loading.
+          elLuckyLoader.classList.remove('sr-only')
+          elLuckyLoader.innerHTML = `Loading numbers...`
+
+          elLuckyTarget.classList.add('js-isHidden');
+          // aria-busy isn't supported by many browsers, so use aria-hidden too.
+          elLuckyTarget.setAttribute('aria-busy', 'true');
+          elLuckyTarget.setAttribute('aria-hidden', 'true');
+
+          setTimeout(() => {
+            // Display the lucky numbers!
+            elLuckyNrs.textContent = `${getRandomNr()} and ${getRandomNr()}`
+            elLuckyTarget.classList.remove('js-isHidden');
+            elLuckyTarget.setAttribute('aria-busy', 'false')
+            elLuckyTarget.setAttribute('aria-hidden', 'false');
+
+            // Let AT know the loading was complete.
+            elLuckyLoader.innerHTML = `Numbers loaded!`
+            elLuckyLoader.classList.add('sr-only')
+
+            // Make the trigger button clickable again. 
+            elLuckyTrigger.removeAttribute('aria-disabled');
+          }, loadingTime)
+        })
+      </script>
     </div>
 
     <!-- Lesson #6 - Tooltips -->

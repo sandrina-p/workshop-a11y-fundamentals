@@ -365,7 +365,7 @@
   color: inherit;
 }
 
-.stgs-toolbar-item[aria-pressed="true"] {
+.stgs-toolbar-item[aria-checked="true"] {
   background-color: var(--theme-primary);
   color: var(--theme-bg_1);
 }
@@ -378,6 +378,21 @@
 /* ---------------------------------------  */
 /* ------- LESSON #5 LOADING STATES ------  */
 /* ---------------------------------------  */
+
+.luckyArea {
+  width: 100%;
+  height: 10rem;
+  border: 1px dotted var(--theme-primary);
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.js-isHidden {
+  display: none;
+}
 
 /* ---------------------------------------  */
 /* --------- LESSON #6 TOOLTIPS ----------  */

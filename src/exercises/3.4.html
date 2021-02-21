@@ -15,8 +15,22 @@
 </head>
 
 <body>
-  <main class="content">
+  <script>
+    function ignoreIfDisabled(event) {
+      const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
 
+      if (isDisabled) {
+        event.preventDefault();
+        event.target.blur(); // prevent focus on click.
+        console.log('disabled - click ignored')
+        return true
+      }
+
+      return false
+    }
+  </script>
+
+  <main class="content">
     <h1 class="heading-1">Meaningful content - extras</h1>
 
     <!-- Lesson #1 - Current location -->
@@ -221,16 +235,69 @@
     </div>
 
     <!-- Lesson #5 - Loading states -->
+    <!-- Lesson #5 - Loading states -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #5</h2>
-      <p>TODO: Loading states</p>
-      <!-- <p>TODO: Loading skeletons</p>
-          - be careful with aria-live in the parent.
-          - aria-busy
-          - disabled vs aria-disabled
-          - skeletons: https://adrianroselli.com/2020/11/more-accessible-skeletons.html -->
-    </div>
+      <!-- Solution:
+        - Replace disabled with aria-disabled to remain focused while loading.
+        - Add aria-live to the loading element no announce when it starts/ends.
+        - Add aria-busy to the content being loaded. Although it's not well supported.
+      -->
+      <div>
+        <button class="btn btnPrimary js-luckyTrigger">
+          Load lucky numbers
+        </button>
 
+        <div class="luckyArea">
+
+          <div class="js-luckyEmpty">
+            No lucky numbers yet.
+          </div>
+
+          <div class="js-luckyLoader">
+            <!-- Check JS -->
+          </div>
+
+          <div class="js-luckyTarget js-isHidden">
+            <p>The lucky numbers are <span class="js-luckyNrs"></span>.</p>
+          </div>
+        </div>
+        <p>Actually these numbers may be <a href="https://en.wikipedia.org/wiki/Luck#Numerology">unlucky numbers</a> as
+          well.</p>
+      </div>
+
+      <script>
+        const elLuckyTrigger = document.getElementsByClassName('js-luckyTrigger')[0];
+        const elLuckyLoader = document.getElementsByClassName('js-luckyLoader')[0];
+        const elLuckyEmpty = document.getElementsByClassName('js-luckyEmpty')[0];
+        const elLuckyTarget = document.getElementsByClassName('js-luckyTarget')[0];
+        const elLuckyNrs = document.getElementsByClassName('js-luckyNrs')[0];
+
+        const getRandomNr = () => Math.floor(Math.random() * 9) + 1;
+        const loadingTime = 2500 // 2.5s          
+
+        elLuckyTrigger.addEventListener('click', function (e) {
+          const isDisabled = ignoreIfDisabled(e)
+          if (isDisabled) return false
+
+          elLuckyTrigger.setAttribute('disabled', 'disabled')
+          elLuckyEmpty.classList.add('js-isHidden')
+
+          elLuckyLoader.innerHTML = `Loading numbers...`
+
+          elLuckyTarget.classList.add('js-isHidden');
+
+          setTimeout(() => {
+            // Display the lucky numbers!
+            elLuckyNrs.textContent = `${getRandomNr()} and ${getRandomNr()}`
+            elLuckyTarget.classList.remove('js-isHidden');
+
+            // Make the trigger button clickable again. 
+            elLuckyTrigger.removeAttribute('disabled');
+          }, loadingTime)
+        })
+      </script>
+    </div>
     <!-- Lesson #6 - Tooltips -->
     <div class="block_v">
       <h2 class="heading-2">Lesson #6</h2>

@@ -33,14 +33,14 @@ are not write and needed to be changed.</p>
 <p>I encourage you to study each case and come up with your own audits. Below you can find some hints and <em>food for thought</em> about each case.</p>
 <h3 id="lesson1lists">Lesson #1 - Lists</h3>
 <p>Visually, it's perceivable which list item is the current one,
-however that's not true for blind people. Perhaps, there's some <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attribute</a> that reflects the <em>current</em> state.</p>
+however that's not true for blind people. Perhaps, Some <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attribute</a> that reflects the <em>current</em> state.</p>
 <h4 id="references">References</h4>
 <ul>
 <li><a href="https://tink.uk/using-the-aria-current-attribute/">Marking the current element in a list</a>: Note: Chrome doesn't support it yet, but Firefox and Safari do.</li>
 </ul>
 <hr />
 <h3 id="lesson2clickablecards">Lesson #2 - Clickable cards</h3>
-<p>You notice the cards are totally clicable - with touch, mouse and keyboard. Here's some things for you to consider:</p>
+<p>You notice the cards are totally clicable - with touch, mouse and keyboard. Some things for you to consider:</p>
 <p>Try read it with screen reader….</p>
 <ul>
 <li>If you jump directly to the title and keep reading, you won't notice the video category/date.</li>
@@ -130,16 +130,16 @@ however that's not true for blind people. Perhaps, there's some <a href="https:/
 <p></details></p>
 <p><details>
 <summary>Tips about keyboard navigation</summary></p>
-<p>Although <code>Tab</code> is the main way to navigate between interactive elements, it's not the only one. In some interactive components, such as <code>&lt;select&gt;</code> and <code>&lt;input&gt;</code> radio/checkboxes, the navigation is done with arrow keys.</p>
-<p>We might ask ourselves: When to use Tabs or Arrow Keys?</p>
-<p>This is my decision tree:</p>
+<p>Although <code>Tab</code> is the main way to navigate between interactive elements, it's not the only one. In some cases the navigation is done with arrow keys (e.g <code>&lt;select&gt;</code> and <code>&lt;input&gt;</code> radio/checkboxes). We can even create our custom shortcuts.</p>
+<p>We might ask: When to use Tabs or Arrow Keys?</p>
+<p>The <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts">WAI keyboard guidelines</a> are extended and a continuos work in progress. This is my current simplified decision tree:</p>
 <ul>
-<li>Skip Tabs to the make navigation more efficient. (Google Drive is a great example)</li>
+<li>Skip Tabs to make navigation more efficient. (Google Drive is a great example)</li>
 <li>Use Arrow keys when elements are directly related (eg a toolbox,a breadcrumb)</li>
-<li>When using Arrow keys, highlight visually the parent element, for a better understanding of the context and related elements.</li>
-<li>The direction mechanism to move between elements depends on the context. <code>aria-describedby</code> with instructions can be helpful for blind people.
-</details></li>
+<li>When using Arrow keys, highligh visually the parent element, for a clear understanding of the context and related elements.</li>
+<li>The direction mechanism to move between elements depends on the context. <code>aria-describedby</code> with instructions can be helpful for blind people.</li>
 </ul>
+<p></details></p>
 <h4 id="references-3">References</h4>
 <ul>
 <li><a href="https://inclusive-components.design/toggle-button/">Inclussive Toggle Buttons</a></li>
@@ -148,8 +148,18 @@ however that's not true for blind people. Perhaps, there's some <a href="https:/
 </ul>
 <hr />
 <h3 id="lesson5loadingstates">Lesson #5 - Loading states</h3>
-<p><em>TODO: Coming…</em></p>
+<p>When some content is being processed, we use visual indicators to assure users that their request is being taken care.</p>
+<p>These indicators besides being visual, need to be effective for people using keyboard and screen readers as well.</p>
+<p>Some things for you to consider:</p>
+<ul>
+<li>Using keyboard only, can you navigate correctly while the lucky numbers are being loaded?</li>
+<li>Using the screen reader, are you aware when the content gets loaded?</li>
+</ul>
 <h4 id="references-4">References</h4>
+<ul>
+<li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">Accessible skeletons</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">aria-live regions</a></li>
+</ul>
 <hr />
 <h3 id="lesson6tooltips">Lesson #6 - Tooltips</h3>
 <p><em>TODO: Coming…</em></p>
