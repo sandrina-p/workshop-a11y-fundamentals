@@ -95,7 +95,7 @@ hr {
   border-bottom: 0.1rem solid var(--theme-primary-light);
 }
 
-.linkHome {
+.linkBack {
   position: fixed;
   top: 0;
   left: 0;
@@ -105,6 +105,6 @@ hr {
   text-decoration: none;
 }
 
-.linkHome:focus {
+.linkBack:focus {
   box-shadow: #f8f3ef 0 0 0 2px, #ff821f 0 0 0 4px;
 }

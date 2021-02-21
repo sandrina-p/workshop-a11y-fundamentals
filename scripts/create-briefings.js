@@ -29,7 +29,7 @@ briefFiles.forEach((brief) => {
 </head>
 
 <body>
-  <a class="linkHome" href="../index.html">Go Back</a>
+  <a class="linkBack" href="../index.html">Go Back</a>
   <main>
   
 ${html}
