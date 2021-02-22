@@ -70,19 +70,19 @@ After each challenge, we'll go through the solution together and clarify questio
 
 ```bash
 src/
-  briefings/
-    *.md      # The exercise briefing
+  briefings/  # The exercises introduction
+    *.md
   exercises/  # Where you'll be working
     *.html      # The exercise html
     *.css       # The exercise styles
   solutions/  # The final solutions
-  index.html    # Workshop entry point
+  index.html  # Workshop entry point
 ```
 
 **Notes:**
 
-- **Check solutions as a last resource** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
-- **Time expectations:** I don't expect you to complete the entire exercise on time. The goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the content.
+- **Check solutions as a last resource.** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
+- **Time expectations:** I don't expect you to complete the entire exercise on time. The goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the materials.
 - **Guidance & tips:** In the code, you'll find the _light bulb_ emoji 💡 to guide you, and the _lucky clover_ emoji 🍀 with extra tips.
 
 ## Workshop Outline
@@ -93,11 +93,11 @@ src/
   - Appearance
   - Semantic HTML
   - Meaningful images
-- 🎯 **#2: Keyboard Navigation**
+- 🎯 **#2: Keyboard navigation**
   - Interactive elements
   - Hidden elements
   - Navigation shortcuts
-- 🎯 **#3: Screen Readers**
+- 🎯 **#3: Screen readers**
   - Meaningful content
   - Page Landmarks
   - Accessible forms
@@ -132,6 +132,6 @@ Here are some guidelines for things that are **OK** and **Not OK** based on this
 
 ## Copyright
 
-&copy; 2021 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved
+&copy; 2021 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved.
 
 **This material cannot be used for workshops, training, or any other form of instructing or teaching, without express written consent.**
