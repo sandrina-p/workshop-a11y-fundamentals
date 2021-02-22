@@ -36,8 +36,8 @@ Notes:
 
     <main>
       <h1 class="heading-1">Page Landmarks</h1>
-      <div class="block_v">
-        <h2 class="heading-2">Good morning across the world</h2>
+      <article class="block_v" aria-labelledby="title">
+        <h2 class="heading-2" id="title">Good morning across the world</h2>
         <p>
           In a world of around 6,000 languages, there are tons of ways to greet each other and say good morning.
           Here are three examples:
@@ -60,13 +60,14 @@ Notes:
 
         Learn to say "Good morning" in
         <a href="https://www.indifferentlanguages.com/words/good_morning" class="link">many languages</a>.
+      </article>
+
+      <!-- 💡 3/4 We can create custom landmarks too -->
+      <div class="block" role="region" aria-label="comments">
+        <i>Nobody left a comment yet...</i>
       </div>
     </main>
 
-    <!-- 💡 3/4 We can create custom landmarks too -->
-    <div class="block" role="region" aria-label="comments">
-      <i>Nobody left a comment yet...</i>
-    </div>
 
     <footer class="block r-footerG">
       <!-- 💡 4/4 Here's a 2nd nav landmark.
