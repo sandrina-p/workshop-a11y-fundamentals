@@ -64,9 +64,9 @@ During the workshop, these extensions may help you:
 
 ### Project structure
 
-The workshop consists of a set of challenges.
+The workshop consists of a set of challenges.  
 Each one introduces a new topic, followed by a code exercise for you to apply the concepts learned.
-After each challenge, we'll go through the solution together and clarify questions.
+After each challenge, we'll go through the solution together and clarify any questions that you might have.
 
 ```bash
 src/
