@@ -12,9 +12,8 @@
   margin: 0;
 }
 
-/* ------- Solving Bonus 2:
-- Add the needed CSS to the class bellow:
-*/
+/* ------- Solving Bonus 2: ------- */
+/* Note: This is the same as .sr-only during the next exercises */
 .visually-hidden {
   position: absolute;
   width: 1px;
