@@ -32,13 +32,13 @@
 <p>In the <a href="../exercises/2.1.html">exercise page</a>,
 there are 4 interactive elements. However, we can't easily access them through the keyboard.</p>
 <p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard with <code>:hover</code> and <code>:focus</code>.</p>
-<p><strong>🍀 Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forwards and backwards respectively across the interactive elements.</p>
+<p><strong>🍀 Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forward and backward respectively across the interactive elements.</p>
 <p>There aren't any explicit design requirements, so you can go <em>free-style</em>!
 Adding some opacity or changing the color are common design approaches.</p>
 <p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
 <h2 id="bonus">Bonus</h2>
 <h3 id="1focusonlywhenusingthekeyboard">#1 Focus only when using the keyboard</h3>
-<p>Another reason to hide the focus indicator on buttons and links is because the focus is triggered when clicking them.</p>
+<p>Another reason to hide the focus indicator on buttons and links is that the focus is triggered when clicking them.</p>
 <p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
 <p>Most browsers do not support it yet, so we need the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
 <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
@@ -67,11 +67,17 @@ Adding some opacity or changing the color are common design approaches.</p>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
-<li><a href="https://www.w3.org/TR/WCAG21/#keyboard">WCAG 2.1.1 Keyboard - A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 2.4.7 Focus visible - AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#keyboard">WCAG 2.1.1 Keyboard - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 2.4.7 Focus visible - Level AA</a></li>
 </ul>
 
-  </main>
-  <script src="../assets/prism.js" defer></script>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=2.1">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
+
+<script src="../assets/prism.js" defer></script>
 </body>
+
+
 </html>

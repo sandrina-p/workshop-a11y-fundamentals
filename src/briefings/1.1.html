@@ -29,8 +29,8 @@ Let's start with the two most common appearance topics: <em>color</em> and <em>p
 </ul>
 <h3 id="proportionssize">Proportions (size)</h3>
 <p>It's out of our control to know the exact size or font that will be presented to people because a webpage can be consumed in multiple mediums.</p>
-<p>For that reason, it's safer to <strong>think about <em>proportions</em> insted of <em>sizes</em> when building interfaces</strong>. This can be achieved by using relative units instead of absolute units for text size.</p>
-<p>The relative units <code>rem</code> and <code>em</code> are the best replacements for <code>px</code>. An <code>em</code> is an unit of typography, relative to the <code>font-size</code> of its nearest parent. A <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
+<p>For that reason, it's safer to <strong>think about <em>proportions</em> instead of <em>sizes</em> when building interfaces</strong>. This can be achieved by using relative units instead of absolute units for text size.</p>
+<p>The relative units <code>rem</code> and <code>em</code> are the best replacements for <code>px</code>. An <code>em</code> is a unit of typography, relative to the <code>font-size</code> of its nearest parent. A <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
 <p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>1rem = 16px</code></strong>.</p>
 <pre><code class="css language-css">.title {
   font-size: 1.5rem; /* same as 24px (24/16 or 16*1.5) */
@@ -52,7 +52,7 @@ body {
 }
 </code></pre>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/1.1.html">exercise page</a>, there are multiple accessibility problems related with color and proportions:</p>
+<p>In the <a href="../exercises/1.1.html">exercise page</a>, there are multiple accessibility problems related to color and proportions:</p>
 <ul>
 <li>Color: Some text has not enough color contrast.</li>
 <li>Size: The text size is written with absolute units.</li>
@@ -113,14 +113,20 @@ body {
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
-<li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">WCAG 1.4.3 Contrast (Minimum) - AA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#resize-text">WCAG 1.4.4 Resize text - AA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">WCAG 1.4.8 Visual Presentation - AAA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#text-spacing">WCAG 1.4.12 Text spacing - AA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">WCAG 2.3.3 Animation from interactions - AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">WCAG 1.4.3 Contrast (Minimum) - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#resize-text">WCAG 1.4.4 Resize text - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">WCAG 1.4.8 Visual Presentation - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#text-spacing">WCAG 1.4.12 Text spacing - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">WCAG 2.3.3 Animation from interactions - Level AAA</a></li>
 </ul>
 
-  </main>
-  <script src="../assets/prism.js" defer></script>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=1.1">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
+
+<script src="../assets/prism.js" defer></script>
 </body>
+
+
 </html>

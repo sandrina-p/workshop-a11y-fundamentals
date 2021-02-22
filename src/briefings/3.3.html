@@ -49,7 +49,7 @@
 <p>While these changes are visually apparent to users who can see the page,
 they aren't obvious to screen reader users.</p>
 <p>ARIA live regions fill this gap helping to expose this dynamic content.</p>
-<pre><code class="html language-html">&lt;!-- The content is announce immediately when added to the DOM.
+<pre><code class="html language-html">&lt;!-- The content is announced immediately when added to the DOM.
 Use it when it's critical information.  --&gt;
 &lt;div aria-live="assertive"&gt;The form you tried to submit is invalid.&lt;/div&gt;
 
@@ -58,7 +58,7 @@ Use it when this do not influence the user main task.  --&gt;
 &lt;div aria-live="polite"&gt;Playing now: "Pink Floyd - Time"&lt;/div&gt;
 </code></pre>
 <p><strong>🎯 Goal:</strong> Explicit mark the form feedback messages as dynamic content.</p>
-<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise the code is ready to follow the approach #3.</p>
+<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise, the code is ready to follow the approach #3.</p>
 <h3 id="2usingbuttonsinsideforms">#2 Using buttons inside forms</h3>
 <p><em>This is already done, but let me explain this common form mistake:</em></p>
 <ol>
@@ -85,14 +85,20 @@ In this form, the first button is the password toggle. That's why when we click 
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
-<li><a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose">WCAG 1.3.5 Identify input purpose - AA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#error-identification">WCAG 3.3.1 Error identification - A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">WCAG 3.3.2 Labels or instructions - A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">WCAG 3.3.3 Error suggestion - AA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 4.1.3 Status messages - AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose">WCAG 1.3.5 Identify input purpose - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#error-identification">WCAG 3.3.1 Error identification - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">WCAG 3.3.2 Labels or instructions - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">WCAG 3.3.3 Error suggestion - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 4.1.3 Status messages - Level AA</a></li>
 </ul>
 
-  </main>
-  <script src="../assets/prism.js" defer></script>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=3.3">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
+
+<script src="../assets/prism.js" defer></script>
 </body>
+
+
 </html>

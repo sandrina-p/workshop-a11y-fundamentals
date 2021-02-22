@@ -32,7 +32,7 @@
 &lt;!-- Good --&gt;
 &lt;button aria-label="Close modal"&gt;X&lt;/button&gt;
 </code></pre>
-<p>There's a downside with this approach thought. Some<code>aria-label</code>. Some automated translation tools will miss <code>aria-label</code>. A safer solution is to add a visually hidden element.</p>
+<p>There's a downside with this approach though. Some<code>aria-label</code>. Some automated translation tools will miss <code>aria-label</code>. A safer solution is to add a visually hidden element.</p>
 <pre><code class="html language-html">&lt;!-- Better --&gt;
 &lt;button&gt;
   &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
@@ -42,7 +42,7 @@
 <p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll start by exploring the most common.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.1.html">exercise page</a>,
-there are 5 cases where some pieces of information were forgotten or missused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
+there are 5 cases where some pieces of information were forgotten or misused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
 <p><strong>🎯 Goal:</strong> Add accessible names or status to all elements.</p>
 <p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be an alternative to screen readers.</p>
 <h2 id="furtherreading">Further reading</h2>
@@ -58,13 +58,19 @@ there are 5 cases where some pieces of information were forgotten or missused. S
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
-<li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">WCAG 4.1.2 Name, Role, Value - A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 3.1.6 Pronunciation - AAA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">WCAG 2.4.8 Link Purpose - A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">WCAG 2.4.9 Link Purpose (Link Only) - AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">WCAG 4.1.2 Name, Role, Value - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 3.1.6 Pronunciation - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">WCAG 2.4.8 Link Purpose - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">WCAG 2.4.9 Link Purpose (Link Only) - Level AAA</a></li>
 </ul>
 
-  </main>
-  <script src="../assets/prism.js" defer></script>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=3.1">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
+
+<script src="../assets/prism.js" defer></script>
 </body>
+
+
 </html>

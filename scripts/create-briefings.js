@@ -6,6 +6,7 @@ const showdown = require("showdown");
 
 const converter = new showdown.Converter();
 
+const workshopTitle = "A11Y+Fundamentals";
 const briefFiles = glob.sync("./src/briefings/*.md");
 
 briefFiles.forEach((brief) => {
@@ -34,9 +35,15 @@ briefFiles.forEach((brief) => {
   
 ${html}
 
-  </main>
-  <script src="../assets/prism.js" defer></script>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=${workshopTitle}&entry.1412096726=${briefName}">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
+
+<script src="../assets/prism.js" defer></script>
 </body>
+
+
 </html>`,
     (err) => {
       if (err) return console.log(err);

@@ -4,16 +4,6 @@ main {
   padding: 4rem 1.6rem 1.6rem;
 }
 
-footer {
-  margin: 0 auto;
-  max-width: var(--theme-width);
-  padding: 2.4rem 1.6rem;
-}
-
-footer h2 {
-  margin-top: 0;
-}
-
 a {
   display: inline-block;
   padding: 0.1rem 0.2rem;
@@ -99,7 +89,7 @@ hr {
   position: fixed;
   top: 0;
   left: 0;
-  background: white;
+  background: var(--theme-bg_1);
   box-shadow: 0 0 0 2px var(--theme-primary);
   padding: 0.4rem 1.6rem;
   text-decoration: none;
@@ -107,4 +97,25 @@ hr {
 
 .linkBack:focus {
   box-shadow: #f8f3ef 0 0 0 2px, #ff821f 0 0 0 4px;
+}
+
+.bfg-footer {
+  background: var(--theme-bg_1);
+  padding: 0.8rem 1.6rem;
+  margin: 0;
+  text-align: center;
+  color: var(--theme-text_1);
+  font-size: 1.4rem;
+}
+
+.bfg-footer a {
+  color: inherit;
+}
+
+.bfg-footer a:hover {
+  color: var(--theme-primary-strong);
+}
+
+.bfg-footer a:focus {
+  color: var(--theme-text_0);
 }
