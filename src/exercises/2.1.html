@@ -24,6 +24,7 @@
     <div class="block_v">
       <!-- Lesson #1 -->
       <div class="part">
+        <!-- 💡 Add missing focus -->
         <button class="c-btn c-btnPrimary">
           Get started today!
         </button>
@@ -31,14 +32,27 @@
 
       <!-- Lesson #2 -->
       <div class="part">
-        <a class="c-link" href="../index.html">Go Home</a>
+        <!-- 💡 Try to open this link in a new tab. You can't.
+            That's one of the main diffs/disavantages from button to anchor.
+            Refactor this to be a standard <a> link.
+          -->
+        <button class="c-link js-link">Go Home</button>
+
+        <script>
+          const elHomeLink = document.getElementsByClassName('js-link')[0]
+
+          elHomeLink.addEventListener('click', e => {
+            window.location.assign("../index.html")
+          })
+        </script>
       </div>
 
       <!-- Lesson #3 -->
       <div class="part">
         <label class="field">
+          <!-- 💡 Improve focus indicator -->
           <span class="field-txt">Your nickname</span>
-          <input class="textInput" type="text" placeholder="ex: webLover">
+          <input class="textInput" type="text" placeholder="ex. sandrina-p">
         </label>
       </div>
     </div>
