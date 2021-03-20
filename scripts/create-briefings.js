@@ -1,7 +1,6 @@
 const fs = require("fs");
 const glob = require("fast-glob");
 const path = require("path");
-const rimraf = require("rimraf");
 const showdown = require("showdown");
 
 const converter = new showdown.Converter();

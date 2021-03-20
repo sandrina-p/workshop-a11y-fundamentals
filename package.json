@@ -8,13 +8,13 @@
   "author": "@sandrina-p",
   "license": "GPL-3.0-only",
   "scripts": {
-    "start": "serve src",
-    "build": "node scripts/create-briefings.js"
+    "start": "live-server src --port=5000",
+    "write": "nodemon scripts/create-briefings.js --watch src/briefings/*.md"
   },
   "devDependencies": {
     "fast-glob": "^3.2.2",
-    "rimraf": "^3.0.2",
-    "serve": "^11.3.2",
+    "live-server": "^1.2.1",
+    "nodemon": "^2.0.7",
     "showdown": "^1.9.1"
   }
 }
