@@ -8,14 +8,14 @@
 html {
   font-size: 62.5%;
   --theme-width: 53rem;
-  --theme-bg_0: #f8f3ef;
-  --theme-bg_1: #fff;
-  --theme-primary: #9b78de;
-  --theme-primary-strong: #8c00ff;
-  --theme-primary-light: #e9e1f8;
-  --theme-secondary: #ff821f;
   --theme-text_0: #343434;
   --theme-text_1: #6f6f6f;
+  --theme-bg_0: #f8f3ef;
+  --theme-bg_1: #fff;
+  --theme-primary: #8e38ff;
+  --theme-primary_strong: var(--theme-primary); /* #8c00ff; */
+  --theme-primary_smooth: #e9e1f8;
+  --theme-secondary: #ff821f;
 }
 
 body {
@@ -60,7 +60,7 @@ img {
   border: 1px solid var(--theme-primary);
   border-radius: 4px;
   background-color: #fff;
-  box-shadow: 2px 2px var(--theme-primary-light);
+  box-shadow: 2px 2px var(--theme-primary_smooth);
 }
 
 .part {
@@ -158,7 +158,7 @@ img {
 
 .btnPrimary {
   min-width: 17rem;
-  background-color: var(--theme-primary-strong);
+  background-color: var(--theme-primary_strong);
   color: #fff;
   overflow: hidden;
 }
@@ -175,17 +175,17 @@ img {
   height: 100%;
   display: grid;
   place-items: center;
-  background-color: var(--theme-primary-strong);
+  background-color: var(--theme-primary_strong);
   cursor: not-allowed;
 }
 
 .btnOutline {
-  background: var(--theme-primary-light);
+  background: var(--theme-primary_smooth);
   color: var(--color);
 }
 
 .btnCircle {
-  background-color: var(--theme-primary-strong);
+  background-color: var(--theme-primary_strong);
   color: #fff;
 }
 
@@ -225,7 +225,7 @@ img {
 
 .btnToggle:hover,
 .btnToggle:focus {
-  border-color: var(--theme-primary-strong);
+  border-color: var(--theme-primary_strong);
 }
 
 .btnToggle:focus {
@@ -236,7 +236,7 @@ img {
 .btnToggle.isPressed .btn-svg,
 /* 🍀 We can use the attributes to style as well! */
 .btnToggle[aria-pressed="true"] .btn-svg {
-  fill: var(--theme-primary-strong);
+  fill: var(--theme-primary_strong);
 }
 
 /* ------- BREADCRUMB -------  */
@@ -275,12 +275,12 @@ img {
 }
 
 .link:hover {
-  color: var(--theme-primary-strong);
+  color: var(--theme-primary_strong);
 }
 
 .link:focus {
   outline: none;
-  background-color: var(--theme-primary-light);
+  background-color: var(--theme-primary_smooth);
 }
 
 .link.isCurrent {

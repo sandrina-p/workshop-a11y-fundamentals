@@ -82,7 +82,7 @@ h4 {
 hr {
   margin: 3.2rem 0 0;
   border: none;
-  border-bottom: 0.1rem solid var(--theme-primary-light);
+  border-bottom: 0.1rem solid var(--theme-primary_smooth);
 }
 
 .linkBack {
@@ -113,7 +113,7 @@ hr {
 }
 
 .bfg-footer a:hover {
-  color: var(--theme-primary-strong);
+  color: var(--theme-primary_strong);
 }
 
 .bfg-footer a:focus {
