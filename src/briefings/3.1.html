@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
+
 <head>
-  <title>Brienfig #3.1</title>
+  <title>Briefing #3.1</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -14,62 +15,76 @@
 <body>
   <a class="linkBack" href="../index.html">Go Back</a>
   <main>
-  
-<h1 id="31meaningfulcontent">3.1. Meaningful content</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Every content has to provide three essential pieces of information to explain its purpose:</p>
-<ul>
-<li><strong>Role</strong> - The type of element. E.g a button, a heading or a list.</li>
-<li><strong>Name</strong> - The text to identify / describe the element.</li>
-<li><strong>State</strong> - Needed in dynamic elements - E.g, if a button is pressed or a menu opened.</li>
-</ul>
-<p>For sighted users, the page context and visual appearance can be enough to understand an element's purpose. However, the same doesn't apply to people relying on assistive technologies.</p>
-<p>Most of the time, <em>role</em> and <em>name</em> are automatically included through semantic HTML. However, when that's not enough. That's where ARIA (Accessible Rich Internet Applications) attributes come in.</p>
-<p>It's our responsibility to providing elements with accessible names. A common <a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the attribute <code>aria-label</code>.</p>
-<pre><code class="html language-html">&lt;!-- Bad --&gt;
+
+    <h1 id="31meaningfulcontent">3.1. Meaningful content</h1>
+    <h2 id="introduction">Introduction</h2>
+    <p>Every content has to provide three essential pieces of information to explain its purpose:</p>
+    <ul>
+      <li><strong>Role</strong> - The type of element. E.g a button, a heading or a list.</li>
+      <li><strong>Name</strong> - The text to identify / describe the element.</li>
+      <li><strong>State</strong> - Needed in dynamic elements - E.g, if a button is pressed or a menu opened.</li>
+    </ul>
+    <p>For sighted users, the page context and visual appearance can be enough to understand an element's purpose.
+      However, the same doesn't apply to people relying on assistive technologies.</p>
+    <p>Most of the time, <em>role</em> and <em>name</em> are automatically included through semantic HTML. However, when
+      that's not enough. That's where ARIA (Accessible Rich Internet Applications) attributes come in.</p>
+    <p>It's our responsibility to providing elements with accessible names. A common <a
+        href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">naming technique</a> is to add the
+      attribute <code>aria-label</code>.</p>
+    <pre><code class="html language-html">&lt;!-- Bad --&gt;
 &lt;button&gt;X&lt;/button&gt;
 
 &lt;!-- Good --&gt;
 &lt;button aria-label="Close modal"&gt;X&lt;/button&gt;
 </code></pre>
-<p>There's a downside with this approach though. Some<code>aria-label</code>. Some automated translation tools will miss <code>aria-label</code>. A safer solution is to add a visually hidden element.</p>
-<pre><code class="html language-html">&lt;!-- Better --&gt;
+    <p>There's a downside with this approach though. Some<code>aria-label</code>. Some automated translation tools will
+      miss <code>aria-label</code>. A safer solution is to add a visually hidden element.</p>
+    <pre><code class="html language-html">&lt;!-- Better --&gt;
 &lt;button&gt;
   &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
   X
 &lt;/button&gt;
 </code></pre>
-<p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll start by exploring the most common.</p>
-<h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/3.1.html">exercise page</a>,
-there are 5 cases where some pieces of information were forgotten or misused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
-<p><strong>🎯 Goal:</strong> Add accessible names or status to all elements.</p>
-<p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be an alternative to screen readers.</p>
-<h2 id="furtherreading">Further reading</h2>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=xWPMfcjhts8">Accessibility Inspector (Chrome)</a></li>
-<li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Accessibility Inspector (Firefox)</a></li>
-<li><a href="https://w3c.github.io/using-aria/#rule1">First rule of ARIA use: don't use ARIA</a></li>
-<li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
-<li><a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attributes</a></li>
-<li><a href="https://a11ysupport.io/">A11Y browser support</a></li>
-<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
-<li><a href="https://adrianroselli.com/2019/11/aria-label-does-not-translate.html">Translations to aria-* attributes</a></li>
-</ul>
-<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-<ul>
-<li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">WCAG 4.1.2 Name, Role, Value - Level A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 3.1.6 Pronunciation - Level AAA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">WCAG 2.4.8 Link Purpose - Level A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">WCAG 2.4.9 Link Purpose (Link Only) - Level AAA</a></li>
-</ul>
+    <p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code>
+        attributes</a>. Today we'll start by exploring the most common.</p>
+    <h2 id="exercise">Exercise</h2>
+    <p>In the <a href="../exercises/3.1.html">exercise page</a>,
+      there are 5 cases where some pieces of information were forgotten or misused. Some <code>aria-*</code> attributes
+      and <code>.sr-only</code> class will be your friends here.</p>
+    <p><strong>🎯 Goal:</strong> Add accessible names or status to all elements.</p>
+    <p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can
+      be an alternative to screen readers.</p>
+    <h2 id="furtherreading">Further reading</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=xWPMfcjhts8">Accessibility Inspector (Chrome)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Accessibility Inspector (Firefox)</a></li>
+      <li><a href="https://w3c.github.io/using-aria/#rule1">First rule of ARIA use: don't use ARIA</a></li>
+      <li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
+      <li><a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attributes</a></li>
+      <li><a href="https://a11ysupport.io/">A11Y browser support</a></li>
+      <li><a
+          href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short
+          note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
+      <li><a href="https://adrianroselli.com/2019/11/aria-label-does-not-translate.html">Translations to aria-*
+          attributes</a></li>
+    </ul>
+    <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+    <ul>
+      <li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">WCAG 4.1.2 Name, Role, Value - Level A</a></li>
+      <li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 3.1.6 Pronunciation - Level AAA</a></li>
+      <li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">WCAG 2.4.8 Link Purpose - Level A</a></li>
+      <li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">WCAG 2.4.9 Link Purpose (Link Only) - Level
+          AAA</a></li>
+    </ul>
 
-</main>
-<footer class="bfg-footer">
-  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=3.1">do let me know</a>. Constructive feedback is welcome too. :)</p>
-</footer>
+  </main>
+  <footer class="bfg-footer">
+    <p class="suggestion">Found a typo or bug? Please, <a target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=3.1">do
+        let me know</a>. Constructive feedback is welcome too. :)</p>
+  </footer>
 
-<script src="../assets/prism.js" defer></script>
+  <script src="../assets/prism.js" defer></script>
 </body>
 
 

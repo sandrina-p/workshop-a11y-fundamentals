@@ -19,7 +19,7 @@ briefFiles.forEach((brief) => {
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
 <head>
-  <title>Brienfig #${briefName}</title>
+  <title>Briefing #${briefName}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
