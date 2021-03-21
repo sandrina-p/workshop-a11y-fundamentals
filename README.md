@@ -17,6 +17,7 @@ To get the most out of the workshop, please do the following things in advance:
   - Keep your microphone muted to avoid background noises.
 - **Install a modern browser**. Chrome or Firefox are recommended.
 - **Setup the project** prior to the workshop to avoid unexpected installation issues.
+- **Install the browser extensions** that we will use during the workshop.
 - **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
   - Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
   - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
@@ -52,13 +53,20 @@ npm start
 - [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip)
 - Open `src/index.html`, and you are ready to go.
 
-## Optional: Developer extensions
+## Developer extensions
 
 During the workshop, these extensions may help you:
 
-- [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome, Firefox, Edge
+### Recommended
+
 - [Accessibility Insights for Web](https://accessibilityinsights.io/en/downloads/) - Chrome only
+- [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome or Firefox
+
+### Optional
+
 - [Colour contract checker](https://colourcontrast.cc/) - Chrome only
+- [Web Developer](https://chrispederick.com/work/web-developer/) - Chrome or Firefox
+- [headingsMap](https://www.learningapps.co.uk/moodle/xertetoolkits/play.php?template_id=1309#page1section3) - Chrome or Firefox
 
 ## Workshop Dynamic
 
@@ -72,10 +80,10 @@ After each challenge, we'll go through the solution together and clarify any que
 src/
   briefings/  # The exercises introduction
     *.md
-  exercises/  # Where you'll be working
+  exercises/  # Where you'll be coding
     *.html      # The exercise html
     *.css       # The exercise styles
-  solutions/  # The final solutions
+  solutions/  # The solutions
   index.html  # Workshop entry point
 ```
 
