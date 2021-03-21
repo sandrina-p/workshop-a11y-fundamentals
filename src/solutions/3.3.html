@@ -25,48 +25,72 @@ Notes:
     <form class="block_v form js-formItself">
       <h2 class="heading-2">Form: Web lover profile</h2>
 
-      <!-- Lesson #1 - Input labels -->
+      <!-- Lesson #1 - Input labels
+        🍀 Every input must have a label associated.
+      -->
       <div class="field">
         <label for="uName" class="field-txt">Nickname</label>
         <input type="text" id="uName">
       </div>
 
-      <!-- Lesson #2 - Group checkbox/radio -->
+      <!-- Lesson #2 - Group checkbox/radio
+        🍀 In radio/checkboxs, wrap the related inputs
+        in a <fieldset> and use <legend> to mark the main label
+      -->
       <fieldset class="field">
         <legend class="field-txt">Favorite theme</legend>
         <label class="inputRadio">
-          <input type="radio" name="gender" value="dark">
+          <input type="radio" name="theme" value="dark">
           <span>Dark</span>
         </label>
         <label class="inputRadio">
-          <input type="radio" name="gender" value="light">
+          <input type="radio" name="theme" value="light">
           <span>Light</span>
         </label>
-        <label class="inputRadio">
-          <input type="radio" name="gender" value="whatever">
+        <!-- Lesson #2.1 - To wrap lbel, or not.
+          🍀 If you decide to keep the input and label separated, make sure
+          the interaction area includes the surrounding spaces
+          (ex use paddings instead of margins)
+      -->
+        <input id="themeDepends" type="radio" name="theme" value="whatever">
+        <label for="themeDepends" class="inputRadio">
           <span>It depends</span>
         </label>
       </fieldset>
 
-      <!-- Lesson #3 - Required inputs -->
-      <label class="field js-fieldMandatory">
-        <span class="field-txt">Year of your first computer <span class="u-danger">*</span></span>
-        <!-- Lesson #3.1 - Input types -->
-        <input type="text" aria-required="true" aria-describedby="jsYearError" inputmode="numeric" pattern="[0-9]*"
-          class="js-fieldYear">
+      <!-- Lesson #3 - Required inputs
+        🍀 Within radio/checkbox wrap the related options
+        within a <fieldset> and use <legend> to mark the main label
+      -->
+      <div class="field js-fieldMandatory">
+        <label class="field-txt" for="firstPC">
+          Year of your first computer
+          <span class="u-danger" aria-hidden="true">*</span>
+        </label>
+        <!-- Lesson #3.1 - Input types
+          🍀 When dealing with numbers that don't make sense to be a "stepper"
+          prefer using inputmode. Check the briefing references.
+        -->
+        <input type="text" id="firstPC" aria-required="true" aria-describedby="jsYearError" inputmode="numeric"
+          pattern="[0-9]*" class="js-fieldYear">
         <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
-      </label>
-
-      <!-- Lesson #4.1 - Input descriptions p1 -->
-      <div class="field">
-        <label for="uPass" class="field-txt">Worst password ever</label>
-        <input type="password" id="uPass" class="js-secretInput" aria-describedby="passTip">
-        <button class="js-secretBtn" aria-pressed="false" aria-label="Show password" type="button">👀</button>
-
-        <span class="field-tip" id="passTip">The password usually is dumb and short.</span>
       </div>
 
-      <!-- 💡 Lesson #4.2 - Inputs descriptions p1 -->
+      <!-- Lesson #4.1
+        🍀 In fields with multiple actions (eg input + button),
+          the label cannot wrap everything because it will cause A11Y issues in some browsers and AT.
+        🍀 In fields with hints, use aria-describedby to connect both.
+      -->
+      <div class="field">
+        <label for="uPass" class="field-txt">Worst password ever</label>
+        <input type="password" id="uPass" class="js-secretInput" aria-describedby="pwHint">
+        <button type="button" class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
+        <span class="field-tip" id="pwHint">The password usually is dumb and short.</span>
+      </div>
+
+      <!-- 💡 Lesson #4.2 - Inputs descriptions p1
+        🍀 In fields with hints that contain links, it's also recommended to put the hint
+          outside the label to prevent interaction issues with some assistive technologies-->
       <span class="u-block" id="a11yHint">
         Caring about <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">web
           accessibility</a> is our duty as web creator.
@@ -76,7 +100,11 @@ Notes:
       </label>
 
 
-      <!-- 💡 BONUS #1 - Live Regions -->
+      <!-- 💡 BONUS #1 - Live Regions
+        🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
+        Personally I use "polite" for generic form messages and "assetive" for inline
+        error messages that appear when the user leaves (blur) the input.
+      -->
       <div class="form-footer">
         <p class="formMsg js-formFeedback" aria-live="polite"></p>
         <button class="btn btnPrimary js-btnSubmit">Save profile</button>
