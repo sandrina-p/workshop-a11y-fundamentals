@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
   <title>Briefing #1.2</title>
   <meta charset="utf-8">
@@ -15,69 +14,50 @@
 <body>
   <a class="linkBack" href="../index.html">Go Back</a>
   <main>
-
-    <h1 id="12semantichtml">1.2 Semantic HTML</h1>
-    <h2 id="introduction">Introduction</h2>
-    <p>Web standards are rules and guidelines used to promote code consistency when building a web page. With those,
-      anyone (people and robots) can access and understand the content of a webpage in a meaningful way.</p>
-    <p>One of the Web standards consists in writing semantic HTML markup: Go beyond <code>&lt;div /&gt;</code> and
-      <code>&lt;span&gt;</code> (non-semantic elements) and replace them by <a
-        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">semantic elements</a>. Use them where it makes
-      sense: to describe sections, text, media, and so on. This way, we are not only writing <strong>readable
-        code</strong>, but we are also making the web a more <strong>accessible place</strong>.</p>
-    <h2 id="exercise">Exercise</h2>
-    <p>In the <a href="../exercises/1.2.html">exercise page</a>,
-      there's a layout implemented that follows appearance guidelines.
-      However, under the hood, if we see the page naked (without CSS styles), it doesn't make much sense.
-      People who read this page through an Assistive Technology (AT), for example, a <a
-        href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader">screen reader</a>, will struggle to
-      understand it properly.</p>
-    <p><strong>🎯 Goal:</strong> Improve the HTML by using semantic elements.</p>
-    <p><strong>Hint:</strong> You can start by removing the styles and try to read the page as if it was a book: plain
-      old text. Improve the HTML until this book makes sense to you.</p>
-    <h2 id="bonus">Bonus</h2>
-    <h3 id="1orderofcontent">1. Order of content</h3>
-    <p>In a book, the title is always the first thing to show up. However, on this page, the tag "On Sale" appears
-      before the title.</p>
-    <p><strong>🎯 Goal:</strong> <em>reorder the HTML elements</em> so that the title and the tag appear in the correct
-      order, but without changing the design!</p>
-    <p><strong>Hint:</strong> Perhaps some flexbox trick can help us to <em>reverse</em> the <em>order</em> visually.
-    </p>
-    <h3 id="2missingcontent">2. Missing content</h3>
-    <p>We can visually understand that the plant is on sale ($40 to $30). However, if we see the page naked (without
-      styles), it doesn't make much sense. We see two price tags, but we don't know the difference between them. Some
-      people may not even understand that's the plant price.</p>
-    <p><strong>🎯 Goal:</strong> Add the missing words to be visible when the page is displayed without styles.</p>
-    <pre><code class="html language-html">&lt;span class="visually-hidden"&gt;Price:&lt;/span&gt;
+  
+<h1 id="12semantichtml">1.2 Semantic HTML</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Web standards are rules and guidelines used to promote code consistency when building a web page. With those, anyone (people and robots) can access and understand the content of a webpage in a meaningful way.</p>
+<p>One of the Web standards consists in writing semantic HTML markup: Go beyond <code>&lt;div /&gt;</code> and <code>&lt;span&gt;</code> (non-semantic elements) and replace them by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">semantic elements</a>. Use them where it makes sense: to describe sections, text, media, and so on. This way, we are not only writing <strong>readable code</strong>, but we are also making the web a more <strong>accessible place</strong>.</p>
+<h2 id="exercise">Exercise</h2>
+<p>In the <a href="../exercises/1.2.html">exercise page</a>,
+there's a layout implemented that follows appearance guidelines.
+However, under the hood, if we see the page naked (without CSS styles), it doesn't make much sense.
+People who read this page through an Assistive Technology (AT), for example, a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader">screen reader</a>, will struggle to understand it properly.</p>
+<p><strong>🎯 Goal:</strong> Improve the HTML by using semantic elements.</p>
+<p><strong>Hint:</strong> You can start by removing the styles and try to read the page as if it was a book: plain old text. Improve the HTML until this book makes sense to you.</p>
+<h2 id="bonus">Bonus</h2>
+<h3 id="1orderofcontent">1. Order of content</h3>
+<p>In a book, the title is always the first thing to show up. However, on this page, the tag "On Sale" appears before the title.</p>
+<p><strong>🎯 Goal:</strong> <em>reorder the HTML elements</em> so that the title and the tag appear in the correct order, but without changing the design!</p>
+<p><strong>Hint:</strong> Perhaps some flexbox trick can help us to <em>reverse</em> the <em>order</em> visually.</p>
+<h3 id="2missingcontent">2. Missing content</h3>
+<p>We can visually understand that the plant is on sale ($40 to $30). However, if we see the page naked (without styles), it doesn't make much sense. We see two price tags, but we don't know the difference between them. Some people may not even understand that's the plant price.</p>
+<p><strong>🎯 Goal:</strong> Add the missing words to be visible when the page is displayed without styles.</p>
+<pre><code class="html language-html">&lt;span class="visually-hidden"&gt;Price:&lt;/span&gt;
 </code></pre>
-    <p><strong>Hint:</strong> What CSS will you use at <code>.visually-hidden</code>? There are better ways to hide
-      content than using <code>display: none;</code>.</p>
-    <p>Note: <code>.visually-hidden</code> or <code>.sr-only</code> are the most common names given to classes that hide
-      some content visually.</p>
-    <h2 id="furtherreading">Further reading</h2>
-    <ul>
-      <li><a href="https://web.dev/heading-order/?utm_source=lighthouse">The importance of Heading order</a></li>
-      <li><a href="https://a11yproject.com/posts/how-to-hide-content/">How to hide content</a></li>
-      <li><strong>Fun fact:</strong> There's a global <a href="https://css-naked-day.github.io/">CSS naked day</a> on
-        April 9. The idea behind it is to promote Web Standards. In this day, developers release their websites without
-        styles, showing only the plain old text with HTML.</li>
-    </ul>
-    <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG21/#non-text-content">WCAG 1.1.1 Non-text content - Level A</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#meaningful-sequence">WCAG 1.3.2 Meaningful Sequence - Level A</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">WCAG 2.4.6 Headings and Labels - Level AA</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#section-headings">WCAG 2.4.10 Section Headings - Level AAA</a></li>
-    </ul>
+<p><strong>Hint:</strong> What CSS will you use at <code>.visually-hidden</code>? There are better ways to hide content than using <code>display: none;</code>.</p>
+<p>Note: <code>.visually-hidden</code> or <code>.sr-only</code> are the most common names given to classes that hide some content visually.</p>
+<h2 id="furtherreading">Further reading</h2>
+<ul>
+<li><a href="https://web.dev/heading-order/?utm_source=lighthouse">The importance of Heading order</a></li>
+<li><a href="https://a11yproject.com/posts/how-to-hide-content/">How to hide content</a></li>
+<li><strong>Fun fact:</strong> There's a global <a href="https://css-naked-day.github.io/">CSS naked day</a> on April 9. The idea behind it is to promote Web Standards. In this day, developers release their websites without styles, showing only the plain old text with HTML.</li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#non-text-content">WCAG 1.1.1 Non-text content - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#meaningful-sequence">WCAG 1.3.2 Meaningful Sequence - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">WCAG 2.4.6 Headings and Labels - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#section-headings">WCAG 2.4.10 Section Headings - Level AAA</a></li>
+</ul>
 
-  </main>
-  <footer class="bfg-footer">
-    <p class="suggestion">Found a typo or bug? Please, <a target="_blank"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=1.2">do
-        let me know</a>. Constructive feedback is welcome too. :)</p>
-  </footer>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=1.2">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
 
-  <script src="../assets/prism.js" defer></script>
+<script src="../assets/prism.js" defer></script>
 </body>
 
 
