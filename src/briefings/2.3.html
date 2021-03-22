@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
   <title>Briefing #2.3</title>
   <meta charset="utf-8">
@@ -15,23 +14,21 @@
 <body>
   <a class="linkBack" href="../index.html">Go Back</a>
   <main>
-
-    <h1 id="23navigationshortcuts">2.3. Navigation Shortcuts</h1>
-    <h2 id="introduction">Introduction</h2>
-    <p>Let's talk about the websites with a lot of links at the top of the page before the actual main content.</p>
-    <p>The keyboard-only users are forced to tab through every single link before they can reach the main content. We,
-      as web creators, can make better than that, right?</p>
-    <p>A common way to bypass this is to create "Skip Navigation Links". The basic concept involves two elements: A
-      <em>trigger</em> and a <em>target</em>.</p>
-    <pre><code class="html language-html">&lt;!-- Trigger: a link pointing to an #id --&gt;
+  
+<h1 id="23navigationshortcuts">2.3. Navigation Shortcuts</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Let's talk about the websites with a lot of links at the top of the page before the actual main content.</p>
+<p>The keyboard-only users are forced to tab through every single link before they can reach the main content. We, as web creators, can make better than that, right?</p>
+<p>A common way to bypass this is to create "Skip Navigation Links". The basic concept involves two elements: A <em>trigger</em> and a <em>target</em>.</p>
+<pre><code class="html language-html">&lt;!-- Trigger: a link pointing to an #id --&gt;
 &lt;a href="#main" class="skipLink"&gt;Skip to main content&lt;/a&gt;
 
 &lt;!-- Target: A part of the page with the same id --&gt;
 &lt;!-- Some browsers will only focus if tabindex="-1" is used --&gt;
 &lt;main id="main" tabindex="-1"&gt;...&lt;/main&gt;
 </code></pre>
-    <p>We can visually hide the skip links by default and only shown them when focused.</p>
-    <pre><code class="css language-css">.skipLink {
+<p>We can visually hide the skip links by default and only shown them when focused.</p>
+<pre><code class="css language-css">.skipLink {
   /* hide visually the link */
   opacity: 0;
   /* make it unreachable by mouse */
@@ -43,29 +40,26 @@
   opacity: 1;
 }
 </code></pre>
-    <p>The visual location of the link isn't that important. The goal is to make that link one of the first ones to be
-      accessed.</p>
-    <h2 id="exercise">Exercise</h2>
-    <p>In the <a href="../exercises/2.3.html">exercise page</a>,
-      let's create some "Skip Navigation" links to jump directly to the main section of the page.</p>
-    <p><strong>🎯 Goal:</strong> Create navigation shortcuts through the page.</p>
-    <h2 id="furtherreading">Further reading</h2>
-    <ul>
-      <li><a href="https://webaim.org/techniques/skipnav/">Skip Navigation Links</a></li>
-    </ul>
-    <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG21/#bypass-blocks">WCAG 2.4.1 Bypass Blocks - Level A</a></li>
-    </ul>
+<p>The visual location of the link isn't that important. The goal is to make that link one of the first ones to be accessed.</p>
+<h2 id="exercise">Exercise</h2>
+<p>In the <a href="../exercises/2.3.html">exercise page</a>,
+let's create some "Skip Navigation" links to jump directly to the main section of the page.</p>
+<p><strong>🎯 Goal:</strong> Create navigation shortcuts through the page.</p>
+<h2 id="furtherreading">Further reading</h2>
+<ul>
+<li><a href="https://webaim.org/techniques/skipnav/">Skip Navigation Links</a></li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#bypass-blocks">WCAG 2.4.1 Bypass Blocks - Level A</a></li>
+</ul>
 
-  </main>
-  <footer class="bfg-footer">
-    <p class="suggestion">Found a typo or bug? Please, <a target="_blank"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=2.3">do
-        let me know</a>. Constructive feedback is welcome too. :)</p>
-  </footer>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=2.3">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
 
-  <script src="../assets/prism.js" defer></script>
+<script src="../assets/prism.js" defer></script>
 </body>
 
 

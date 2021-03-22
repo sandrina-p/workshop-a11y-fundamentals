@@ -9,7 +9,7 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "start": "live-server src --port=5000",
-    "write": "nodemon scripts/create-briefings.js --watch src/briefings/*.md"
+    "write": "nodemon ./scripts/create-briefings.js --watch ./src/briefings/*.md"
   },
   "devDependencies": {
     "fast-glob": "^3.2.2",
