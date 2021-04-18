@@ -4,9 +4,9 @@ _The web is awesome and everyone should be able to enjoy it._
 
 ---
 
-Hi there! I'm [Sandrina Pereira](https://www.sandrina-p.net/) and I believe that making the web accessible is one of our duties as web developers.
+Hi there! I'm [Sandrina Pereira](https://twitter.com/a_sandrina_p) and I believe that making the web accessible is one of our duties as web creators.
 
-These are the material resources for my [Web Accessibility Fundamentals Workshop](https://www.sandrina-p.net/workshop-a11y-fundamentals/).
+These are the material resources for my [Web Accessibility Fundamentals workshop](https://www.sandrina-p.net/workshop-a11y/).
 
 ## Pre-Workshop requirements
 
@@ -15,7 +15,7 @@ To get the most out of the workshop, please do the following things in advance:
 - **Install the needed video tool** to join the video call.
   - Turn on your video if possible, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
-- **Install a modern browser**. Chrome or Firefox are recommended.
+- **The browser Chrome or Firefox installed.**. We'll use Chrome most of the time.
 - **Setup the project** prior to the workshop to avoid unexpected installation issues.
 - **Install the browser extensions** that we will use during the workshop.
 - **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
@@ -46,23 +46,25 @@ npm install
 npm start
 ```
 
+Open [http://localhost:5000/](http://localhost:5000/) and double-check the page loads correctly.
+
 ### Alternatives
 
 #### Locally
 
-- [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip)
-- Open `src/index.html`, and you are ready to go.
+- [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip) and open `src/index.html`. You are ready to go.
 
 ## Developer extensions
 
-During the workshop, these extensions may help you:
-
-### Recommended
+During the workshop, we will explore the following extensions.
+Kindly install them ahead of time so that you can use them right away during the workshop.
 
 - [Accessibility Insights for Web](https://accessibilityinsights.io/en/downloads/) - Chrome only
 - [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome or Firefox
 
 ### Optional
+
+I'll briefly mention the extensions below at some point in the workshop.
 
 - [Colour contract checker](https://colourcontrast.cc/) - Chrome only
 - [Web Developer](https://chrispederick.com/work/web-developer/) - Chrome or Firefox
