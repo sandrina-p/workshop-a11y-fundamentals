@@ -6,11 +6,10 @@ main {
 
 a {
   display: inline-block;
-  padding: 1px 2px;
   color: inherit;
-  text-decoration-color: #8c00ff;
-  transform: translateX(-0.1em);
-  margin-right: -0.1em;
+  text-decoration-color: var(--theme-primary);
+  line-height: 1.2;
+  border-radius: 3px;
 }
 
 ul a {
@@ -18,20 +17,20 @@ ul a {
 }
 
 a:hover {
-  color: #8c00ff;
+  color: var(--theme-primary);
 }
 
 a:focus {
   outline: none;
-  background-color: #e9e1f8;
+  box-shadow: var(--theme-focus_shadow);
 }
 
 pre {
-  background: #fff;
+  background: var(--theme-bg_1);
   display: block;
   padding: 16px;
   color: inherit;
-  border-left: 3px solid #9b78de;
+  border-radius: 3px;
 }
 
 code[class*="language-"],
@@ -41,7 +40,7 @@ pre[class*="language-"] {
 }
 
 pre code {
-  background: #fff;
+  background: var(--theme-bg_1);
 }
 
 code {
@@ -53,7 +52,7 @@ code {
 h1 {
   font-size: 3.2rem;
   font-weight: 600;
-  color: #9b78de;
+  color: var(--theme-primary);
   margin: 0 0 16px;
   line-height: 1.2;
 }
@@ -96,7 +95,7 @@ hr {
 }
 
 .linkBack:focus {
-  box-shadow: #f8f3ef 0 0 0 2px, #ff821f 0 0 0 4px;
+  box-shadow: var(--theme-focus-shadow);
 }
 
 .bfg-footer {
