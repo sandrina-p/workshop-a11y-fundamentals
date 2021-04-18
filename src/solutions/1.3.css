@@ -23,10 +23,10 @@
 .case1-text {
   position: relative;
   margin: 0;
-  padding: 4rem 2.4rem;
+  padding: 40px 24px;
   font-size: 3.2rem;
   color: white;
-  text-shadow: 0.1rem 0.1rem 0.3rem #00000080;
+  text-shadow: 1px 1px 3px #00000080;
 }
 
 /* Lesson 2 */
@@ -35,19 +35,19 @@
 }
 
 .case2 img {
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
 }
 
 .case2-content {
-  margin-left: 1.6rem;
+  margin-left: 16px;
 }
 
 .case2-name {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 4px;
 }
 
 .case2-quote {
@@ -61,9 +61,9 @@
 
 /* Lesson 3 */
 .case3 {
-  max-width: 25rem;
-  border: 0.1rem solid #6f6f6f;
-  padding: 1.6rem;
+  max-width: 250px;
+  border: 1px solid #6f6f6f;
+  padding: 16px;
 }
 
 .case3 figure {
@@ -78,7 +78,7 @@
 .case3-caption {
   font-style: italic;
   font-size: 1.4rem;
-  margin-top: 0.4rem;
+  margin-top: 4px;
 }
 
 /* Lesson 4 */
@@ -88,5 +88,5 @@
 }
 
 .case4-text {
-  margin-left: 0.4rem;
+  margin-left: 4px;
 }

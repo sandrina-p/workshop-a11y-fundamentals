@@ -31,7 +31,7 @@
 \** ----------------------------------------- */
 
 .tagSecondary {
-  padding: 0.2rem 0.4rem;
+  padding: 2px 4px;
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 600;
@@ -43,7 +43,7 @@
 /* ------- Header -------  */
 
 .header-plantName {
-  margin-bottom: 1.6rem;
+  margin-bottom: 16px;
 }
 
 /* ------- Info -------  */
@@ -52,7 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.6rem 0;
+  margin: 16px 0;
 }
 
 .info-part {
@@ -67,7 +67,7 @@
 .topic-item {
   display: flex;
   flex-direction: column;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
   padding: 0;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .topic-value {
-  margin: 0.4rem 0;
+  margin: 4px 0;
 }
 
 .media {
@@ -91,19 +91,19 @@
 /* ------- Details & CTA -------  */
 
 .details {
-  border-top: 0.1rem solid #9b78de;
-  padding-top: 1.6rem;
+  border-top: 1px solid #9b78de;
+  padding-top: 16px;
 }
 
 .details-title {
-  margin-bottom: 0.8rem;
+  margin-bottom: 8px;
 }
 
 .details-part:nth-child(2) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.6rem;
+  margin-top: 16px;
 }
 
 .details-text {
@@ -118,7 +118,7 @@
 .price-original {
   text-decoration: line-through;
   opacity: 0.7;
-  margin: 0 0 0.4rem;
+  margin: 0 0 4px;
 }
 
 .price-final {

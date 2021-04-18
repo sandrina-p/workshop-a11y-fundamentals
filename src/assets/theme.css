@@ -7,15 +7,17 @@
 
 html {
   font-size: 62.5%;
-  --theme-width: 53rem;
-  --theme-text_0: #343434;
-  --theme-text_1: #6f6f6f;
-  --theme-bg_0: #f8f3ef;
-  --theme-bg_1: #fff;
-  --theme-primary: #8e38ff;
-  --theme-primary_strong: var(--theme-primary); /* #8c00ff; */
-  --theme-primary_smooth: #e9e1f8;
-  --theme-secondary: #ff821f;
+  --theme-width: 530px;
+  --theme-text_0: hsl(0deg 0% 20%);
+  --theme-text_1: hsl(0deg 0% 44%);
+  --theme-bg_0: hsl(27deg 39% 95%);
+  --theme-bg_1: hsl(0deg 0% 100%);
+  --theme-primary: hsl(266deg 100% 61%);
+  --theme-primary_smooth: hsl(266deg 100% 92%);
+  --theme-secondary: hsl(27deg 100% 56%);
+
+  --theme-focus_shadow: var(--theme-bg_0) 0 0 0 2px,
+    var(--theme-secondary) 0 0 0 4px;
 }
 
 body {
@@ -23,8 +25,8 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #f8f3ef;
-  color: #343434;
+  background-color: var(--theme-bg_0);
+  color: var(--theme-text_0);
   box-sizing: border-box;
   width: 100vw;
   max-width: 100%;
@@ -45,18 +47,18 @@ img {
 
 .content {
   margin: 0 auto;
-  max-width: 48rem;
-  padding: 4rem 1.6rem;
+  max-width: 480px;
+  padding: 40px 16px;
 }
 
 .block {
-  padding: 1.6rem;
-  margin: 4rem auto;
+  padding: 16px;
+  margin: 40px auto;
 }
 
 .block_v {
-  padding: 2.4rem 1.6rem;
-  margin: 4rem auto;
+  padding: 24px 16px;
+  margin: 40px auto;
   border: 1px solid var(--theme-primary);
   border-radius: 4px;
   background-color: #fff;
@@ -64,7 +66,7 @@ img {
 }
 
 .part {
-  margin: 3.2rem 0;
+  margin: 32px 0;
 }
 
 /* ------- UTILS -------  */
@@ -95,29 +97,35 @@ img {
 }
 
 .u-rowCenterY * {
-  margin-right: 1.6rem;
+  margin-right: 16px;
+}
+
+.u-colCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ------- TYPOGRAPHY -------  */
 
-.heading-1 {
+.title-xl {
   font-size: 3.2rem;
   font-weight: 600;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
   line-height: 1.2;
 }
 
-.heading-2 {
+.title-lg {
   font-size: 2.4rem;
   font-weight: 600;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
   line-height: 1.2;
 }
 
-.heading-3 {
+.title-md {
   font-size: 1.8rem;
   font-weight: 600;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
   line-height: 1.2;
 }
 
@@ -140,33 +148,33 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.4rem;
+  min-height: 44px;
   font-size: 1.6rem;
   border: none;
-  padding: 0.8rem 2.4rem;
+  padding: 8px 24px;
   border: none;
   cursor: pointer;
-  border-radius: 0.6rem;
+  border-radius: 6px;
 }
 
 /* do not use disabled attr. Prefer aria-disabled
- so that keyboard users keep the btn focused */
+ so that keyboard people can focus the button */
 .btn[disabled="true"],
 .btn[aria-disabled="true"] {
   opacity: 0.6;
 }
 
 .btnPrimary {
-  min-width: 17rem;
-  background-color: var(--theme-primary_strong);
+  min-width: 170px;
+  background-color: var(--theme-primary);
   color: #fff;
   overflow: hidden;
 }
 
+/* TODO Review this
 .btnPrimary[disabled]::after,
 .btnPrimary[aria-disabled="true"]::after {
   content: "⌛️ Loading...";
-  /* Ideally this should be an element with .sr-only */
   content: "⌛️ Loading..." / "Loading";
   position: absolute;
   top: 0;
@@ -175,9 +183,10 @@ img {
   height: 100%;
   display: grid;
   place-items: center;
-  background-color: var(--theme-primary_strong);
+  background-color: var(--theme-primary);
   cursor: not-allowed;
 }
+*/
 
 .btnOutline {
   background: var(--theme-primary_smooth);
@@ -185,13 +194,13 @@ img {
 }
 
 .btnCircle {
-  background-color: var(--theme-primary_strong);
-  color: #fff;
+  background-color: var(--theme-primary);
+  color: var(--theme-bg_0);
 }
 
 .btnCircle,
 .btnToggle {
-  width: 4.4rem;
+  width: 44px;
   padding: 0;
   border-radius: 50%;
 }
@@ -205,12 +214,12 @@ img {
 .btnOutline:focus,
 .btnCircle:focus {
   outline: none;
-  box-shadow: white 0 0 0 2px, var(--theme-secondary) 0 0 0 4px;
+  box-shadow: var(--theme-focus_shadow);
 }
 
 .btn-svg {
-  width: 2rem;
-  max-height: 2rem;
+  width: 20px;
+  max-height: 20px;
   fill: #fff;
 }
 
@@ -225,18 +234,18 @@ img {
 
 .btnToggle:hover,
 .btnToggle:focus {
-  border-color: var(--theme-primary_strong);
+  border-color: var(--theme-primary);
 }
 
 .btnToggle:focus {
   outline: none;
-  box-shadow: white 0 0 0 2px, var(--theme-secondary) 0 0 0 4px;
+  box-shadow: var(--theme-focus_shadow);
 }
 
 .btnToggle.isPressed .btn-svg,
-/* 🍀 We can use the attributes to style as well! */
+/* 🍀 We can use attributes to style as well! */
 .btnToggle[aria-pressed="true"] .btn-svg {
-  fill: var(--theme-primary_strong);
+  fill: var(--theme-primary);
 }
 
 /* ------- BREADCRUMB -------  */
@@ -244,7 +253,7 @@ img {
 .headerRow {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3.2rem;
+  margin-bottom: 32px;
 }
 
 .breadcrumb {
@@ -255,32 +264,54 @@ img {
 }
 
 .breadcrumb li {
-  margin-right: 0.8rem;
+  margin-right: 8px;
 }
 
 .breadcrumb li:not(:last-child)::after {
   content: "▸";
-  margin-left: 0.8rem;
+  margin-left: 8px;
 }
 
 /* ------- LINKS -------  */
 
 .link {
+  --linkClr: var(--theme-primary);
+  position: relative;
   display: inline-block;
   color: inherit;
-  text-decoration-color: var(--theme-primary);
-  padding: 1px 2px;
-  transform: translateX(-0.1em);
-  margin-right: -0.1em;
+  text-decoration-color: var(--linkClr);
+  line-height: 1.2;
+  z-index: 0;
 }
 
-.link:hover {
-  color: var(--theme-primary_strong);
+.link:hover::before {
+  transform: scale(1, 1);
 }
 
-.link:focus {
+.link::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: 1.2em;
+  background-color: var(--linkClr);
+  border-radius: 3px;
+  opacity: 0.2;
+  transform: scale(1, 0.2);
+  transform-origin: 0 95%;
+  z-index: -1;
+  transition: transform 175ms ease-out;
+}
+
+.link:focus:not(:focus-visible) {
   outline: none;
-  background-color: var(--theme-primary_smooth);
+}
+
+.link:focus-visible {
+  outline: none;
+  border-radius: 4px;
+  box-shadow: var(--theme-focus_shadow);
 }
 
 .link.isCurrent {
@@ -296,7 +327,7 @@ img {
 .field {
   display: block;
   position: relative;
-  margin: 0 0 3.2rem;
+  margin: 0 0 32px;
 }
 
 fieldset.field {
@@ -307,7 +338,7 @@ fieldset.field {
 .field-txt {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.8rem;
+  margin-bottom: 8px;
 }
 
 .field-tip,
@@ -326,7 +357,7 @@ fieldset.field {
 
 .inputRadio {
   display: inline-block;
-  margin: 0 2.4rem 0 4px;
+  margin: 0 24px 0 4px;
 }
 
 .inputRadio input {
@@ -335,39 +366,27 @@ fieldset.field {
 
 /* Don't judge... it works! I'll improve this later. */
 .form-footer {
-  margin-top: 2.4rem;
+  margin-top: 24px;
   border-top: 1px solid var(--theme-text_1);
-  padding: 2.4rem 0 1.6rem;
+  padding: 24px 0 16px;
 }
 
 .formMsg {
   display: block;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
 }
 
 .formMsg:empty {
   margin: 0;
 }
 
-/* ------- RANDOM NONSENSE CLASSES -------  */
+/* ------- RANDOM NON-SENSE CLASSES -------  */
 
 .r-listNull {
   padding: 0;
   list-style-type: none;
 }
 
-.r-list1 {
-  padding-left: 1.6rem;
-}
-
-.r-list1 p {
-  margin: 4px;
-}
-
-.r-list2 {
-  padding-left: 1.6rem;
-}
-
 .r-footerG {
-  border-top: 1px solid var(--theme-primary);
+  border-top: 1px solid var(--theme-primary_smooth);
 }

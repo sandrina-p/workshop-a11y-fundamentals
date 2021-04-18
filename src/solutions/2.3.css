@@ -4,13 +4,13 @@
 
 .skipLink {
   position: fixed;
-  top: 0.8rem;
-  left: 0.8rem;
+  top: 8px;
+  left: 8px;
   display: inline-block;
-  border: 0.1rem solid #9d79ef;
+  border: 1px solid #9d79ef;
   background-color: #fff;
   color: inherit;
-  padding: 0.8rem;
+  padding: 8px;
   opacity: 0;
   pointer-events: none;
 }
@@ -19,7 +19,7 @@
   outline: none;
   opacity: 1;
   pointer-events: auto;
-  box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+  box-shadow: white 0 0 0 1px, #ef7979 0 0 0 3px;
 }
 
 /*  ----------------------------------------- *\
@@ -42,13 +42,13 @@ receives focus from an href="#" */
 @-webkit-keyframes tempRing {
   30%,
   75% {
-    box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+    box-shadow: white 0 0 0 1px, #ef7979 0 0 0 3px;
   }
 }
 
 @keyframes tempRing {
   30%,
   75% {
-    box-shadow: white 0 0 0 0.1rem, #ef7979 0 0 0 0.3rem;
+    box-shadow: white 0 0 0 1px, #ef7979 0 0 0 3px;
   }
 }

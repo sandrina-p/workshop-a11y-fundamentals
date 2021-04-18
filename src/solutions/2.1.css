@@ -9,15 +9,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.4rem;
+  min-height: 44px;
   font-size: 1.6rem;
   border: none;
-  padding: 0.8rem 2.4rem;
+  padding: 8px 24px;
   background-color: #8c00ff;
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 0.6rem;
+  border-radius: 6px;
 }
 
 .c-btnPrimary:hover {
@@ -36,11 +36,11 @@
 
 .textInput {
   width: 100%;
-  max-width: 20rem;
-  height: 3.2rem;
-  padding: 0.4rem 0.8rem;
+  max-width: 200px;
+  height: 32px;
+  padding: 4px 8px;
   font-size: inherit;
-  border: 0.1rem solid #6f6f6f;
+  border: 1px solid #6f6f6f;
 }
 
 .textInput:hover {
@@ -56,7 +56,7 @@
 
 .c-link {
   color: #6f6f6f;
-  padding: 0.1rem 0.2rem;
+  padding: 1px 2px;
   transform: translateX(-0.1em);
   margin-right: -0.1em;
 }

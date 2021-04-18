@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="assets/theme.css" />
   <style>
     .content {
-      max-width: 55rem;
+      max-width: 550px;
     }
 
     .field.error {
-      box-shadow: white 0 0 0 0.9rem, #d52424 0 0 0.1rem 1rem;
+      box-shadow: white 0 0 0 9px, #d52424 0 0 1px 10px;
     }
 
     .field.error::after {
@@ -27,29 +27,29 @@
 
     /** workaround. styling <legend> is tricky and ugly */
     fieldset.field {
-      padding-top: 1rem;
-      margin-top: -1rem;
+      padding-top: 10px;
+      margin-top: -10px;
     }
 
     fieldset.field legend {
-      transform: translateY(1rem);
+      transform: translateY(10px);
     }
 
     fieldset.field.error::after {
-      top: -2rem;
+      top: 20px;
     }
 
     .inputText {
       display: block;
       width: 100%;
-      max-width: 30rem;
-      height: 3.5rem;
+      max-width: 300px;
+      height: 35px;
       font-size: inherit;
       color: inherit;
-      padding: 0.8rem;
+      padding: 8px;
       background-color: #fff;
       border: 1px solid #a1a1a1;
-      border-radius: 0.3rem;
+      border-radius: 3px;
     }
 
     select:hover,
@@ -60,20 +60,20 @@
     select:focus,
     .inputText:focus {
       outline: none;
-      box-shadow: white 0 0 0 0.2rem, #ff821f 0 0 0 0.4rem;
+      box-shadow: var(--theme-focus_shadow);
     }
 
     select {
       width: 100%;
-      max-width: 30rem;
-      height: 3.5rem;
+      max-width: 300px;
+      height: 35px;
       background: white;
       border: 1px solid #a1a1a1;
-      border-radius: 0.3rem;
+      border-radius: 3px;
     }
 
     .textarea {
-      height: 8rem;
+      height: 80px;
       resize: vertical;
     }
 
@@ -89,12 +89,12 @@
     .form-msg_success {
       font-size: 1.8rem;
       color: #8c00ff;
-      margin-bottom: 1.6rem;
+      margin-bottom: 16px;
     }
 
     .form-msg_error {
       color: #d52424;
-      margin-bottom: 1.6rem;
+      margin-bottom: 16px;
     }
 
     .form-msg_success,
@@ -109,16 +109,28 @@
       display: block;
       margin: 0;
     }
+
+    .r-list1 {
+      padding-left: 16px;
+    }
+
+    .r-list1 p {
+      margin: 4px;
+    }
+
+    .r-list2 {
+      padding-left: 16px;
+    }
   </style>
 </head>
 
 <body>
   <main class="content">
-    <h1 class="heading-1 u-primary">
+    <h1 class="title-xl u-primary">
       Web Accessibility Fundamentals
     </h1>
 
-    <h2 class="heading-2 header-title">
+    <h2 class="title-lg header-title">
       Pre-Workshop requirements
     </h2>
     <p>
@@ -177,7 +189,7 @@
     </p>
 
     <form class="block_v form js-form" name="practice" method="post" data-netlify="true" netlify-honeypot="bot-field">
-      <h2 class="heading-1">
+      <h2 class="title-xl">
         Psst... one last thing!
       </h2>
       <p>

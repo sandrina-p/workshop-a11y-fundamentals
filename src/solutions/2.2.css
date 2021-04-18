@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
-  margin-right: 1.5rem;
+  margin-right: 15px;
   font-size: 1.4rem;
 }
 
@@ -27,7 +27,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 0.8rem;
+  padding: 8px;
   z-index: 2;
 }
 
@@ -36,9 +36,9 @@
   top: 0;
   right: 0;
   z-index: -1;
-  width: 15rem;
+  width: 150px;
   height: 100%;
-  padding-top: 5rem;
+  padding-top: 50px;
   background: #f4efff;
   border-left: 3px solid #9d79ef;
   transform: translateX(100%);
@@ -50,9 +50,10 @@
 }
 
 .menu-btn {
-  height: 3rem;
+  height: 30px;
+  min-width: auto;
   min-height: auto;
-  line-height: 3rem;
+  line-height: 30px;
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -79,7 +80,7 @@
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin-right: 0.5rem;
+  margin-right: 5px;
   border-radius: 2px;
   border: 1px solid #6f6f6f;
   transform: translateY(2px);
@@ -113,7 +114,7 @@
 
 .coolText {
   display: none;
-  padding: 1.6rem 0 0 1.6rem;
+  padding: 16px 0 0 16px;
 }
 
 .coolText.isVisible {

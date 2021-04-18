@@ -40,13 +40,13 @@ body * {
 .content {
   position: relative;
   margin: 0 auto;
-  max-width: 48rem;
-  padding: 6.4rem 1.6rem;
+  max-width: 480px;
+  padding: 64px 16px;
 }
 
 .card {
   position: relative;
-  padding: 2.4rem 1.6rem;
+  padding: 24px 16px;
   background-color: var(--bg_1);
   border: 1px solid #9b78de;
   box-shadow: 2px 2px #e9e1f8;
@@ -64,18 +64,18 @@ body * {
 
   .card > :nth-child(2) {
     flex: 2;
-    padding-left: 1.6rem;
+    padding-left: 16px;
   }
 }
 
 .btnBell {
   display: flex;
   align-items: center;
-  min-height: 3.5rem;
+  min-height: 35px;
   font-size: 1.6rem;
   border: 1px solid var(--primary);
   border-radius: 3px;
-  padding: 0.8rem;
+  padding: 8px;
   background-color: var(--bg_0);
   color: var(--text_);
   cursor: pointer;
@@ -86,10 +86,10 @@ body * {
 }
 
 .btnBell-svg {
-  width: 1.6rem;
-  max-height: 1.6rem;
+  width: 16px;
+  max-height: 16px;
   fill: currentColor;
-  margin-right: 0.8rem;
+  margin-right: 8px;
   animation: shakeSometimes 4000ms infinite;
 }
 
@@ -110,25 +110,25 @@ body * {
 
 .u-fixedTop {
   position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
+  top: 16px;
+  right: 16px;
 }
 
 .tag {
   color: var(--secondary);
 
-  margin-bottom: 0.4rem;
+  margin-bottom: 4px;
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
 }
 
-.heading-1 {
+.title-xl {
   font-size: 2.8rem;
   font-weight: 600;
   line-height: 1.2;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
 }
 
 .footer {

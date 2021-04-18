@@ -1,12 +1,12 @@
 main {
   margin: 0 auto;
   max-width: var(--theme-width);
-  padding: 4rem 1.6rem 1.6rem;
+  padding: 40px 16px 16px;
 }
 
 a {
   display: inline-block;
-  padding: 0.1rem 0.2rem;
+  padding: 1px 2px;
   color: inherit;
   text-decoration-color: #8c00ff;
   transform: translateX(-0.1em);
@@ -29,7 +29,7 @@ a:focus {
 pre {
   background: #fff;
   display: block;
-  padding: 1.6rem;
+  padding: 16px;
   color: inherit;
   border-left: 3px solid #9b78de;
 }
@@ -46,7 +46,7 @@ pre code {
 
 code {
   background: #e7e1dc;
-  padding: 0.1rem 0.3rem;
+  padding: 1px 3px;
   font-weight: 100;
 }
 
@@ -54,14 +54,14 @@ h1 {
   font-size: 3.2rem;
   font-weight: 600;
   color: #9b78de;
-  margin: 0 0 1.6rem;
+  margin: 0 0 16px;
   line-height: 1.2;
 }
 
 h2 {
   font-size: 2.4rem;
   font-weight: 600;
-  margin: 3.2rem 0 1.6rem;
+  margin: 32px 0 16px;
   line-height: 1.2;
 }
 
@@ -75,14 +75,14 @@ h3 {
 h4 {
   font-size: 1.8rem;
   font-weight: 600;
-  margin: 1.6rem 0 -1rem;
+  margin: 16px 0 -10px;
   line-height: 1.2;
 }
 
 hr {
-  margin: 3.2rem 0 0;
+  margin: 32px 0 0;
   border: none;
-  border-bottom: 0.1rem solid var(--theme-primary_smooth);
+  border-bottom: 1px solid var(--theme-primary_smooth);
 }
 
 .linkBack {
@@ -91,7 +91,7 @@ hr {
   left: 0;
   background: var(--theme-bg_1);
   box-shadow: 0 0 0 2px var(--theme-primary);
-  padding: 0.4rem 1.6rem;
+  padding: 4px 16px;
   text-decoration: none;
 }
 
@@ -101,7 +101,7 @@ hr {
 
 .bfg-footer {
   background: var(--theme-bg_1);
-  padding: 0.8rem 1.6rem;
+  padding: 8px 16px;
   margin: 0;
   text-align: center;
   color: var(--theme-text_1);
@@ -113,7 +113,7 @@ hr {
 }
 
 .bfg-footer a:hover {
-  color: var(--theme-primary_strong);
+  color: var(--theme-primary);
 }
 
 .bfg-footer a:focus {
