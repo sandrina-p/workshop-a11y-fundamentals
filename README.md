@@ -15,7 +15,7 @@ To get the most out of the workshop, please do the following things in advance:
 - **Install the needed video tool** to join the video call.
   - Turn on your video if possible, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
-- **The browser Chrome or Firefox installed.**. We'll use Chrome most of the time.
+- **The browser Chrome or Firefox installed.** We'll use Chrome most of the time.
 - **Setup the project** prior to the workshop to avoid unexpected installation issues.
 - **Install the browser extensions** that we will use during the workshop.
 - **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
@@ -46,7 +46,7 @@ npm install
 npm start
 ```
 
-Open [http://localhost:5000/](http://localhost:5000/) and double-check the page loads correctly.
+Open [http://localhost:5000/](http://localhost:5000/) and you are ready to go!
 
 ### Alternatives
 
