@@ -1,33 +1,44 @@
 @import url("../assets/normalize.css");
 
 :root {
-  --bg_0: #f8f3ef;
-  --bg_1: #fff;
-  --text_0: #383838;
-  --primary: #8c00ff;
-  --secondary: #bd5809;
+  --theme-text_0: hsl(0deg 0% 20%);
+  --theme-text_1: hsl(0deg 0% 44%);
+  --theme-bg_0: hsl(27deg 39% 95%);
+  --theme-bg_1: hsl(0deg 0% 100%);
+  --theme-primary: hsl(266deg 100% 61%);
+  --theme-primary_smooth: hsl(266deg 100% 92%);
+  /* 💡 Updated color to respects AA level */
+  --theme-secondary: hsl(26deg 100% 38%);
 }
 
+/* 💡 Dark theme colors */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg_0: #383838;
-    --bg_1: #2e2a2f;
-    --text_0: #f8f3ef;
-    --secondary: #ffa35b;
+    --theme-text_0: hsl(0deg 0% 89%);
+    --theme-text_1: hsl(0deg 0% 68%);
+    --theme-bg_0: hsl(280deg 3% 23%);
+    --theme-bg_1: hsl(288deg 6% 17%);
+    --theme-primary: hsl(266deg 100% 75%);
+    --theme-primary_smooth: hsl(266deg 100% 31%);
+    --theme-secondary: hsl(26deg 100% 68%);
   }
 }
 
 html {
+  /* 💡 Convert font-size to rem with easy calcs */
   font-size: 62.5%;
 }
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
-  background-color: var(--bg_0);
-  color: var(--text_0);
+  background-color: var(--theme-bg_0);
+  color: var(--theme-text_0);
   box-sizing: border-box;
   font-weight: 400;
+  /* 💡 Here's the first fixed unit (px) to converted to rem */
   font-size: 1.6rem;
+
+  /* 💡 BONUS #3 bigger line-height */
   line-height: 1.5;
 }
 
@@ -47,76 +58,21 @@ body * {
 .card {
   position: relative;
   padding: 24px 16px;
-  background-color: var(--bg_1);
-  border: 1px solid #9b78de;
-  box-shadow: 2px 2px #e9e1f8;
-}
-
-/* 💡 `em` are the only consistent unit in @media queries. */
-@media (min-width: 30em) {
-  .card {
-    display: flex;
-  }
-
-  .card > :nth-child(1) {
-    flex: 1;
-  }
-
-  .card > :nth-child(2) {
-    flex: 2;
-    padding-left: 16px;
-  }
-}
-
-.btnBell {
-  display: flex;
-  align-items: center;
-  min-height: 35px;
-  font-size: 1.6rem;
-  border: 1px solid var(--primary);
+  background-color: var(--theme-bg_1);
+  border: 1px solid var(--theme-primary);
+  box-shadow: 2px 2px var(--theme-primary_smooth);
   border-radius: 3px;
-  padding: 8px;
-  background-color: var(--bg_0);
-  color: var(--text_);
-  cursor: pointer;
+  margin: 24px 0;
 }
 
-.btnBell:hover {
-  color: var(--primary);
-}
-
-.btnBell-svg {
-  width: 16px;
-  max-height: 16px;
-  fill: currentColor;
-  margin-right: 8px;
-  animation: shakeSometimes 4000ms infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btnBell-svg {
-    animation: none;
-    /* We can create different visual ways
-    to communicate something without using animations */
-    fill: var(--primary);
-    transform: rotate(-10deg);
-  }
-}
-
-.btnBell-svg:focus {
-  outline: none;
-  box-shadow: var(--bg_0) 0 0 0 2px, #ff821f 0 0 0 4px;
-}
-
-.u-fixedTop {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+.card p {
+  margin: 0;
+  /* 💡 BONUS #3 remove justify */
+  /* text-align: justify; */
 }
 
 .tag {
-  color: var(--secondary);
-
+  color: var(--theme-secondary);
   margin-bottom: 4px;
   text-transform: uppercase;
   font-size: 1.4rem;
@@ -128,7 +84,98 @@ body * {
   font-size: 2.8rem;
   font-weight: 600;
   line-height: 1.2;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+}
+
+.title-md {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 32px 0 8px;
+  line-height: 1.2;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+}
+
+.list li {
+  margin: 4px 0;
+}
+
+/* 💡 To meet WCAG 1.4.1 (Use of color)
+  we cant use color as the only way to give meaning */
+.list li[data-status="no"]::before {
+  content: "●";
+  color: #9c9c9c;
+}
+
+.list li[data-status="yes"]::before {
+  content: "✓";
+  color: mediumseagreen;
+}
+
+.list li[data-status="no"] {
+  color: var(--theme-text_1);
+}
+
+/* 🍀 `em` are the only consistent unit in @media queries. */
+@media (min-width: 480px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .list > * {
+    flex-basis: 50%;
+  }
+}
+
+.btnBell {
+  display: flex;
+  align-items: center;
+  min-height: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 16px;
+  background-color: var(--theme-bg_0);
+  color: var(--theme-text_0);
+  border: 2px solid var(--theme-primary);
+  cursor: pointer;
+}
+
+.btnBell:hover {
+  opacity: 0.8;
+}
+
+.btnBell-svg {
+  width: 16px;
+  max-height: 16px;
+  fill: currentColor;
+  margin-right: 8px;
+
+  /* 🍀 We can create different visual ways
+  to communicate something without using animations */
+  fill: var(--theme-primary);
+  transform: rotate(10deg);
+}
+
+/* 💡 Take a no-motion by default approach.
+  Add them with media queries
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .btnBell {
+    animation: zoom 4s infinite;
+  }
+
+  .btnBell-svg {
+    fill: currentColor;
+    transform: rotate(0deg);
+    animation: shake 4s infinite;
+  }
 }
 
 .footer {
@@ -137,6 +184,7 @@ body * {
   display: flex;
   justify-content: center;
   padding: 16px;
+  /* background: var(--theme-text_0); */
 }
 
 .footer::before {
@@ -146,7 +194,7 @@ body * {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--text_0);
+  background: var(--theme-text_0);
 }
 
 .footer-text {
@@ -154,7 +202,13 @@ body * {
   text-align: center;
   margin: 0;
   font-size: 1.3rem;
-  color: var(--bg_0);
+  /** 🍀 Some A11Y debug tools might mark this as color contract issue.
+  It's a false positive caused by the ::before pseudo-element above */
+  color: var(--theme-bg_0);
+  opacity: 0.7;
+
+  /* 💡 BONUS #3 set max text width */
+  max-width: 80ch;
 }
 
 .footer-text a {
@@ -166,11 +220,10 @@ body * {
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
 
-@keyframes shakeSometimes {
+@keyframes shake {
   40%,
   60% {
     transform: rotate(0deg);
-    color: inherit;
   }
 
   42.5%,
@@ -182,7 +235,6 @@ body * {
   50%,
   55% {
     transform: rotate(-20deg);
-    color: var(--primary);
   }
 
   47.5%,
@@ -191,27 +243,15 @@ body * {
   }
 }
 
-@-webkit-keyframes shakeSometimes {
-  40%,
-  60% {
-    transform: rotate(0deg);
-    color: inherit;
-  }
-
-  42.5%,
-  57.5% {
-    transform: rotate(10deg);
-  }
-
+@keyframes zoom {
+  0%,
   45%,
-  50%,
-  55% {
-    transform: rotate(-20deg);
-    color: var(--primary);
+  60%,
+  100% {
+    transform: scale(1);
   }
 
-  47.5%,
-  52.5% {
-    transform: rotate(20deg);
+  50% {
+    transform: scale(1.05);
   }
 }
