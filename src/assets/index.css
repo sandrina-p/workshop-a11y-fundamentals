@@ -5,6 +5,11 @@ ol {
   margin: 0;
 }
 
+li::before {
+  position: absolute;
+  content: "\200B"; /* add zero-width space */
+}
+
 .content {
   max-width: var(--theme-width);
 }
@@ -24,13 +29,6 @@ ol {
   color: var(--theme-text_1);
 }
 
-.bannerMsg {
-  border: 5px dashed #e44545;
-  font-size: 1.8rem;
-  padding: 16px;
-  text-align: center;
-}
-
 .topic-item {
   margin-bottom: 32px;
 }
@@ -40,10 +38,10 @@ ol {
 }
 
 .subTopic-item {
-  background: #fff;
+  background: var(--theme-bg_1);
   margin-bottom: 16px;
   padding: 20px 16px;
-  box-shadow: 2px 2px #e9e1f8;
+  box-shadow: 2px 2px var(--theme-primary_smooth);
   border-radius: 4px;
 }
 
@@ -63,7 +61,7 @@ ol {
 .subTopic-bullet {
   font-size: 0.8em;
   margin-right: 8px;
-  color: #8c00ff;
+  color: var(--theme-primary);
 }
 
 .subTopic-link:not(:last-child) {
@@ -71,7 +69,7 @@ ol {
 }
 
 .footer {
-  background: #fff;
+  background: var(--theme-bg_1);
   padding: 32px 0;
   text-align: center;
   margin-top: 40px;
@@ -95,42 +93,4 @@ ol {
 
 .footer-links a {
   margin: 0 8px;
-}
-
-/* ------ Buy me a cofee link ------ */
-
-.donate {
-  width: 100%;
-  margin-top: 16px;
-}
-
-.donate-btn {
-  height: 35px;
-  min-width: auto;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  color: #ffffff;
-  background-color: #8c00ff;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  padding: 5px 10px;
-  font-size: inherit;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.donate-btn:hover {
-  opacity: 0.8;
-}
-
-.donate-btn:focus {
-  outline: none;
-  box-shadow: #fff 0 0 0 2px, #ff821f 0 0 0 4px;
-}
-
-.donate-btn img {
-  height: 100%;
-  width: auto;
-  margin-right: 8px;
 }
