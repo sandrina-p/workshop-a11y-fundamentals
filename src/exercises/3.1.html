@@ -65,7 +65,8 @@ Notes:
       <h2 class="g-cardTitle">Case #3</h2>
       <!--
         💡 This button instruction is confusing for a SR user. They don't
-        know if they should press "enter" on the button or on the instruction.
+        know if they should press "enter" on the button or on the element
+        that announces the instruction.
         How you would solve this? Perhaphs we could remove the redudancy?
       -->
       <div class="u-colCenter">
@@ -89,9 +90,26 @@ Notes:
       </p>
     </div>
 
-    <!-- Case #5 - Accessible Emojis -->
+    <!-- Lesson #5 - The current link -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #5</h2>
+      <!-- 💡 Visually, it's perceivable which list item is the current one.
+        However, that's not true for people who use screen readers.
+        A similar information can be provided to AT using aria-current.
+        Note: Chrome does not support aria-current yet, but Firefox and Safari do!
+        -->
+      <nav>
+        <ul>
+          <li><a href="../briefings/3.1.html" class="link isCurrent">Exercise 3.1</a></li>
+          <li><a href="../briefings/3.2.html" class="link">Exercise 3.2</a></li>
+          <li><a href="../briefings/3.3.html" class="link">Exercise 3.3</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Case #6 - Accessible Emojis -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #6</h2>
       <!-- 💡 Read the following sentence with a screen reader.
         The emojis are confusing, right? A mix of aria-hidden and .sr-only can be a solution. -->
       <p>
@@ -102,9 +120,9 @@ Notes:
       </p>
     </div>
 
-    <!-- Case #6 - ASCII art -->
+    <!-- Case #7 - ASCII art -->
     <div class="g-card">
-      <h2 class="g-cardTitle">Case #6</h2>
+      <h2 class="g-cardTitle">Case #7</h2>
       <!--
         Here's "picture" but made of characters.
         This is the worst nightmare for a SR user. What can we do here?
