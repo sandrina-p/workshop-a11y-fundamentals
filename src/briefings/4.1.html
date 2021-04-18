@@ -22,17 +22,40 @@
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/4.1.html">exercise page</a>,
 there are a few more common cases not accessible.</p>
-<p>Each case might have multiple solutions. That's why you won't find a direct suggestion of solution as in the previous exercises.</p>
+<p>Each case might have multiple solutions. That's why you won't find a direct suggestion of a solution as in the previous exercises.</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of each case.</p>
 <p><strong>Suggestion for QA & designers:</strong>
-These cases will require a good chunk of code changes. It's totally fine if you don't feel comfortable with code. As an alternative, I suggest you to write down a requirements list, pointing what is not right or what can be improved.</p>
+These cases will require a good chunk of code changes. It's totally fine if you don't feel comfortable with code. As an alternative, I suggest you to write down a list of what's not correct or what can be improved.</p>
 <h2 id="hints">Hints</h2>
-<p>I encourage you to explore and come up with your own audits before reading further. Below you can find some hints and <em>food for thought</em> about each case.</p>
-<h3 id="case1lists">Case #1 - Lists</h3>
-<p>Visually, it's perceivable which list item is the current one. However, that's not true for blind people. Perhaps, Some <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attribute</a> that reflects the <em>current</em> state.</p>
-<h4 id="references">References</h4>
+<p>Below you can find some hints and <em>food for thought</em> about each case.</p>
+<hr />
+<h3 id="case1loadingstates">Case #1 - Loading states</h3>
+<p>We use visual indicators to assure users that some request is being processed.</p>
+<p>These indicators need to be effective for people with vision impairment as well.</p>
+<p>Some things for you to consider:</p>
 <ul>
-<li><a href="https://tink.uk/using-the-aria-current-attribute/">Marking the current element in a list</a>: Note: Chrome doesn't support it yet, but Firefox and Safari do.</li>
+<li>Using the screen reader, are you aware of when the content gets loaded?</li>
+<li>Using keyboard only, can you navigate correctly while the lucky numbers are being loaded?</li>
+</ul>
+<p><details>
+  <summary>🍀 Reveal solution</summary></p>
+<ul>
+<li>Replace <code>disabled</code> with <code>aria-disabled</code> to avoid skipping focus.</li>
+<li>Add <code>aria-live</code> to the loading element no announce when it starts/ends.</li>
+<li>Add <code>aria-busy</code> to the content while it's being loaded. (not well supported yet).
+</details></li>
+</ul>
+<h4 id="rerefences">Rerefences</h4>
+<ul>
+<li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
+<li><a href="https://a11y-101.com/development/aria-disabled">A note about <code>disabled</code> attribute</a></li>
+<li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#location">WCAG 2.4.8 Location - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#on-focus">WCAG 3.2.1 Predictable On Focus - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#on-input">WCAG 3.2.2 Predictable On Input - Level A</a></li>
 </ul>
 <hr />
 <h3 id="case2clickablecards">Case #2 - Clickable cards</h3>
@@ -43,46 +66,13 @@ These cases will require a good chunk of code changes. It's totally fine if you 
 <li>Does the date announcement sound right?</li>
 <li>Try to highlight the card text. (eg select and copy the title). Could you do it?</li>
 </ul>
-<h4 id="references-1">References</h4>
+<h4 id="references">References</h4>
 <ul>
 <li><a href="https://css-tricks.com/link-header-header-link/">Link in header? Or header in link?</a></li>
 <li><a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">Block links: The search for a perfect solution</a></li>
 </ul>
 <hr />
-<h3 id="case3customselect">Case #3 - Custom select</h3>
-<p>A custom accessible <code>&lt;select&gt;</code> is one of the hardest things to create.</p>
-<p>Among many studies (read references below) around selects, I can give you the short answer: <strong>Avoid selectors if you can</strong>. But let’s face reality: a custom select is still our best solution sometimes.</p>
-<p>There's a relative simple technique to enhance these custom selects. I personally named this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
-<ul>
-<li>A native select, visible and accessible by default</li>
-<li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
-</ul>
-<p>The trick is to show each one at the right moment:</p>
-<pre><code class="css language-css">/* show the custom select only on devices with hovers (aka mouse) */
-
-.selectCustom {
-  display: none;
-}
-@media (hover: hover) {
-  .selectCustom {
-    display: block;
-  }
-
-  /* In a computer, but using the keyboard?
-  Then hide the custom select when the native is focused: */
-  .selectNative:focus + .selectCustom {
-    display: none;
-  }
-}
-</code></pre>
-<p><strong>Important:</strong> This still has A11Y issues. It's a partial solution of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select" experiment</a>. If you use this in the future, please take into consideration its limitations.</p>
-<h4 id="references-2">References</h4>
-<ul>
-<li><a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a Balance Between Native and Custom Select Elements</a></li>
-<li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
-</ul>
-<hr />
-<h3 id="case4togglebuttons">Case #4 - Toggle Buttons</h3>
+<h3 id="case3togglebuttons">Case #3 - Toggle Buttons</h3>
 <p>Some questions for you to think about:</p>
 <ul>
 <li>What makes a button, a button?</li>
@@ -136,7 +126,7 @@ These cases will require a good chunk of code changes. It's totally fine if you 
 <li>The direction mechanism to move between elements depends on the context. <code>aria-describedby</code> with instructions can be helpful for blind people.</li>
 </ul>
 <p></details></p>
-<h4 id="references-3">References</h4>
+<h4 id="references-1">References</h4>
 <ul>
 <li><a href="https://inclusive-components.design/toggle-button/">Inclusive Toggle Buttons</a></li>
 <li><a href="https://uxmovement.com/buttons/when-to-use-a-switch-or-checkbox/">Switch vs Checkbox</a></li>
@@ -144,25 +134,37 @@ These cases will require a good chunk of code changes. It's totally fine if you 
 <li><a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts_design_choose_behavior">Choosing appropriate navigation/shortcut behavior</a></li>
 </ul>
 <hr />
-<h3 id="case5loadingstates">Case #5 - Loading states</h3>
-<p>When some content is being processed, we use visual indicators to assure users that their request is being taken care of.</p>
-<p>These indicators besides being visual, need to be effective for people using keyboard and screen readers as well.</p>
-<p>Some things for you to consider:</p>
+<h3 id="case4customselect">Case #4 - Custom select</h3>
+<p>A custom accessible <code>&lt;select&gt;</code> is one of the hardest things to create.</p>
+<p>Among many studies (read references below) around selects, I can give you the short answer: <strong>Avoid selectors if you can</strong>. But let’s face reality: a custom select is still our best solution sometimes.</p>
+<p>There's a relative simple technique to enhance these custom selects. I personally named this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
 <ul>
-<li>Using keyboard only, can you navigate correctly while the lucky numbers are being loaded?</li>
-<li>Using the screen reader, are you aware of when the content gets loaded?</li>
+<li>A native select, visible and accessible by default</li>
+<li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
 </ul>
-<h4 id="rerefences">Rerefences</h4>
+<p>The trick is to show each one at the right moment:</p>
+<pre><code class="css language-css">/* show the custom select only on devices with hovers (aka mouse) */
+
+.selectCustom {
+  display: none;
+}
+@media (hover: hover) {
+  .selectCustom {
+    display: block;
+  }
+
+  /* In a computer, but using the keyboard?
+  Then hide the custom select when the native is focused: */
+  .selectNative:focus + .selectCustom {
+    display: none;
+  }
+}
+</code></pre>
+<p><strong>Important:</strong> This still has A11Y issues. It's a partial solution of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select" experiment</a>. If you use this in the future, please take into consideration its limitations.</p>
+<h4 id="references-2">References</h4>
 <ul>
-<li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
-<li><a href="https://a11y-101.com/development/aria-disabled">A note about <code>disabled</code> attribute</a></li>
-<li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
-</ul>
-<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-<ul>
-<li><a href="https://www.w3.org/TR/WCAG21/#location">WCAG 2.4.8 Location - Level AAA</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#on-focus">WCAG 3.2.1 Predictable On Focus - Level A</a></li>
-<li><a href="https://www.w3.org/TR/WCAG21/#on-input">WCAG 3.2.2 Predictable On Input - Level A</a></li>
+<li><a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a Balance Between Native and Custom Select Elements</a></li>
+<li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
 </ul>
 
 </main>
