@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
   <title>Briefing #4.1</title>
   <meta charset="utf-8">
@@ -15,64 +14,51 @@
 <body>
   <a class="linkBack" href="../index.html">Go Back</a>
   <main>
-
-    <h1 id="41moremeaningfulcontent">4.1. More meaningful content</h1>
-    <h2 id="introduction">Introduction</h2>
-    <p>Until now, we have been exploring fairly simple cases, but let me tell you something:</p>
-    <p>When it comes to accessibility, there isn't one single right way to solve a scenario. Each approach has positive
-      and negative consequences. Once you find a solution, look for other solutions and balance them. We should
-      <strong>aim for understanding their impacts and assume the trade-offs</strong> rather than pretending they don't
-      exist.</p>
-    <h2 id="exercise">Exercise</h2>
-    <p>In the <a href="../exercises/4.1.html">exercise page</a>,
-      there are a few more common cases not accessible.</p>
-    <p>Each case might have multiple solutions. That's why you won't find a direct suggestion of solution as in the
-      previous exercises.</p>
-    <p><strong>🎯 Goal:</strong> Improve the accessibility of each case.</p>
-    <p><strong>Suggestion for QA & designers:</strong>
-      These cases will require a good chunk of code changes. It's totally fine if you don't feel comfortable with code.
-      As an alternative, I suggest you to write down a requirements list, pointing what is not right or what can be
-      improved.</p>
-    <h2 id="hints">Hints</h2>
-    <p>I encourage you to explore and come up with your own audits before reading further. Below you can find some hints
-      and <em>food for thought</em> about each case.</p>
-    <h3 id="case1lists">Case #1 - Lists</h3>
-    <p>Visually, it's perceivable which list item is the current one. However, that's not true for blind people.
-      Perhaps, Some <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attribute</a> that reflects the
-      <em>current</em> state.</p>
-    <h4 id="references">References</h4>
-    <ul>
-      <li><a href="https://tink.uk/using-the-aria-current-attribute/">Marking the current element in a list</a>: Note:
-        Chrome doesn't support it yet, but Firefox and Safari do.</li>
-    </ul>
-    <hr />
-    <h3 id="case2clickablecards">Case #2 - Clickable cards</h3>
-    <p>You notice the cards are totally clickable - with touch, mouse and keyboard. Some things for you to consider:</p>
-    <p>Try to read it with screen reader….</p>
-    <ul>
-      <li>If you jump directly to the title and keep reading, you won't notice the video category/date.</li>
-      <li>Does the date announcement sound right?</li>
-      <li>Try to highlight the card text. (eg select and copy the title). Could you do it?</li>
-    </ul>
-    <h4 id="references-1">References</h4>
-    <ul>
-      <li><a href="https://css-tricks.com/link-header-header-link/">Link in header? Or header in link?</a></li>
-      <li><a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">Block links: The search for a
-          perfect solution</a></li>
-    </ul>
-    <hr />
-    <h3 id="case3customselect">Case #3 - Custom select</h3>
-    <p>A custom accessible <code>&lt;select&gt;</code> is one of the hardest things to create.</p>
-    <p>Among many studies (read references below) around selects, I can give you the short answer: <strong>Avoid
-        selectors if you can</strong>. But let’s face reality: a custom select is still our best solution sometimes.</p>
-    <p>There's a relative simple technique to enhance these custom selects. I personally named this a <em>"hybrid
-        select"</em>. It consists of 2 selects:</p>
-    <ul>
-      <li>A native select, visible and accessible by default</li>
-      <li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
-    </ul>
-    <p>The trick is to show each one at the right moment:</p>
-    <pre><code class="css language-css">/* show the custom select only on devices with hovers (aka mouse) */
+  
+<h1 id="41moremeaningfulcontent">4.1. More meaningful content</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Until now, we have been exploring fairly simple cases, but let me tell you something:</p>
+<p>When it comes to accessibility, there isn't one single right way to solve a scenario. Each approach has positive and negative consequences. Once you find a solution, look for other solutions and balance them. We should <strong>aim for understanding their impacts and assume the trade-offs</strong> rather than pretending they don't exist.</p>
+<h2 id="exercise">Exercise</h2>
+<p>In the <a href="../exercises/4.1.html">exercise page</a>,
+there are a few more common cases not accessible.</p>
+<p>Each case might have multiple solutions. That's why you won't find a direct suggestion of solution as in the previous exercises.</p>
+<p><strong>🎯 Goal:</strong> Improve the accessibility of each case.</p>
+<p><strong>Suggestion for QA & designers:</strong>
+These cases will require a good chunk of code changes. It's totally fine if you don't feel comfortable with code. As an alternative, I suggest you to write down a requirements list, pointing what is not right or what can be improved.</p>
+<h2 id="hints">Hints</h2>
+<p>I encourage you to explore and come up with your own audits before reading further. Below you can find some hints and <em>food for thought</em> about each case.</p>
+<h3 id="case1lists">Case #1 - Lists</h3>
+<p>Visually, it's perceivable which list item is the current one. However, that's not true for blind people. Perhaps, Some <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attribute</a> that reflects the <em>current</em> state.</p>
+<h4 id="references">References</h4>
+<ul>
+<li><a href="https://tink.uk/using-the-aria-current-attribute/">Marking the current element in a list</a>: Note: Chrome doesn't support it yet, but Firefox and Safari do.</li>
+</ul>
+<hr />
+<h3 id="case2clickablecards">Case #2 - Clickable cards</h3>
+<p>You notice the cards are totally clickable - with touch, mouse and keyboard. Some things for you to consider:</p>
+<p>Try to read it with screen reader….</p>
+<ul>
+<li>If you jump directly to the title and keep reading, you won't notice the video category/date.</li>
+<li>Does the date announcement sound right?</li>
+<li>Try to highlight the card text. (eg select and copy the title). Could you do it?</li>
+</ul>
+<h4 id="references-1">References</h4>
+<ul>
+<li><a href="https://css-tricks.com/link-header-header-link/">Link in header? Or header in link?</a></li>
+<li><a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">Block links: The search for a perfect solution</a></li>
+</ul>
+<hr />
+<h3 id="case3customselect">Case #3 - Custom select</h3>
+<p>A custom accessible <code>&lt;select&gt;</code> is one of the hardest things to create.</p>
+<p>Among many studies (read references below) around selects, I can give you the short answer: <strong>Avoid selectors if you can</strong>. But let’s face reality: a custom select is still our best solution sometimes.</p>
+<p>There's a relative simple technique to enhance these custom selects. I personally named this a <em>"hybrid select"</em>. It consists of 2 selects:</p>
+<ul>
+<li>A native select, visible and accessible by default</li>
+<li>A custom select, hidden until it’s safe to be interacted with a mouse</li>
+</ul>
+<p>The trick is to show each one at the right moment:</p>
+<pre><code class="css language-css">/* show the custom select only on devices with hovers (aka mouse) */
 
 .selectCustom {
   display: none;
@@ -89,133 +75,102 @@
   }
 }
 </code></pre>
-    <p><strong>Important:</strong> This still has A11Y issues. It's a partial solution of a bigger <a
-        href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select"
-        experiment</a>. If you use this in the future, please take into consideration its limitations.</p>
-    <h4 id="references-2">References</h4>
-    <ul>
-      <li><a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a
-          Balance Between Native and Custom Select Elements</a></li>
-      <li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs
-          Progressive enhancement</a></li>
-    </ul>
-    <hr />
-    <h3 id="case4togglebuttons">Case #4 - Toggle Buttons</h3>
-    <p>Some questions for you to think about:</p>
-    <ul>
-      <li>What makes a button, a button?</li>
-      <li>What's the difference between a button and an input checkbox/radio?</li>
-      <li>When you interact with these elements, do you expect the action to be taken immediately, or not?</li>
-    </ul>
-    <p>Give it some thought…</p>
-    <p>
-    <details>
-      <summary>Tips about dynamic names and states</summary>
-      </p>
-      <p>When we interact with "Sound toggle" using a screen reader, two things happen when pressing it:</p>
-      <ul>
-        <li>The button label changes</li>
-        <li>The <code>aria-pressed</code> values changes.</li>
-      </ul>
-      <p>For a screen reader, changing both <em>name</em> and <em>status</em> can be confusing when the toggle is not
-        active.</p>
-      <ul>
-        <li>Voice Over: <em>selected, Sound on, toggle button</em></li>
-        <li>Voice Over: <em>unselected, Sound off, toggle button</em></li>
-      </ul>
-      <p>If the "sound off" is "unselected", it means the sound is actually turned on. Confusing right?</p>
-      <p>Here's an example, much clear for screen readers:</p>
-      <ul>
-        <li>Voice Over: <em>selected, Enable sound, toggle button</em></li>
-        <li>Voice Over: <em>unselected, Enable sound, toggle button</em></li>
-      </ul>
-      <p>🍀 When labeling dynamic elements, never change both label and state at the same time. Stick with one of them.
-      </p>
-      <p>
-    </details>
-    </p>
-    <p>
-    <details>
-      <summary>Tips about moments of actions</summary>
-      </p>
-      <p>One of the differences between a form control and a button is:</p>
-      <ul>
-        <li>Form controls (e.g. inputs) are meant to receive and carry a value. These values are editable and should not
-          take effect until we explicit submit them.</li>
-        <li>Buttons are expected to take immediate action upon activation.</li>
-      </ul>
-      <p>That's the main question we should ask ourselves when building an interactive element:</p>
-      <ul>
-        <li>Does the selection, takes immediate effect? Then, it's a button.</li>
-        <li>Does the selection requires confirmation? Then it's a form control.</li>
-      </ul>
-      <p>🍀 The way a funcionality is presented might misslead us to change its foundations. We need to be mindful about
-        this thin layer between UX and semantics.</p>
-      <p>
-    </details>
-    </p>
-    <p>
-    <details>
-      <summary>Tips about keyboard navigation</summary>
-      </p>
-      <p>Although <code>Tab</code> is the main way to navigate between interactive elements, it's not the only one. In
-        some cases the navigation is done with arrow keys (e.g <code>&lt;select&gt;</code> and
-        <code>&lt;input&gt;</code> radio/checkboxes). We can even create our custom shortcuts.</p>
-      <p>We might ask: When to use Tabs or Arrow Keys?</p>
-      <p>The <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts">WAI keyboard guidelines</a> are extended
-        and a continuos work in progress. This is my current simplified decision tree:</p>
-      <ul>
-        <li>Skip Tabs to make navigation more efficient. (Google Drive is a great example)</li>
-        <li>Use Arrow keys when elements are directly related (eg a toolbox,a breadcrumb)</li>
-        <li>When using Arrow keys, highligh visually the parent element, for a clear understanding of the context and
-          related elements.</li>
-        <li>The direction mechanism to move between elements depends on the context. <code>aria-describedby</code> with
-          instructions can be helpful for blind people.</li>
-      </ul>
-      <p>
-    </details>
-    </p>
-    <h4 id="references-3">References</h4>
-    <ul>
-      <li><a href="https://inclusive-components.design/toggle-button/">Inclusive Toggle Buttons</a></li>
-      <li><a href="https://uxmovement.com/buttons/when-to-use-a-switch-or-checkbox/">Switch vs Checkbox</a></li>
-      <li><a href="https://www.w3.org/TR/wai-aria-practices/#toolbar">Design pattern: Toolbar</a></li>
-      <li><a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts_design_choose_behavior">Choosing appropriate
-          navigation/shortcut behavior</a></li>
-    </ul>
-    <hr />
-    <h3 id="case5loadingstates">Case #5 - Loading states</h3>
-    <p>When some content is being processed, we use visual indicators to assure users that their request is being taken
-      care of.</p>
-    <p>These indicators besides being visual, need to be effective for people using keyboard and screen readers as well.
-    </p>
-    <p>Some things for you to consider:</p>
-    <ul>
-      <li>Using keyboard only, can you navigate correctly while the lucky numbers are being loaded?</li>
-      <li>Using the screen reader, are you aware of when the content gets loaded?</li>
-    </ul>
-    <h4 id="rerefences">Rerefences</h4>
-    <ul>
-      <li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading
-          skeletons</a></li>
-      <li><a href="https://a11y-101.com/development/aria-disabled">A note about <code>disabled</code> attribute</a></li>
-      <li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
-    </ul>
-    <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG21/#location">WCAG 2.4.8 Location - Level AAA</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#on-focus">WCAG 3.2.1 Predictable On Focus - Level A</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#on-input">WCAG 3.2.2 Predictable On Input - Level A</a></li>
-    </ul>
+<p><strong>Important:</strong> This still has A11Y issues. It's a partial solution of a bigger <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">"hybrid select" experiment</a>. If you use this in the future, please take into consideration its limitations.</p>
+<h4 id="references-2">References</h4>
+<ul>
+<li><a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a Balance Between Native and Custom Select Elements</a></li>
+<li><a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">Graceful degradation vs Progressive enhancement</a></li>
+</ul>
+<hr />
+<h3 id="case4togglebuttons">Case #4 - Toggle Buttons</h3>
+<p>Some questions for you to think about:</p>
+<ul>
+<li>What makes a button, a button?</li>
+<li>What's the difference between a button and an input checkbox/radio?</li>
+<li>When you interact with these elements, do you expect the action to be taken immediately, or not?</li>
+</ul>
+<p>Give it some thought…</p>
+<p><details>
+<summary>Tips about dynamic names and states</summary></p>
+<p>When we interact with "Sound toggle" using a screen reader, two things happen when pressing it:</p>
+<ul>
+<li>The button label changes</li>
+<li>The <code>aria-pressed</code> values changes.</li>
+</ul>
+<p>For a screen reader, changing both <em>name</em> and <em>status</em> can be confusing when the toggle is not active.</p>
+<ul>
+<li>Voice Over: <em>selected, Sound on, toggle button</em></li>
+<li>Voice Over: <em>unselected, Sound off, toggle button</em></li>
+</ul>
+<p>If the "sound off" is "unselected", it means the sound is actually turned on. Confusing right?</p>
+<p>Here's an example, much clear for screen readers:</p>
+<ul>
+<li>Voice Over: <em>selected, Enable sound, toggle button</em></li>
+<li>Voice Over: <em>unselected, Enable sound, toggle button</em></li>
+</ul>
+<p>🍀 When labeling dynamic elements, never change both label and state at the same time. Stick with one of them.</p>
+<p></details></p>
+<p><details>
+<summary>Tips about moments of actions</summary></p>
+<p>One of the differences between a form control and a button is:</p>
+<ul>
+<li>Form controls (e.g. inputs) are meant to receive and carry a value. These values are editable and should not take effect until we explicit submit them.</li>
+<li>Buttons are expected to take immediate action upon activation.</li>
+</ul>
+<p>That's the main question we should ask ourselves when building an interactive element:</p>
+<ul>
+<li>Does the selection, takes immediate effect? Then, it's a button.</li>
+<li>Does the selection requires confirmation? Then it's a form control.</li>
+</ul>
+<p>🍀 The way a funcionality is presented might misslead us to change its foundations. We need to be mindful about this thin layer between UX and semantics.</p>
+<p></details></p>
+<p><details>
+<summary>Tips about keyboard navigation</summary></p>
+<p>Although <code>Tab</code> is the main way to navigate between interactive elements, it's not the only one. In some cases the navigation is done with arrow keys (e.g <code>&lt;select&gt;</code> and <code>&lt;input&gt;</code> radio/checkboxes). We can even create our custom shortcuts.</p>
+<p>We might ask: When to use Tabs or Arrow Keys?</p>
+<p>The <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts">WAI keyboard guidelines</a> are extended and a continuos work in progress. This is my current simplified decision tree:</p>
+<ul>
+<li>Skip Tabs to make navigation more efficient. (Google Drive is a great example)</li>
+<li>Use Arrow keys when elements are directly related (eg a toolbox,a breadcrumb)</li>
+<li>When using Arrow keys, highligh visually the parent element, for a clear understanding of the context and related elements.</li>
+<li>The direction mechanism to move between elements depends on the context. <code>aria-describedby</code> with instructions can be helpful for blind people.</li>
+</ul>
+<p></details></p>
+<h4 id="references-3">References</h4>
+<ul>
+<li><a href="https://inclusive-components.design/toggle-button/">Inclusive Toggle Buttons</a></li>
+<li><a href="https://uxmovement.com/buttons/when-to-use-a-switch-or-checkbox/">Switch vs Checkbox</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/#toolbar">Design pattern: Toolbar</a></li>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts_design_choose_behavior">Choosing appropriate navigation/shortcut behavior</a></li>
+</ul>
+<hr />
+<h3 id="case5loadingstates">Case #5 - Loading states</h3>
+<p>When some content is being processed, we use visual indicators to assure users that their request is being taken care of.</p>
+<p>These indicators besides being visual, need to be effective for people using keyboard and screen readers as well.</p>
+<p>Some things for you to consider:</p>
+<ul>
+<li>Using keyboard only, can you navigate correctly while the lucky numbers are being loaded?</li>
+<li>Using the screen reader, are you aware of when the content gets loaded?</li>
+</ul>
+<h4 id="rerefences">Rerefences</h4>
+<ul>
+<li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
+<li><a href="https://a11y-101.com/development/aria-disabled">A note about <code>disabled</code> attribute</a></li>
+<li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#location">WCAG 2.4.8 Location - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#on-focus">WCAG 3.2.1 Predictable On Focus - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#on-input">WCAG 3.2.2 Predictable On Input - Level A</a></li>
+</ul>
 
-  </main>
-  <footer class="bfg-footer">
-    <p class="suggestion">Found a typo or bug? Please, <a target="_blank"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=4.1">do
-        let me know</a>. Constructive feedback is welcome too. :)</p>
-  </footer>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=4.1">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
 
-  <script src="../assets/prism.js" defer></script>
+<script src="../assets/prism.js" defer></script>
 </body>
 
 
