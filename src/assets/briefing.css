@@ -86,8 +86,8 @@ hr {
 
 .linkBack {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 6px;
+  left: 6px;
   background: var(--theme-bg_1);
   box-shadow: 0 0 0 2px var(--theme-primary);
   padding: 4px 16px;

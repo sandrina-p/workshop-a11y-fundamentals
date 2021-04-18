@@ -167,7 +167,7 @@ img {
   padding: 8px 24px;
   border: none;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 /* do not use disabled attr. Prefer aria-disabled
