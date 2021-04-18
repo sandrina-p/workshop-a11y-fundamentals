@@ -3,7 +3,7 @@
 |*     but you can see how it was made.      *|
 \** ---------------------------------------- */
 
-/* Lesson 1 */
+/* Case 1 */
 .case1 {
   position: relative;
   width: 100%;
@@ -29,7 +29,7 @@
   text-shadow: 1px 1px 3px #00000080;
 }
 
-/* Lesson 2 */
+/* Case 2 */
 .case2 {
   display: flex;
 }
@@ -59,7 +59,7 @@
   content: "";
 }
 
-/* Lesson 3 */
+/* Case 3 */
 .case3 {
   max-width: 250px;
   border: 1px solid #6f6f6f;
@@ -81,7 +81,7 @@
   margin-top: 4px;
 }
 
-/* Lesson 4 */
+/* Case 4 */
 .case4 {
   display: flex;
   align-items: center;

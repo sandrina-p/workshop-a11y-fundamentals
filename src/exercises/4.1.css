@@ -328,13 +328,13 @@
 }
 
 .stgs-toggleTheme input + .stgs-toggleTheme-fakeCheck::before {
-  content: "✅";
-  content: "✅" / "";
+  content: "🔲";
+  content: "🔲" / "";
   margin-right: 8px;
 }
 .stgs-toggleTheme input:checked + .stgs-toggleTheme-fakeCheck::before {
-  content: "🔲";
-  content: "🔲" / "";
+  content: "✅";
+  content: "✅" / "";
   margin-right: 8px;
 }
 

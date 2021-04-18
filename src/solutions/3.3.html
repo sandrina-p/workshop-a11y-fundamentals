@@ -22,10 +22,10 @@ Notes:
   <main class="content">
     <h1 class="title-xl">Accessible Forms</h1>
 
-    <form class="block_v form js-formItself">
+    <form class="g-card form js-formItself">
       <h2 class="title-lg">Form: Web lover profile</h2>
 
-      <!-- Lesson #1 - Input labels
+      <!-- Case #1 - Input labels
         🍀 Every input must have a label associated.
       -->
       <div class="field">
@@ -33,7 +33,7 @@ Notes:
         <input type="text" id="uName">
       </div>
 
-      <!-- Lesson #2 - Group checkbox/radio
+      <!-- Case #2 - Group checkbox/radio
         🍀 In radio/checkboxs, wrap the related inputs
         in a <fieldset> and use <legend> to mark the main label
       -->
@@ -47,7 +47,7 @@ Notes:
           <input type="radio" name="theme" value="light">
           <span>Light</span>
         </label>
-        <!-- Lesson #2.1 - To wrap lbel, or not.
+        <!-- Case #2.1 - To wrap lbel, or not.
           🍀 If you decide to keep the input and label separated, make sure
           the interaction area includes the surrounding spaces
           (ex use paddings instead of margins)
@@ -58,7 +58,7 @@ Notes:
         </label>
       </fieldset>
 
-      <!-- Lesson #3 - Required inputs
+      <!-- Case #3 - Required inputs
         🍀 Within radio/checkbox wrap the related options
         within a <fieldset> and use <legend> to mark the main label
       -->
@@ -67,7 +67,7 @@ Notes:
           Year of your first computer
           <span class="u-danger" aria-hidden="true">*</span>
         </label>
-        <!-- Lesson #3.1 - Input types
+        <!-- Case #3.1 - Input types
           🍀 When dealing with numbers that don't make sense to be a "stepper"
           prefer using inputmode. Check the briefing references.
         -->
@@ -76,7 +76,7 @@ Notes:
         <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
       </div>
 
-      <!-- Lesson #4.1
+      <!-- Case #4.1
         🍀 In fields with multiple actions (eg input + button),
           the label cannot wrap everything because it will cause A11Y issues in some browsers and AT.
         🍀 In fields with hints, use aria-describedby to connect both.
@@ -88,7 +88,7 @@ Notes:
         <span class="field-tip" id="pwHint">The password usually is dumb and short.</span>
       </div>
 
-      <!-- 💡 Lesson #4.2 - Inputs descriptions p1
+      <!-- 💡 Case #4.2 - Inputs descriptions p1
         🍀 In fields with hints that contain links, it's also recommended to put the hint
           outside the label to prevent interaction issues with some assistive technologies-->
       <span class="u-block" id="a11yHint">

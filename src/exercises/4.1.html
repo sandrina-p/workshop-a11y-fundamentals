@@ -33,9 +33,9 @@
   <main class="content">
     <h1 class="title-xl">More meaningful content</h1>
 
-    <!-- Lesson #1 - Current location -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #1</h2>
+    <!-- Case #1 - Current location -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #1</h2>
       <nav>
         <ul>
           <li><a href="../briefings/3.1.html" class="link"> Exercise 3.1</a></li>
@@ -45,9 +45,9 @@
       </nav>
     </div>
 
-    <!-- Lesson #2 - Clickable cards -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #2</h2>
+    <!-- Case #2 - Clickable cards -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #2</h2>
 
       <p>Stay up to date with the recent news.</p>
       <div class="cardParent">
@@ -72,9 +72,9 @@
       <p>These are the only news for today.</p>
     </div>
 
-    <!-- Lesson #3 - Custom Select -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #3</h2>
+    <!-- Case #3 - Custom Select -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #3</h2>
 
       <span class="selectLabel" id="jobLabel"> Main job role</span>
       <div class="selectWrapper">
@@ -155,11 +155,11 @@
 
     </div>
 
-    <!-- Lesson #4 - Toogle buttons -->
-    <div class="block_v stgs js-lesson4" data-sound="off" data-theme="light" data-size="md">
-      <h2 class="title-lg">Lesson #4</h2>
+    <!-- Case #4 - Toogle buttons -->
+    <div class="g-card stgs js-case4" data-sound="off" data-theme="light" data-size="md">
+      <h2 class="g-cardTitle">Case #4</h2>
 
-      <p>Settings customization for this lesson.</p>
+      <p>Settings customization for this case.</p>
 
       <div class="part">
         <button class="stgs-btnOnOff js-sound" aria-pressed="false">
@@ -203,7 +203,7 @@
 
 
         <script>
-          const elLesson4 = document.getElementsByClassName('js-lesson4')[0];
+          const elCase4 = document.getElementsByClassName('js-case4')[0];
           const elSound = document.getElementsByClassName('js-sound')[0];
           const elTheme = document.getElementsByClassName('js-theme')[0];
           const elsSize = document.getElementsByClassName('js-size');
@@ -224,20 +224,20 @@
           })
 
           elTheme.addEventListener('change', function (e) {
-            elLesson4.setAttribute('data-theme', e.target.checked ? 'dark' : 'light')
+            elCase4.setAttribute('data-theme', e.target.checked ? 'dark' : 'light')
           })
 
           Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
-            elLesson4.setAttribute('data-size', e.target.value)
+            elCase4.setAttribute('data-size', e.target.value)
           }))
         </script>
       </div>
     </div>
 
-    <!-- Lesson #5 - Loading states -->
-    <!-- Lesson #5 - Loading states -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #5</h2>
+    <!-- Case #5 - Loading states -->
+    <!-- Case #5 - Loading states -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #5</h2>
       <!-- Solution:
         - Replace disabled with aria-disabled to remain focused while loading.
         - Add aria-live to the loading element no announce when it starts/ends.

@@ -56,13 +56,26 @@ img {
   margin: 40px auto;
 }
 
-.block_v {
+.g-card {
+  position: relative;
+  max-width: var(--theme-width);
   padding: 24px 16px;
-  margin: 40px auto;
+  margin: 60px auto;
   border: 1px solid var(--theme-primary);
   border-radius: 4px;
-  background-color: #fff;
+  background-color: var(--theme-bg_1);
   box-shadow: 2px 2px var(--theme-primary_smooth);
+  min-height: 100px;
+}
+
+.g-cardTitle {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 600;
 }
 
 .part {

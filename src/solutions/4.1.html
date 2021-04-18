@@ -34,7 +34,7 @@
     <h1 class="title-xl">More meaningful content</h1>
 
 
-    <!-- Lesson #1 - Current location
+    <!-- Case #1 - Current location
       TODO add: padding / clickable area,
       - focused within?
       - aria-current
@@ -42,8 +42,8 @@
       - disabled vs aria-disabled
       - pagination instead of navigation?
     -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #1</h2>
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #1</h2>
       <nav>
         <ul>
           <li><a href="../briefings/3.1.html" class="link"> Exercise 3.1</a></li>
@@ -53,9 +53,9 @@
       </nav>
     </div>
 
-    <!-- Lesson #2 - Cards clickable -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #2</h2>
+    <!-- Case #2 - Cards clickable -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #2</h2>
 
       <!-- This solution approach:
       - Remove the global <a> (link) to avoid reading the entire cart.
@@ -137,9 +137,9 @@
       </script>
     </div>
 
-    <!-- Lesson #3 - Custom select -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #3</h2>
+    <!-- Case #3 - Custom select -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #3</h2>
 
       <div class="field">
         <span class="selectLabel" id="jobLabel"> Main job role</span>
@@ -214,11 +214,11 @@
       </script>
     </div>
 
-    <!-- Lesson #4 - Toogle buttons -->
-    <div class="block_v stgs js-lesson4" data-sound="off" data-theme="light" data-size="md">
-      <h2 class="title-lg">Lesson #4</h2>
+    <!-- Case #4 - Toogle buttons -->
+    <div class="g-card stgs js-case4" data-sound="off" data-theme="light" data-size="md">
+      <h2 class="g-cardTitle">Case #4</h2>
 
-      <p>Settings customization for this lesson.</p>
+      <p>Settings customization for this case.</p>
 
       <div class="part">
         <!-- Solution:
@@ -270,7 +270,7 @@
         <!-- P.S. Ignore the fact that the design isn't the same. [SANDRINA_TODO] -->
 
         <script>
-          const elLesson4 = document.getElementsByClassName('js-lesson4')[0];
+          const elCase4 = document.getElementsByClassName('js-case4')[0];
           const elSound = document.getElementsByClassName('js-sound')[0];
           const elTheme = document.getElementsByClassName('js-theme')[0];
           const elsSize = document.getElementsByClassName('js-size');
@@ -293,7 +293,7 @@
           elTheme.addEventListener('click', function (e) {
             const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
             elTheme.setAttribute("aria-pressed", !isPressed);
-            elLesson4.setAttribute('data-theme', isPressed ? 'light' : 'dark')
+            elCase4.setAttribute('data-theme', isPressed ? 'light' : 'dark')
           })
 
           Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
@@ -307,9 +307,9 @@
             }
 
             // Otherwise, mark it as pressed...
-            const currentValue = elLesson4.getAttribute('data-size');
+            const currentValue = elCase4.getAttribute('data-size');
             el.setAttribute("aria-checked", 'true');
-            elLesson4.setAttribute('data-size', el.getAttribute('data-value'));
+            elCase4.setAttribute('data-size', el.getAttribute('data-value'));
 
             // ...and unpress previously pressed size
             if (currentValue) {
@@ -321,9 +321,9 @@
       </div>
     </div>
 
-    <!-- Lesson #5 - Loading states -->
-    <div class="block_v">
-      <h2 class="title-lg">Lesson #5</h2>
+    <!-- Case #5 - Loading states -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #5</h2>
       <!-- Solution:
         - Replace disabled with aria-disabled to remain focused while loading.
         - Add aria-live to the loading element no announce when it starts/ends.
