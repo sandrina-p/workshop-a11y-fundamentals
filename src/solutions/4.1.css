@@ -23,7 +23,113 @@
 }
 
 /* ---------------------------------------  */
-/* ------ LESSON #2 CARDS CLICKABLE-------  */
+/* ------- LESSON #2 TOGGLE BUTTON -------  */
+/* ---------------------------------------  */
+
+.stgs button:focus:not([aria-disabled="true"]) {
+  outline: none;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
+}
+.stgs input:focus {
+  outline: 4px solid #ff821f;
+}
+
+.stgs[data-theme="light"] {
+  background: var(--theme-bg_1);
+  color: var(--theme-text_0);
+  /* nothing... */
+}
+.stgs[data-theme="dark"] {
+  background: var(--theme-text_0);
+  color: var(--theme-bg_0);
+}
+
+.stgs[data-size="sm"] {
+  font-size: 1.4rem;
+}
+.stgs[data-size="md"] {
+  font-size: 1.6rem;
+}
+.stgs[data-size="lg"] {
+  font-size: 1.9rem;
+}
+
+/* Sound toggle */
+.stgs-btnOnOff {
+  background: transparent;
+  color: inherit;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.stgs-btnOnOff .on,
+.stgs-btnOnOff .off {
+  display: none;
+}
+.stgs-btnOnOff[aria-pressed="true"] .on {
+  display: block;
+}
+.stgs-btnOnOff[aria-pressed="false"] .off {
+  display: block;
+}
+
+/* Theme toggle */
+.stgs-toggleTheme {
+  background: transparent;
+  color: inherit;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.stgs-toggleTheme::before {
+  content: "";
+  margin-right: 8px;
+}
+
+.stgs-toggleTheme[aria-pressed="true"]::before {
+  content: "✅";
+  content: "✅" / "";
+}
+
+.stgs-toggleTheme[aria-pressed="false"]::before {
+  content: "🔲";
+  content: "🔲" / "";
+}
+
+/* Font size options */
+.stgs-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stgs-toolbar-title {
+  display: block;
+  width: 100%;
+}
+.stgs-toolbar-item {
+  border: none;
+  border: 1px solid var(--theme-text_1);
+  padding: 4px 10px;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.stgs-toolbar-item[aria-checked="true"] {
+  background-color: var(--theme-primary);
+  color: var(--theme-bg_1);
+}
+
+.stgs-toolbar-item[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------  */
+/* ------ LESSON #3 CARDS CLICKABLE-------  */
 /* ---------------------------------------  */
 
 .cardParent {
@@ -132,112 +238,6 @@
   text-decoration: underline;
   align-self: end;
   padding-top: 8px;
-}
-
-/* ---------------------------------------  */
-/* ------- LESSON #3 TOGGLE BUTTON -------  */
-/* ---------------------------------------  */
-
-.stgs button:focus:not([aria-disabled="true"]) {
-  outline: none;
-  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
-}
-.stgs input:focus {
-  outline: 4px solid #ff821f;
-}
-
-.stgs[data-theme="light"] {
-  background: var(--theme-bg_1);
-  color: var(--theme-text_0);
-  /* nothing... */
-}
-.stgs[data-theme="dark"] {
-  background: var(--theme-text_0);
-  color: var(--theme-bg_0);
-}
-
-.stgs[data-size="sm"] {
-  font-size: 1.4rem;
-}
-.stgs[data-size="md"] {
-  font-size: 1.6rem;
-}
-.stgs[data-size="lg"] {
-  font-size: 1.9rem;
-}
-
-/* Sound toggle */
-.stgs-btnOnOff {
-  background: transparent;
-  color: inherit;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 4px;
-  border: 1px solid;
-}
-.stgs-btnOnOff .on,
-.stgs-btnOnOff .off {
-  display: none;
-}
-.stgs-btnOnOff[aria-pressed="true"] .on {
-  display: block;
-}
-.stgs-btnOnOff[aria-pressed="false"] .off {
-  display: block;
-}
-
-/* Theme toggle */
-.stgs-toggleTheme {
-  background: transparent;
-  color: inherit;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 4px;
-  border: 1px solid;
-}
-
-.stgs-toggleTheme::before {
-  content: "";
-  margin-right: 8px;
-}
-
-.stgs-toggleTheme[aria-pressed="true"]::before {
-  content: "✅";
-  content: "✅" / "";
-}
-
-.stgs-toggleTheme[aria-pressed="false"]::before {
-  content: "🔲";
-  content: "🔲" / "";
-}
-
-/* Font size options */
-.stgs-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.stgs-toolbar-title {
-  display: block;
-  width: 100%;
-}
-.stgs-toolbar-item {
-  border: none;
-  border: 1px solid var(--theme-text_1);
-  padding: 4px 10px;
-  margin: 0;
-  background: transparent;
-  color: inherit;
-}
-
-.stgs-toolbar-item[aria-checked="true"] {
-  background-color: var(--theme-primary);
-  color: var(--theme-bg_1);
-}
-
-.stgs-toolbar-item[aria-disabled="true"] {
-  opacity: 0.6;
-  cursor: not-allowed;
 }
 
 /* ---------------------------------------  */

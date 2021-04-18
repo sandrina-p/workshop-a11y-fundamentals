@@ -35,7 +35,7 @@
 
     <!-- Case #1 - Loading states -->
     <div class="g-card">
-      <h2 class="g-cardTitle">Case #2</h2>
+      <h2 class="g-cardTitle">Case #1</h2>
       <!-- 💡 Solution:
         - Replace disabled with aria-disabled to remain focused while loading.
         - Add aria-live to the loading element no announce when it starts/ends.
@@ -110,11 +110,118 @@
       </script>
     </div>
 
-    <!-- Case #2 - Cards clickable -->
+    <!-- Case #2 - Toogle buttons -->
+    <div class="g-card stgs js-caseToggle" data-sound="off" data-theme="light" data-size="md">
+      <h2 class="g-cardTitle">Case #2</h2>
+
+      <p>Settings customization for this case.</p>
+
+      <div class="part">
+        <!-- Solution:
+          - Keep the aria-pressed
+          - Override the button name for screen readers only
+        -->
+        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
+          <span class="sr-only">Enable Sound</span>
+          <span class="off" aria-hidden="true">
+            <span>🤐</span> Sound off
+          </span>
+          <span class="on" aria-hidden="true">
+            <span>🔊</span> Sound on
+          </span>
+        </button>
+      </div>
+
+      <div class="part">
+        <!-- Using input is okay. Another solution: Replace the input with a button.
+        Downside: Can't use the Space key to activate the button. -->
+        <button class="stgs-toggleTheme js-theme" aria-pressed="false">
+          Dark theme
+        </button>
+      </div>
+
+      <div class="part">
+        <!-- Solution:
+          - Replace native inputs for buttons with role="radio".
+            - The SR will recognize the related options inside radiogroup. 
+          - Improvement: A even more complete solution would be to include
+          support for navigation using arrow keys.
+          Read exercise references about toolbars for further details.
+        -->
+        <div class="stgs-toolbar" role="radiogroup">
+          <legend class="stgs-toolbar-title">Text size</legend>
+          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="sm">
+            Small
+          </button>
+          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="true" data-value="md">
+            Medium
+          </button>
+          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="lg">
+            Large
+          </button>
+          <button class="stgs-toolbar-item js-size" role="radio" aria-disabled="true">
+            Custom (PRO)
+          </button>
+        </div>
+        <!-- P.S. Ignore the fact that the design isn't the same. [SANDRINA_TODO] -->
+
+        <script>
+          const elCase4 = document.getElementsByClassName('js-caseToggle')[0];
+          const elSound = document.getElementsByClassName('js-sound')[0];
+          const elTheme = document.getElementsByClassName('js-theme')[0];
+          const elsSize = document.getElementsByClassName('js-size');
+
+          const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
+          const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
+
+          elSound.addEventListener('click', function () {
+            const isPressed = elSound.getAttribute('aria-pressed') === 'true';
+            elSound.setAttribute("aria-pressed", !isPressed);
+
+            // 💡📣 You can uncomment this for extra fun!
+            // if (!isPressed) {
+            //   audioOn.play();
+            // } else {
+            //   audioOff.play()
+            // }
+          })
+
+          elTheme.addEventListener('click', function (e) {
+            const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
+            elTheme.setAttribute("aria-pressed", !isPressed);
+            elCase4.setAttribute('data-theme', isPressed ? 'light' : 'dark')
+          })
+
+          Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
+            const isDisabled = ignoreIfDisabled(e)
+            if (isDisabled) return false
+
+            // If it's already pressed, do nothing.
+            const isPressed = el.getAttribute('aria-checked') === 'true';
+            if (isPressed) {
+              return
+            }
+
+            // Otherwise, mark it as pressed...
+            const currentValue = elCase4.getAttribute('data-size');
+            el.setAttribute("aria-checked", 'true');
+            elCase4.setAttribute('data-size', el.getAttribute('data-value'));
+
+            // ...and unpress previously pressed size
+            if (currentValue) {
+              document.querySelector(`.js-size[data-value="${currentValue}"]`).setAttribute('aria-checked', 'false')
+            }
+          }))
+
+        </script>
+      </div>
+    </div>
+
+    <!-- Case #3 - Cards clickable -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #3</h2>
 
-      <!-- This solution approach:
+      <!-- My personal approach:
       - Remove the global <a> (link) to avoid reading the entire cart.
       - Wrap the card with <article>.
       - Reorder the DOM so that the title is the first element in the article. (I love CSS grid!)
@@ -194,112 +301,6 @@
       </script>
     </div>
 
-    <!-- Case #3 - Toogle buttons -->
-    <div class="g-card stgs js-case5" data-sound="off" data-theme="light" data-size="md">
-      <h2 class="g-cardTitle">Case #5</h2>
-
-      <p>Settings customization for this case.</p>
-
-      <div class="part">
-        <!-- Solution:
-          - Keep the aria-pressed
-          - Override the button name for screen readers only
-        -->
-        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
-          <span class="sr-only">Enable Sound</span>
-          <span class="off" aria-hidden="true">
-            <span>🤐</span> Sound off
-          </span>
-          <span class="on" aria-hidden="true">
-            <span>🔊</span> Sound on
-          </span>
-        </button>
-      </div>
-
-      <div class="part">
-        <!-- Using input is okay. Another solution: Replace the input with a button.
-        Downside: Can't use the Space key to activate the button. -->
-        <button class="stgs-toggleTheme js-theme" aria-pressed="false">
-          Dark theme
-        </button>
-      </div>
-
-      <div class="part">
-        <!-- Solution:
-          - Replace native inputs for buttons with role="radio".
-            - The SR will recognize the related options inside radiogroup. 
-          - Improvement: A even more complete solution would be to include
-          support for navigation using arrow keys.
-          Read exercise references about toolbars for further details.
-        -->
-        <div class="stgs-toolbar" role="radiogroup">
-          <legend class="stgs-toolbar-title">Text size</legend>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="sm">
-            Small
-          </button>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="true" data-value="md">
-            Medium
-          </button>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="lg">
-            Large
-          </button>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-disabled="true">
-            Custom (PRO)
-          </button>
-        </div>
-        <!-- P.S. Ignore the fact that the design isn't the same. [SANDRINA_TODO] -->
-
-        <script>
-          const elCase4 = document.getElementsByClassName('js-case5')[0];
-          const elSound = document.getElementsByClassName('js-sound')[0];
-          const elTheme = document.getElementsByClassName('js-theme')[0];
-          const elsSize = document.getElementsByClassName('js-size');
-
-          const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
-          const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
-
-          elSound.addEventListener('click', function () {
-            const isPressed = elSound.getAttribute('aria-pressed') === 'true';
-            elSound.setAttribute("aria-pressed", !isPressed);
-
-            // 💡📣 You can uncomment this for extra fun!
-            // if (!isPressed) {
-            //   audioOn.play();
-            // } else {
-            //   audioOff.play()
-            // }
-          })
-
-          elTheme.addEventListener('click', function (e) {
-            const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
-            elTheme.setAttribute("aria-pressed", !isPressed);
-            elCase4.setAttribute('data-theme', isPressed ? 'light' : 'dark')
-          })
-
-          Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
-            const isDisabled = ignoreIfDisabled(e)
-            if (isDisabled) return false
-
-            // If it's already pressed, do nothing.
-            const isPressed = el.getAttribute('aria-checked') === 'true';
-            if (isPressed) {
-              return
-            }
-
-            // Otherwise, mark it as pressed...
-            const currentValue = elCase4.getAttribute('data-size');
-            el.setAttribute("aria-checked", 'true');
-            elCase4.setAttribute('data-size', el.getAttribute('data-value'));
-
-            // ...and unpress previously pressed size
-            if (currentValue) {
-              document.querySelector(`.js-size[data-value="${currentValue}"]`).setAttribute('aria-checked', 'false')
-            }
-          }))
-
-        </script>
-      </div>
-    </div>
 
     <!-- Case #4 - Custom select -->
     <div class="g-card">
