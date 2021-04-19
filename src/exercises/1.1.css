@@ -8,6 +8,7 @@
   --theme-primary: hsl(266deg 100% 61%);
   --theme-primary_smooth: hsl(266deg 100% 92%);
   --theme-secondary: hsl(26deg 100% 68%);
+  --theme-success: green;
 }
 
 html {

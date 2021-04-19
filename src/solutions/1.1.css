@@ -9,6 +9,7 @@
   --theme-primary_smooth: hsl(266deg 100% 92%);
   /* 💡 Updated color to respects AA level */
   --theme-secondary: hsl(26deg 100% 38%);
+  --theme-success: green;
 }
 
 /* 💡 Dark theme colors */
@@ -21,6 +22,7 @@
     --theme-primary: hsl(266deg 100% 75%);
     --theme-primary_smooth: hsl(266deg 100% 31%);
     --theme-secondary: hsl(26deg 100% 68%);
+    --theme-success: greenyellow;
   }
 }
 
@@ -113,7 +115,7 @@ body * {
 
 .list li[data-status="yes"]::before {
   content: "✓";
-  color: green;
+  color: var(--theme-success);
 }
 
 .list li[data-status="no"] {
