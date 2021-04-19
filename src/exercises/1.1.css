@@ -95,9 +95,9 @@ body * {
 }
 
 .list li[data-status="yes"]::before {
-  /* 💡 We can replace this with ✓ check unicode */
+  /* 💡 We can replace this with ✓ check character */
   content: "●";
-  color: mediumseagreen;
+  color: green;
 }
 
 .list li[data-status="no"] {

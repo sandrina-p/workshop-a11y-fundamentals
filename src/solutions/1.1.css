@@ -108,12 +108,12 @@ body * {
   we cant use color as the only way to give meaning */
 .list li[data-status="no"]::before {
   content: "●";
-  color: #9c9c9c;
+  color: var(--theme-text_1);
 }
 
 .list li[data-status="yes"]::before {
   content: "✓";
-  color: mediumseagreen;
+  color: green;
 }
 
 .list li[data-status="no"] {
