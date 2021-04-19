@@ -56,15 +56,14 @@ Open [http://localhost:5000/](http://localhost:5000/) and you are ready to go!
 
 ## Developer extensions
 
-During the workshop, we will explore the following extensions.
-Kindly install them ahead of time so that you can use them right away during the workshop.
+Aditionally to the codebase, we'll explore multiple extensions. Kindly install them ahead of time before the workshop.
+
+The ones below we'll use frequently:
 
 - [Accessibility Insights for Web](https://accessibilityinsights.io/en/downloads/) - Chrome only
 - [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome or Firefox
 
-### Optional
-
-I'll briefly mention the extensions below at some point in the workshop.
+At some point, we'll also use the following extensions:
 
 - [Colour contract checker](https://colourcontrast.cc/) - Chrome only
 - [Web Developer](https://chrispederick.com/work/web-developer/) - Chrome or Firefox
