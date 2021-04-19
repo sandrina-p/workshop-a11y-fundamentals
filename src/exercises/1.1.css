@@ -104,7 +104,6 @@ body * {
   color: var(--theme-text_1);
 }
 
-/* 🍀 `em` are the only consistent unit in @media queries. */
 @media (min-width: 480px) {
   .list {
     display: flex;
