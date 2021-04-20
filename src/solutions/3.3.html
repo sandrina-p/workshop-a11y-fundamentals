@@ -22,8 +22,8 @@ Notes:
   <main class="content">
     <h1 class="title-xl">Accessible Forms</h1>
 
-    <form class="g-card form js-formItself">
-      <h2 class="title-lg">Form: Web lover profile</h2>
+    <form class="g-card form js-formItself" aria-labelledby="formTitle">
+      <h2 id="formTitle" class="title-lg">Form: Web lover profile</h2>
 
       <!-- Case #1 - Input labels
         🍀 Every input must have a label associated.
@@ -91,18 +91,19 @@ Notes:
       <!-- 💡 Case #4.2 - Inputs descriptions p1
         🍀 In fields with hints that contain links, it's also recommended to put the hint
           outside the label to prevent interaction issues with some assistive technologies-->
-      <span class="u-block" id="a11yHint">
+      <span class="u-block" id="a11yLabelStart">
         Caring about <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">web
           accessibility</a> is our duty as web creator.
       </span>
       <label class="field">
-        <input type="checkbox" aria-describedby="a11yHint" /> I agree with this sentence.
+        <input type="checkbox" aria-labelledby="a11yLabelStart a11yLabelEnd" />
+        <span id="a11yLabelEnd">I agree with this sentence.</span>
       </label>
 
 
       <!-- 💡 BONUS #1 - Live Regions
         🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
-        Personally I use "polite" for generic form messages and "assetive" for inline
+        Personally I use "polite" for generic form messages and "assertive" for inline
         error messages that appear when the user leaves (blur) the input.
       -->
       <div class="form-footer">
