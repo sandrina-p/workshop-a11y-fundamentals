@@ -22,6 +22,7 @@ a:hover {
 
 a:focus {
   outline: none;
+  background-color: var(--theme-bg_1);
   box-shadow: var(--theme-focus_shadow);
 }
 
@@ -84,17 +85,23 @@ hr {
   border-bottom: 1px solid var(--theme-primary_smooth);
 }
 
-.linkBack {
+.bfg-hotlinks {
   position: fixed;
-  top: 6px;
-  left: 6px;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bfg-hotlinks a {
   background: var(--theme-bg_1);
   box-shadow: 0 0 0 2px var(--theme-primary);
   padding: 4px 16px;
   text-decoration: none;
+  margin: 6px;
 }
 
-.linkBack:focus {
+.bfg-hotlinks a:focus {
   box-shadow: var(--theme-focus-shadow);
 }
 

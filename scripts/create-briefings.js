@@ -28,8 +28,11 @@ briefFiles.forEach((brief) => {
 </head>
 
 <body>
-  <a class="linkBack" href="../index.html">Go Back</a>
-  <main>
+<div class="bfg-hotlinks">
+  <a href="../index.html">Gos back</a>
+  <a href="/solutions/${briefName}.html">Solution</a>
+</div>
+<main>
   
 ${html}
 

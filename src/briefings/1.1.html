@@ -5,15 +5,17 @@
   <title>Briefing #1.1</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/prism.css">
   <link rel="stylesheet" href="../assets/theme.css">
   <link rel="stylesheet" href="../assets/briefing.css">
 </head>
 
 <body>
-  <a class="linkBack" href="../index.html">Go Back</a>
-  <main>
+<div class="bfg-hotlinks">
+  <a href="../index.html">Gos back</a>
+  <a href="/solutions/1.1.html">Solution</a>
+</div>
+<main>
   
 <h1 id="11appearance">1.1 Appearance</h1>
 <h2 id="introduction">Introduction</h2>
@@ -48,7 +50,7 @@ body {
 }
 </code></pre>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/1.1.html">exercise page</a>, there are multiple accessibility problems related to color and proportions:</p>
+<p>In thee <a href="../exercises/1.1.html" target="_blank">exercise page</a>, there are multiple accessibility problems related to color and proportions:</p>
 <ul>
 <li>Color: Some text has not enough color contrast.</li>
 <li>Size: The text size is written with absolute units.</li>
@@ -57,6 +59,7 @@ body {
 <p><strong>Hint 1:</strong> Use a <a href="#extensions">browser extension</a> to help you detect color contrast issues.</p>
 <p><strong>Hint 2:</strong> Use the DevTools color picker to find a color that respects level AA.</p>
 <p><strong>Hint 3:</strong> Customize your browser font size to see how the content is displayed as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</p>
+<div></div>
 <h2 id="bonusachievinglevelaaa">Bonus - Achieving Level AAA</h2>
 <h3 id="1colortheming">1. Color Theming</h3>
 <p>When creating multiple themes, we can use the CSS media query <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a> to set the default theme based on the user color preferences.</p>
@@ -68,6 +71,7 @@ body {
 --theme-primary: hsl(180deg 100% 45%);
 --theme-primary_smooth: hsl(180deg 100% 19%);
 --theme-secondary: hsl(26deg 100% 68%);
+--theme-success: greenyellow;
 </code></pre>
 <p><strong>Hint:</strong> In Chrome, you can emulate a color scheme. In Dev Tools, go to Settings &gt; Rendering. Scroll down until "Emulate CSS media" and select the preferred color scheme.</p>
 <h3 id="2motionasanenhancement">2. Motion as an enhancement</h3>
@@ -112,7 +116,7 @@ body {
 <li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color contrast accessibility</a></li>
 <li><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">The complete guide to dark mode on the web</a>.</li>
 <li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
-<li><a href="https://zellwk.com/blog/media-query-units/">PX, EM or REM in Media Queries?</a></li>
+<li><a href="https://blog.usejournal.com/dont-use-rem-em-for-paddings-margins-and-more-94e19026b000">Don’t use rem/em for paddings, margins and more</a></li>
 <li><a href="https://tatianamac.com/posts/prefers-reduced-motion/">prefers-reduced-motion: Taking a no-motion-first approach</a></li>
 <li><a href="https://www.scottohara.me/blog/2019/03/26/a-warning-about-warnings.html">A note about automated accessibility "warnings"</a></li>
 </ul>

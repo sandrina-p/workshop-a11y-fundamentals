@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
   <title>Briefing #2.1</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/prism.css">
   <link rel="stylesheet" href="../assets/theme.css">
   <link rel="stylesheet" href="../assets/briefing.css">
 </head>
 
 <body>
-  <a class="linkBack" href="../index.html">Go Back</a>
-  <main>
-
-    <h1 id="interactiveelements">Interactive elements</h1>
-    <h2 id="introduction">Introduction</h2>
-    <p>Many users, especially people with motor disabilities or visual disabilities, rely on a keyboard to navigate the
-      web. These people need <strong>visual focus indicators</strong> to enjoy the web.</p>
-    <p>It is common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a>
-      and <a
-        href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different
-        across browsers</a>. That's okay, though. What isn't okay is to not build an alternative.</p>
-    <p>We must provide accessible focus states on our apps.</p>
-    <pre><code class="css language-css">button:focus {
+<div class="bfg-hotlinks">
+  <a href="../index.html">Gos back</a>
+  <a href="/solutions/2.1.html">Solution</a>
+</div>
+<main>
+  
+<h1 id="interactiveelements">Interactive elements</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Many users, especially people with motor disabilities or visual disabilities, rely on a keyboard to navigate the web. These people need <strong>visual focus indicators</strong> to enjoy the web.</p>
+<p>It is common to hide the default focus indicator <a href="../assets/imgs/browser-focus.png">because it's ugly</a> and <a href="https://allyjs.io/tests/focus-outline-styles/#style=focus&key=text,radio,checkbox,textarea,button,link,div&browser=firefox,chrome,safari,ie11">different across browsers</a>. That's okay, though. What isn't okay is to not build an alternative.</p>
+<p>We must provide accessible focus states on our apps.</p>
+<pre><code class="css language-css">button:focus {
   /* It's okay to do this... */
   outline: none;
 
@@ -33,30 +30,23 @@
   box-shadow: 0 0 3px 3px tomato;
 }
 </code></pre>
-    <h2 id="exercise">Exercise</h2>
-    <p>In the <a href="../exercises/2.1.html">exercise page</a>,
-      there are a couple of interactive elements. However, we can't easily access them through the keyboard.</p>
-    <p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard with <code>:hover</code> and
-      <code>:focus</code>.</p>
-    <p><strong>🍀 Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forward and backward
-      respectively across the interactive elements.</p>
-    <p>There aren't any explicit design requirements, so you can go <em>free-style</em>!
-      Adding some opacity or changing the color are common design approaches.</p>
-    <p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in
-      <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
-    <h2 id="bonus">Bonus</h2>
-    <h3 id="1focusonlywhenusingthekeyboard">#1 Focus only when using the keyboard</h3>
-    <p>Another reason to hide the focus indicator on buttons and links is that the focus is triggered when clicking
-      them.</p>
-    <p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!
-    </p>
-    <p>Most browsers do not support it yet, so we need the polyfill <a
-        href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
-    <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
+<h2 id="exercise">Exercise</h2>
+<p>In the <a href="../exercises/2.1.html">exercise page</a>,
+there are a couple of interactive elements. However, we can't easily access them through the keyboard.</p>
+<p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard with <code>:hover</code> and <code>:focus</code>.</p>
+<p><strong>🍀 Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forward and backward respectively across the interactive elements.</p>
+<p>There aren't any explicit design requirements, so you can go <em>free-style</em>!
+Adding some opacity or changing the color are common design approaches.</p>
+<p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
+<h2 id="bonus">Bonus</h2>
+<h3 id="1focusonlywhenusingthekeyboard">#1 Focus only when using the keyboard</h3>
+<p>Another reason to hide the focus indicator on buttons and links is that the focus is triggered when clicking them.</p>
+<p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
+<p>Most browsers do not support it yet, so we need the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
+<pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
 </code></pre>
-    <pre><code class="css language-css">/* hide the focus indicator always */
+<pre><code class="css language-css">/* hide the focus indicator always */
 .js-focus-visible button:focus {
   outline: none;
 }
@@ -67,34 +57,28 @@
   box-shadow: 0 0 3px 3px tomato;
 }
 </code></pre>
-    <p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
-    <p><strong>🍀 Tip:</strong> When using styles dependent on JavaScript, take into account websites without
-      Javascript.</p>
-    <h2 id="furtherreading">Further reading</h2>
-    <ul>
-      <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and
-          buttons</a></li>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN
-          spec</a></li>
-      <li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
-      <li><a href="https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/">Tips for
-          designing usable focus indicators</a></li>
-      <li><a href="https://twitter.com/argyleink/status/1274364131928309762?s=21">Use CSS to lint invalid links</a></li>
-    </ul>
-    <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG21/#keyboard">WCAG 2.1.1 Keyboard - Level A</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 2.4.7 Focus visible - Level AA</a></li>
-    </ul>
+<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
+<p><strong>🍀 Tip:</strong> When using styles dependent on JavaScript, take into account websites without Javascript.</p>
+<h2 id="furtherreading">Further reading</h2>
+<ul>
+<li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN spec</a></li>
+<li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
+<li><a href="https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/">Tips for designing usable focus indicators</a></li>
+<li><a href="https://twitter.com/argyleink/status/1274364131928309762?s=21">Use CSS to lint invalid links</a></li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#keyboard">WCAG 2.1.1 Keyboard - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 2.4.7 Focus visible - Level AA</a></li>
+</ul>
 
-  </main>
-  <footer class="bfg-footer">
-    <p class="suggestion">Found a typo or bug? Please, <a target="_blank"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=2.1">do
-        let me know</a>. Constructive feedback is welcome too. :)</p>
-  </footer>
+</main>
+<footer class="bfg-footer">
+  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=2.1">do let me know</a>. Constructive feedback is welcome too. :)</p>
+</footer>
 
-  <script src="../assets/prism.js" defer></script>
+<script src="../assets/prism.js" defer></script>
 </body>
 
 
