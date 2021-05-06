@@ -32,7 +32,7 @@ html {
 }
 
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "IBMPlexSans", sans-serif;
   background-color: var(--theme-bg_0);
   color: var(--theme-text_0);
   box-sizing: border-box;

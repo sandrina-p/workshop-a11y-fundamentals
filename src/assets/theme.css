@@ -5,6 +5,22 @@
 |*     but you can see how it was made.      *|
 \** ---------------------------------------- */
 
+@font-face {
+  font-family: "IBMPlexSans ";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/IBMPlexSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "IBMPlexSans ";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/IBMPlexSans-SemiBold.ttf");
+}
+
 html {
   font-size: 62.5%;
   --theme-width: 530px;
@@ -15,13 +31,12 @@ html {
   --theme-primary: hsl(266deg 100% 61%);
   --theme-primary_smooth: hsl(266deg 100% 92%);
   --theme-secondary: hsl(27deg 100% 56%);
-
   --theme-focus_shadow: var(--theme-bg_0) 0 0 0 2px,
     var(--theme-secondary) 0 0 0 4px;
 }
 
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "IBMPlexSans ", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   font-weight: 400;
