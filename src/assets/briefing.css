@@ -95,14 +95,15 @@ hr {
 
 .bfg-hotlinks a {
   background: var(--theme-bg_1);
-  box-shadow: 0 0 0 2px var(--theme-primary);
+  border: 1px solid var(--theme-primary);
+  border-radius: 4px;
   padding: 4px 16px;
   text-decoration: none;
   margin: 6px;
 }
 
 .bfg-hotlinks a:focus {
-  box-shadow: var(--theme-focus-shadow);
+  box-shadow: var(--theme-focus_shadow);
 }
 
 .bfg-footer {
