@@ -1,3 +1,29 @@
+/* ------- CASE #1 Menu sidebar -------  */
+
+/* No CSS needed to be changed */
+
+/* ------- CASE #2 Toggle content -------  */
+
+.coolText {
+  /* 💡 With visibility hidden, it's completely hidden from everyone.  */
+  visibility: hidden;
+  padding: 16px 0 0 16px;
+
+  /* 🍀 Animation tip: You can delay the visibility transition
+    to give time for the opacity animation to finish! */
+  opacity: 0;
+  transition: opacity 250ms, visibility 1ms 250ms;
+}
+
+.coolText.isVisible {
+  visibility: visible;
+
+  opacity: 1;
+  transition: opacity 250ms;
+}
+
+/* ------- CASE #3 Custom input -------  */
+
 .c-checkbox {
   position: relative;
   display: inline-block;
@@ -112,16 +138,9 @@
 
 /* ------- OTHER STUFF -------  */
 
-.coolText {
-  display: none;
-  padding: 16px 0 0 16px;
+.toggleArea {
+  display: flex;
 }
-
-.coolText.isVisible {
-  display: block;
-}
-
-/* used on 2.2.css */
 
 .g-card {
   margin-bottom: 0;

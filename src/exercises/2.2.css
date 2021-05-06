@@ -1,3 +1,5 @@
+/* ------- CASE #2 Custom input -------  */
+
 .c-checkbox {
   position: relative;
   display: inline-block;
@@ -9,6 +11,19 @@
 .c-checkbox input {
   /* 💡 We shouldn't use display:none, right?  */
   display: none;
+}
+
+/* ------- CASE #3 Toggle content -------  */
+
+.coolText {
+  /* 💡 It's visually hidden, but we need to hide it completely  */
+  opacity: 0;
+  padding: 16px 0 0 16px;
+  transition: opacity 250ms;
+}
+
+.coolText.isVisible {
+  opacity: 1;
 }
 
 /*  ----------------------------------------- *\
@@ -84,6 +99,7 @@
 }
 
 .c-checkbox :last-child::after {
+  font-family: sans-serif;
   content: "✓";
   line-height: 1;
   font-size: 14px;
@@ -93,8 +109,10 @@
   top: 7px;
   left: 6px;
   color: #fff;
+  font-weight: 600;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 150ms;
+  transform-origin: 50% 50%;
 }
 
 .c-checkbox input:checked + :last-child::before {
@@ -108,13 +126,8 @@
 
 /* ------- OTHER STUFF -------  */
 
-.coolText {
-  display: none;
-  padding: 16px 0 0 16px;
-}
-
-.coolText.isVisible {
-  display: block;
+.toggleArea {
+  display: flex;
 }
 
 .g-card {

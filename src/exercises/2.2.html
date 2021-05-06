@@ -15,12 +15,14 @@
 </head>
 
 <body>
+  <!-- CASE #1 - Sidebar -->
   <header class="headerFixed">
     <nav>
       <button class="menu-btn btn btnPrimary js-navTrigger" aria-pressed="false">
         Menu
       </button>
 
+      <!-- 💡 Sidebar[1/3] Add inert attribute to the hidden sidebar -->
       <div class="menu js-navTarget">
         <ul>
           <li><a href="../index.html">Home</a></li>
@@ -30,6 +32,24 @@
         </ul>
       </div>
     </nav>
+
+    <!-- 💡 Sidebar[2/3] Add inert polifyll. -->
+    <!-- <script src="../assets/polyfill-inert.js"></script> -->
+
+    <script>
+      // JS already done to toggle the sidebar
+      const elNavTrigger = document.getElementsByClassName('js-navTrigger')[0]
+      const elNavTarget = document.getElementsByClassName('js-navTarget')[0]
+
+      elNavTrigger.addEventListener('click', function () {
+        const isVisible = elNavTarget.classList.contains('isVisible')
+        const method = isVisible ? 'remove' : 'add';
+        elNavTarget.classList[method]('isVisible');
+
+        // 💡 Sidebar[3/3] Here's the JS needed to set the inert attr.
+        /* elNavTarget.inert = isVisible */
+      })
+    </script>
   </header>
 
   <main class="content">
@@ -37,48 +57,34 @@
       Hidden elements
     </h1>
 
+    <!-- CASE #2 - Custom input -->
     <div class="g-card">
+      <label class="c-checkbox">
+        <!-- 💡 1/1 No need to change the HTML. The fix is done on the CSS file -->
+        <input type="checkbox">
+        <span>I mark solo checkboxs without reading them.</span>
+      </label>
+      <p>Creating <a href="#fake-link" class="link">custom checkboxs</a> is cool!</p>
+    </div>
 
-      <button class="btn btnPrimary js-coolTrigger" aria-pressed="false">Toggle random article</button>
-      <div class="coolText js-coolTarget">
-        <!-- When hidden, we cannot access it (as expected) because of display:none;. -->
-        Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
-      </div>
 
-      <div class="part">
-        <label class="field">
-          <span class="field-txt">Your name</span>
-          <input type="text" placeholder="ex: web lover">
-        </label>
-      </div>
-
-      <div class="part">
-        <label class="c-checkbox">
-          <!-- 💡 The fix should be done on the CSS file -->
-          <input type="checkbox">
-          <span>I mark solo checkboxs without reading them.</span>
-        </label>
+    <!-- CASE #3 - Toggle content -->
+    <div class="g-card">
+      <div class="toggleArea">
+        <button class="btn btnPrimary js-coolTrigger">
+          Toggle random article
+        </button>
+        <!-- 💡 1/1 No need to change the HTML. The fix is done on the CSS file -->
+        <div class="coolText js-coolTarget">
+          Here's a <a class="link" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">the article.</a>
+        </div>
       </div>
     </div>
+    <p>A <a href="#" class="link">dummy link</a> for the demo.</p>
   </main>
-
-  <!-- 💡 1/2 Add inert polifyll. -->
 </body>
 
 <script>
-  // Menu toggle
-  const elNavTrigger = document.getElementsByClassName('js-navTrigger')[0]
-  const elNavTarget = document.getElementsByClassName('js-navTarget')[0]
-
-  elNavTrigger.addEventListener('click', function () {
-    const isVisible = elNavTarget.classList.contains('isVisible')
-    const method = isVisible ? 'remove' : 'add';
-    elNavTarget.classList[method]('isVisible');
-
-    // 💡 2/2 Here's the JS needed to toggle the inert attr :)
-    // elNavTarget.inert = isVisible
-  })
-
   /*  ----------------------------------------- *\
   |*  You do not need to touch the code below   *|
   |*     but you can see how it was made.       *|

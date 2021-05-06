@@ -15,13 +15,19 @@
 </head>
 
 <body>
+
+  <!-- CASE #1 - Sidebar -->
   <header class="headerFixed">
+
+    <!-- 💡 Sidebar[1/3] Add inert polifyll. -->
+    <script src="../assets/polyfill-inert.js"></script>
+
     <nav>
       <button class="menu-btn btn btnPrimary js-navTrigger" aria-pressed="false">
         Menu
       </button>
 
-      <!-- 💡 1/3 Add inert attribute to the nav -->
+      <!-- 💡 Sidebar[2/3] Add inert attribute to the hidden sidebar -->
       <div class="menu js-navTarget" inert="true">
         <ul>
           <li><a href="../index.html">Home</a></li>
@@ -30,6 +36,24 @@
           <li><a href="../briefings/2.3.html">Exercise 2.3</a></li>
         </ul>
       </div>
+
+      <!-- 💡 Sidebar[2/3] Add inert polifyll. -->
+      <!-- <script src="../assets/polyfill-inert.js"></script> -->
+
+      <script>
+        // Toggle the sidebar
+        const elNavTrigger = document.getElementsByClassName('js-navTrigger')[0]
+        const elNavTarget = document.getElementsByClassName('js-navTarget')[0]
+
+        elNavTrigger.addEventListener('click', function () {
+          const isVisible = elNavTarget.classList.contains('isVisible')
+          const method = isVisible ? 'remove' : 'add';
+          elNavTarget.classList[method]('isVisible');
+
+          // 💡 Sidebar[3/3] Here's the JS needed to toggle the inert attr value.
+          elNavTarget.inert = isVisible
+        })
+      </script>
     </nav>
   </header>
 
@@ -38,51 +62,34 @@
       Hidden elements
     </h1>
 
+    <!-- CASE #2 - Custom input -->
     <div class="g-card">
+      <label class="c-checkbox">
+        <!-- 💡 1/1 No need to change the HTML. The fix is done on the CSS file -->
+        <input type="checkbox">
+        <span>I mark solo checkboxs without reading them.</span>
+      </label>
+      <p>Creating <a href="#fake-link" class="link">custom checkboxs</a> is cool!</p>
+    </div>
 
-      <button class="btn btnPrimary js-coolTrigger" aria-pressed="false">Toggle random article</button>
 
-      <div class="coolText js-coolTarget">
-        <!-- When hidden, we cannot access it (as expected) because of display:none;. -->
-        Here's a <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random wikipedia article.</a>
-      </div>
-
-      <div class="part">
-        <label class="field">
-          <span class="field-txt">Your name</span>
-          <input type="text" placeholder="ex: web lover">
-        </label>
-      </div>
-
-      <div class="part">
-        <label class="c-checkbox">
-          <!-- 💡 2/3 the fix should be done on the respective CSS file -->
-          <input type="checkbox">
-          <span>I mark solo checkboxs without reading them.</span>
-        </label>
+    <!-- CASE #3 - Toggle content -->
+    <div class="g-card">
+      <div class="toggleArea">
+        <button class="btn btnPrimary js-coolTrigger">
+          Toggle random article
+        </button>
+        <!-- 💡 1/1 No need to change the HTML or JS. The fix is done on the CSS file -->
+        <div class="coolText js-coolTarget">
+          Here's <a class="link" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">random article.</a>
+        </div>
       </div>
     </div>
+    <p>A <a href="#" class="link">dummy link</a> for the demo.</p>
   </main>
-
-  <!-- 💡 3.1/3 Add inert polifyll. -->
-  <script src="../assets/polyfill-inert.js"></script>
 </body>
 
 <script>
-  // Navigation toggle
-  const elNavTrigger = document.getElementsByClassName('js-navTrigger')[0]
-  const elNavTarget = document.getElementsByClassName('js-navTarget')[0]
-
-  elNavTrigger.addEventListener('click', function () {
-    const isPressed = elNavTrigger.getAttribute('aria-pressed') === 'true'
-
-    const method = isPressed ? 'remove' : 'add';
-    elNavTarget.classList[method]('isVisible');
-    // 💡 3.2/3 Toggle inert
-    elNavTarget.inert = isPressed
-
-    elNavTrigger.setAttribute('aria-pressed', !isPressed)
-  })
 
   /*  ----------------------------------------- *\
   |*  You do not need to touch the code below   *|
@@ -101,6 +108,15 @@
     const method = isPressed ? 'remove' : 'add';
     elCoolTarget.classList[method]('isVisible');
   })
+
+  // 🍀 These are some needed ARIA attributes needed in a toggle button.
+  // Don't worry about it, we'll explore them in a later module.
+  // Disclaimer: They could be on HTML directly, but I moved it to the JS part
+  // to not distract your attention during the exercise :) 
+  elCoolTrigger.setAttribute('aria-pressed', 'false')
+  elCoolTrigger.setAttribute('aria-haspopup', 'true')
+  elCoolTrigger.setAttribute('aria-controls', 'toggleTarget')
+  elCoolTarget.setAttribute('id', 'toggleTarget')
 </script>
 
 </html>
