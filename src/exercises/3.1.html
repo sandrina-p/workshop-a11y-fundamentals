@@ -33,11 +33,11 @@ Notes:
       </a>
     </div>
 
-    <!-- Case #2 - A toggle button "add to favorites" -->
+    <!-- Case #2 - A toggle button -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #2</h2>
       <!-- 💡 Besides the missing accessible label, we should also indicate
-        if the button is *pressed* or not. That's aria-pressed -->
+        if the button is *pressed* or not. That's aria-pressed="true|false" -->
       <button class="btn btnToggle js-addToFavorite">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
           <path
@@ -60,24 +60,7 @@ Notes:
       </script>
     </div>
 
-    <!-- Case #3 - Confusing descriptions -->
-    <div class="g-card">
-      <h2 class="g-cardTitle">Case #3</h2>
-      <!--
-        💡 This button instruction is confusing for a SR user. They don't
-        know if they should press "enter" on the button or on the element
-        that announces the instruction.
-        How you would solve this? Perhaphs we could remove the redudancy?
-      -->
-      <div class="u-colCenter">
-        <button class="btn btnPrimary">
-          Start
-        </button>
-        <span id="startHint">or press enter</span>
-      </div>
-    </div>
-
-    <!-- Case #4 - Poor links -->
+    <!-- Case #3 - Poor links -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #4</h2>
       <p>
@@ -90,7 +73,7 @@ Notes:
       </p>
     </div>
 
-    <!-- Lesson #5 - The current link -->
+    <!-- Lesson #4 - The current link -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #5</h2>
       <!-- 💡 Visually, it's perceivable which list item is the current one.
@@ -107,7 +90,24 @@ Notes:
       </nav>
     </div>
 
-    <!-- Case #6 - Accessible Emojis -->
+    <!-- Case #5 - Confusing content -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #5</h2>
+      <!--
+            💡 This button instruction is confusing for a SR user. They don't
+            know if they should press "enter" on the button or on the element
+            that announces the instruction.
+            How you would solve this? Perhaphs we could remove the redudancy?
+          -->
+      <div class="u-colCenter">
+        <button class="btn btnPrimary">
+          Start
+        </button>
+        <span id="startHint">or press enter</span>
+      </div>
+    </div>
+
+    <!-- Case #6 - Accessible emojis -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #6</h2>
       <!-- 💡 Read the following sentence with a screen reader.
@@ -124,7 +124,7 @@ Notes:
     <div class="g-card">
       <h2 class="g-cardTitle">Case #7</h2>
       <!--
-        Here's "picture" but made of characters.
+        Here's a "picture" but made of characters.
         This is the worst nightmare for a SR user. What can we do here?
         How can we tell everyone about this cute elephant?
          - Option A: Add role="img" attribute with an empty alt
@@ -139,7 +139,7 @@ Notes:
   ^ \   /___\  /\ | ` 
     |__|    |__| -"   
         </pre>
-      <p>ASCII art is awesome but pointless for screen readers.</p>
+      <p>ASCII art is cool but meaningless for screen readers.</p>
     </div>
   </main>
 </body>
