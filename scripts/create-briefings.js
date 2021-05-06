@@ -30,7 +30,7 @@ briefFiles.forEach((brief) => {
 <body>
 <div class="bfg-hotlinks">
   <a href="../index.html">Go back</a>
-  <a href="/solutions/${briefName}.html">Solution</a>
+  <a href="/solutions/${briefName}.html" target="_blank">Solution</a>
 </div>
 <main>
   
