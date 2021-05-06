@@ -358,6 +358,19 @@ img {
   margin: 0 0 32px;
 }
 
+.field input {
+  line-height: 1;
+}
+
+// 🍀 If you want to hide the input arrows, here's how:
+.field input[type="number"]::-webkit-outer-spin-button,
+.field input[type="number"]::-webkit-inner-spin-button {
+  /* -webkit-appearance: none; */
+}
+.field input[type="number"] {
+  /* -moz-appearance: textfield; */
+}
+
 fieldset.field {
   border: none;
   padding: 0;

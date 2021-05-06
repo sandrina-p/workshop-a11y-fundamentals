@@ -30,7 +30,7 @@ Notes:
       -->
       <div class="field">
         <label for="uName" class="field-txt">Nickname</label>
-        <input type="text" id="uName">
+        <input type="text" id="uName" />
       </div>
 
       <!-- Case #2 - Group checkbox/radio
@@ -67,9 +67,9 @@ Notes:
           Year of your first computer
           <span class="u-danger" aria-hidden="true">*</span>
         </label>
-        <!-- Case #3.1 - Input types
+        <!-- Bonus #2 - Input types
           🍀 When dealing with numbers that don't make sense to be a "stepper"
-          prefer using inputmode. Check the briefing references.
+          prefer using inputmode.
         -->
         <input type="text" id="firstPC" aria-required="true" aria-describedby="jsYearError" inputmode="numeric"
           pattern="[0-9]*" class="js-fieldYear">
@@ -93,7 +93,7 @@ Notes:
           outside the label to prevent interaction issues with some assistive technologies-->
       <span class="u-block" id="a11yLabelStart">
         Caring about <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">web
-          accessibility</a> is our duty as web creator.
+          accessibility</a> is my duty as web creator.
       </span>
       <label class="field">
         <input type="checkbox" aria-labelledby="a11yLabelStart a11yLabelEnd" />
@@ -103,8 +103,10 @@ Notes:
 
       <!-- 💡 BONUS #1 - Live Regions
         🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
-        Personally I use "polite" for generic form messages and "assertive" for inline
-        error messages that appear when the user leaves (blur) the input.
+        In this case "assertive" is the best because we are announcing something
+        important related to the current task.
+        "assertive" also works well for inline error messages that show up when
+        the user leaves (blur) a input that is still invalid.
       -->
       <div class="form-footer">
         <p class="formMsg js-formFeedback" aria-live="polite"></p>
