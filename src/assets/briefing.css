@@ -63,6 +63,9 @@ h2 {
   font-weight: 600;
   margin: 32px 0 16px;
   line-height: 1.2;
+  background: var(--theme-primary_smooth);
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
 h3 {
