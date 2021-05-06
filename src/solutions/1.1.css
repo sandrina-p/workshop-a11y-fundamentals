@@ -158,24 +158,24 @@ body * {
   fill: currentColor;
   margin-right: 8px;
 
-  /* 🍀 We can create different visual ways
+  /* 🍀 We can create a visual difference
   to communicate something without using animations */
   fill: var(--theme-primary);
   transform: rotate(10deg);
 }
 
 /* 💡 Take a no-motion by default approach.
-  Add them with media queries
+  Add it with media queries
 */
 @media (prefers-reduced-motion: no-preference) {
   .btnBell {
-    animation: zoom 4s infinite;
+    animation: zoom 3s infinite;
   }
 
   .btnBell-svg {
     fill: currentColor;
     transform: rotate(0deg);
-    animation: shake 4s infinite;
+    animation: shake 3s infinite;
   }
 }
 
@@ -253,6 +253,6 @@ body * {
   }
 
   50% {
-    transform: scale(1.05);
+    transform: scale(1.25);
   }
 }
