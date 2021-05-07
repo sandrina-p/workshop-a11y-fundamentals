@@ -1,0 +1,83 @@
+.stgs button:focus {
+  outline: none;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
+}
+
+.stgs input:focus {
+  outline: 4px solid #ff821f;
+}
+
+.stgs[data-theme="light"] {
+  background: var(--theme-bg_1);
+  color: var(--theme-text_0);
+}
+.stgs[data-theme="dark"] {
+  background: var(--theme-text_0);
+  color: var(--theme-bg_0);
+}
+
+.stgs[data-size="sm"] {
+  font-size: 1.4rem;
+}
+.stgs[data-size="md"] {
+  font-size: 1.6rem;
+}
+.stgs[data-size="lg"] {
+  font-size: 1.9rem;
+}
+
+/* Sound toggle */
+.stgs-btnOnOff {
+  background: transparent;
+  color: inherit;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.stgs-btnOnOff .on,
+.stgs-btnOnOff .off {
+  display: none;
+}
+.stgs-btnOnOff[aria-pressed="true"] .on {
+  display: block;
+}
+.stgs-btnOnOff[aria-pressed="false"] .off {
+  display: block;
+}
+
+/* Theme toggle */
+.stgs-toggleTheme {
+  background: transparent;
+  color: inherit;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.stgs-toggleTheme:focus-within {
+  outline: none;
+  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
+}
+
+.stgs-toggleTheme input {
+  position: absolute;
+  opacity: 0;
+}
+
+.stgs-toggleTheme input + .stgs-toggleTheme-fakeCheck::before {
+  content: "🔲";
+  content: "🔲" / "";
+  margin-right: 8px;
+}
+.stgs-toggleTheme input:checked + .stgs-toggleTheme-fakeCheck::before {
+  content: "✅";
+  content: "✅" / "";
+  margin-right: 8px;
+}
+
+/* Font size options */
+.stgs-toolbar-title,
+.stgs-toolbar label {
+  display: block;
+}

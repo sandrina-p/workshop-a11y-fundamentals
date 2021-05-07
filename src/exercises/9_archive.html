@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+🧩 9: These are incomplete exercises in progress.
+-->
+<html lang="en">
+
+<head>
+  <title>Exercise #4.1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="9.css">
+</head>
+
+<body>
+  <script>
+    function ignoreIfDisabled(event) {
+      const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
+
+      if (isDisabled) {
+        event.preventDefault();
+        event.target.blur(); // prevent focus on click.
+        console.log('disabled - click ignored')
+        return true
+      }
+
+      return false
+    }
+  </script>
+
+  <main class="content">
+    <h1 class="title-xl">More meaningful content</h1>
+
+    <!-- Case # - Clickable cards -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #3</h2>
+
+      <p>Stay up to date with the recent news.</p>
+      <div class="cardParent">
+        <a class="card card-link" href="#/link-to-video-stage">
+          <span class="card-decoration"></span>
+          <span class="card-tag">Confidence</span>
+          <span class="card-date">2 days ago</span>
+          <h3 class="card-title">Embrace the stage</h3>
+          <p class="card-text">This is a short video about how to overcome stress during the spotlight</p>
+          <span class="card-cta">Learn more</span>
+        </a>
+
+        <a class="card card-link" href="#/link-to-video-cat">
+          <span class="card-decoration"></span>
+          <span class="card-tag">Science</span>
+          <span class="card-date">Last Friday</span>
+          <h3 class="card-title">Science benefits of being a cat lover</h3>
+          <p class="card-text">Discover how cats can be a cure for your mental health and reduce your streeses.</p>
+          <span class="card-cta">Learn more</span>
+        </a>
+      </div>
+      <p>These are the only news for today.</p>
+    </div>
+
+    <!-- Case # - Custom Select -->
+    <div class="g-card">
+      <h2 class="g-cardTitle">Case #4</h2>
+
+      <span class="selectLabel" id="jobLabel"> Main job role</span>
+      <div class="selectWrapper">
+        <!-- 
+          💡 1/4. Create a native select.
+          To save you time, here's the native element: -->
+        <!--
+        <select class="selectNative js-selectNative" aria-labelledby="jobLabel">
+          <option value="sel" disabled="" selected=""> Select role...</option>
+          <option value="ds">UI/UX Designer</option>
+          <option value="fe">Frontend Engineer</option>
+          <option value="be">Backend Engineer</option>
+          <option value="qa">QA Engineer</option>
+          <option value="un">Unicorn</option>
+        </select>
+        -->
+
+        <!-- 💡 2/4 Hide the custom select from AT using aria-hidden -->
+        <div class="selectCustom js-selectCustom" aria-hidden="true">
+          <div class="selectCustom-trigger">Select role...</div>
+          <div class="selectCustom-options">
+            <div class="selectCustom-option" data-value="ds">UI/UX Designer</div>
+            <div class="selectCustom-option" data-value="fe">Frontend Engineer</div>
+            <div class="selectCustom-option" data-value="be">Backend Engineer</div>
+            <div class="selectCustom-option" data-value="qa">QA Engineer</div>
+            <div class="selectCustom-option" data-value="un">Unicorn</div>
+          </div>
+        </div>
+        <!-- 💡 3/4. Go to the CSS file. The magic happens there... -->
+        <!-- 💡 4/4. The JS part for this is already done below. -->
+      </div>
+
+      <script>
+        /*  ----------------------------------------- *\
+        |*  You do not need to touch the code below   *|
+        |*     but you can see how it was made.       *|
+        \** ----------------------------------------- */
+
+        // IMPORTANT: This code is a incomplete NOT ACCESSIBLE solution
+        // Some of the stuff missing:
+        // - Navigate through options when using keyboard up/down
+        // - Pressing Enter or Space selects the current hovered option
+
+        // Check the full solution: https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/
+        // Visual logic for selectCustom
+        const elSelectCustom = document.getElementsByClassName('js-selectCustom')[0]
+
+        const elSelectCustomLabel = elSelectCustom.children[0]
+        const elSelectCustomOptions = elSelectCustom.children[1]
+        const defaultLabel = elSelectCustomLabel.getAttribute('data-desc')
+
+        // Listen for each option click
+        Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
+          elOption.addEventListener('click', (e) => {
+            // Update select label text...
+            elSelectCustomLabel.textContent = e.target.textContent
+            // And close select
+            elSelectCustom.classList.remove('isActive');
+          })
+        })
+
+        // Toggle select on label click
+        elSelectCustomLabel.addEventListener('click', (e) => {
+          elSelectCustom.classList.toggle('isActive');
+        })
+
+        // Update selectCustom label on selectNative change
+        const elSelectNative = document.getElementsByClassName('js-selectNative')[0]
+
+        if (elSelectNative) {
+          elSelectNative.addEventListener('change', (e) => {
+            const elRespectiveCustomOption = elSelectCustomOptions.querySelectorAll(`[data-value="${e.target.value}"]`)[
+              0];
+            elSelectCustomLabel.textContent = elRespectiveCustomOption.textContent;
+          })
+        }
+      </script>
+
+    </div>
+  </main>
+
+
+</body>
+
+</html>
