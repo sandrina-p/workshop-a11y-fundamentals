@@ -10,23 +10,14 @@ These are the material resources for my [Web Accessibility Fundamentals workshop
 
 ## Pre-Workshop requirements
 
-To get the most out of the workshop, please do the following things in advance:
+To get the most out of the workshop, please do the following things in advance.
 
-- [ ] **Install [Zoom](http://zoom.com/)** to join the video call.
+- **Install [Zoom](http://zoom.com/)** to join the video call.
   - If possible, turn your camera on, so we don't feel alone.
-  - Keep your microphone muted to avoid background noises.
-- [ ] **The browser Chrome or Firefox installed.** I'll be using Chrome most of the time.
-- [ ] **Setup the project** prior to the workshop to avoid unexpected installation issues.
-- [ ] **Install the browser extensions** that we will use during the workshop.
-- [ ] **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
-
-<details>
-  <summary>Toggle video tutorials</summary>
-- Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
-- Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
-- Linux: Install [Orca](https://wiki.gnome.org/Projects/Orca) and [watch this Orca introduction](https://www.youtube.com/watch?v=8OWSztc3AtY).
-- SR keyboard shortcuts: [VO and NVDA](https://dequeuniversity.com/screenreaders/survival-guide) and [Orca](https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en).
-</details>
+- **The browser Chrome or Firefox installed.** I'll be using Chrome most of the time.
+- **Setup the project** prior to the workshop to avoid unexpected installation issues.
+- **Install the browser extensions** that we will use during the workshop.
+- **Familiarize yourself with the basics of a screen reader**. Read below for further practical guidance.
 
 The better prepared you are for the workshop, the more you will learn from it!
 
@@ -52,26 +43,43 @@ npm start
 
 Open [http://localhost:5000/](http://localhost:5000/) and you are ready to go!
 
-### Alternatives
-
 #### Locally
 
-- [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip) and open `src/index.html`. You are ready to go.
+- [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip) and open `src/index.html`. You are ready to go!
 
 ## Developer extensions
 
-Aditionally to the codebase, we'll explore multiple extensions. Kindly install them ahead of time.
+Aditionally to the codebase, we'll explore multiple browser extensions. Kindly install them ahead of time.
 
 The ones below we'll use frequently:
 
 - [Accessibility Insights for Web](https://accessibilityinsights.io/en/downloads/) - Chrome only
-- [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome or Firefox
+- [Axe Developer Tools](https://www.deque.com/axe/browser-extensions/) - Chrome or Firefox. This is the alternative, but the extension above is more complete.
 
 At some point, we'll also use the following extensions:
 
 - [Colour contract checker](https://colourcontrast.cc/) - Chrome only
 - [Web Developer](https://chrispederick.com/work/web-developer/) - Chrome or Firefox
 - [headingsMap](https://www.learningapps.co.uk/moodle/xertetoolkits/play.php?template_id=1309#page1section3) - Chrome or Firefox
+
+## Screen Readers
+
+During a remote workshop it's not practical to teach everyone how to use a SR (screen reader). For that reason, please take some minutes (15-30) to practice in advance, with the help of these short friendly video tutorials:
+
+- Mac: You'll use VO (Voice Over) [Watch VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
+- Windows: Install [NVDA](https://www.nvaccess.org/) and [watch NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
+- Linux: Install [Orca](https://wiki.gnome.org/Projects/Orca) and [watch Orca introduction](https://www.youtube.com/watch?v=8OWSztc3AtY).
+
+My favorite cheatsheet of keyboard shortcuts:
+
+- [VO and NVDA cheatsheet](https://dequeuniversity.com/screenreaders/survival-guide)
+- [Orca cheatsheet](https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en).
+
+I encourage you to use this [playground webpage](https://sgwvk.csb.app/) to practice.
+
+**Tip:** While the SR is speaking, press `Control` key to force it to stop reading it. This might help you to reduce the annoying/frustration feeling while exploring it.
+
+Good luck 🤞
 
 ## Workshop Dynamic
 
