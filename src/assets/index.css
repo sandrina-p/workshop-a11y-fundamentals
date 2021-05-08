@@ -29,6 +29,14 @@ li::before {
   color: var(--theme-text_1);
 }
 
+.bannerMsg {
+  border: 5px dashed #e44545;
+  font-size: 1.8rem;
+  padding: 16px;
+  margin: 32px 0;
+  text-align: center;
+}
+
 .topic-item {
   margin-bottom: 32px;
 }
