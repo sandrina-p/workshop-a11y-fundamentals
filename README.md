@@ -25,7 +25,7 @@ The better prepared you are for the workshop, the more you will learn from it!
 
 ### Recommended
 
-Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before proceding. Otherwise jump to the next _Alternatives_ section.
+Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before proceeding. Otherwise jump to the next _Alternatives_ section.
 
 ```bash
 # Clone the repository
@@ -49,7 +49,7 @@ Open [http://localhost:5000/](http://localhost:5000/) and you are ready to go!
 
 ## Developer extensions
 
-Aditionally to the codebase, we'll explore multiple browser extensions. Kindly install them ahead of time.
+Additionally to the codebase, we'll explore multiple browser extensions. Kindly install them ahead of time.
 
 The ones below we'll use frequently:
 
@@ -58,7 +58,7 @@ The ones below we'll use frequently:
 
 At some point, we'll also use the following extensions:
 
-- [Colour contract checker](https://colourcontrast.cc/) - Chrome only
+- [Colour contrast checker](https://colourcontrast.cc/) - Chrome only
 - [Web Developer](https://chrispederick.com/work/web-developer/) - Chrome or Firefox
 - [headingsMap](https://www.learningapps.co.uk/moodle/xertetoolkits/play.php?template_id=1309#page1section3) - Chrome or Firefox
 
@@ -103,7 +103,7 @@ src/
 **Expectations:**
 
 - **Time value:** I don't expect you to complete the entire exercise on time. The main goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the materials.
-- **Guidance & tips:** Throught the exercises, you'll find the light bulb emoji 💡 to guide you, and the lucky clover emoji 🍀 with extra tips for you to apply right away.
+- **Guidance & tips:** Through the exercises, you'll find the light bulb emoji 💡 to guide you, and the lucky clover emoji 🍀 with extra tips for you to apply right away.
 - **Solutions:** Although all the exercises have explained solutions, check them as a last resource. If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
 
 ---
