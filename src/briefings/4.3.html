@@ -17,44 +17,56 @@
 </div>
 <main>
   
-<h1 id="42uipatternscollection">4.2. UI Patterns collection</h1>
+<h1 id="42componentscollection">4.2. Components collection</h1>
 <h2 id="introduction">Introduction</h2>
 <p>So far, you've learned that creating accessible websites isn't as hard as it sounds. Most of the UI can be fully accessible through native HTML elements and a couple of <code>ARIA</code> attributes.</p>
-<p>The modern web experiences have been evolving way faster than the languages available (HTML). We don't have yet a <code>&lt;tooltip&gt;</code>, <code>&lt;modal&gt;</code> or <code>&lt;tabs&gt;</code> native elements, so we need to find our way around with the existing tools. I'll be truly honest with you: <strong>building custom UI patterns fully accessible is harder than it looks like.</strong></p>
-<p>Because of that, when I need to implement a new component that doesn't exist as an <code>HTML</code> element, <strong>I use existing solutions from the community</strong> instead of reinventing the wheel and risking creating a experience that doesn't work for everyone.</p>
-<p>I recommend you to do the same. Here's a personal accurated list of the common patterns:</p>
+<p>The modern web experiences have been evolving way faster than the languages available (HTML). We don't have yet a <code>&lt;tooltip&gt;</code>, <code>&lt;modal&gt;</code> or <code>&lt;tabs&gt;</code> native elements, so we need to find our way around with the existing tools. I'll be truly honest with you: <strong>building custom components fully accessible is harder than it looks like.</strong></p>
+<p>Because of that, when I need to implement a new component that doesn't exist as an <code>HTML</code> element, I use <strong>existing components from the community</strong> instead of reinventing the wheel and risking creating a non-accessible experience.</p>
+<p>I recommend you to do the same. Here's a personal accurated list of common UI patterns:</p>
 <h2 id="libraries">Libraries</h2>
 <ul>
+<li><a href="https://github.com/scottaohara/accessible_components">Accessible components</a> - Plain HTML / JS, no library required.</li>
 <li><a href="https://reach.tech/">Reach UI</a> - A headless accessible foundation of your React-based design system.</li>
 <li><a href="https://react-spectrum.adobe.com/react-aria/index.html">React ARIA</a> - A library of React hooks that provides accessible UI primitives for your design system.</li>
-<li><a href="https://github.com/vue-a11y/awesome-a11y-vue">Awesome Vue.JS A1YY</a> - List of things related to accessibility in Vue.js</li>
+<li><a href="https://github.com/vue-a11y/awesome-a11y-vue">Awesome Vue.JS A1YY</a> - List of things related to A11Y in Vue.js.</li>
 </ul>
 <h2 id="solocomponents">Solo Components</h2>
+<p>Before you use an "accessible package" from the community, don't get sold by <a href="https://hiddedevries.nl/en/blog/2021-04-02-accessible-front-end-components-claims-vs-reality">"self-claimed" accessible components
+</a>. Do your own research and aim to know their reality before you include their code in your codebase.</p>
 <h3 id="modalsdialogs">Modals (Dialogs)</h3>
 <ul>
 <li>Package: <a href="https://github.com/KittyGiraudel/a11y-dialog">a11y-dialog</a></li>
-<li>Article: <a href="https://github.com/KittyGiraudel/react-a11y-dialog/issues/58">Differences between modals implementations</a></li>
+<li>Blog post: <a href="https://github.com/KittyGiraudel/react-a11y-dialog/issues/58">Differences between modals implementations</a></li>
 </ul>
 <h3 id="tooltips">Tooltips</h3>
 <ul>
-<li>…</li>
+<li>Blog post: <a href="https://inclusive-components.design/tooltips-toggletips/">Inclusive tooltips</a></li>
+<li>Blog post: <a href="https://sarahmhigley.com/writing/tooltips-in-wcag-21/#best-practices-summary">Tooltips in WCAG 21</a></li>
+</ul>
+<h3 id="menus">Menus</h3>
+<ul>
+<li>Blog post: <a href="https://inclusive-components.design/menus-menu-buttons/">Inclusive Menus & Menu Buttons</a></li>
 </ul>
 <h3 id="tabs">Tabs</h3>
 <ul>
-<li>…</li>
+<li>Blog post: <a href="https://web.dev/building-a-tabs-component/">Building a Tabs component</a></li>
 </ul>
-<h3 id="selects">Selects</h3>
+<h3 id="selectsdropdowns">Selects (Dropdowns)</h3>
 <ul>
-<li>…</li>
+<li>Blog post: <a href="https://www.24a11y.com/2019/select-your-poison/">Select your poison</a></li>
+<li>Blog post: <a href="https://adrianroselli.com/2021/03/under-engineered-select-menus.html">Under-engineered select menus</a></li>
+<li>Blog post: <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a balance between native and custom select</a></li>
+<li>Blog post: <a href="https://medium.com/@kollinz/dropdown-alternatives-for-better-mobile-forms-53e40d641b53">Dropdown alternatives</a></li>
 </ul>
 <h3 id="clickablecards">Clickable cards</h3>
 <ul>
-<li>…</li>
+<li><a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">Block Links: The search for a perfect solution</a></li>
 </ul>
-<h3 id="">???</h3>
-<ul>
-<li>…</li>
-</ul>
+<!-- -->
+<style>
+  .g-footer p { display: none; }
+  .g-footerArea { padding: 0; }
+</style>
 
 </main>
 <footer class="g-footer">
