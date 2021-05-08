@@ -37,8 +37,13 @@ briefFiles.forEach((brief) => {
 ${html}
 
 </main>
-<footer class="bfg-footer">
-  <p class="suggestion">Found a typo or bug? Please, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=${workshopTitle}&entry.1412096726=${briefName}">do let me know</a>. Constructive feedback is welcome too. :)</p>
+<footer class="g-footer">
+  <span class="c-echos"></span>  
+  <div class="g-footerArea">
+    <p>
+      Finished on time? Help your group or <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=${workshopTitle}&entry.1412096726=${briefName}">give feedback</a> about this exercise.
+    </p>
+  </div>
 </footer>
 
 <script src="../assets/prism.js" defer></script>

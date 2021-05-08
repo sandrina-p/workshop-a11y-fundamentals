@@ -60,6 +60,10 @@ img {
   max-width: 100%;
 }
 
+address {
+  font-style: initial;
+}
+
 .content {
   margin: 0 auto;
   max-width: 480px;
@@ -95,6 +99,90 @@ img {
 
 .part {
   margin: 32px 0;
+}
+
+.g-footer {
+  position: relative;
+  background: var(--theme-bg_1);
+  margin-top: 64px;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.g-footerArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: var(--theme-width);
+  max-width: 100%;
+  margin: auto;
+  padding: 32px 16px;
+}
+
+.g-footer p {
+  margin: 4px 0;
+}
+
+.g-footerStart {
+  margin-right: 16px;
+  text-align: left;
+}
+
+.g-footerEnd {
+  text-align: right;
+}
+
+.g-footerEnd a {
+  margin: 6px 0;
+}
+
+.g-footerCredits {
+  opacity: 0.8;
+  font-size: 1.3rem;
+}
+
+.c-echos {
+  position: absolute;
+  bottom: 100%;
+  left: calc(50vw + var(--theme-width) / 2 - 16px);
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 63, 51, 0.21) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: -1;
+}
+.c-echos::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 110px;
+  left: -50px;
+  top: -45px;
+  background: linear-gradient(
+    180deg,
+    rgba(113, 168, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.c-echos::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  left: -20px;
+  top: -100px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 16, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+@media (--max-width: 480px) {
+  .c-echos {
+    display: none;
+  }
 }
 
 /* ------- UTILS -------  */
@@ -185,8 +273,8 @@ img {
   border-radius: 4px;
 }
 
-/* do not use disabled attr. Prefer aria-disabled
- so that keyboard people can focus the button */
+/* 🍀 Avoid the use disabled attr. Prefer aria-disabled
+ so that keyboard people can still focus the button */
 .btn[disabled="true"],
 .btn[aria-disabled="true"] {
   opacity: 0.6;
@@ -198,23 +286,6 @@ img {
   color: #fff;
   overflow: hidden;
 }
-
-/* TODO Review this
-.btnPrimary[disabled]::after,
-.btnPrimary[aria-disabled="true"]::after {
-  content: "⌛️ Loading...";
-  content: "⌛️ Loading..." / "Loading";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  background-color: var(--theme-primary);
-  cursor: not-allowed;
-}
-*/
 
 .btnOutline {
   background: var(--theme-primary_smooth);
@@ -405,7 +476,7 @@ fieldset.field {
   margin-right: 4px;
 }
 
-/* Don't judge... it works! I'll improve this later. */
+/* Don't judge... it works!  */
 .form-footer {
   margin-top: 24px;
   border-top: 1px solid var(--theme-text_1);
