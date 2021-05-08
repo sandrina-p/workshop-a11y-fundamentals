@@ -4,7 +4,7 @@ _The web is awesome and everyone should be able to enjoy it._
 
 ---
 
-Hi there! I'm [Sandrina Pereira](https://twitter.com/a_sandrina_p) and I believe that making the web accessible is one of our duties as web creators.
+Hi there! I'm [Sandrina Pereira](https://twitter.com/a_sandrina_p) and I believe that making the web accessible is our duty as web creators.
 
 These are the material resources for my [Web Accessibility Fundamentals workshop](https://www.sandrina-p.net/workshop-a11y/).
 
@@ -12,17 +12,21 @@ These are the material resources for my [Web Accessibility Fundamentals workshop
 
 To get the most out of the workshop, please do the following things in advance:
 
-- **Install the needed video tool** to join the video call.
-  - Turn on your video if possible, so we don't feel alone.
+- [ ] **Install [Zoom](http://zoom.com/)** to join the video call.
+  - If possible, turn your camera on, so we don't feel alone.
   - Keep your microphone muted to avoid background noises.
-- **The browser Chrome or Firefox installed.** We'll use Chrome most of the time.
-- **Setup the project** prior to the workshop to avoid unexpected installation issues.
-- **Install the browser extensions** that we will use during the workshop.
-- **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
-  - Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
-  - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
-  - Linux: Install [Orca](https://wiki.gnome.org/Projects/Orca) and [watch this Orca introduction](https://www.youtube.com/watch?v=8OWSztc3AtY).
-  - SR keyboard shortcuts: [VO and NVDA](https://dequeuniversity.com/screenreaders/survival-guide) and [Orca](https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en).
+- [ ] **The browser Chrome or Firefox installed.** I'll be using Chrome most of the time.
+- [ ] **Setup the project** prior to the workshop to avoid unexpected installation issues.
+- [ ] **Install the browser extensions** that we will use during the workshop.
+- [ ] **Familiarize yourself with the basics of a screen reader**. During a remote workshop it's not practical to help everyone using a SR (screen reader). For that reason, please take some minutes to practice in advance.
+
+<details>
+  <summary>Toggle video tutorials</summary>
+- Mac: You'll be using VoiceOver. [Watch this VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
+- Windows: Install [NVDA](https://www.nvaccess.org/) and [watch this NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
+- Linux: Install [Orca](https://wiki.gnome.org/Projects/Orca) and [watch this Orca introduction](https://www.youtube.com/watch?v=8OWSztc3AtY).
+- SR keyboard shortcuts: [VO and NVDA](https://dequeuniversity.com/screenreaders/survival-guide) and [Orca](https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en).
+</details>
 
 The better prepared you are for the workshop, the more you will learn from it!
 
@@ -56,7 +60,7 @@ Open [http://localhost:5000/](http://localhost:5000/) and you are ready to go!
 
 ## Developer extensions
 
-Aditionally to the codebase, we'll explore multiple extensions. Kindly install them ahead of time before the workshop.
+Aditionally to the codebase, we'll explore multiple extensions. Kindly install them ahead of time.
 
 The ones below we'll use frequently:
 
@@ -82,35 +86,17 @@ src/
   briefings/  # The exercises introduction
     *.md
   exercises/  # Where you'll be coding
-    *.html      # The exercise html
-    *.css       # The exercise styles
+    *.html
+    *.css
   solutions/  # The solutions
-  index.html  # Workshop entry point
+  index.html  # Home page
 ```
 
-**Notes:**
+**Expectations:**
 
-- **Check solutions as a last resource.** If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
-- **Time expectations:** I don't expect you to complete the entire exercise on time. The goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the materials.
-- **Guidance & tips:** In the code, you'll find the _light bulb_ emoji 💡 to guide you, and the _lucky clover_ emoji 🍀 with extra tips.
-
-## Workshop Outline
-
-- 👋 Welcoming everyone
-- 🧠 **#0: Web Accessibility overview**
-- 🎯 **#1: Accessible by default**
-  - Appearance
-  - Semantic HTML
-  - Meaningful images
-- 🎯 **#2: Keyboard navigation**
-  - Interactive elements
-  - Hidden elements
-  - Navigation shortcuts
-- 🎯 **#3: Screen readers**
-  - Meaningful content
-  - Page Landmarks
-  - Accessible forms
-- 🎯 **#4: Next steps into A11Y**
+- **Time value:** I don't expect you to complete the entire exercise on time. The main goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the materials.
+- **Guidance & tips:** Throught the exercises, you'll find the light bulb emoji 💡 to guide you, and the lucky clover emoji 🍀 with extra tips for you to apply right away.
+- **Solutions:** Although all the exercises have explained solutions, check them as a last resource. If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
 
 ---
 
