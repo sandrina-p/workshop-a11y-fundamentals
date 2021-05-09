@@ -92,7 +92,7 @@
 
 .c-checkbox input:focus + :last-child::before {
   border-color: #8c00ff;
-  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
+  box-shadow: var(--theme-focus_shadow);
 }
 
 .c-checkbox:last-child::before,
