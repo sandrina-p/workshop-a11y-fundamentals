@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
-🧩 4.1: More meaningful content
-🎯 Goal: Improve the accessibility of each case
+🧩 4.1: Loading states
+🎯 Goal: Improve the loading state accessibility
 -->
 <html lang="en">
 
@@ -18,67 +18,138 @@
   <main class="content">
     <h1 class="title-xl">Loading states</h1>
 
-    <div class="g-card">
-      <form novalidate>
-        <button class="btn btnPrimary js-luckyTrigger">
-          Load lucky numbers
-        </button>
-
-        <div class="luckyArea">
-
-          <div class="js-luckyEmpty">
-            No lucky numbers yet.
-          </div>
-
-          <div class="js-luckyLoader">
-            <!-- Check JS -->
-          </div>
-
-          <div class="js-luckyTarget js-isHidden">
-            <p>The lucky numbers are <span class="js-luckyNrs"></span>.</p>
+    <div class="demo g-card">
+      <form class="area js-form" novalidate>
+        <div class="areaStart">
+          <div class="field">
+            <label for="fieldCount" class="fieldLabel">Page <span class="sr-only">number</span></label>
+            <input id="fieldCount" class="fieldInput js-tickets" type="text" pattern="[0-9]+" placeholder="0"
+              required />
           </div>
         </div>
-        <p>A <a href="#fake-link" class="link">dummy link</a> for demo.</p>
+
+        <div class="areaEnd">
+          <div class="tooltipArea isActive js-tooltip">
+            <button type="submit" class="btnSubmit js-btnSubmit" disabled aria-describedby="disabledReason">
+              <span class="btnSubmit-text">Get products</span>
+            </button>
+
+            <div role="tooltip" class="tooltipBox" id="disabledReason">
+              <span class="tooltipItself">Choose from page 1 to 9</span>
+            </div>
+          </div>
+        </div>
       </form>
+
+      <div class="resultsArea">
+        <p class="js-resultEmpty">No products yet.</p>
+
+        <p class="js-resultLoader">
+          <!-- Added by JS -->
+        </p>
+
+        <div class="js-resultTarget js-isHidden">
+          <span class="js-resultValue">
+            <!-- Added by JS -->
+          </span>
+        </div>
+      </div>
+
+      <p>A <a href="#fake-link" class="link">dummy link</a> for demo.</p>
     </div>
 
   </main>
 
   <script>
-    const elLuckyTrigger = document.getElementsByClassName('js-luckyTrigger')[0];
-    const elLuckyLoader = document.getElementsByClassName('js-luckyLoader')[0];
-    const elLuckyEmpty = document.getElementsByClassName('js-luckyEmpty')[0];
-    const elLuckyTarget = document.getElementsByClassName('js-luckyTarget')[0];
-    const elLuckyNrs = document.getElementsByClassName('js-luckyNrs')[0];
+    const elForm = document.querySelector(".js-form");
+    const elBtnSubmit = document.querySelector(".js-btnSubmit");
+    const elTickets = document.querySelector(".js-tickets");
+    const elTooltip = document.querySelector('.js-tooltip');
 
-    const getRandomNr = () => Math.floor(Math.random() * 9) + 1;
-    const loadingTime = 2500 // 2.5s          
+    const elresultLoader = document.querySelector('.js-resultLoader');
+    const elresultEmpty = document.querySelector('.js-resultEmpty');
+    const elresultTarget = document.querySelector('.js-resultTarget');
+    const elresultValue = document.querySelector('.js-resultValue');
+    const elresultValueAnnounce = document.querySelector('.js-resultValueAnnounce');
 
-    elLuckyTrigger.addEventListener('click', function (e) {
-      const isDisabled = ignoreIfDisabled(e)
-      if (isDisabled) return false
+    let formCount = 0;
+    let isSubmitting = false;
 
-      elLuckyTrigger.setAttribute('disabled', 'disabled')
-      elLuckyEmpty.classList.add('js-isHidden')
+    const checkTicketsValidation = () => formCount >= 1 && formCount <= 9;
 
-      elLuckyLoader.innerHTML = `Loading numbers...`
+    elBtnSubmit.addEventListener("click", handleBtnClick);
+    elTickets.addEventListener("keyup", handleCountChange);
+    elTickets.addEventListener("change", handleCountChange);
 
-      elLuckyTarget.classList.add('js-isHidden');
+    elForm.addEventListener("submit", handleFormSubmit);
 
-      setTimeout(() => {
-        // Display the lucky numbers!
-        elLuckyNrs.textContent = `${getRandomNr()} and ${getRandomNr()}`
-        elLuckyTarget.classList.remove('js-isHidden');
+    function handleCountChange(event) {
+      formCount = Number(event.target.value);
+      const hasValidTickets = checkTicketsValidation();
 
-        // Make the trigger button clickable again. 
-        elLuckyTrigger.removeAttribute('disabled');
+      if (hasValidTickets) {
+        elBtnSubmit.removeAttribute("disabled");
+        elTooltip.classList.remove("isActive");
+      } else {
+        elBtnSubmit.setAttribute("disabled");
+        elTooltip.classList.add("isActive");
+      }
+    }
 
-        // Remove the loading message 
-        elLuckyLoader.innerHTML = ''
-      }, loadingTime)
-    })
+    function handleBtnClick(event) {
+      // Do nothing. The submit happens on the form submit
+    }
+
+    async function handleFormSubmit(event) {
+      event.preventDefault(); // avoid native form submit (page refresh)
+
+      // 💡 BONUS #1 Hint: You may want to us the fn ignoreIfDisabled 
+      // const isBtnDisabled = ignoreIfDisabled(event)
+
+      if (isSubmitting) {
+        console.log("Double submit prevented");
+        return;
+      }
+
+      isSubmitting = true;
+
+      elBtnSubmit.setAttribute("data-loading", "true");
+
+      elresultEmpty.classList.add('js-isHidden')
+      elresultValue.innerHTML = ''; // clean prev results
+
+      elresultLoader.innerHTML = 'Loading products...'
+      elresultLoader.classList.remove('sr-only') // Show the loading for everyone
+
+      await fakeWaitTime(2500);
+
+      // Display the results!
+      elresultValue.innerHTML = listOfResults(formCount);
+      elresultTarget.classList.remove('js-isHidden');
+
+      // Hide the loader visually...
+      elresultLoader.classList.add('sr-only')
+      // ...but still announce to AT that it's ready
+      elresultLoader.innerHTML = 'Products loaded!'
+
+      elBtnSubmit.setAttribute("data-loading", "false");
+
+      isSubmitting = false;
+    }
+
+    function fakeWaitTime(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function listOfResults(count) {
+      // This is very dummy, but I hope you get the idea.
+      return `<ul>
+        ${Array.from(Array(10), (_, i) => `<li>Product ${count}${i}</li>`).join('')}
+      </ul>`
+    }
 
     function ignoreIfDisabled(event) {
+      // BONUS #1 note: The JS is already done for you!
       const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
 
       if (isDisabled) {

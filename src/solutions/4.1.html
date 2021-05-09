@@ -18,82 +18,149 @@
   <main class="content">
     <h1 class="title-xl">Loading states</h1>
 
-    <div class="g-card">
-      <!-- 💡 Solution:
-        - Replace disabled with aria-disabled to remain focused while loading.
-        - Add aria-live to the loading element no announce when it starts/ends.
-        - Add aria-busy to the content being loaded. Although it's not well supported.
-      -->
-      <div>
-        <button class="btn btnPrimary js-luckyTrigger">
-          Load lucky numbers
-        </button>
-
-        <div class="luckyArea">
-
-          <div class="js-luckyEmpty">
-            No lucky numbers yet.
-          </div>
-
-          <!-- Use aria-live to let the user know about the loading.
-              Note: Do NOT use it on the element that will contain the loaded content,
-              otherwise the AT would announce the entire content, which can be annoying. -->
-          <div class="js-luckyLoader" aria-live="polite"></div>
-
-          <div class="js-luckyTarget js-isHidden">
-            <p>The lucky numbers are <span class="js-luckyNrs"></span>.</p>
+    <div class="demo g-card">
+      <form class="area js-form" novalidate>
+        <div class="areaStart">
+          <div class="field">
+            <label for="fieldCount" class="fieldLabel">Page <span class="sr-only">number</span></label>
+            <input id="fieldCount" class="fieldInput js-tickets" type="text" pattern="[0-9]+" placeholder="0"
+              required />
           </div>
         </div>
-        <p>A <a href="#fake-link" class="link">dummy link</a> for demo.</p>
+
+        <div class="areaEnd">
+          <div class="tooltipArea isActive js-tooltip">
+            <!-- 💡 BONUS 1/x Use aria-disabled instead of disabled, so that people with keyboard
+              can still see the tooltip when focusing the button -->
+            <button type="submit" class="btnSubmit js-btnSubmit" aria-disabled="true" aria-describedby="disabledReason">
+              <span class="btnSubmit-text">Get products</span>
+            </button>
+
+            <div role="tooltip" class="tooltipBox" id="disabledReason">
+              <span class="tooltipItself">Choose from page 1 to 9</span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="resultsArea">
+        <p class="js-resultEmpty">No products yet.</p>
+
+        <!-- 💡 Use aria-live to let the user know about the loading.
+        Do NOT use it on the element that will contain the loaded content,
+        otherwise the AT would announce the entire content, which can be annoying. -->
+        <p class="js-resultLoader" aria-live="assertive">
+          <!-- Added by JS -->
+        </p>
+
+        <div class="js-resultTarget js-isHidden">
+          <span class="js-resultValue">
+            <!-- Added by JS -->
+          </span>
+        </div>
       </div>
+
+      <p>A <a href="#fake-link" class="link">dummy link</a> for demo.</p>
     </div>
+
   </main>
 
   <script>
-    const elLuckyTrigger = document.getElementsByClassName('js-luckyTrigger')[0];
-    const elLuckyLoader = document.getElementsByClassName('js-luckyLoader')[0];
-    const elLuckyEmpty = document.getElementsByClassName('js-luckyEmpty')[0];
-    const elLuckyTarget = document.getElementsByClassName('js-luckyTarget')[0];
-    const elLuckyNrs = document.getElementsByClassName('js-luckyNrs')[0];
+    const elForm = document.querySelector(".js-form");
+    const elBtnSubmit = document.querySelector(".js-btnSubmit");
+    const elTickets = document.querySelector(".js-tickets");
+    const elTooltip = document.querySelector('.js-tooltip');
 
-    const getRandomNr = () => Math.floor(Math.random() * 9) + 1;
-    const loadingTime = 2500 // 2.5s          
+    const elresultLoader = document.querySelector('.js-resultLoader');
+    const elresultEmpty = document.querySelector('.js-resultEmpty');
+    const elresultTarget = document.querySelector('.js-resultTarget');
+    const elresultValue = document.querySelector('.js-resultValue');
+    const elresultValueAnnounce = document.querySelector('.js-resultValueAnnounce');
 
-    elLuckyTrigger.addEventListener('click', function (e) {
-      const isDisabled = ignoreIfDisabled(e)
-      if (isDisabled) return false
+    let formCount = 0;
+    let isSubmitting = false;
 
-      // Use "aria-disabled="true" instead of "disabled" to allow the button
-      // to be focused, even when during the loading state.
-      elLuckyTrigger.setAttribute('aria-disabled', 'true')
-      elLuckyEmpty.classList.add('js-isHidden')
+    const checkTicketsValidation = () => formCount >= 1 && formCount <= 9;
 
-      // Let AT know it's loading.
-      elLuckyLoader.classList.remove('sr-only')
-      elLuckyLoader.innerHTML = `Loading numbers...`
+    elBtnSubmit.addEventListener("click", handleBtnClick);
+    elTickets.addEventListener("keyup", handleCountChange);
+    elTickets.addEventListener("change", handleCountChange);
 
-      elLuckyTarget.classList.add('js-isHidden');
-      // aria-busy isn't supported by many browsers, so use aria-hidden too.
-      elLuckyTarget.setAttribute('aria-busy', 'true');
-      elLuckyTarget.setAttribute('aria-hidden', 'true');
+    elForm.addEventListener("submit", handleFormSubmit);
 
-      setTimeout(() => {
-        // Display the lucky numbers!
-        elLuckyNrs.textContent = `${getRandomNr()} and ${getRandomNr()}`
-        elLuckyTarget.classList.remove('js-isHidden');
-        elLuckyTarget.setAttribute('aria-busy', 'false')
-        elLuckyTarget.setAttribute('aria-hidden', 'false');
+    function handleCountChange(event) {
+      formCount = Number(event.target.value);
+      const hasValidTickets = checkTicketsValidation();
 
-        // Let AT know the loading was complete.
-        elLuckyLoader.innerHTML = `Numbers loaded!`
-        elLuckyLoader.classList.add('sr-only')
+      if (hasValidTickets) {
+        // 💡 BONUS 2/x Updated attribute from disabled to aria-disabled
+        elBtnSubmit.setAttribute("aria-disabled", "false");
+        elTooltip.classList.remove("isActive");
+      } else {
+        elBtnSubmit.setAttribute("aria-disabled", "true");
+        elTooltip.classList.add("isActive");
+      }
+    }
 
-        // Make the trigger button clickable again. 
-        elLuckyTrigger.removeAttribute('aria-disabled');
-      }, loadingTime)
-    })
+    function handleBtnClick(event) {
+      // Do nothing. The submit happens on the form submit
+    }
+
+    async function handleFormSubmit(event) {
+      event.preventDefault(); // avoid native form submit (page refresh)
+
+      // 💡 BONUS 3/3 Verify if button has aria-disabled="true"
+      const isBtnDisabled = ignoreIfDisabled(event)
+
+      if (isBtnDisabled) {
+        console.log("Disabled submit prevented");
+        return;
+      }
+
+      if (isSubmitting) {
+        console.log("Double submit prevented");
+        return;
+      }
+
+      isSubmitting = true;
+
+      elBtnSubmit.setAttribute("data-loading", "true");
+
+      elresultEmpty.classList.add('js-isHidden')
+      elresultValue.innerHTML = ''; // clean prev results
+
+      elresultLoader.innerHTML = 'Loading products...'
+      elresultLoader.classList.remove('sr-only') // Show the loading for everyone
+
+      await fakeWaitTime(2500);
+
+      // Display the results!
+      elresultValue.innerHTML = listOfResults(formCount);
+      elresultTarget.classList.remove('js-isHidden');
+
+      // Hide the loader visually...
+      elresultLoader.classList.add('sr-only')
+      // ...but still announce to AT that it's ready
+      elresultLoader.innerHTML = 'Products loaded!'
+
+      elBtnSubmit.setAttribute("data-loading", "false");
+
+      isSubmitting = false;
+    }
+
+    function fakeWaitTime(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function listOfResults(count) {
+      // This is very dummy, but I hope you get the idea.
+      return `<ul>
+        ${Array.from(Array(10), (_, i) => `<li>Product ${count}${i}</li>`).join('')}
+      </ul>`
+    }
 
     function ignoreIfDisabled(event) {
+      // The JS is already done for you!
       const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
 
       if (isDisabled) {

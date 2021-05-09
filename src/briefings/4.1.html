@@ -27,30 +27,46 @@
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/4.1.html">exercise page</a>,
 there is a dummy search mechanism that loads a set of results.</p>
+<p>Visually it's perceivable when the result is being loaded and when it's finished. But what about people using screen readers. How can we do it?</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of the loading state for people with visual impairments.</p>
-<p>🍀 Some things for you to consider:</p>
-<ul>
-<li>Using the screen reader, are you aware of when the content gets loaded?</li>
-<li>Using only the keyboard, can you navigate correctly while the lucky numbers are being loaded?
+<p><details>
+<summary>🍀 Toggle hint #1:</summary></p>
+<p>We already learned about Live Regions using <code>aria-live</code>. Using those, remember to announce both loading states:</p>
+<ol>
+<li>When the result start to be loaded (The visual message "Products loading…")</li>
+<li>When the result is ready.
 </details></li>
-</ul>
-<!-- <details>
-  <summary>🍀 Reveal solution</summary>
-  - Replace `disabled` with `aria-disabled` to avoid skipping focus.
-  - Add `aria-live` to the loading element to announce when it starts/ends.
-  - Add `aria-busy` to the content while it's being loaded. (not well supported yet).
-</details> -->
+</ol>
+<p><details>
+<summary>🍀 Toggle hint #2:</summary></p>
+<p>The designs don't include a visual message, but we can still add that using a visually hidden element. Remember <code>.sr-only</code>? It's the perfect time to use it!</p>
+<p></details></p>
+<p></details></p>
+<h2 id="bonus1">Bonus #1</h2>
+<p>Using the cursor, you may have noticed that a tooltip is shown on button hover. Now, try to do the same using the keyboard only.</p>
+<p>That's not possilbe because the button is disabled using <code>disabled</code> attribute. How can we solve this? Prevent the click interaction, but still allowing the focus interaction.</p>
+<p><details>
+<summary>🍀 Toggle hint #1:</summary>
+There is an attribute <code>aria-disabled="true"</code> that we can use.</p>
+<p>Semantically it marks the button as disabled, but it does not change the behavior. In other words, you can still focus it using the keyboard.</p>
+<p></details></p>
+<p><details>
+<summary>🍀 Toggle hint #2:</summary>
+ARIA only purpose is to add extra semantics to an element. It never, <em>ever</em> changes the styles or behavior of that element.</p>
+<p>That means, you need to manually prevent the click and change the CSS styles when that attribute is presented.</p>
+<p></details></p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
 <li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
-<li><a href="TODO-LINK">Making Disabled Buttons More Inclusive (coming soon)</a></li>
 <li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
+<li><a href="TODO-LINK-CSS">Making disabled Buttons more inclusive</a> (to be published soon)</li>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
 <li><a href="https://www.w3.org/TR/WCAG21/#location">WCAG 2.4.8 Location - Level AAA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#on-focus">WCAG 3.2.1 Predictable On Focus - Level A</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#on-input">WCAG 3.2.2 Predictable On Input - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 4.1.3 Status Messages - Level AA</a></li>
 </ul>
 
 </main>
