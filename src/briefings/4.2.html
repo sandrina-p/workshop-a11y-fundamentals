@@ -32,6 +32,20 @@ there is a layout with a few "toggle settings" that are applied immediately afte
 These cases will require a good chunk of code changes. It's totally fine if you don't feel comfortable with code.<br />
 As an alternative, I suggest you to write down a list of the things that need to be improved or/and pair up with your group to collaborate together!</p>
 <p><details>
+<summary>🍀 Tips about moments of actions</summary></p>
+<p>One of the differences between a form control and a button is:</p>
+<ul>
+<li>Form controls (e.g. inputs) are meant to receive and carry a value. These values are editable and should not take effect until we explicit submit them.</li>
+<li>Buttons are expected to take immediate action upon activation.</li>
+</ul>
+<p>That's the main question we should ask ourselves when building an interactive element:</p>
+<ul>
+<li>Does the selection, takes immediate effect? Then, it's a button.</li>
+<li>Does the selection requires confirmation? Then it's a form control.</li>
+</ul>
+<p>🍀 The way a funcionality is presented might misslead us to change its foundations. We need to be mindful about this thin layer between UX and semantics.</p>
+<p></details></p>
+<p><details>
 <summary>🍀 Tips about dynamic names and states</summary></p>
 <p>When we interact with "Sound toggle" using a screen reader, two things happen when pressing it:</p>
 <ul>
@@ -50,20 +64,6 @@ As an alternative, I suggest you to write down a list of the things that need to
 <li>Voice Over: <em>unselected, Enable sound, toggle button</em></li>
 </ul>
 <p>🍀 When labeling dynamic elements, never change both label and state at the same time. Stick with one of them.</p>
-<p></details></p>
-<p><details>
-<summary>🍀 Tips about moments of actions</summary></p>
-<p>One of the differences between a form control and a button is:</p>
-<ul>
-<li>Form controls (e.g. inputs) are meant to receive and carry a value. These values are editable and should not take effect until we explicit submit them.</li>
-<li>Buttons are expected to take immediate action upon activation.</li>
-</ul>
-<p>That's the main question we should ask ourselves when building an interactive element:</p>
-<ul>
-<li>Does the selection, takes immediate effect? Then, it's a button.</li>
-<li>Does the selection requires confirmation? Then it's a form control.</li>
-</ul>
-<p>🍀 The way a funcionality is presented might misslead us to change its foundations. We need to be mindful about this thin layer between UX and semantics.</p>
 <p></details></p>
 <p><details>
 <summary>🍀 Tips about keyboard navigation</summary></p>

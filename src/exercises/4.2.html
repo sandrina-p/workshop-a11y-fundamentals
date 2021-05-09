@@ -35,6 +35,21 @@
 
     <div class="g-card stgs js-caseToggle" data-sound="off" data-theme="light" data-size="md">
 
+      <!-- CASE #1 - Theme selector -->
+      <div class="part">
+        <!-- 💡
+          This visually looks like a checkbox, but what makes an element
+          a toggle button vs a checkbox?
+          P.S. Read "Tips about moments of action" for further hints.
+        -->
+        <label class="stgs-toggleTheme">
+          <input type="checkbox" id="darkTheme" class="js-theme" />
+          <span class="stgs-toggleTheme-fakeCheck"></span>
+          Dark theme
+        </label>
+      </div>
+
+      <!-- CASE #2 - Sound on/off -->
       <div class="part">
         <!-- 💡 Check the Accessibiliy tree of this button. The default
           name is "Sound off, not pressed". Does that mean the sound is off or on? 
@@ -51,51 +66,48 @@
         </button>
       </div>
 
+      <!-- CASE #3 (BONUS) - Text size -->
       <div class="part">
         <!-- 💡
           This visually looks like a checkbox, but what makes an element
           a toggle button vs a checkbox?
-          P.S. Read "Tips about moments of action" for further hints.
-        -->
-        <label class="stgs-toggleTheme">
-          <input type="checkbox" id="darkTheme" class="js-theme" />
-          <span class="stgs-toggleTheme-fakeCheck"></span>
-          Dark theme
-        </label>
-      </div>
 
-      <div class="part">
-        <!-- 💡
-          This visually looks like a checkbox, but what makes an element
-          a toggle button vs a checkbox?
-          P.S. Read "Tips about keyboard navigation" for further hints.
-          🎨 To solve this, don't worry about styling.
-          Focus on the semantics and making sure it works well for keyboard.
+          P.S.1 Read "Tips about keyboard navigation" for further hints.
+          P.S.2 To solve this you may need a good junk of HTML & JS changes.
         -->
         <fieldset class="stgs-toolbar">
           <span class="stgs-toolbar-title">Text size</span>
-          <label>
-            <input class="js-size" type="radio" name="size" value="sm" />
+
+          <input id="size-sm" class="js-size" type="radio" name="size" value="sm" />
+          <label for="size-sm" class="stgs-toolbar-item">
             Small
           </label>
-          <label>
-            <input class="js-size" type="radio" name="size" value="md" checked />
+
+          <input id="size-md" class="js-size" type="radio" name="size" value="md" checked />
+          <label for="size-md" class="stgs-toolbar-item">
             Medium
           </label>
-          <label>
-            <input class="js-size" type="radio" name="size" value="lg" />
+
+          <input id="size-lg" class="js-size" type="radio" name="size" value="lg" />
+          <label for="size-lg" class="stgs-toolbar-item">
             Large
           </label>
-          <label>
-            <input class="js-size" type="radio" name="size" value="pro" disabled />
+
+          <input id="size-pro" class="js-size" type="radio" name="size" value="pro" disabled />
+          <label for="size-pro" class="stgs-toolbar-item isDisabled">
             Custom (PRO)
           </label>
         </fieldset>
+
+        <p>Check a <a href="https://www.w3.org/TR/wai-aria-practices/examples/toolbar/toolbar.html" class="link">Toolbar
+            example</a>,
+          following WAI ARIA practices.</p>
       </div>
     </div>
   </main>
 
   <script>
+    // 💡 Case #1 and #2 do not need JS changes.
     const elCaseToggle = document.getElementsByClassName('js-caseToggle')[0];
     const elSound = document.getElementsByClassName('js-sound')[0];
     const elTheme = document.getElementsByClassName('js-theme')[0];
@@ -104,6 +116,12 @@
     const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
     const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
 
+    // 💡 Case #1 (theme): Changes needed
+    elTheme.addEventListener('change', function (e) {
+      elCaseToggle.setAttribute('data-theme', e.target.checked ? 'dark' : 'light')
+    })
+
+    // 💡 Case #2 (sound): Changes not needed
     elSound.addEventListener('click', function () {
       const isPressed = elSound.getAttribute('aria-pressed') === 'true';
       elSound.setAttribute("aria-pressed", !isPressed);
@@ -116,10 +134,7 @@
       }
     })
 
-    elTheme.addEventListener('change', function (e) {
-      elCaseToggle.setAttribute('data-theme', e.target.checked ? 'dark' : 'light')
-    })
-
+    // 💡 Case #3 (Text size): Many changes needed.
     Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
       elCaseToggle.setAttribute('data-size', e.target.value)
     }))

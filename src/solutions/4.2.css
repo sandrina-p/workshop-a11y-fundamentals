@@ -1,12 +1,4 @@
-.stgs button:focus:not([aria-disabled="true"]) {
-  outline: none;
-  box-shadow: white 0 0 0 2px, #ff821f 0 0 0 4px;
-}
-
-.stgs input:focus {
-  outline: 4px solid #ff821f;
-}
-
+/* Control appearance based on data-* */
 .stgs[data-theme="light"] {
   background: var(--theme-bg_1);
   color: var(--theme-text_0);
@@ -26,7 +18,33 @@
   font-size: 1.9rem;
 }
 
-/* Sound toggle */
+/* ---- Theme toggle ---- */
+.stgs-toggleTheme {
+  background: transparent;
+  color: inherit;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.stgs-toggleTheme:focus {
+  outline: none;
+  box-shadow: var(--theme-focus_shadow);
+}
+.stgs-toggleTheme::before {
+  content: "";
+  margin-right: 8px;
+}
+.stgs-toggleTheme[aria-pressed="true"]::before {
+  content: "✅";
+  content: "✅" / "";
+}
+.stgs-toggleTheme[aria-pressed="false"]::before {
+  content: "🔲";
+  content: "🔲" / "";
+}
+
+/* ---- Sound toggle ---- */
 .stgs-btnOnOff {
   background: transparent;
   color: inherit;
@@ -34,6 +52,10 @@
   border: none;
   border-radius: 4px;
   border: 1px solid;
+}
+.stgs-btnOnOff:focus {
+  outline: none;
+  box-shadow: var(--theme-focus_shadow);
 }
 .stgs-btnOnOff .on,
 .stgs-btnOnOff .off {
@@ -46,35 +68,12 @@
   display: block;
 }
 
-/* Theme toggle */
-.stgs-toggleTheme {
-  background: transparent;
-  color: inherit;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 4px;
-  border: 1px solid;
-}
-
-.stgs-toggleTheme::before {
-  content: "";
-  margin-right: 8px;
-}
-
-.stgs-toggleTheme[aria-pressed="true"]::before {
-  content: "✅";
-  content: "✅" / "";
-}
-
-.stgs-toggleTheme[aria-pressed="false"]::before {
-  content: "🔲";
-  content: "🔲" / "";
-}
-
-/* Font size options */
+/* ---- Font size options ---- */
 .stgs-toolbar {
   display: flex;
   flex-wrap: wrap;
+  border: 0;
+  padding: 0;
 }
 
 .stgs-toolbar-title {
@@ -84,10 +83,17 @@
 .stgs-toolbar-item {
   border: none;
   border: 1px solid var(--theme-text_1);
-  padding: 4px 10px;
+  padding: 10px 10px;
   margin: 0;
+  min-height: 44px;
+  font-weight: 600;
   background: transparent;
   color: inherit;
+}
+
+.stgs-toolbar-item:focus {
+  outline: none;
+  box-shadow: var(--theme-focus_shadow);
 }
 
 .stgs-toolbar-item[aria-checked="true"] {

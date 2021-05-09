@@ -19,33 +19,39 @@
     <h1 class="title-xl">On-demand changes</h1>
 
     <div class="g-card stgs js-caseToggle" data-sound="off" data-theme="light" data-size="md">
+      <!-- CASE #1 - Theme selector -->
       <div class="part">
         <!-- Solution:
-          - Keep the aria-pressed
-          - Override the button name for screen readers only
-        -->
-        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
-          <span class="sr-only">Enable Sound</span>
-          <span class="off" aria-hidden="true">
-            <span>🔊</span> Enable sounds
-          </span>
-          <span class="on" aria-hidden="true">
-            <span>🤐</span> Disable sounds
-          </span>
-        </button>
-      </div>
-
-      <div class="part">
-        <!-- Solution:
-          - Replace the input with a button.
-          - Why: inputs are meant to hold a "value" and be submited afterwards through
-          a "conventional form". This change happens immediately, so,
-          *in my opinion* it makes more sense to use an actual toggle button. -->
+                - Replace the input with a button.
+                - Why: inputs are meant to hold a "value" and be submited afterwards through
+                a "conventional form". This change happens immediately, so,
+                *in my opinion* it makes more sense to use an actual toggle button. -->
         <button class="stgs-toggleTheme js-theme" aria-pressed="false">
           Dark theme
         </button>
       </div>
 
+      <!-- CASE #2 - Sound on/off -->
+      <div class="part">
+        <!-- Solution:
+          - Keep the aria-pressed
+          - Update visual name to be more understandable about the action.
+          - Override the button name with a fixed name for AT. That way,
+          it's always the same and it's not contracditory with the state.
+        -->
+        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
+          <span class="sr-only">Enable Sound</span>
+          <span class="off" aria-hidden="true">
+            <span>🔊</span> Enable sound
+          </span>
+          <span class="on" aria-hidden="true">
+            <span>🤐</span> Disable sound
+          </span>
+        </button>
+      </div>
+
+
+      <!-- CASE #3 (BONUS) - Text size -->
       <div class="part">
         <!-- Solution:
           - Replace native inputs for buttons with role="radio".
@@ -69,6 +75,10 @@
             Custom (PRO)
           </button>
         </div>
+
+        <p>Check a <a href="https://www.w3.org/TR/wai-aria-practices/examples/toolbar/toolbar.html" class="link">Toolbar
+            example</a>,
+          following WAI ARIA practices.</p>
       </div>
     </div>
   </main>
@@ -82,6 +92,14 @@
     const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
     const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
 
+    // 💡 Case #1 (theme)
+    elTheme.addEventListener('click', function (e) {
+      const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
+      elTheme.setAttribute("aria-pressed", !isPressed);
+      elCase.setAttribute('data-theme', isPressed ? 'light' : 'dark')
+    })
+
+    // 💡 Case #2 (sound)
     elSound.addEventListener('click', function () {
       const isPressed = elSound.getAttribute('aria-pressed') === 'true';
       elSound.setAttribute("aria-pressed", !isPressed);
@@ -93,23 +111,18 @@
       }
     })
 
-    elTheme.addEventListener('click', function (e) {
-      const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
-      elTheme.setAttribute("aria-pressed", !isPressed);
-      elCase.setAttribute('data-theme', isPressed ? 'light' : 'dark')
-    })
-
+    // 💡 Case #3 (Text size)
+    // Manually set/unset the select size value
     Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
+      // If the option is disabled, ignore click.
       const isDisabled = ignoreIfDisabled(e)
       if (isDisabled) return false
 
-      // If it's already pressed, do nothing.
+      // If it's already active, ignore click too.
       const isPressed = el.getAttribute('aria-checked') === 'true';
-      if (isPressed) {
-        return
-      }
+      if (isPressed) { return }
 
-      // Otherwise, mark it as pressed...
+      // Otherwise, mark the option as active...
       const currentValue = elCase.getAttribute('data-size');
       el.setAttribute("aria-checked", 'true');
       elCase.setAttribute('data-size', el.getAttribute('data-value'));
