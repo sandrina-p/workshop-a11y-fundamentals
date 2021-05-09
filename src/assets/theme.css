@@ -261,7 +261,7 @@ address {
 
 .btn {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
@@ -271,6 +271,7 @@ address {
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  text-decoration: none;
 }
 
 /* 🍀 Avoid the use disabled attr. Prefer aria-disabled
@@ -281,6 +282,7 @@ address {
 }
 
 .btnPrimary {
+  font-weight: 600;
   min-width: 170px;
   background-color: var(--theme-primary);
   color: #fff;

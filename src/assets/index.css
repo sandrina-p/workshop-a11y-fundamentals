@@ -29,7 +29,20 @@ li::before {
   color: var(--theme-text_1);
 }
 
-.bannerMsg {
+.bannerJoin {
+  text-align: center;
+  align-items: center;
+}
+
+.bannerJoin p {
+  margin: 0;
+}
+
+.bannerJoin p:last-of-type {
+  margin-bottom: 12px;
+}
+
+.bannerAlert {
   border: 5px dashed #e44545;
   font-size: 1.8rem;
   padding: 16px;
