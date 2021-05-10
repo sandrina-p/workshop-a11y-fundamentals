@@ -32,6 +32,7 @@ li::before {
 .bannerJoin {
   text-align: center;
   align-items: center;
+  margin: 0 0 32px;
 }
 
 .bannerJoin p {
