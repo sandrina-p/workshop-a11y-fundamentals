@@ -42,16 +42,16 @@ Adding some opacity or changing the color are common design approaches.</p>
 <h3 id="1focusonlywhenusingthekeyboard">#1 Focus only when using the keyboard</h3>
 <p>Another reason to hide the focus indicator on buttons and links is that the focus is triggered when clicking them.</p>
 <p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
-<p>Most browsers do not support it yet, so we need the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a></p>
+<p>Some browsers do not support it yet (eg Safari). Use the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a> to make it work everywhere.</p>
 <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
 </code></pre>
-<pre><code class="css language-css">/* hide the focus indicator always */
+<pre><code class="css language-css">/* Hide the focus after the polyfill is added */
 .js-focus-visible button:focus {
   outline: none;
 }
 
-/* show the focus only with keyboard */
+/* Show the focus when interacted with keyboard */
 .js-focus-visible button:focus.focus-visible {
   outline: none;
   box-shadow: 0 0 3px 3px tomato;
