@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="assets/theme.css" />
   <link rel="stylesheet" href="assets/index.css" />
+
 </head>
 
 <body>
@@ -20,26 +21,26 @@
       </p>
     </header>
 
-    <div class="g-card bannerJoin">
+    <div class="g-card bannerJoin js-bannerJoin" hidden>
       <p>
         Join the Discord group to talk about A11Y!
       </p>
       <p>
-        Cool stuff will be shared before, during or after each session.
+        Cool stuff will be shared before, during and after each session.
       </p>
-      <a href="https://discord.gg/MkqhtgvE" class="btn btnPrimary">Join discord group</a>
+      <a href="#loading" class="btn btnPrimary">Join discord group</a>
     </div>
 
-    <!-- <div class="bannerAlert">
+    <div class="bannerAlert">
       <span>
         <span class="sr-only">Work in progress</span>
         <span aria-hidde="true">🚧 🚧 🚧</span>
       </span>
       <p>
-        Hi there! Polishing is still being done. Please get the latest version
+        Hi there! Polishing is still being done. Please pull/get the latest version
         a few minutes before the workshop starts.
       </p>
-    </div> -->
+    </div>
 
     <h2 class="sr-only">Exercises</h2>
     <ol class="topic">
@@ -345,6 +346,30 @@
       </div>
     </div>
   </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <!-- <script src="https://unpkg.com/@supabase/supabase-js"></script> -->
+  <script>
+    const supabaseUrl = 'https://vubyiddnwiphnshtbrjh.supabase.co'
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNTc1OTg3NiwiZXhwIjoxOTQxMzM1ODc2fQ.8qO-js0CSC3GSfI3q8wjOlC32FYpVY1ZG-2avHRm9gw'
+    const db = supabase.createClient(supabaseUrl, SUPABASE_KEY)
+
+    async function init() {
+      const { data: discord, error } = await db.from('discord')
+
+      const discordUrl = discord[0].url
+
+      if (!discordUrl) return
+
+      const elDiscordBanner = document.querySelector('.js-bannerJoin')
+
+      elDiscordBanner.querySelector('a').href = discordUrl
+      elDiscordBanner.removeAttribute('hidden')
+    }
+
+    init()
+  </script>
 </body>
 
 </html>
