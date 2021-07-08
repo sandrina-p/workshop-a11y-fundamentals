@@ -1,4 +1,4 @@
-/* Do never ever do this 🥺
+/* Never ever do this 🥺
  💡 Delete this declaration! */
 *:focus {
   outline: none;
@@ -25,7 +25,7 @@
   opacity: 0.8;
 }
 
-/* 💡 add the button styles here!
+/* 💡 Add the button styles here
 - How does the input looks like when disabled or :focus? Try it out! 
 - Tip: You can add a nice box-shadow on focus:
   box-shadow: var(--theme-focus_shadow);
@@ -44,7 +44,7 @@
   color: var(--theme-primary);
 }
 
-/* 💡 add link focus styles here!
+/* 💡 Add link focus styles here
 - You could change the background or add a border (shadow) */
 
 /* ------- TEXT INPUT -------  */

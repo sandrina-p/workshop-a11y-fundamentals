@@ -36,7 +36,7 @@ Notes:
     <!-- Case #2 - A toggle button -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #2</h2>
-      <!-- 💡 Besides the missing accessible label, we should also indicate
+      <!-- 💡 1/1 Besides the missing accessible label, we should also indicate
         if the button is *pressed* or not. That's aria-pressed="true|false" -->
       <button class="btn btnToggle js-addToFavorite">
         <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
@@ -54,7 +54,7 @@ Notes:
           const method = isPressed ? 'remove' : 'add'
           // Toggle the button status visually
           elToggle.classList[method]('isPressed');
-          // and semantically 💡
+          // 2/2 and semantically 💡
           elToggle.setAttribute("aria-pressed", !isPressed);
         })
       </script>
@@ -62,7 +62,7 @@ Notes:
 
     <!-- Case #3 - Poor links -->
     <div class="g-card">
-      <h2 class="g-cardTitle">Case #4</h2>
+      <h2 class="g-cardTitle">Case #3</h2>
       <p>
         Links should make sense out of context. Phrases such as "click here," "more," "click for details," and so on
         are ambiguous when read out of context.
@@ -75,7 +75,7 @@ Notes:
 
     <!-- Lesson #4 - The current link -->
     <div class="g-card">
-      <h2 class="g-cardTitle">Case #5</h2>
+      <h2 class="g-cardTitle">Case #4</h2>
       <!-- 💡 Visually, it's perceivable which list item is the current one.
         However, that's not true for people who use screen readers.
         A similar information can be provided to AT using aria-current.
