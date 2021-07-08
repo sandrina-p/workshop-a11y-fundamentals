@@ -45,13 +45,11 @@
         <p class="js-resultEmpty">No products yet.</p>
 
         <p class="js-resultLoader">
-          <!-- Added by JS -->
+          <!-- Loading message - Added by JS -->
         </p>
 
-        <div class="js-resultTarget js-isHidden">
-          <span class="js-resultValue">
-            <!-- Added by JS -->
-          </span>
+        <div class="js-resultValue">
+          <!-- List of products - Added by JS -->
         </div>
       </div>
 
@@ -68,9 +66,7 @@
 
     const elresultLoader = document.querySelector('.js-resultLoader');
     const elresultEmpty = document.querySelector('.js-resultEmpty');
-    const elresultTarget = document.querySelector('.js-resultTarget');
     const elresultValue = document.querySelector('.js-resultValue');
-    const elresultValueAnnounce = document.querySelector('.js-resultValueAnnounce');
 
     let formCount = 0;
     let isSubmitting = false;
@@ -97,42 +93,35 @@
     }
 
     function handleBtnClick(event) {
-      // Do nothing. The submit happens on the form submit
+      // Do nothing. The submit happens at handleFormSubmit()
     }
 
     async function handleFormSubmit(event) {
-      event.preventDefault(); // avoid native form submit (page refresh)
+      event.preventDefault(); // avoid native form submit which would refresh the page
 
-      // 💡 BONUS #1 Hint: You may want to us the fn ignoreIfDisabled 
+      // 💡 BONUS #1 Hint: You may want to use ignoreIfDisabled 
       // const isBtnDisabled = ignoreIfDisabled(event)
 
       if (isSubmitting) {
         console.log("Double submit prevented");
         return;
       }
-
       isSubmitting = true;
 
       elBtnSubmit.setAttribute("data-loading", "true");
 
       elresultEmpty.classList.add('js-isHidden')
-      elresultValue.innerHTML = ''; // clean prev results
+      elresultValue.innerHTML = ''; // clean previous results
 
       elresultLoader.innerHTML = 'Loading products...'
-      elresultLoader.classList.remove('sr-only') // Show the loading for everyone
 
       await fakeWaitTime(2500);
 
       // Display the results!
       elresultValue.innerHTML = listOfResults(formCount);
-      elresultTarget.classList.remove('js-isHidden');
-
-      // Hide the loader visually...
-      elresultLoader.classList.add('sr-only')
-      // ...but still announce to AT that it's ready
-      elresultLoader.innerHTML = 'Products loaded!'
 
       elBtnSubmit.setAttribute("data-loading", "false");
+      elresultLoader.innerHTML = ''
 
       isSubmitting = false;
     }
@@ -149,12 +138,12 @@
     }
 
     function ignoreIfDisabled(event) {
-      // BONUS #1 note: The JS is already done for you!
+      // BONUS Note: The JS is already done for you :)
       const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
 
       if (isDisabled) {
         event.preventDefault();
-        event.target.blur(); // prevent focus on click.
+        event.target.blur(); // prevent focus on click
         console.log('disabled - click ignored')
         return true
       }

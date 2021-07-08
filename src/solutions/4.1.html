@@ -30,7 +30,7 @@
 
         <div class="areaEnd">
           <div class="tooltipArea isActive js-tooltip">
-            <!-- 💡 BONUS 1/x Use aria-disabled instead of disabled, so that people with keyboard
+            <!-- 💡 BONUS 1/2 Use aria-disabled instead of disabled, so that people with keyboard
               can still see the tooltip when focusing the button -->
             <button type="submit" class="btnSubmit js-btnSubmit" aria-disabled="true" aria-describedby="disabledReason">
               <span class="btnSubmit-text">Get products</span>
@@ -50,13 +50,11 @@
         Do NOT use it on the element that will contain the loaded content,
         otherwise the AT would announce the entire content, which can be annoying. -->
         <p class="js-resultLoader" aria-live="assertive">
-          <!-- Added by JS -->
+          <!-- Loading message - Added by JS -->
         </p>
 
-        <div class="js-resultTarget js-isHidden">
-          <span class="js-resultValue">
-            <!-- Added by JS -->
-          </span>
+        <div class="js-resultValue">
+          <!-- List of products - Added by JS -->
         </div>
       </div>
 
@@ -73,9 +71,7 @@
 
     const elresultLoader = document.querySelector('.js-resultLoader');
     const elresultEmpty = document.querySelector('.js-resultEmpty');
-    const elresultTarget = document.querySelector('.js-resultTarget');
     const elresultValue = document.querySelector('.js-resultValue');
-    const elresultValueAnnounce = document.querySelector('.js-resultValueAnnounce');
 
     let formCount = 0;
     let isSubmitting = false;
@@ -93,7 +89,7 @@
       const hasValidTickets = checkTicketsValidation();
 
       if (hasValidTickets) {
-        // 💡 BONUS 2/x Updated attribute from disabled to aria-disabled
+        // 💡 BONUS 2/2 Updated attribute from disabled to aria-disabled
         elBtnSubmit.setAttribute("aria-disabled", "false");
         elTooltip.classList.remove("isActive");
       } else {
@@ -103,7 +99,7 @@
     }
 
     function handleBtnClick(event) {
-      // Do nothing. The submit happens on the form submit
+      // Do nothing. The submit happens at handleFormSubmit()
     }
 
     async function handleFormSubmit(event) {
@@ -136,7 +132,6 @@
 
       // Display the results!
       elresultValue.innerHTML = listOfResults(formCount);
-      elresultTarget.classList.remove('js-isHidden');
 
       // Hide the loader visually...
       elresultLoader.classList.add('sr-only')
