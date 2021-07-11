@@ -12,8 +12,8 @@ These are the material resources for my [Web Accessibility Fundamentals workshop
 
 To get the most out of the workshop, please do the following things in advance.
 
-- **Install [Zoom](http://zoom.com/)** to join the video call.
-  - If possible, turn your camera on, so we don't feel alone.
+- **Install [Zoom](http://zoom.com/)** to join the video call (if applicable).
+  - If possible, turn your camera on, so that we don't feel alone.
 - **The browser Chrome or Firefox installed.** I'll be using Chrome most of the time.
 - **Setup the project** prior to the workshop to avoid unexpected installation issues.
 - **Install the browser extensions** that we will use during the workshop.
@@ -64,7 +64,7 @@ At some point, we'll also use the following extensions:
 
 ## Screen Readers
 
-During a remote workshop it's not practical to teach everyone how to use a SR (screen reader). For that reason, please take some minutes (15-30) to practice in advance, with the help of these short friendly video tutorials:
+We'll explore SR (Screen Reader)in the 2nd or 3rd session of the workshop. During a remote workshop it's not practical to teach everyone how to use a SR. For that reason, please take some minutes (20-30) to practice in advance, with the help of these friendly video tutorials:
 
 - Mac: You'll use VO (Voice Over) [Watch VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
 - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
@@ -75,7 +75,7 @@ My favorite cheatsheet of keyboard shortcuts:
 - [VO and NVDA cheatsheet](https://dequeuniversity.com/screenreaders/survival-guide)
 - [Orca cheatsheet](https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en).
 
-I encourage you to use this [playground webpage](https://sgwvk.csb.app/) to practice.
+I encourage you to use this [playground](https://sgwvk.csb.app/) to practice.
 
 **Tip:** While the SR is speaking, press `Control` key to force it to stop reading it. This might help you to reduce the annoying/frustration feeling while exploring it.
 
