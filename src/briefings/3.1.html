@@ -23,7 +23,7 @@
 <ul>
 <li><strong>Role</strong> - The type of element. E.g a button, a heading or a list.</li>
 <li><strong>Name</strong> - The text to identify / describe the element.</li>
-<li><strong>State</strong> - Needed in dynamic elements - E.g, if a button is pressed or a menu opened.</li>
+<li><strong>State</strong> - Applicable in dynamic elements. E.g. A button is pressed or a menu is opened.</li>
 </ul>
 <p>For sighted people, the page visual appearance can be enough to understand an element's purpose. However, the same might not happen to people relying on AT (Assistive Technologies) Screen Readers.</p>
 <p>Most of the time, <em>role</em> and <em>name</em> are automatically included through semantic HTML. However, sometimes that's not enough.</p>
@@ -51,7 +51,7 @@
 &lt;span aria-role="button"&gt; Get started &lt;/span&gt;
 </code></pre>
 <p>This "visual button" is still not focusable and doesn't have keyboard event listeners. (Enter and Space keys). Whenever possible, prefer to use the native HTML elements and use ARIA only has an enhancement.</p>
-<p>There are <a href="https://www.w3.org/WAI/PF/aria-1.1/states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll explore some of the most common.</p>
+<p>There are <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll explore some of the most common.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.1.html">exercise page</a>,
 there are multiple cases where some pieces of information were forgotten or misused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
@@ -62,10 +62,10 @@ there are multiple cases where some pieces of information were forgotten or misu
 <li><a href="https://www.youtube.com/watch?v=xWPMfcjhts8">Accessibility Inspector (Chrome)</a></li>
 <li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Accessibility Inspector (Firefox)</a></li>
 <li><a href="https://w3c.github.io/using-aria/#rule1">First rule of ARIA use: don't use ARIA</a></li>
-<li><a href="https://www.w3.org/TR/wai-aria-practices/#names_and_descriptions">Naming techniques</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">MDN: ARIA Roles, States and Properties</a></li>
 <li><a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attributes</a></li>
-<li><a href="https://a11ysupport.io/">A11Y browser support</a></li>
-<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
+<li><a href="https://a11ysupport.io/">A11YSupport</a> - Like caniuse but for ARIA</li>
+<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on aria <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
 <li><a href="https://adrianroselli.com/2019/11/aria-label-does-not-translate.html">Translations to aria-* attributes</a></li>
 <li><a href="https://tink.uk/using-the-aria-current-attribute/">Using <code>aria-current</code></a></li>
 </ul>
