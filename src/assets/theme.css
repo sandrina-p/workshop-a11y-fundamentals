@@ -330,7 +330,7 @@ address {
 }
 
 .btnToggle .btn-svg {
-  fill: var(--theme-text_1);
+  fill: currentColor;
 }
 
 .btnToggle:hover,
@@ -343,10 +343,11 @@ address {
   box-shadow: var(--theme-focus_shadow);
 }
 
-.btnToggle.isPressed .btn-svg,
-/* 🍀 We can use attributes to style as well! */
-.btnToggle[aria-pressed="true"] .btn-svg {
-  fill: var(--theme-primary);
+.btnToggle.isPressed,
+/* 🍀 Use aria-* to style, and ensure A11Y. */
+.btnToggle[aria-pressed="true"] {
+  background-color: var(--theme-primary);
+  color: var(--theme-bg_0);
 }
 
 /* ------- BREADCRUMB -------  */

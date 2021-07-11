@@ -46,7 +46,7 @@ Notes:
         </svg>
       </button>
       <script>
-        // 💡 The JS part to update aria-pressed is already done for you.
+        // 💡 1/2 The JS part is already done...
         const elToggle = document.getElementsByClassName('js-addToFavorite')[0];
 
         elToggle.addEventListener('click', function () {
@@ -54,8 +54,9 @@ Notes:
           const method = isPressed ? 'remove' : 'add'
           // Toggle the button status visually
           elToggle.classList[method]('isPressed');
-          // 2/2 and semantically 💡
-          elToggle.setAttribute("aria-pressed", !isPressed);
+          // and semantically
+          // 💡 2/2 ...you just need to uncomment it
+          // elToggle.setAttribute("aria-pressed", !isPressed);
         })
       </script>
     </div>
