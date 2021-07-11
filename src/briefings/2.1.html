@@ -58,6 +58,14 @@ Adding some opacity or changing the color are common design approaches.</p>
 }
 </code></pre>
 <p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
+<p><strong>🍀 Tip:</strong> When using styles dependent on JS, take into account websites without JS. The prefix <code>.js-focus-visible</code> ensures we only customize the focus if the polyfill is working, leaving the default one intact in case the JS doesn't load.</p>
+<h3 id="2stylingbasedonchildfocus">#2 Styling based on child focus</h3>
+<p>Imagine a new design requirement to the input field:</p>
+<ul>
+<li>When focusing the input, the text "Nickname" turns purple.</li>
+</ul>
+<p>There's a CSS pseudo-selector that allow us to style an element when it contains a focused element. It's called <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within#css"><code>:focus-within</code></a></p>
+<p><strong>🎯 Goal:</strong> Use <code>:focus-within</code> to solve the new design requirement.</p>
 <p><strong>🍀 Tip:</strong> When using styles dependent on JavaScript, take into account websites without Javascript.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>

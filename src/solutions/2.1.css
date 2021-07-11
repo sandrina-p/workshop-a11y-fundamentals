@@ -24,6 +24,7 @@
   opacity: 0.8;
 }
 
+/* 💡 Link focus styles + Bonus #1 */
 .js-focus-visible .c-btnPrimary:focus {
   outline: none;
 }
@@ -43,6 +44,7 @@
   color: var(--theme-primary);
 }
 
+/* 💡 Link focus styles */
 .c-link:focus {
   outline: none;
   color: var(--theme-primary);
@@ -60,6 +62,8 @@
   border: 1px solid var(--theme-text_1);
 }
 
+/* 💡 Input focus styles */
+
 .textInput:hover {
   border-color: var(--theme-primary);
 }
@@ -67,4 +71,9 @@
 .textInput:focus {
   outline: none;
   box-shadow: var(--theme-focus_shadow);
+}
+
+/* 💡 Bonus #2 */
+.field:focus-within .field-txt {
+  color: var(--theme-primary);
 }
