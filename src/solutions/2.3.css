@@ -22,22 +22,17 @@
   box-shadow: white 0 0 0 1px, #ef7979 0 0 0 3px;
 }
 
-/*  ----------------------------------------- *\
-|*  You do not need to touch the code below   *|
-|*     but you can see how it was made.       *|
-\** ----------------------------------------- */
-
-/* Prevent some browser sfrom showing
-the ugly outline on focus */
-[tabindex="-1"] {
-  outline: none;
-}
-
+/* 💡 Bonus #1 */
 /* CSS animation shown when the element
 receives focus from an href="#" */
 #main:target {
   animation: tempRing 1500ms;
 }
+
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code below   *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
 
 @-webkit-keyframes tempRing {
   30%,

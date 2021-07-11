@@ -1,13 +1,19 @@
 @import url("2.2.css");
 
-/* 💡 Complete the skipLink */
-
 .skipLink {
-  /* some predefined styles: */
+  /* some predefined visuals */
   color: inherit;
   border: 1px solid #9d79ef;
   background-color: #fff;
   padding: 8px;
+  /* 💡 Complete the skipLink */
+  /* ... */
+}
+
+/* 💡 Bonus #1 */
+.your-selector-here {
+  /* Here's a pre-built animation for you */
+  animation: ring 1500ms;
 }
 
 /*  ----------------------------------------- *\
@@ -15,26 +21,14 @@
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
 
-/* Prevent some browser sfrom showing
-the ugly outline on focus */
-[tabindex="-1"] {
-  outline: none;
-}
-
-/* CSS animation shown when the element
-receives focus from an href="#" */
-#main:target {
-  animation: tempRing 1500ms;
-}
-
-@-webkit-keyframes tempRing {
+@-webkit-keyframes ring {
   30%,
   75% {
     box-shadow: white 0 0 0 1px, #ef7979 0 0 0 3px;
   }
 }
 
-@keyframes tempRing {
+@keyframes ring {
   30%,
   75% {
     box-shadow: white 0 0 0 1px, #ef7979 0 0 0 3px;
