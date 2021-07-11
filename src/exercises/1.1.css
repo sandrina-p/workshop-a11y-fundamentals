@@ -129,7 +129,7 @@ body * {
   color: var(--theme-text_0);
   border: 2px solid var(--theme-primary);
   cursor: pointer;
-  /* BONUS motion 1/2 */
+  /* 💡 Motion 1/2 */
   animation: zoom 3s infinite;
 }
 
@@ -142,7 +142,7 @@ body * {
   max-height: 16px;
   fill: currentColor;
   margin-right: 8px;
-  /* BONUS motion 2/2 */
+  /* 💡 Motion 2/2 */
   animation: shake 3s infinite;
 }
 
