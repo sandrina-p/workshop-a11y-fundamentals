@@ -64,7 +64,7 @@ At some point, we'll also use the following extensions:
 
 ## Screen Readers
 
-We'll explore SR (Screen Reader)in the 2nd or 3rd session of the workshop. During a remote workshop it's not practical to teach everyone how to use a SR. For that reason, please take some minutes (20-30) to practice in advance, with the help of these friendly video tutorials:
+We'll explore SR (Screen Reader) at the 2nd/3rd session of the workshop. During a remote workshop it's not practical to teach everyone how to use a SR. For that reason, please take some time (20-30 minutes) to practice in advance, with the help of these friendly video tutorials:
 
 - Mac: You'll use VO (Voice Over) [Watch VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
 - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
