@@ -21,7 +21,7 @@
 <h2 id="introduction">Introduction</h2>
 <p>Accessibility (A11Y) is more than making information available to people.</p>
 <p>As web creators we should respect people's preferences, so that they can perceive the content with ease, regardless of their abilities.</p>
-<p>Let's start with the two most common appearance topics: <em>color</em> and <em>proportions</em>.</p>
+<p>Let's start with the three most common appearance topics: <em>color</em>, <em>proportions</em> and <em>motion</em>.</p>
 <h3 id="color">Color</h3>
 <p>Color contrast is the <a href="https://webaim.org/projects/million/#wcag">biggest A11Y issue</a>, yet one of the easiest to fix, by following the <a href="https://webaim.org/articles/contrast/">WCAG color contrast guidelines</a>.</p>
 <p>Our vision can be highly dependent on our environment (e.g. looking to the phone screen under the sun is harder than inside a building). That's one of the reasons why color constrast is such an essential topic regardless of someone's vision ability.</p>
@@ -35,13 +35,13 @@
 <p>It's out of our control to know the exact size or font that will be presented to people because a webpage can be consumed in multiple mediums.</p>
 <p>For that reason, it's safer to <strong>think about <em>proportions</em> instead of <em>sizes</em> when building interfaces</strong>. This can be achieved by using relative units instead of absolute units for text size.</p>
 <p>The relative units <code>rem</code> and <code>em</code> are the best replacements for <code>px</code>. An <code>em</code> is a unit of typography, relative to the <code>font-size</code> of its nearest parent. A <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
-<p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>10px = 16px</code></strong>.</p>
+<p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>1rem = 16px</code></strong>.</p>
 <pre><code class="css language-css">.title {
   /*font-size: 24px; ---- old away */
   font-size: 1.5rem; /* - new way: 24/16 */
 }
 </code></pre>
-<p><strong>Math simplified:</strong> The math <code>x/16</code> can be painful when dealing with certain numbers. (eg 15px equals 0.9375rem). We can simplify that by setting the root size to 62.5%, which means <code>10px</code> equals <code>10px</code>.</p>
+<p><strong>Math simplified:</strong> The math <code>x/16</code> can be painful when dealing with certain numbers. (eg 15px equals 0.9375rem). We can simplify that by setting the root size to 62.5%, which means <code>1rem</code> equals <code>10px</code>.</p>
 <pre><code class="css language-css">html {
   /* 62.5% of 16px is 10px.  */
   font-size: 62.5%;
