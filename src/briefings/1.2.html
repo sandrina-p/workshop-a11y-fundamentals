@@ -32,10 +32,13 @@ People who read this page through an Assistive Technology (AT), for example, a <
 <h3 id="1orderofcontent">1. Order of content</h3>
 <p>In a book, the title is always the first thing to show up. However, on this page, the tag "On Sale" appears before the title.</p>
 <p><strong>🎯 Goal:</strong> <em>reorder the HTML elements</em> so that the title and the tag appear in the correct order, but without changing the design!</p>
-<p><strong>Hint:</strong> Perhaps some flexbox trick can help us to <em>reverse</em> the <em>order</em> visually.</p>
 <p><details>
-<summary>🍀 Flexbox hint</summary></p>
-<p>In case you are not familiar with CSS flexbox, there are 2 ways to display the tag before the title:</p>
+<summary>🍀 Toggle CSS hint #1</summary></p>
+<p>Perhaps some flexbox trick can help us to <em>reverse</em> the <em>order</em> visually.</p>
+<p></details></p>
+<p><details>
+<summary>🍀 Toggle CSS hint #2</summary></p>
+<p>With CSS flexbox there are 2 ways to display the tag before the title:</p>
 <ul>
 <li>in <code>.header</code>, reverse the order with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction"><code>flex-direction: column-reverse;</code></a>.</li>
 <li>or, in <code>.header-tag</code> move it to the top with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/order"><code>order: -1;</code></a>.
