@@ -1,9 +1,4 @@
-/*  💡 Bonus #1:
-  There are 2 ways to display the tag before the title:
-  - reverse the order with `flex-direction: column-reverse;`
-  or
-  - put the .header-tag on first place adding `order: -1;`
-*/
+/*  💡 Bonus #1 - reorder the title and sale tag */
 .header {
   display: flex;
   flex-direction: column;
