@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 🧩 4.1: Loading states
-🎯 Goal: Improve the loading state accessibility
+🎯 Goal: Improve A11Y of the the loading state
 -->
 <html lang="en">
 
@@ -126,17 +126,20 @@
       elresultValue.innerHTML = ''; // clean prev results
 
       elresultLoader.innerHTML = 'Loading products...'
-      elresultLoader.classList.remove('sr-only') // Show the loading for everyone
+      elresultLoader.classList.remove('sr-only')
 
       await fakeWaitTime(2500);
 
       // Display the results!
       elresultValue.innerHTML = listOfResults(formCount);
 
-      // Hide the loader visually...
-      elresultLoader.classList.add('sr-only')
-      // ...but still announce to AT that it's ready
+
+      // 💡 Solution 2/2
+      // Announce to AT that it's ready
       elresultLoader.innerHTML = 'Products loaded!'
+      // But hide it visually to respect design specs...
+      // Note: Remove sr-only when loading starts (line 129)
+      elresultLoader.classList.add('sr-only')
 
       elBtnSubmit.setAttribute("data-loading", "false");
 
