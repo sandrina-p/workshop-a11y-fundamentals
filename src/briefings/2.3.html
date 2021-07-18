@@ -51,9 +51,8 @@ let's create a "Skip Navigation" link to jump directly to the main section of th
 <h3 id="1targetstyling">#1 Target styling</h3>
 <p>When creating skip links using id <code>#</code>, we can style them when focused using the CSS pseudo-selector <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:target"><code>:target</code></a>.</p>
 <p><strong>🎯 Goal:</strong> Use <code>:target</code> to style the main area when it's focused.</p>
-<h2 id="considerations">Considerations</h2>
 <ul>
-<li>With this HTML only approach, you'll notice the skip link only works once unfortunately. Because the <code>#main</code> selector is added to the page URL, if triggered again it will be ignored, unless the URL no longer contains that anchor id.</li>
+<li>Limitation: With this approach, you'll notice the target animation only works once. Because the <code>#main</code> selector is added to the page URL, when triggered again it will be ignored, unless the URL no longer contains that selector. To overcome this, JS would be required.</li>
 </ul>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
