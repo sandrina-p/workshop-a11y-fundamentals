@@ -65,10 +65,18 @@ Notes:
     <div class="g-card">
       <h2 class="g-cardTitle">Case #3</h2>
       <p>
-        Links should make sense out of context. Phrases such as "click here," "read more", and so on
+        Links should make sense out of context. Phrases such as "click here" or "read more"
         are ambiguous when read out of context.
-        <!-- 💡 Could we provide a better link description? -->
+        <!-- 💡 Could we provide a unique link description? -->
         <a href="https://webaim.org/techniques/hypertext/link_text" class="link">
+          Read more.
+        </a>
+      </p>
+
+      <p>
+        Adding alternative text for images is the first principle of web accessibility. It is also one
+        of the most difficult to properly implement.
+        <a href="https://webaim.org/techniques/alttext/" class="link">
           Read more.
         </a>
       </p>
@@ -91,20 +99,17 @@ Notes:
       </nav>
     </div>
 
-    <!-- Case #5 - Confusing content -->
+    <!-- Case #5 - Severity of content -->
+    <!-- 💡 Visually we perceive the severity of this message. (It's a warning.)
+      But semanticaly, there is no way for a SR user to understand that.
+      How would you make it clear for them? -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #5</h2>
-      <!--
-            💡 This button instruction is confusing for a SR user. They don't
-            know if they should press "enter" on the button or on the element
-            that announces the instruction.
-            How you would solve this? Perhaphs we could remove the redudancy?
-          -->
-      <div class="u-colCenter">
-        <button class="btn btnPrimary">
-          Start
-        </button>
-        <span id="startHint">or press enter</span>
+      <div class="g-alert g-alert--warning">
+        <svg viewbox="0 0 24 24">
+          <path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"></path>
+        </svg>
+        Your subscription will end in 6 days.
       </div>
     </div>
 

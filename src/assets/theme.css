@@ -101,6 +101,25 @@ address {
   margin: 32px 0;
 }
 
+.g-alert {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.g-alert--warning {
+  color: hsl(35deg 100% 20%);
+  background-color: hsl(35deg 100% 90%);
+}
+
+.g-alert svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  margin-right: 8px;
+}
+
 .g-footer {
   position: relative;
   background: var(--theme-bg_1);

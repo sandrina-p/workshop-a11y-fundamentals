@@ -61,11 +61,19 @@ Notes:
     <div class="g-card">
       <h2 class="g-cardTitle">Case #3</h2>
       <p>
-        Links should make sense out of context. Phrases such as "click here", "read more" and so on
+        Links should make sense out of context. Phrases such as "click here" or "read more"
         are ambiguous when read out of context.
         <a href="https://webaim.org/techniques/hypertext/link_text" class="link"
           aria-label="Read hypertext techniques article">
           Read more.
+        </a>
+      </p>
+
+      <p>
+        Adding alternative text for images is the first principle of web accessibility. It is also one
+        of the most difficult to properly implement.
+        <a href="https://webaim.org/techniques/alttext/" class="link">
+          Read more<span class="sr-only">about alternative text for images</span>.
         </a>
       </p>
     </div>
@@ -82,16 +90,16 @@ Notes:
       </nav>
     </div>
 
-    <!-- Case #5 - Confusing descriptions -->
+    <!-- Case #5 - Severity of content -->
     <div class="g-card">
       <h2 class="g-cardTitle">Case #5</h2>
-      <div class="u-colCenter">
-        <!-- 1/2 Give a more meaningful purpose to start. Start what?  -->
-        <button class="btn btnPrimary">
-          Start <span class="sr-only">chapter 3</span>
-        </button>
-        <!-- 2/2 Hide the actual instruction from SR using aria-hidden="true" -->
-        <span aria-hidden="true">or press enter</span>
+      <div class="g-alert g-alert--warning">
+        <!-- 💡 This icon is not only decorative, it's also informative.
+        We can use sr-only to provide that additional info. -->
+        <svg viewbox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"></path>
+        </svg>
+        <span class="sr-only">Warning:</span> Your subscription will end in 6 days.
       </div>
     </div>
 
@@ -121,6 +129,27 @@ Notes:
         </pre>
       <p>ASCII art is cool but a meaningless for screen readers.</p>
     </div>
+
+    <!-- ARCHIVE/OLD: Case #5 - Confusing content -->
+    <!--
+      💡 The instruction of this button is confusing for a SR user. They don't
+      know if they should press "enter" on the button or on the element
+      that announces the instruction (or press enter).
+      How you would solve this? Perhaphs we could remove the redudancy?
+    -->
+    <!--
+      <div class="g-card">
+        <h2 class="g-cardTitle">Case #5</h2>
+        <div class="u-colCenter">
+          <-!- 1/2 Give a more meaningful purpose to the button action  -!->
+          <button class="btn btnPrimary">
+            Start <span class="sr-only">chapter 3</span>
+          </button>
+          <-!- 2/2 Hide the redundant instruction from SR. -!->
+          <span aria-hidden="true">or press enter</span>
+        </div>
+      </div>
+    -->
   </main>
 </body>
 
