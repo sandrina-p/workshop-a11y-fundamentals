@@ -29,7 +29,10 @@
 &lt;!-- An extra label should be added when a
 landmark is used multiple times. --&gt;
 &lt;nav aria-label="website"&gt;...&lt;/nav&gt;
-&lt;nav aria-label="T.O.C."&gt;...&lt;/nav&gt;
+&lt;nav aria-label="Table of Contents"&gt;...&lt;/nav&gt;
+</code></pre>
+<p>We can also create custom landmarks with <code>role="region"</code> to mark important parts of the page.</p>
+<pre><code class="html language-html">&lt;div role="region" aria-label="Recommended"&gt;...&lt;/div&gt;
 </code></pre>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.2.html">exercise page</a>,
@@ -43,14 +46,16 @@ there are at least four landmarks besides the main content: the primary navigati
 </ul>
 <h2 id="bonus">Bonus</h2>
 <h3 id="1languageofthepage">#1 Language of the page</h3>
-<p>Use a SR to read the "Good morning" part. You'll notice that it's not pronounced correctly in the three idioms presented. This is a very annoying issue for SR users who visit a page in a language different from their system settings.</p>
+<p>Use a SR to read the "Good morning" part. You'll notice that it's not pronounced correctly in the three idioms presented. This can be an annoying issue for SR users who visit a page in a language different than their system settings.</p>
 <p>To fix it, the <code>lang</code> attribute needs to be added to the element that contains a different idiom.</p>
 <pre><code class="html language-html">&lt;!-- "Hello world!" in Portuguese --&gt;
 &lt;p lang="pt-PT"&gt;Olá mundo&lt;/p&gt;
 </code></pre>
 <p><strong>🎯 Goal:</strong> Add the idiom of any different content.</p>
 <p><strong>🍀 Tip:</strong> Here's a list of all <a href="http://www.lingoes.net/en/translator/langcode.htm">ISO Language Codes</a> to help you.</p>
-<p>Note: All pages in this site have <code>&lt;html lang="en"&gt;</code> by default.</p>
+<p>Note #1: All pages in this site have <code>&lt;html lang="en"&gt;</code> by default.</p>
+<p>Note #2: In Windows you may not see the country flags emojis (eg 🇫🇷 = FR).</p>
+<p>Note #3: Your SR might not include the <a href="https://accessibility.psu.edu/foreignlanguages/">foreign language required</a> to pronounce the content with the correct accent.</p>
 <h3 id="2contenthierarchyandrelations">#2 Content hierarchy and relations</h3>
 <p>You might be aware of <code>&lt;section&gt;</code> and <code>&lt;article&gt;</code> tags and wondering when to use each other.
 There's no better way to discover it than by using it yourself with a screen reader.</p>
