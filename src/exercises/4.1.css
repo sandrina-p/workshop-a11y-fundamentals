@@ -51,8 +51,8 @@
   font-size: 1.8rem;
 }
 .fieldInput:focus {
-  outline: none;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 .fieldInput::-webkit-outer-spin-button,
 .fieldInput::-webkit-inner-spin-button {
@@ -86,8 +86,8 @@
 }
 
 .btnSubmit:focus-visible {
-  outline: none;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 
 /* loading indicator */

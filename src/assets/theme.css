@@ -33,6 +33,8 @@ html {
   --theme-secondary: hsl(27deg 100% 56%);
   --theme-focus_shadow: var(--theme-bg_0) 0 0 0 2px,
     var(--theme-secondary) 0 0 0 4px;
+  /* Fallback for Windows high contrast: https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/ */
+  --theme-focus_outline: 2px solid transparent;
 }
 
 body {
@@ -333,8 +335,8 @@ address {
 .btnPrimary:focus,
 .btnOutline:focus,
 .btnCircle:focus {
-  outline: none;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 
 .btn-svg {
@@ -430,9 +432,9 @@ address {
 }
 
 .link:focus-visible {
-  outline: none;
   border-radius: 4px;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 
 .link.isCurrent {

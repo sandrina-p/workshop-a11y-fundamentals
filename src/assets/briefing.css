@@ -21,9 +21,9 @@ a:hover {
 }
 
 a:focus {
-  outline: none;
   background-color: var(--theme-bg_1);
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 
 pre {
@@ -112,4 +112,5 @@ summary {
 
 .bfg-hotlinks a:focus {
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }

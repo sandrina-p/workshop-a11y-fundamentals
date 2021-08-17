@@ -33,8 +33,8 @@
   border: 1px solid;
 }
 .stgs-toggleTheme:focus-within {
-  outline: none;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 .stgs-toggleTheme input {
   position: absolute;
@@ -61,8 +61,8 @@
   border: 1px solid;
 }
 .stgs-btnOnOff:focus {
-  outline: none;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 .stgs-btnOnOff .on,
 .stgs-btnOnOff .off {
@@ -107,6 +107,7 @@
 
 .stgs-toolbar input:focus + .stgs-toolbar-item {
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 
 .stgs-toolbar input:checked + .stgs-toolbar-item {

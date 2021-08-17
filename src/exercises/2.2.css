@@ -78,6 +78,7 @@
 .c-checkbox input:focus + :last-child::before {
   border-color: #8c00ff;
   box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
 }
 
 .c-checkbox:last-child::before,
