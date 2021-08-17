@@ -47,11 +47,11 @@
 &lt;!-- In portuguese: "Fechar dialogo, botão" --&gt;
 </code></pre>
 <p>Note that <strong>ARIA never modifies an element styling or behavior</strong>. Check the next example:</p>
-<pre><code class="html language-html">&lt;!-- Careful: Not enough! --&gt;
-&lt;span aria-role="button"&gt; Get started &lt;/span&gt;
+<pre><code class="html language-html">&lt;!-- This isn't enough! --&gt;
+&lt;span role="button"&gt; Get started &lt;/span&gt;
 </code></pre>
 <p>This "visual button" is still not focusable and doesn't have keyboard event listeners. (Enter and Space keys). Whenever possible, prefer to use the native HTML elements and use ARIA only has an enhancement.</p>
-<p>There are <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#states_and_properties">more than 45 <code>aria-*</code> attributes</a>. Today we'll explore some of the most common.</p>
+<p>There are <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">more than 45 <code>aria-*</code> attributes</a>. Today we'll explore some of the most common.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.1.html">exercise page</a>,
 there are multiple cases where some pieces of information were forgotten or misused. Some <code>aria-*</code> attributes and <code>.sr-only</code> class will be your friends here.</p>
@@ -59,13 +59,8 @@ there are multiple cases where some pieces of information were forgotten or misu
 <p><strong>Hint:</strong> Use the Accessibility tab on DevTools to verify if the accessible name is working. It can be an alternative to screen readers.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=xWPMfcjhts8">Accessibility Inspector (Chrome)</a></li>
-<li><a href="https://www.youtube.com/watch?v=7mqqgIxX_NU&t">Accessibility Inspector (Firefox)</a></li>
 <li><a href="https://w3c.github.io/using-aria/#rule1">First rule of ARIA use: don't use ARIA</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">MDN: ARIA Roles, States and Properties</a></li>
-<li><a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def">ARIA attributes</a></li>
 <li><a href="https://a11ysupport.io/">A11YSupport</a> - Like caniuse but for ARIA</li>
-<li><a href="https://developer.paciellogroup.com/blog/2017/07/short-note-on-aria-label-aria-labelledby-and-aria-describedby/">Short note on aria <code>aria-label</code>, <code>aria-labelledby</code> and <code>aria-describedby</code></a>.</li>
 <li><a href="https://adrianroselli.com/2019/11/aria-label-does-not-translate.html">Translations to aria-* attributes</a></li>
 <li><a href="https://tink.uk/using-the-aria-current-attribute/">Using <code>aria-current</code></a></li>
 </ul>

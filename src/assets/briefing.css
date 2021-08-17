@@ -89,6 +89,10 @@ hr {
   border-bottom: 1px solid var(--theme-primary_smooth);
 }
 
+summary {
+  margin-bottom: 4px;
+}
+
 .bfg-hotlinks {
   position: fixed;
   top: 0;

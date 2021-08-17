@@ -30,28 +30,44 @@ opacity: 0;
 display: none;
 visibility: hidden;
 </code></pre>
-<p>We can also hide part of the DOM completely, with the attribute <code>inert</code>. This will tell the browser to "ignore" the elements inside as if they didn't exist.</p>
 <pre><code class="html language-html">&lt;!-- Even invisible, "Get started" can be clicked / focused --&gt;
 &lt;div style="opacity: 0"&gt;
   &lt;button&gt;Get started&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<pre><code class="html language-html">&lt;!-- With `inert`, we cannot interact with "Add to cart" --&gt;
+<p>To completely remove the interaction, we need to use the attribute <code>inert</code>. This tells the browser to "ignore" the elements inside as if they didn't exist.</p>
+<pre><code class="html language-html">&lt;!-- With `inert`, we cannot interact with the child button --&gt;
 &lt;div style="opacity: 0" inert="true"&gt;
   &lt;button&gt;Get started&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/2.2.html">exercise page</a>,
-there's a sidebar that can be toggled through a <code>&lt;button&gt;</code>. Use your keyboard to navigate through the page. You'll notice the links inside the sidebar are still accessible even if the menu is hidden.</p>
+there's a sidebar that can be toggled through a <code>&lt;button&gt;</code>. Use your keyboard to navigate the page. You'll notice the links inside the sidebar are still accessible even if the menu is hidden.</p>
 <p><strong>🎯 Goal:</strong> Make the interactive elements only accessible when visible.</p>
 <p><strong>Hint 1:</strong> Use Accessibility Insights "Tab Stops" feature to detect errors within interactive elements.</p>
 <p><strong>Hint 2:</strong> The attribute <code>inert</code> lacks browser support, so we need the <a href="https://github.com/WICG/inert">inert polifyll</a>.</p>
 <pre><code class="html language-html">&lt;!-- Include the inert polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-inert.js"&gt;&lt;/script&gt;
 </code></pre>
+<h2 id="bonus">Bonus</h2>
+<h3 id="1csstransitions">1. CSS transitions</h3>
+<p>This bonus is not about A11Y, it's about CSS transitions. I highly recommend you to pair with your group to explore this one!</p>
+<p>The text <em>"Here's a random article."</em> has a fade-in/fade-out transition done with CSS <code>opacity</code> and <code>transition</code>.</p>
+<p>Assuming you solved the A11Y exercise correctly, you've added <code>visibility:hidden;</code> to the element when it's hidden. But wait… now the fade-out transition is gone!</p>
+<p><strong>Goal:</strong> Ensure the fade-in and fade-out transitions work as before. This can be solved with <em>only CSS</em>.</p>
+<p><strong>Hint:</strong> In Chrome, go to <a href="https://developer.chrome.com/docs/devtools/css/animations/">"More tools > Animations"</a>. This panel helps you to inspect animations and find a solution.</p>
+<p><details>
+<summary>🍀 Toggle CSS hint #1</summary>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">CSS transitions</a> have multiple properties. We can use them to better control how the transition happens.
+</details></p>
+<p><details>
+<summary>🍀 Toggle CSS hint #2</summary>
+Check <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay"><code>transition-delay</code></a>. With that we can better control <em>when</em> the <code>visibility</code> happens.
+</details></p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
+<li><a href="https://kittygiraudel.com/2021/02/17/hiding-content-responsibly/">Hiding Content Responsibly</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert"><code>inert</code> attribute</a></li>
 <li><a href="https://www.scottohara.me/blog/2018/09/03/details-and-summary.html">Tag details and summary</a></li>
 </ul>
