@@ -26,12 +26,15 @@ Notes:
 
     <!-- Case #1 -->
     <div class="g-card case1">
+      <!-- 💡 When the graphics used only for aesthical purposes, leave an empty alt. -->
       <img class="case1-img" src="../assets/imgs/piano-1.jpg" alt="" />
       <h2 class="case1-text">Start your piano classes today!</h2>
     </div>
 
     <!-- Case #2 -->
     <div class="g-card case2">
+      <!-- 💡 When the avatar is immediately described (in this case the name)
+        the alt text would be redundant. So, it's better to leave the alt empty. -->
       <img src="../assets/imgs/mozart-1.jpg" alt="" />
       <div class="case2-content">
         <span class="case2-name">Wolfgang Amadeus Mozart</span>
@@ -44,6 +47,8 @@ Notes:
 
     <!-- Case #3 -->
     <div class="g-card case3">
+      <!-- 💡 In figures, usually the caption describes what the image is about.
+        Therefore the alt text should describe how the image looks like. -->
       <figure>
         <img class="case3-img" src="../assets/imgs/mozart-2.jpg" alt="Mozart standing in front of his piano" />
         <figcaption class="case3-caption">
@@ -53,9 +58,13 @@ Notes:
     </div>
 
     <!-- Case #4 -->
-    <a class="g-card case4" href="https://soundcloud.comClassical Music Playlist">
-      <img class="case4-img" src="../assets/imgs/soundcloud.jpg" alt="soundcloud" />
-      <span class="case4-text">Classical Music Playlist</span>
+    <a class="g-card case4" href="https://soundcloud.com/hasnaa-tabra/sets/classical-music">
+      <!-- 💡 In this link case, the alt should complement the link purpose, not the img itself.
+        In this case, it's not needed to say it's an "icon" or "logo".
+        🍀 What about empty alt? Then, the user wouldn't know the link destiny is soundclound.
+      -->
+      <img class="case4-img" src="../assets/imgs/soundcloud.jpg" alt="Soundcloud" />
+      <span class="case4-text">Classical music playlist</span>
     </a>
   </main>
 </body>
