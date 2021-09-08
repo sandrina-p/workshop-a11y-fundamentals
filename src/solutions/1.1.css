@@ -133,9 +133,9 @@
 
 /* ------- Details & CTA -------  */
 
-.details + .details {
+.details {
   padding-top: 16px;
-  margin-top: 32px;
+  margin-top: 16px;
   border-top: 1px solid var(--theme-primary);
 }
 
