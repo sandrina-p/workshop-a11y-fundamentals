@@ -30,6 +30,51 @@
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
 
+.title-xl {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.title-lg {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.title-md {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.text-sm {
+  font-size: 1.4rem;
+}
+
+/* ------- Header -------  */
+
+.company-links {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 16px;
+  margin: 0 0 -90px;
+}
+
+.company-links {
+  list-style: none;
+  padding-right: 0;
+}
+
+.company-links a {
+  margin: 0 8px;
+}
+
+/* ------- Main -------  */
+
 .tagSecondary {
   padding: 2px 4px;
   text-transform: uppercase;
@@ -39,8 +84,6 @@
   color: #a75000;
   line-height: 1;
 }
-
-/* ------- Header -------  */
 
 .header-plantName {
   margin-bottom: 16px;
@@ -90,13 +133,10 @@
 
 /* ------- Details & CTA -------  */
 
-.details {
-  border-top: 1px solid #9b78de;
+.details + .details {
   padding-top: 16px;
-}
-
-.details-title {
-  margin-bottom: 8px;
+  margin-top: 32px;
+  border-top: 1px solid var(--theme-primary);
 }
 
 .details-part:nth-child(2) {
@@ -108,7 +148,8 @@
 
 .details-text {
   line-height: 1.5;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
 .price {

@@ -23,11 +23,10 @@
 <p>One of the Web standards consists in writing semantic HTML markup: Go beyond <code>&lt;div /&gt;</code> and <code>&lt;span&gt;</code> (non-semantic elements) and replace them by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">semantic elements</a>. Use them where it makes sense: to describe sections, text, media, and so on. This way, we are not only writing <strong>readable code</strong>, but we are also making the web a more <strong>accessible place</strong>.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/1.1.html">exercise page</a>,
-there's a layout implemented that follows appearance guidelines.
-However, under the hood, if we see the page naked (without CSS styles), it doesn't make much sense.
-People who read this page through an Assistive Technology (AT), for example, a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader">screen reader</a>, will struggle to understand it properly.</p>
-<p><strong>🎯 Goal:</strong> Improve the HTML by using semantic elements.</p>
-<p><strong>Tip:</strong> You can start by removing the styles and try to read the page as if it was a book: plain old text. Improve the HTML until this book makes sense to you.</p>
+there's a layout implemented that looks good but the semantics are a mess.</p>
+<p>People who read this page through an Assistive Technology (AT), for example, a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Screen_reader">SR (screen reader)</a>, will struggle to understand and interact with the page.</p>
+<p><strong>🎯 Goal:</strong> Improve the HTML by using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">semantic elements</a>.</p>
+<p><strong>Tip:</strong> For now, we won't use a SR. Instead, remove the page styles and imagine the page as if it was a book: plain old text. Improve the HTML until this book makes sense to you.</p>
 <h2 id="bonus">Bonus</h2>
 <h3 id="1orderofcontent">1. Order of content</h3>
 <p>In a book, the title is always the first thing to show up. However, on this page, the tag "On Sale" appears before the title.</p>
@@ -52,6 +51,8 @@ People who read this page through an Assistive Technology (AT), for example, a <
 <p><strong>Hint:</strong> What CSS will you use at <code>.visually-hidden</code>? There are better ways to hide content than using <code>display: none;</code>. Check how to <a href="https://a11yproject.com/posts/how-to-hide-content/">visually hide content</a>.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
+<li><a href="https://www.learningapps.co.uk/moodle/xertetoolkits/play.php?template_id=1309#page1section3">Extension <code>headingsMap</code></a> - Chrome or Firefox</li>
+<li><a href="https://webaim.org/techniques/semanticstructure/">Semantic Structure</a></li>
 <li><a href="https://web.dev/heading-order/?utm_source=lighthouse">The importance of Heading order</a></li>
 <li><a href="https://a11yproject.com/posts/how-to-hide-content/">How to hide content</a></li>
 <li><a href="https://www.smashingmagazine.com/2020/01/html5-article-section/">HTML5 deep dive into article and section</a></li>

@@ -22,21 +22,30 @@ Notes:
 </head>
 
 <body>
-  <main>
-    <div class="content">
+  <div>
+    <header>
+      <!-- 💡 This looks like a list of links for the website navigation -->
+      <div class="company-links">
+        <a href="#fake" class="link">Home</a>
+        <a href="#fake" class="link">All plants</a>
+        <a href="#fake" class="link">Login</a>
+      </div>
+    </header>
+
+    <main class="content">
       <div class="g-card">
 
         <div class="header">
           <span class="header-tag tagSecondary">On Sale</span>
-          <!-- 💡 This is clearly the main heading of the page.
-          Every page must have one heading <h1> -->
+          <!-- 💡 Headings are a critical part of semantics.
+            Every page must have one h1 heaing -->
           <div class="title-xl header-plantName">
             Monstera Deliciosa
           </div>
         </div>
 
         <div class="info">
-          <!-- 💡 This looks like a list, right? -->
+          <!-- 💡 Does this look like a type of list? -->
           <div class="topic info-part">
             <span class="topic-item">
               <span class="topic-key">Family</span>
@@ -44,7 +53,7 @@ Notes:
             </span>
             <span class="topic-item">
               <span class="topic-key">Temperature</span>
-              <span class="topic-value title-lg">20º (70F)</span>
+              <span class="topic-value title-lg">20ºC</span>
             </span>
             <span class="topic-item">
               <span class="topic-key">Water</span>
@@ -53,17 +62,12 @@ Notes:
           </div>
 
           <div class="media info-part">
-            <img class="media-img" src="../assets/imgs/monstera.png" alt="the plant in a white vase">
+            <img class="media-img" src="../assets/imgs/monstera.png" alt="a plant in a vase">
           </div>
         </div>
 
         <div class="details">
           <div class="details-part">
-            <!-- 💡 Having a solid correct heading hierarchy is crutial.
-            Although this title looks like a "title-lg" (styles) in reality
-            it should be a h2 because it comes after the h1 above
-             -->
-            <h3 class="details-title title-md">Details</h3>
             <p class="details-text">Monstera deliciosa, also known as the Swiss cheese plant, is a species of flowering
               plant native to tropical forests of southern Mexico, south to Panama.</p>
           </div>
@@ -73,19 +77,38 @@ Notes:
               <span class="price-original">
                 $40.00
               </span>
-              <!-- 💡 Once again, this may look like a "title-lg" but semantically
-              it's just "normal text" without any special meaning -->
-              <h2 class="price-final title-lg">
+              <!-- 💡 This may look like a "title-h2", but semantically
+                it's not a title, isn't it? It's just a "normal text" -->
+              <h2 class="price-final title-h2">
                 $30.00
               </h2>
             </div>
-            <!-- 💡 4/4 This element is clickable, what better element could it be? -->
+            <!-- 💡 This element is clickable, what better element could it be? -->
             <div class="btn btnPrimary js-addToCart">Add to cart</div>
           </div>
         </div>
+
+        <div class="details">
+          <h3 class="title-md">The different names across the world</h3>
+          <p class="text-sm">
+            Monstera adansonii, which also has holes in the leaves, is also called "Swiss cheese plant", or Swiss
+            cheese vine.
+          </p>
+          <p class="text-sm">
+            Other common names include delicious monster, fruit salad plant, fruit salad tree, ceriman, monster fruit,
+            monsterio delicio, monstereo, Mexican breadfruit, windowleaf, balazo, Penglai banana and (inaccurately)
+            split
+            leaf philodendron.
+          </p>
+          <p class="text-sm">
+            The names in Spanish (costilla de Adán), Portuguese (costela-de-adão), and French (plante
+            gruyère) In Mexico, the plant is sometimes referred to as piñanona. In coastal regions of Sicily,
+            especially Palermo, it is called zampa di leone (lion's paw).
+          </p>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
 </body>
 
 <!-- You can ignore the code below. -->
