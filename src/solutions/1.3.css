@@ -107,15 +107,18 @@ body * {
 }
 
 /* 💡 To meet WCAG 1.4.1 (Use of color)
-  we cant use color as the only way to give meaning */
+  we can't use color as the only way to give meaning */
 .list li[data-status="no"]::before {
   content: "●";
   color: var(--theme-text_1);
+  font-family: sans-serif;
 }
 
 .list li[data-status="yes"]::before {
+  /* 💡 With ✓, the shape is different regardless of the color */
   content: "✓";
   color: var(--theme-success);
+  font-family: sans-serif;
 }
 
 .list li[data-status="no"] {

@@ -89,16 +89,18 @@ body * {
 }
 
 /* 💡 To meet WCAG 1.4.1 (Use of color)
-  we cant use color as the only way to give meaning */
+  we can't use color as the only way to give meaning */
 .list li[data-status="no"]::before {
   content: "●";
   color: #9c9c9c;
+  font-family: sans-serif;
 }
 
 .list li[data-status="yes"]::before {
   /* 💡 We can replace this with ✓ check character */
   content: "●";
-  color: green;
+  color: var(--theme-success);
+  font-family: sans-serif;
 }
 
 .list li[data-status="no"] {
