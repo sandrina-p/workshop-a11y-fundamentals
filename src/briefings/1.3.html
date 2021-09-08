@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
-
 <head>
   <title>Briefing #1.3</title>
   <meta charset="utf-8">
@@ -12,51 +11,38 @@
 </head>
 
 <body>
-  <div class="bfg-hotlinks">
-    <a href="../index.html">Go back</a>
-    <a href="/solutions/1.3.html" target="_blank">Solution</a>
-  </div>
-  <main>
-
-    <h1 id="11appearance">1.3 Appearance</h1>
-    <h2 id="introduction">Introduction</h2>
-    <p>Accessibility (A11Y) is more than making information available to people.</p>
-    <p>As web creators we should respect people's preferences, so that they can perceive the content with ease,
-      regardless of their abilities.</p>
-    <p>Let's start with the three most common appearance topics: <em>color</em>, <em>proportions</em> and
-      <em>motion</em>.</p>
-    <h3 id="color">Color</h3>
-    <p>Color contrast is the <a href="https://webaim.org/projects/million/#wcag">biggest A11Y issue</a>, yet one of the
-      easiest to fix, by following the <a href="https://webaim.org/articles/contrast/">WCAG color contrast
-        guidelines</a>.</p>
-    <p>Our vision can be highly dependent on our environment (e.g. looking to the phone screen under the sun is harder
-      than inside a building). That's one of the reasons why color constrast is such an essential topic regardless of
-      someone's vision ability.</p>
-    <p>My favorite color tools:</p>
-    <ul>
-      <li><a href="https://webaim.org/resources/contrastchecker/">WebAIM contrast checker</a> - Web page</li>
-      <li><a href="https://colourcontrast.cc/">Colour Contrast</a> - Web page</li>
-      <li><a href="https://www.getstark.co/">Stark</a> - Figma plugin</li>
-    </ul>
-    <h3 id="proportionssize">Proportions (size)</h3>
-    <p>It's out of our control to know the exact size or font that will be presented to people because a webpage can be
-      consumed in multiple mediums.</p>
-    <p>For that reason, it's safer to <strong>think about <em>proportions</em> instead of <em>sizes</em> when building
-        interfaces</strong>. This can be achieved by using relative units instead of absolute units for text size.</p>
-    <p>The relative units <code>rem</code> and <code>em</code> are the best replacements for <code>px</code>. An
-      <code>em</code> is a unit of typography, relative to the <code>font-size</code> of its nearest parent. A
-      <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
-    <p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that
-      <strong><code>1rem = 16px</code></strong>.</p>
-    <pre><code class="css language-css">.title {
+<div class="bfg-hotlinks">
+  <a href="../index.html">Go back</a>
+  <a href="/solutions/1.3.html" target="_blank">Solution</a>
+</div>
+<main>
+  
+<h1 id="13appearance">1.3 Appearance</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Accessibility (A11Y) is more than making information available to people.</p>
+<p>As web creators we should respect people's preferences, so that they can perceive the content with ease, regardless of their abilities.</p>
+<p>Let's start with the three most common appearance topics: <em>color</em>, <em>proportions</em> and <em>motion</em>.</p>
+<h3 id="color">Color</h3>
+<p>Color contrast is the <a href="https://webaim.org/projects/million/#wcag">biggest A11Y issue</a>, yet one of the easiest to fix, by following the <a href="https://webaim.org/articles/contrast/">WCAG color contrast guidelines</a>.</p>
+<p>Our vision can be highly dependent on our environment (e.g. looking to the phone screen under the sun is harder than inside a building). That's one of the reasons why color constrast is such an essential topic regardless of someone's vision ability.</p>
+<p>My favorite color tools:</p>
+<ul>
+<li><a href="https://webaim.org/resources/contrastchecker/">WebAIM contrast checker</a> - Web page</li>
+<li><a href="https://colourcontrast.cc/">Colour Contrast</a> - Web page</li>
+<li><a href="https://www.getstark.co/">Stark</a> - Figma plugin</li>
+</ul>
+<h3 id="proportionssize">Proportions (size)</h3>
+<p>It's out of our control to know the exact size or font that will be presented to people because a webpage can be consumed in multiple mediums.</p>
+<p>For that reason, it's safer to <strong>think about <em>proportions</em> instead of <em>sizes</em> when building interfaces</strong>. This can be achieved by using relative units instead of absolute units for text size.</p>
+<p>The relative units <code>rem</code> and <code>em</code> are the best replacements for <code>px</code>. An <code>em</code> is a unit of typography, relative to the <code>font-size</code> of its nearest parent. A <code>rem</code> is only relative to the html (root) <code>font-size</code>.</p>
+<p>The default <code>font-size</code> in almost every browser is <code>16px</code>. Assuming that, we can say that <strong><code>1rem = 16px</code></strong>.</p>
+<pre><code class="css language-css">.title {
   /*font-size: 24px; ---- old away */
   font-size: 1.5rem; /* - new way: 24/16 */
 }
 </code></pre>
-    <p><strong>Math simplified:</strong> The math <code>x/16</code> can be painful when dealing with certain numbers.
-      (eg 15px equals 0.9375rem). We can simplify that by setting the root size to 62.5%, which means <code>1rem</code>
-      equals <code>10px</code>.</p>
-    <pre><code class="css language-css">html {
+<p><strong>Math simplified:</strong> The math <code>x/16</code> can be painful when dealing with certain numbers. (eg 15px equals 0.9375rem). We can simplify that by setting the root size to 62.5%, which means <code>1rem</code> equals <code>10px</code>.</p>
+<pre><code class="css language-css">html {
   /* 62.5% of 16px is 10px.  */
   font-size: 62.5%;
 }
@@ -70,14 +56,11 @@ body {
   font-size: 2.8rem; /* ------ new way */
 }
 </code></pre>
-    <h3 id="motion">Motion</h3>
-    <p>We tend to use motion techniques as a way to communicate information. However, some people find them distracting
-      or uncomfortable. Others can't even see the animations, particularly people with cognitive disabilities or slow
-      devices.</p>
-    <p>Remember that <strong>animations are an enhancement</strong> and should not be a barrier to understand the
-      content. Creating immersive experiences can't be an excuse to bypass accessibility.</p>
-    <p>The CSS media query <code>preferes-reduced-motion</code> allows us to respect the user's motion preferences.</p>
-    <pre><code class="css language-css">.error {
+<h3 id="motion">Motion</h3>
+<p>We tend to use motion techniques as a way to communicate information. However, some people find them distracting or uncomfortable. Others can't even see the animations, particularly people with cognitive disabilities or slow devices.</p>
+<p>Remember that <strong>animations are an enhancement</strong> and should not be a barrier to understand the content. Creating immersive experiences can't be an excuse to bypass accessibility.</p>
+<p>The CSS media query <code>preferes-reduced-motion</code> allows us to respect the user's motion preferences.</p>
+<pre><code class="css language-css">.error {
   animation: shake 400ms;
 }
 
@@ -87,30 +70,24 @@ body {
   }
 }
 </code></pre>
-    <h2 id="exercise">Exercise</h2>
-    <p>In thee <a href="../exercises/1.3.html" target="_blank">exercise page</a>, there are multiple accessibility
-      problems related to color and proportions:</p>
-    <ul>
-      <li>Color: Some text has not enough color contrast.</li>
-      <li>Size: The text size is written with absolute units.</li>
-      <li>Motion: The notification bell animation can be annoying to some people.</li>
-    </ul>
-    <p><strong>🎯 Goal:</strong> Make the page follow appearance guidelines that respect level AA.</p>
-    <p><strong>Hint 1:</strong> Use a <a href="#extensions">browser extension</a> to help you detect color contrast
-      issues.</p>
-    <p><strong>Hint 2:</strong> Use the DevTools color picker to find a color that respects level AA.</p>
-    <p><strong>Hint 3:</strong> Customize your browser font size to see how the content is displayed as you update the
-      code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</p>
-    <p><strong>Hint 4:</strong> In Chrome, you can emulate a motion settings. In Dev Tools, go to Settings &gt;
-      Rendering. Scroll down until "Emulate CSS media" section and select the preferred motion setting.</p>
-    <div></div>
-    <h2 id="bonusachievinglevelaaa">Bonus - Achieving Level AAA</h2>
-    <h3 id="1colortheming">1. Color Theming</h3>
-    <p>When creating multiple themes, we can use the CSS media query <a
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a>
-      to set the default theme based on the user color preferences.</p>
-    <p><strong>🎯 Goal:</strong> Add a <code>dark</code> theme to the page. Here are the colors:</p>
-    <pre><code class="css language-css">--theme-text_0: hsl(0deg 0% 89%);
+<h2 id="exercise">Exercise</h2>
+<p>In thee <a href="../exercises/1.3.html" target="_blank">exercise page</a>, there are multiple accessibility problems related to color and proportions:</p>
+<ul>
+<li>Color: Some text has not enough color contrast.</li>
+<li>Size: The text size is written with absolute units.</li>
+<li>Motion: The notification bell animation can be annoying to some people.</li>
+</ul>
+<p><strong>🎯 Goal:</strong> Make the page follow appearance guidelines that respect level AA.</p>
+<p><strong>Hint 1:</strong> Use a <a href="#extensions">browser extension</a> to help you detect color contrast issues.</p>
+<p><strong>Hint 2:</strong> Use the DevTools color picker to find a color that respects level AA.</p>
+<p><strong>Hint 3:</strong> Customize your browser font size to see how the content is displayed as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</p>
+<p><strong>Hint 4:</strong> In Chrome, you can emulate a motion settings. In Dev Tools, go to Settings &gt; Rendering. Scroll down until "Emulate CSS media" section and select the preferred motion setting.</p>
+<div></div>
+<h2 id="bonusachievinglevelaaa">Bonus - Achieving Level AAA</h2>
+<h3 id="1colortheming">1. Color Theming</h3>
+<p>When creating multiple themes, we can use the CSS media query <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a> to set the default theme based on the user color preferences.</p>
+<p><strong>🎯 Goal:</strong> Add a <code>dark</code> theme to the page. Here are the colors:</p>
+<pre><code class="css language-css">--theme-text_0: hsl(0deg 0% 89%);
 --theme-text_1: hsl(0deg 0% 68%);
 --theme-bg_0: hsl(280deg 3% 23%);
 --theme-bg_1: hsl(288deg 6% 17%);
@@ -119,63 +96,52 @@ body {
 --theme-secondary: hsl(26deg 100% 68%);
 --theme-success: greenyellow;
 </code></pre>
-    <p><strong>Hint:</strong> In Chrome, you can emulate a color scheme. In Dev Tools, go to Settings &gt; Rendering.
-      Scroll down until "Emulate CSS media" and select the preferred color scheme.</p>
-    <h3 id="2visualpresentation">2. Visual presentation</h3>
-    <p>There are a few small tweaks we can still do, following the WCCAG recommendations for blocks of text, such as:
+<p><strong>Hint:</strong> In Chrome, you can emulate a color scheme. In Dev Tools, go to Settings &gt; Rendering. Scroll down until "Emulate CSS media" and select the preferred color scheme.</p>
+<h3 id="2visualpresentation">2. Visual presentation</h3>
+<p>There are a few small tweaks we can still do, following the WCCAG recommendations for blocks of text, such as:</p>
+<ul>
+<li>Width is no more than 80 characters or glyphs.</li>
+<li>Text is not justified.</li>
+<li>Paragraph line-height is at least 1.5 the font size.</li>
+</ul>
+<p><strong>🎯 Goal:</strong> Update the page to follow the criterion above.</p>
+<h2 id="furtherreading">Further reading</h2>
+<h3 id="browserextensions">Browser extensions</h3>
+<ul>
+<li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
+<li><a href="https://wave.webaim.org/extension/">WAVE extension</a></li>
+</ul>
+<h3 id="articles">Articles</h3>
+<ul>
+<li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color contrast accessibility</a></li>
+<li><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">The complete guide to dark mode on the web</a>.</li>
+<li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
+<li><a href="https://blog.usejournal.com/dont-use-rem-em-for-paddings-margins-and-more-94e19026b000">Don’t use rem/em for paddings, margins and more</a></li>
+<li><a href="https://tatianamac.com/posts/prefers-reduced-motion/">prefers-reduced-motion: Taking a no-motion-first approach</a></li>
+<li><a href="https://www.scottohara.me/blog/2019/03/26/a-warning-about-warnings.html">A note about automated accessibility "warnings"</a></li>
+</ul>
+<h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG21/#use-of-color">WCAG 1.4.1 Use of color - Level A</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">WCAG 1.4.3 Contrast (Minimum) - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#contrast-enhanced">WCAG 1.4.6 Contrast (Enhanced) - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#resize-text">WCAG 1.4.4 Resize text - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">WCAG 1.4.8 Visual Presentation - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#text-spacing">WCAG 1.4.12 Text spacing - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">WCAG 2.3.3 Animation from interactions - Level AAA</a></li>
+</ul>
+
+</main>
+<footer class="g-footer">
+  <span class="c-echos"></span>  
+  <div class="g-footerArea">
+    <p>
+      Finished on time? Help your group or <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=1.3">give feedback</a> about this exercise.
     </p>
-    <ul>
-      <li>Width is no more than 80 characters or glyphs.</li>
-      <li>Text is not justified.</li>
-      <li>Paragraph line-height is at least 1.5 the font size.</li>
-    </ul>
-    <p><strong>🎯 Goal:</strong> Update the page to follow the criterion above.</p>
-    <h2 id="furtherreading">Further reading</h2>
-    <h3 id="browserextensions">Browser extensions</h3>
-    <ul>
-      <li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
-      <li><a href="https://wave.webaim.org/extension/">WAVE extension</a></li>
-    </ul>
-    <h3 id="articles">Articles</h3>
-    <ul>
-      <li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color
-          contrast accessibility</a></li>
-      <li><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">The complete guide to dark mode on
-          the web</a>.</li>
-      <li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
-      <li><a href="https://blog.usejournal.com/dont-use-rem-em-for-paddings-margins-and-more-94e19026b000">Don’t use
-          rem/em for paddings, margins and more</a></li>
-      <li><a href="https://tatianamac.com/posts/prefers-reduced-motion/">prefers-reduced-motion: Taking a
-          no-motion-first approach</a></li>
-      <li><a href="https://www.scottohara.me/blog/2019/03/26/a-warning-about-warnings.html">A note about automated
-          accessibility "warnings"</a></li>
-    </ul>
-    <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG21/#use-of-color">WCAG 1.4.1 Use of color - Level A</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">WCAG 1.4.3 Contrast (Minimum) - Level AA</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#contrast-enhanced">WCAG 1.4.6 Contrast (Enhanced) - Level AAA</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#resize-text">WCAG 1.4.4 Resize text - Level AA</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">WCAG 1.4.8 Visual Presentation - Level AAA</a>
-      </li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#text-spacing">WCAG 1.4.12 Text spacing - Level AA</a></li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">WCAG 2.3.3 Animation from interactions -
-          Level AAA</a></li>
-    </ul>
+  </div>
+</footer>
 
-  </main>
-  <footer class="g-footer">
-    <span class="c-echos"></span>
-    <div class="g-footerArea">
-      <p>
-        Finished on time? Help your group or <a target="_blank"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=1.3">give
-          feedback</a> about this exercise.
-      </p>
-    </div>
-  </footer>
-
-  <script src="../assets/prism.js" defer></script>
+<script src="../assets/prism.js" defer></script>
 </body>
 
 
