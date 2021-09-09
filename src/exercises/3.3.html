@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <!--
-🧩 4.1: Loading states
+🧩 3.3 Loading states
 🎯 Goal: Improve A11Y of the the loading state
 -->
 <html lang="en">
 
 <head>
-  <title>Solution #4.1</title>
+  <title>Exercise #3.3</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/theme.css">
-  <link rel="stylesheet" href="4.1.css">
+  <link rel="stylesheet" href="3.3.css">
 </head>
 
 <body>
@@ -30,9 +30,7 @@
 
         <div class="areaEnd">
           <div class="tooltipArea isActive js-tooltip">
-            <!-- 💡 BONUS 1/2 Use aria-disabled instead of disabled, so that people with keyboard
-              can still see the tooltip when focusing the button -->
-            <button type="submit" class="btnSubmit js-btnSubmit" aria-disabled="true" aria-describedby="disabledReason">
+            <button type="submit" class="btnSubmit js-btnSubmit" disabled aria-describedby="disabledReason">
               <span class="btnSubmit-text">Get products</span>
             </button>
 
@@ -46,10 +44,7 @@
       <div class="resultsArea">
         <p class="js-resultEmpty">No products yet.</p>
 
-        <!-- 💡 Use aria-live to let the user know about the loading.
-        Do NOT use it on the element that will contain the loaded content,
-        otherwise the AT would announce the entire content, which can be annoying. -->
-        <p class="js-resultLoader" aria-live="assertive">
+        <p class="js-resultLoader">
           <!-- Loading message - Added by JS -->
         </p>
 
@@ -89,11 +84,10 @@
       const hasValidTickets = checkTicketsValidation();
 
       if (hasValidTickets) {
-        // 💡 BONUS 2/2 Updated attribute from disabled to aria-disabled
-        elBtnSubmit.setAttribute("aria-disabled", "false");
+        elBtnSubmit.removeAttribute("disabled");
         elTooltip.classList.remove("isActive");
       } else {
-        elBtnSubmit.setAttribute("aria-disabled", "true");
+        elBtnSubmit.setAttribute("disabled");
         elTooltip.classList.add("isActive");
       }
     }
@@ -103,45 +97,31 @@
     }
 
     async function handleFormSubmit(event) {
-      event.preventDefault(); // avoid native form submit (page refresh)
+      event.preventDefault(); // avoid native form submit which would refresh the page
 
-      // 💡 BONUS 3/3 Verify if button has aria-disabled="true"
-      const isBtnDisabled = ignoreIfDisabled(event)
-
-      if (isBtnDisabled) {
-        console.log("Disabled submit prevented");
-        return;
-      }
+      // 💡 BONUS #1 Hint: You may want to use ignoreIfDisabled 
+      // const isBtnDisabled = ignoreIfDisabled(event)
 
       if (isSubmitting) {
         console.log("Double submit prevented");
         return;
       }
-
       isSubmitting = true;
 
       elBtnSubmit.setAttribute("data-loading", "true");
 
       elresultEmpty.classList.add('js-isHidden')
-      elresultValue.innerHTML = ''; // clean prev results
+      elresultValue.innerHTML = ''; // clean previous results
 
       elresultLoader.innerHTML = 'Loading products...'
-      elresultLoader.classList.remove('sr-only')
 
       await fakeWaitTime(2500);
 
       // Display the results!
       elresultValue.innerHTML = listOfResults(formCount);
 
-
-      // 💡 Solution 2/2
-      // Announce to AT that it's ready
-      elresultLoader.innerHTML = 'Products loaded!'
-      // But hide it visually to respect design specs...
-      // Note: Remove sr-only when loading starts (line 129)
-      elresultLoader.classList.add('sr-only')
-
       elBtnSubmit.setAttribute("data-loading", "false");
+      elresultLoader.innerHTML = ''
 
       isSubmitting = false;
     }
@@ -158,12 +138,12 @@
     }
 
     function ignoreIfDisabled(event) {
-      // The JS is already done for you!
+      // BONUS Note: The JS is already done for you :)
       const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
 
       if (isDisabled) {
         event.preventDefault();
-        event.target.blur(); // prevent focus on click.
+        event.target.blur(); // prevent focus on click
         console.log('disabled - click ignored')
         return true
       }
