@@ -46,22 +46,14 @@
 <p><strong>Hint 1:</strong> SR users usually <a href="https://twitter.com/a_sandrina_p/status/1382811701796614148">prefer to fill forms using <code>Tab</code> key</a>. Do the same to detect A11Y issues.</p>
 <p><strong>Hint 2:</strong> Use the Accessibility Tree tab on DevTools, to know how a form control is announced.</p>
 <h2 id="bonus">Bonus</h2>
-<h3 id="1arialiveregions">#1 ARIA Live regions</h3>
+<h3 id="1formfeedback">#1 Form feedback</h3>
 <p>When submitting the form, a feedback message is displayed, based on the submission result (success or invalid).</p>
 <p>Although these changes are perceivable to those who can see the page, that's not the case for those who use a screen reader.</p>
-<p>ARIA live regions fill this gap helping to expose this dynamic content. There are two tipes:</p>
-<ul>
-<li><code>aria-live="assertive"</code> or <code>role="alert"</code>: The content is announced immediately when added to the DOM.</li>
-</ul>
-<pre><code class="html language-html">&lt;p aria-live="assertive"&gt;Some fields are still still invalid.&lt;/p&gt;
-</code></pre>
-<ul>
-<li><code>aria-live="polite"</code> or <code>role="status"</code>: The content is announced when there's nothing else to be announced. Use it when this does not influence the user main task.</li>
-</ul>
-<pre><code class="html language-html">&lt;p aria-live="polite"&gt;Playing now: "Pink Floyd - Time"&lt;/p&gt;
-</code></pre>
-<p><strong>🎯 Goal:</strong> Explicit mark the form feedback messages as live regions.</p>
-<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise, the code is ready to follow the approach #3.</p>
+<p><strong>🎯 Goal:</strong> Ensure the form feedback is announced by A.T. tools.</p>
+<p><details>
+<summary>🍀 Toggle hint</summary></p>
+<p>The solution is similar to the previous exercise, using live regions.</p>
+<p></details></p>
 <h3 id="2betterinputnumbers">#2 Better input numbers</h3>
 <p>In one of the fields, we used <code>type="number"</code> to benefit from
 virtual keyboard. However, that approach still has some A11Y issues that can be overcomed with another strategy:</p>

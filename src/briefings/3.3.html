@@ -20,7 +20,19 @@
 <h1 id="33loadingstates">3.3. Loading states</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Nowadays <a href="https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a">loading skeletons</a> are everywhere to inform the user that the page or some part of it is being loaded.</p>
-<p>These are perceivable visually but the same ain't true for the people with vision impairment.</p>
+<p>These are perceivable visually but the same ain't true for the people with vision impairmen, or those who use a screen reader.</p>
+<p>ARIA Live Regions fill this gap helping to expose this dynamic content. There are two tipes:</p>
+<ul>
+<li><code>aria-live="assertive"</code> or <code>role="alert"</code>: The content is announced immediately when added to the DOM.</li>
+</ul>
+<pre><code class="html language-html">&lt;p aria-live="assertive"&gt;The credentials are incorrect.&lt;/p&gt;
+</code></pre>
+<ul>
+<li><code>aria-live="polite"</code> or <code>role="status"</code>: The content is announced when there's nothing else to be announced. Use it when this does not influence the user main task.</li>
+</ul>
+<pre><code class="html language-html">&lt;p aria-live="polite"&gt;Playing now: "Pink Floyd - Time"&lt;/p&gt;
+</code></pre>
+<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise, the code is ready to follow the approach #3.</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.3.html">exercise page</a>,
 there is a dummy search mechanism that loads a set of results.</p>
