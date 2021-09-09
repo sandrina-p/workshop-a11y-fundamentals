@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-🧩 3.3: Accessible forms
+🧩 3.4: Accessible forms
 🎯 Goal: Build an accessible form
 
 Notes:
@@ -25,12 +25,18 @@ Notes:
     <form class="g-card form js-formItself" aria-labelledby="formTitle">
       <h2 id="formTitle" class="title-lg">Form: Web lover profile</h2>
 
-      <!-- Case #1 - Input labels
-        🍀 Every input must have a label associated.
+      <!-- Case #1 - Required inputs
       -->
       <div class="field">
-        <label for="uName" class="field-txt">Nickname</label>
-        <input type="text" id="uName" />
+        <label class="field-txt" for="nickname">
+          Nickname <span class="u-danger" aria-hidden="true">*</span>
+        </label>
+        <!-- Bonus #2 - Input types
+          🍀 When dealing with numbers that don't make sense as a "stepper"
+          Prefer using inputmode.
+        -->
+        <input type="text" id="nickname" class="js-fieldNickname" aria-required="true" aria-describedby="jsYearError">
+        <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
       </div>
 
       <!-- Case #2 - Group checkbox/radio
@@ -47,45 +53,41 @@ Notes:
           <input type="radio" name="theme" value="light">
           <span>Light</span>
         </label>
-        <!-- Case #2.1 - To wrap lbel, or not.
-          🍀 If you decide to keep the input and label separated, make sure
+        <!-- Case #2.1 - label as a wrapper, or not.
+          🍀 When you need to keep the input and label separated, make sure
           the interaction area includes the surrounding spaces
           (ex use paddings instead of margins)
-      -->
+        -->
         <input id="themeDepends" type="radio" name="theme" value="whatever">
         <label for="themeDepends" class="inputRadio">
           <span>It depends</span>
         </label>
       </fieldset>
 
-      <!-- Case #3 - Required inputs
-        🍀 Within radio/checkbox wrap the related options
-        within a <fieldset> and use <legend> to mark the main label
-      -->
-      <div class="field js-fieldMandatory">
+      <!-- Case #3 - Numeric inputs -->
+      <div class="field">
         <label class="field-txt" for="firstPC">
           Year of your first computer
-          <span class="u-danger" aria-hidden="true">*</span>
         </label>
-        <!-- Bonus #2 - Input types
-          🍀 When dealing with numbers that don't make sense to be a "stepper"
-          prefer using inputmode.
+        <!-- Bonus #2 - Input types  
+          🍀 When dealing with numbers that don't make sense to
+          be a "stepper", prefer using inputmode.
         -->
-        <input type="text" id="firstPC" aria-required="true" aria-describedby="jsYearError" inputmode="numeric"
-          pattern="[0-9]*" class="js-fieldYear">
-        <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
+        <input type="text" id="firstPC" inputmode="numeric" pattern="[0-9]*" class="js-fieldYear">
       </div>
 
       <!-- Case #4.1
-        🍀 In fields with multiple actions (eg input + button),
-          the label cannot wrap everything because it will cause A11Y issues in some browsers and AT.
-        🍀 In fields with hints, use aria-describedby to connect both.
+        💡 In fields with descriptions, use aria-describedby to connect both.
+        🍀 In fields with multiple actions (eg input + button), the label cannot
+          wrap everything because it will cause A11Y issues in some browsers and AT.
       -->
       <div class="field">
         <label for="uPass" class="field-txt">Worst password ever</label>
         <input type="password" id="uPass" class="js-secretInput" aria-describedby="pwHint">
         <button type="button" class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
-        <span class="field-tip" id="pwHint">The password usually is dumb and short.</span>
+        <span class="field-tip" id="pwHint">
+          The password usually is dumb and short.
+        </span>
       </div>
 
       <!-- 💡 Case #4.2 - Inputs descriptions p1
@@ -103,14 +105,14 @@ Notes:
 
       <!-- 💡 BONUS #1 - Live Regions
         🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
-        In this case "assertive" is the best because we are announcing something
+        In this case "assertive" is better because we are announcing something
         important related to the current task.
         "assertive" also works well for inline error messages that show up when
-        the user leaves (blur) a input that is still invalid.
+        the user leaves (blur) an input that is still invalid.
       -->
       <div class="form-footer">
-        <p class="formMsg js-formFeedback" aria-live="polite"></p>
-        <!-- 💡 Aim to create text that reflect the full action -->
+        <p class="formMsg js-formFeedback" aria-live="assertive"></p>
+        <!-- 💡 Aim to write texts that reflect the full form intent/context -->
         <button class="btn btnPrimary js-btnSubmit">Save profile</button>
       </div>
     </form>
@@ -145,7 +147,7 @@ Notes:
     // Listen for form submission
     const elFormItself = document.getElementsByClassName('js-formItself')[0]
     const elFormFeedback = document.getElementsByClassName('js-formFeedback')[0]
-    const elFieldYear = document.getElementsByClassName('js-fieldYear')[0]
+    const elFieldNickname = document.getElementsByClassName('js-fieldNickname')[0]
 
     elFormItself.addEventListener('submit', (e) => {
       e.preventDefault()
@@ -154,8 +156,8 @@ Notes:
       updateFormMsg() // clear the form msg
 
       // Check if input tabs has a valid value
-      if (!Number(elFieldYear.value)) {
-        updateInlineError(elFieldYear, true, '⚠️ This year is required.')
+      if (!Number(elFieldNickname.value)) {
+        updateInlineError(elFieldNickname, true, '⚠️ The nickname is required.')
         updateFormMsg('invalid')
         return
       }
@@ -182,8 +184,8 @@ Notes:
     }
 
     function updateInlineError(field, hasError, errorMsg) {
-      elFieldYear.nextElementSibling.innerText = errorMsg || '';
-      elFieldYear.nextElementSibling.style.display = hasError ? 'block' : 'none';
+      elFieldNickname.nextElementSibling.innerText = errorMsg || '';
+      elFieldNickname.nextElementSibling.style.display = hasError ? 'block' : 'none';
 
       // 💡 Update aria-invalid attribute
       field.setAttribute('aria-invalid', hasError)
@@ -198,7 +200,7 @@ Notes:
 
         // ... and remove error if it's valid again!
         function handleChange(e) {
-          if (!!elFieldYear.value) {
+          if (!!elFieldNickname.value) {
             updateInlineError(e.target, false)
             field.removeEventListener('change', handleChange)
             field.removeEventListener('keyup', handleChange)

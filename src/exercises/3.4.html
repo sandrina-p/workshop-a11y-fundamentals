@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-🧩 3.3: Accessible forms
+🧩 3.4: Accessible forms
 🎯 Goal: Build an accessible form
 
 Notes:
@@ -28,13 +28,21 @@ Notes:
       <h2 class="title-lg">Form: Web lover profile</h2>
 
       <!--
-        Case #1 - Input labels
-        💡 1/1 Every input must have a label. There are 2 ways to solve this.
-        Each one do you prefer?
+        Case #1 - Required inputs
+        - 💡 1/3 Use aria-required to mark an input as required.
+        - 💡 2/3 Use aria-invalid to mark an input value as invalid. The JS code
+                  needs to be changed too. Look for #3.2 on line ~188.
+        - 💡 3/3 When possible specifiy the type of input. By using type="number",
+                  this will display a better virtual keyboard layout on mobile.
       -->
       <div class="field">
-        <span class="field-txt">Nickname</span>
-        <input type="text" />
+        <label for="nickname" class="field-txt">
+          Nickname <span class="u-danger">*</span>
+        </label>
+        <input id="nickname" class="js-fieldNickname" type="text">
+        <span class="field-error">
+          <!-- text added by JS -->
+        </span>
       </div>
 
       <!--
@@ -57,33 +65,27 @@ Notes:
         </label>
       </div>
 
-      <!--
-        Case #3 - Required inputs
-        - 💡 1/3 Use aria-required to mark an input as required.
-        - 💡 2/3 Use aria-invalid to mark an input value as invalid. The JS code
-                  needs to be changed too. Look for #3.2 on line ~188.
-        - 💡 3/3 When possible specifiy the type of input. By using type="number",
-                  this will display a better virtual keyboard layout on mobile.
-      -->
-      <label class="field">
-        <span class="field-txt">Year of your first computer <span class="u-danger">*</span></span>
-        <input class="js-fieldYear" type="text">
-        <span class="field-error">
-          <!-- text added by JS -->
-        </span>
-      </label>
+      <!-- Case #3 - Numeric inputs
+        (It's all good here, skip to #4) -->
+      <div class="field">
+        <label class="field-txt" for="firstPC">
+          Year of your first computer
+        </label>
+        <input type="number" id="firstPC" class="js-fieldYear">
+      </div>
 
       <!-- 
         Case #4.1 Input descriptions p1
-        - 💡 1/1 The input description / hint needs to be connected to the input.
-          Use aria-describedby for that.
+        - 💡 the input description needs to be connected to the input.
+          We can use aria-describedby for that.
       -->
       <div class="field">
         <label for="uPass" class="field-txt">Worst password ever</label>
         <input type="password" id="uPass" class="js-secretInput">
         <button class="js-secretBtn" aria-pressed="false" aria-label="Show password" type="button">👀</button>
-
-        <span class="field-tip" id="pwHint">The password usually is dumb and short.</span>
+        <span class="field-tip">
+          The password usually is dumb and short.
+        </span>
       </div>
 
       <!-- Case #4.2 - Inputs descriptions p2 -->
@@ -142,7 +144,7 @@ Notes:
     // Listen for form submission
     const elFormItself = document.getElementsByClassName('js-formItself')[0]
     const elFormFeedback = document.getElementsByClassName('js-formFeedback')[0]
-    const elFieldYear = document.getElementsByClassName('js-fieldYear')[0]
+    const elFieldNickname = document.getElementsByClassName('js-fieldNickname')[0]
 
     elFormItself.addEventListener('submit', (e) => {
       e.preventDefault()
@@ -150,9 +152,9 @@ Notes:
 
       updateFormMsg() // clear the form msg
 
-      // Verify if elFieldYear has a valid value
-      if (!Number(elFieldYear.value)) {
-        updateInlineError(elFieldYear, true, '⚠️ This year is required.')
+      // Verify if elFieldNickname has a valid value
+      if (!Number(elFieldNickname.value)) {
+        updateInlineError(elFieldNickname, true, '⚠️ The nickname is required.')
         updateFormMsg('invalid')
         return
       }
@@ -180,10 +182,10 @@ Notes:
     }
 
     function updateInlineError(field, hasError, errorMsg) {
-      elFieldYear.nextElementSibling.innerText = errorMsg || '';
-      elFieldYear.nextElementSibling.style.display = hasError ? 'block' : 'none';
+      elFieldNickname.nextElementSibling.innerText = errorMsg || '';
+      elFieldNickname.nextElementSibling.style.display = hasError ? 'block' : 'none';
 
-      // 💡 #3.2. Update the aria-invalid attribute
+      // 💡 #1.2. Uncomment to update the aria-invalid attribute
       // field.setAttribute('aria-invalid', hasError)
 
       if (hasError) {
@@ -196,7 +198,7 @@ Notes:
 
         function handleChange(e) {
           // ... and remove error if it's valid again
-          if (!!elFieldYear.value) {
+          if (!!elFieldNickname.value) {
             updateInlineError(e.target, false)
             field.removeEventListener('change', handleChange)
             field.removeEventListener('keyup', handleChange)

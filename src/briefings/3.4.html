@@ -2,7 +2,7 @@
 <html lang="en">
 <!-- DO NOT MODIFY THIS FILE. It's generated from the respective file xx.md -->
 <head>
-  <title>Briefing #3.3</title>
+  <title>Briefing #3.4</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/prism.css">
@@ -13,19 +13,19 @@
 <body>
 <div class="bfg-hotlinks">
   <a href="../index.html">Go back</a>
-  <a href="/solutions/3.3.html" target="_blank">Solution</a>
+  <a href="/solutions/3.4.html" target="_blank">Solution</a>
 </div>
 <main>
   
-<h1 id="33accessibleforms">3.3. Accessible forms</h1>
+<h1 id="34accessibleforms">3.4. Accessible forms</h1>
 <h2 id="introduction">Introduction</h2>
 <p>When talking about the accessibility of a form, usually we are talking about their accessibility regarding people who use screen readers or keyboards. However <strong>everyone benefits from a well-organized and usable form</strong>, especially those with cognitive disabilities. Forms should be clear and intuitive.</p>
-<p>When building forms, we should make sure that:</p>
+<p>When building forms, we need to ensure that:</p>
 <ul>
 <li>Every form control has a label</li>
-<li>Explicit required form fields</li>
-<li>Explicit formatting requirements</li>
-<li>Forms are keyboard accessible</li>
+<li>Required fields are explicit</li>
+<li>Requirements / errors are understandable</li>
+<li>Forms are navigatable by keyboard</li>
 </ul>
 <p>First things first, a form control must always have a respective label.</p>
 <pre><code class="html language-html">&lt;!-- Option A: Use for and id to connect both elements --&gt;
@@ -39,9 +39,9 @@
   &lt;input type="text" /&gt;
 &lt;/label&gt;
 </code></pre>
-<p>If we do that with every form element, it's already a step forward! There's a lot more about <a href="https://webaim.org/techniques/forms/">creating accessible forms</a>, that we'll practice today.</p>
+<p>If we ensure these labels in every form element, it's already a half way done!</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/3.3.html">exercise page</a>, there are a few form controls. Each one has a particular accessibility issue.</p>
+<p>In the <a href="../exercises/3.4.html">exercise page</a>, there are a few form controls. Each one has a particular accessibility issue.</p>
 <p><strong>🎯 Goal:</strong> Make the form accessible for keyboard and screen readers.</p>
 <p><strong>Hint 1:</strong> SR users usually <a href="https://twitter.com/a_sandrina_p/status/1382811701796614148">prefer to fill forms using <code>Tab</code> key</a>. Do the same to detect A11Y issues.</p>
 <p><strong>Hint 2:</strong> Use the Accessibility Tree tab on DevTools, to know how a form control is announced.</p>
@@ -113,7 +113,7 @@ In this form, the first button is the password toggle. That's why when we click 
   <span class="c-echos"></span>  
   <div class="g-footerArea">
     <p>
-      Finished on time? Help your group or <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=3.3">give feedback</a> about this exercise.
+      Finished on time? Help your group or <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfU3zIlg48Tlv4hi1_qnhNbkBKNbGb_I9w-KSuTzLc73mVvAw/viewform?usp=pp_url&entry.225880601=A11Y+Fundamentals&entry.1412096726=3.4">give feedback</a> about this exercise.
     </p>
   </div>
 </footer>
