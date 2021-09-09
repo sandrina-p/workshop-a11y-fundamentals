@@ -17,76 +17,60 @@
 </div>
 <main>
   
-<h1 id="42ondemandchanges">4.2. On-demand changes</h1>
+<h1 id="43componentscollection">4.3. Components collection</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Until now, we have been exploring fairly simple cases, but there are some patterns that are all but straightforward:</p>
-<p>In A11Y, some patterns may have multiple solutions. Each approach has positive and negative consequences. Once you find a solution, look for other solutions and balance them. We should <strong>aim for understanding their impacts and assume the trade-offs</strong> rather than pretending they don't exist.</p>
-<hr />
-<p>Nowadays it's very common to interact with pieces of UI where the content changes immediately after we click on it.</p>
-<p>For example, the "like button" or "toggle dark theme". This is an action that happens immediately, without a middle step to confirm that action. That's the opposite of a traditional form submit.</p>
-<p>Should that affect how we use/create those interfaces? Let's explore…</p>
-<h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/4.2.html">exercise page</a>,
-there is a layout with a few "toggle settings" that are applied immediately after change (without a submit button).</p>
-<p>Visually, it's perceiveable the options available before we click (activate) them. What about people who use only the keyboard or a screen reader?</p>
-<p><strong>🎯 Goal:</strong> Improve the accessibility of each setting.</p>
-<p><strong>Note:</strong> Each case might have multiple solutions. It's totally okay if your own solution is different from the one proposed.</p>
-<p><strong>Suggestion for QA & designers:</strong><br />
-This exercise will require a good chunk of code changes. It's totally fine if you don't feel comfortable with it.<br />
-As an alternative, I suggest you to write down a list of the things that need to be improved, and, perhaps pair up with your group to collaborate together!</p>
-<p><details>
-<summary>🍀 Tips about moments of actions</summary></p>
-<p>One of the differences between a form control and a button is:</p>
+<p>So far, you've learned that creating accessible websites isn't as hard as it sounds. Most of the UI can be fully accessible through native HTML elements and a couple of <code>ARIA</code> attributes.</p>
+<p>The modern web experiences have been evolving way faster than the languages available (HTML). We don't have yet a <code>&lt;tooltip&gt;</code>, <code>&lt;modal&gt;</code> or <code>&lt;tabs&gt;</code> native elements, so we need to find our way around with the existing tools. I'll be truly honest with you: <strong>building custom components fully accessible is harder than it looks like.</strong></p>
+<p>Because of that, when I need to implement a new component that doesn't exist as an <code>HTML</code> element, I use <strong>existing components from the community</strong> instead of reinventing the wheel and risking creating a non-accessible experience.</p>
+<p>I recommend you to do the same. Here's a personal accurated list of common UI patterns:</p>
+<h2 id="libraries">Libraries</h2>
 <ul>
-<li>Form controls (e.g. inputs) are meant to receive and carry a value. These values are editable and should not take effect until we explicit submit them.</li>
-<li>Buttons are expected to take immediate action upon activation.</li>
+<li><a href="https://github.com/scottaohara/accessible_components">Accessible components</a> - Plain HTML / JS, no library required.</li>
+<li><a href="https://reach.tech/">Reach UI</a> - A headless accessible foundation of your React-based design system.</li>
+<li><a href="https://react-spectrum.adobe.com/react-aria/index.html">React ARIA</a> - A library of React hooks that provides accessible UI primitives for your design system.</li>
+<li><a href="https://github.com/vue-a11y/awesome-a11y-vue">Awesome Vue.JS A1YY</a> - List of things related to A11Y in Vue.js.</li>
 </ul>
-<p>That's the main question we should ask ourselves when building an interactive element:</p>
+<h2 id="solocomponents">Solo Components</h2>
+<p>Before you use an "accessible package" from the community, don't get sold by <a href="https://hiddedevries.nl/en/blog/2021-04-02-accessible-front-end-components-claims-vs-reality">"self-claimed" accessible components
+</a>. Do your own research and aim to know their reality before you include their code in your codebase.</p>
+<h3 id="modalsdialogs">Modals (Dialogs)</h3>
 <ul>
-<li>Does the selection, takes immediate effect? Then, it's a button.</li>
-<li>Does the selection requires confirmation? Then it's a form control.</li>
+<li>Package: <a href="https://github.com/KittyGiraudel/a11y-dialog">a11y-dialog</a></li>
+<li>Blog post: <a href="https://github.com/KittyGiraudel/react-a11y-dialog/issues/58">Differences between modals implementations</a></li>
 </ul>
-<p>🍀 The way a funcionality is presented might misslead us to change its foundations. We need to be mindful about this thin layer between UX and semantics.</p>
-<p></details></p>
-<p><details>
-<summary>🍀 Tips about dynamic names and states</summary></p>
-<p>When we interact with "Sound toggle" using a screen reader, two things happen when pressing it:</p>
+<h3 id="tooltips">Tooltips</h3>
 <ul>
-<li>The button label changes</li>
-<li>The <code>aria-pressed</code> values changes.</li>
+<li>Blog post: <a href="https://inclusive-components.design/tooltips-toggletips/">Inclusive tooltips</a></li>
+<li>Blog post: <a href="https://sarahmhigley.com/writing/tooltips-in-wcag-21/#best-practices-summary">Tooltips in WCAG 21</a></li>
 </ul>
-<p>For a screen reader, changing both <em>name</em> and <em>status</em> can be confusing when the toggle is not active.</p>
+<h3 id="menus">Menus</h3>
 <ul>
-<li>Voice Over: <em>selected, Sound on, toggle button</em></li>
-<li>Voice Over: <em>unselected, Sound off, toggle button</em></li>
+<li>Blog post: <a href="https://inclusive-components.design/menus-menu-buttons/">Inclusive Menus & Menu Buttons</a></li>
 </ul>
-<p>If the "sound off" is "unselected", it means the sound is actually turned on. Confusing right?</p>
-<p>Here's an example, much clear for screen readers:</p>
+<h3 id="tabs">Tabs</h3>
 <ul>
-<li>Voice Over: <em>selected, Enable sound, toggle button</em></li>
-<li>Voice Over: <em>unselected, Enable sound, toggle button</em></li>
+<li>Blog post: <a href="https://web.dev/building-a-tabs-component/">Building a Tabs component</a></li>
 </ul>
-<p>🍀 When labeling dynamic elements, never change both label and state at the same time. Stick with one of them.</p>
-<p></details></p>
-<p><details>
-<summary>🍀 Tips about keyboard navigation</summary></p>
-<p>Although <code>Tab</code> is the main way to navigate between interactive elements, it's not the only one. In some cases the navigation is done with arrow keys (e.g <code>&lt;select&gt;</code> and <code>&lt;input&gt;</code> radio/checkboxes). We can even create our custom shortcuts.</p>
-<p>We might ask: When to use Tabs or Arrow Keys?</p>
-<p>The <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts">WAI keyboard guidelines</a> are extended and a continuous work in progress. This is my current simplified decision tree:</p>
+<h3 id="selectsdropdowns">Selects (Dropdowns)</h3>
 <ul>
-<li>Skip Tabs to make navigation more efficient. (Google Drive is a great example)</li>
-<li>Use Arrow keys when elements are directly related (eg a toolbox,a breadcrumb)</li>
-<li>When using Arrow keys, highligh visually the parent element, for a clear understanding of the context and related elements.</li>
-<li>The direction mechanism to move between elements depends on the context. <code>aria-describedby</code> with instructions can be helpful for blind people.</li>
+<li>Blog post: <a href="https://www.24a11y.com/2019/select-your-poison/">Select your poison</a></li>
+<li>Blog post: <a href="https://adrianroselli.com/2021/03/under-engineered-select-menus.html">Under-engineered select menus</a></li>
+<li>Blog post: <a href="https://css-tricks.com/striking-a-balance-between-native-and-custom-select-elements/">Striking a balance between native and custom select</a></li>
+<li>Blog post: <a href="https://medium.com/@kollinz/dropdown-alternatives-for-better-mobile-forms-53e40d641b53">Dropdown alternatives</a></li>
 </ul>
-<p></details></p>
-<h2 id="furtherreading">Further reading</h2>
+<h3 id="clickablecards">Clickable cards</h3>
 <ul>
-<li><a href="https://inclusive-components.design/toggle-button/">Inclusive Toggle Buttons</a></li>
-<li><a href="https://uxmovement.com/buttons/when-to-use-a-switch-or-checkbox/">Switch vs Checkbox</a></li>
-<li><a href="https://www.w3.org/TR/wai-aria-practices/#toolbar">Design pattern: Toolbar</a></li>
-<li><a href="https://www.w3.org/TR/wai-aria-practices/#kbd_shortcuts_design_choose_behavior">Choosing appropriate navigation/shortcut behavior</a></li>
+<li>Blog post: <a href="https://css-tricks.com/block-links-the-search-for-a-perfect-solution/">Block Links - The search for a perfect solution</a></li>
 </ul>
+<h3 id="accordion">Accordion</h3>
+<ul>
+<li>Tutorial: <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html">WAI ARIA Practices</a></li>
+</ul>
+<!-- -->
+<style>
+  .g-footer p { display: none; }
+  .g-footerArea { padding: 0; }
+</style>
 
 </main>
 <footer class="g-footer">
