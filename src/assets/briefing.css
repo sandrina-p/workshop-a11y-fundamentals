@@ -93,6 +93,14 @@ summary {
   margin-bottom: 4px;
 }
 
+blockquote {
+  font-style: italic;
+  opacity: 0.7;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid var(--theme-text_1);
+}
+
 .bfg-hotlinks {
   position: fixed;
   top: 0;

@@ -24,7 +24,20 @@
   opacity: 0.8;
 }
 
-/* 💡 Link focus styles + Bonus #1 */
+/* 💡 Link focus styles + Bonus #1.1 */
+/* --- Without polyfill --- */
+.c-btnPrimary:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.c-btnPrimary:focus-visible {
+  box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
+}
+
+/* 💡 Link focus styles + Bonus #1.2 */
+/* --- With polyfill --- */
+/*
 .js-focus-visible .c-btnPrimary:focus {
   outline: none;
 }
@@ -33,6 +46,7 @@
   box-shadow: var(--theme-focus_shadow);
   outline: var(--theme-focus_outline);
 }
+*/
 
 /* ------- LINK -------  */
 

@@ -39,10 +39,29 @@ there are a couple of interactive elements. However, we can't easily access them
 Adding some opacity or changing the color are common design approaches.</p>
 <p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
 <h2 id="bonus">Bonus</h2>
-<h3 id="1focusonlywhenusingthekeyboard">#1 Focus only when using the keyboard</h3>
+<h3 id="11focusonlywhenusingthekeyboard">#1.1 Focus only when using the keyboard</h3>
 <p>Another reason to hide the focus indicator on buttons and links is that the focus is triggered when clicking them.</p>
 <p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
-<p>Some browsers do not support it yet (eg Safari). Use the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a> to make it work everywhere.</p>
+<pre><code class="css language-css">/* Remove the outline for mouse users with modern browsers */
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Add the focus indicator when interacted with keyboard */
+button:focus-visible {
+  outline: 3px solid tomato;
+}
+</code></pre>
+<p><strong>🎯 Goal:</strong> Add <code>:focus-visible</code> to the interactive elements.</p>
+<p><details>
+<summary>🍀 Toggle hint about inputs</summary></p>
+<p>In inputs the focus-visible is always triggered, even on click. That's not a bug, but rather the <a href="https://github.com/WICG/focus-visible/issues/131">spec's expected behavior</a>.</p>
+<blockquote>
+  <p>UA (Browser User Agents) typically display focus indicators on text fields any time they’re focused, to draw attention to the fact that keyboard input will affect their contents.</p>
+</blockquote>
+<p></details></p>
+<h4 id="12focusacrossbrowsers">#1.2 Focus across browsers</h4>
+<p>Some browsers do not support <code>:focus-visible</code> yet (eg Safari). So, for full support we need use the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a> instead.</p>
 <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
 </code></pre>
@@ -53,11 +72,10 @@ Adding some opacity or changing the color are common design approaches.</p>
 
 /* Show the focus when interacted with keyboard */
 .js-focus-visible button:focus.focus-visible {
-  outline: none;
-  box-shadow: 0 0 3px 3px tomato;
+  outline: 3px solid tomato;
 }
 </code></pre>
-<p><strong>🎯 Goal:</strong> Add <code>focus-visible</code> to the buttons and links.</p>
+<p><strong>🎯 Goal:</strong> Refactor the focus to include the <code>focus-visible.js</code> polyfill.</p>
 <p><strong>🍀 Tip:</strong> When using styles dependent on JS, take into account websites without JS. The prefix <code>.js-focus-visible</code> ensures we only customize the focus if the polyfill is working, leaving the default one intact in case the JS doesn't load.</p>
 <h3 id="2stylingbasedonchildfocus">#2 Styling based on child focus</h3>
 <p>Imagine a new design requirement to the input field:</p>
@@ -70,6 +88,7 @@ Adding some opacity or changing the color are common design approaches.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
 <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>
+<li><a href="https://css-tricks.com/the-focus-visible-trick/">The not focus-visible trick</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN spec</a></li>
 <li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
 <li><a href="https://www.sarasoueidan.com/blog/focus-indicators/">A guide to design WCAG-compliant focus indicators</a></li>
