@@ -3,7 +3,7 @@ function Exercise() {
   const [products, setProcuts] = React.useState([]);
   const [isLoadingProducts, setIsLoadingProducts] = React.useState(false);
   const [productsError, setProductsError] = React.useState(null);
-  const isFormValid = page > 0 && page < 9;
+  const isFormValid = page >= 1 && page <= 9;
   const isProductsOkay = !productsError && !isLoadingProducts;
   const isFormSubmitInactive = !isFormValid || isLoadingProducts;
 
@@ -43,6 +43,8 @@ function Exercise() {
                 id="page"
                 className="fieldInput"
                 type="text"
+                inputmode="numeric"
+                pattern="[0-9]*"
                 placeholder="0"
                 required
                 value={page}

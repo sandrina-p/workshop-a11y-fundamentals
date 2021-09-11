@@ -34,21 +34,18 @@
 </code></pre>
 <p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise, the code is ready to follow the approach #3.</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/4.1.html">exercise page</a>,
+<p>In the exercise page,
 there is a dummy search mechanism that loads a set of results.</p>
-<p>Visually it's perceivable when the result is being loaded and when it's finished. But what about people using screen readers. How can we do it?</p>
+<p>Visually, it's perceivable when the result is being loaded and when it's finished. But what about people using screen readers. How can we do it?</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of the loading state for people with visual impairments.</p>
+<ul>
+<li>Exercise: <a href="../exercises/4.1.html">Default</a> or <a href="../exercises/4.1.react.html">React</a></li>
+<li>Solution: <a href="../solutions/4.1.html">Default</a> or <a href="../solutions/4.1.react.html">React</a></li>
+</ul>
 <p><details>
 <summary>🍀 Toggle hint #1:</summary></p>
-<p>We already learned about Live Regions using <code>aria-live</code>. Using those, remember to announce both loading states:</p>
-<ol>
-<li>When the result start to be loaded (The visual message "Products loading…")</li>
-<li>When the result is ready.
-</details></li>
-</ol>
-<p><details>
-<summary>🍀 Toggle hint #2:</summary></p>
-<p>The designs don't include a visual message, but we can still add that using a visually hidden element. Remember <code>.sr-only</code>? It's the perfect time to use it!</p>
+<p>The designs don't include a visual message when the loading is finished…
+Remember <code>.sr-only</code>? It's the perfect time to use it!</p>
 <p></details></p>
 <p></details></p>
 <h2 id="bonus1">Bonus #1</h2>

@@ -23,8 +23,7 @@
         <div class="areaStart">
           <div class="field">
             <label for="fieldCount" class="fieldLabel">Page <span class="sr-only">number</span></label>
-            <input id="fieldCount" class="fieldInput js-tickets" type="text" pattern="[0-9]+" placeholder="0"
-              required />
+            <input id="fieldCount" class="fieldInput js-page" type="text" pattern="[0-9]+" placeholder="0" required />
           </div>
         </div>
 
@@ -61,27 +60,27 @@
   <script>
     const elForm = document.querySelector(".js-form");
     const elBtnSubmit = document.querySelector(".js-btnSubmit");
-    const elTickets = document.querySelector(".js-tickets");
+    const elPage = document.querySelector(".js-page");
     const elTooltip = document.querySelector('.js-tooltip');
 
     const elresultLoader = document.querySelector('.js-resultLoader');
     const elresultEmpty = document.querySelector('.js-resultEmpty');
     const elresultValue = document.querySelector('.js-resultValue');
 
-    let formCount = 0;
+    let pageCount = 0;
     let isSubmitting = false;
 
-    const checkTicketsValidation = () => formCount >= 1 && formCount <= 9;
+    const checkPageValidation = () => pageCount >= 1 && pageCount <= 9;
 
     elBtnSubmit.addEventListener("click", handleBtnClick);
-    elTickets.addEventListener("keyup", handleCountChange);
-    elTickets.addEventListener("change", handleCountChange);
+    elPage.addEventListener("keyup", handleCountChange);
+    elPage.addEventListener("change", handleCountChange);
 
     elForm.addEventListener("submit", handleFormSubmit);
 
     function handleCountChange(event) {
-      formCount = Number(event.target.value);
-      const hasValidTickets = checkTicketsValidation();
+      pageCount = Number(event.target.value);
+      const hasValidTickets = checkPageValidation();
 
       if (hasValidTickets) {
         elBtnSubmit.removeAttribute("disabled");
@@ -118,7 +117,7 @@
       await fakeWaitTime(2500);
 
       // Display the results!
-      elresultValue.innerHTML = listOfResults(formCount);
+      elresultValue.innerHTML = listOfResults(pageCount);
 
       elBtnSubmit.setAttribute("data-loading", "false");
       elresultLoader.innerHTML = ''
