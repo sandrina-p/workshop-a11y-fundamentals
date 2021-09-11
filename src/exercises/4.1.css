@@ -1,121 +1,199 @@
-/* ------------------------------------- /
- 💡 1/2 The only CSS you might need to change
- is at the bottom of the this file 💡 
- --------------------------------------- */
-
-/* Control appearance based on data-* */
-.stgs[data-theme="light"] {
-  background: var(--theme-bg_1);
-  color: var(--theme-text_0);
-}
-.stgs[data-theme="dark"] {
-  background: var(--theme-text_0);
-  color: var(--theme-bg_0);
+/* 💡 BONUS 1/2 - You may need to change this selector */
+.btnSubmit:hover:not(:disabled) {
+  opacity: 0.8;
 }
 
-.stgs[data-size="sm"] {
-  font-size: 1.4rem;
-}
-.stgs[data-size="md"] {
-  font-size: 1.6rem;
-}
-.stgs[data-size="lg"] {
-  font-size: 1.9rem;
+/* 💡 BONUS 2/2 - You may need to change this selector */
+.btnSubmit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
-/* ---- Theme toggle ---- */
-.stgs-toggleTheme {
-  background: transparent;
-  color: inherit;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 4px;
-  border: 1px solid;
-}
-.stgs-toggleTheme:focus-within {
-  box-shadow: var(--theme-focus_shadow);
-  outline: var(--theme-focus_outline);
-}
-.stgs-toggleTheme input {
-  position: absolute;
-  opacity: 0;
-}
-.stgs-toggleTheme input + .stgs-toggleTheme-fakeCheck::before {
-  content: "🔲";
-  content: "🔲" / "";
-  margin-right: 8px;
-}
-.stgs-toggleTheme input:checked + .stgs-toggleTheme-fakeCheck::before {
-  content: "✅";
-  content: "✅" / "";
-  margin-right: 8px;
-}
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code below   *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
 
-/* ---- Sound toggle ---- */
-.stgs-btnOnOff {
-  background: transparent;
-  color: inherit;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 4px;
-  border: 1px solid;
-}
-.stgs-btnOnOff:focus {
-  box-shadow: var(--theme-focus_shadow);
-  outline: var(--theme-focus_outline);
-}
-.stgs-btnOnOff .on,
-.stgs-btnOnOff .off {
+.js-isHidden {
   display: none;
 }
-.stgs-btnOnOff[aria-pressed="true"] .on {
-  display: block;
-}
-.stgs-btnOnOff[aria-pressed="false"] .off {
-  display: block;
+
+.area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
 }
 
-/* ---- Font size options ---- */
-.stgs-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  border: 0;
+.areaEnd {
+  position: relative;
+  text-align: right;
+}
+
+.field {
+  margin: 0;
   padding: 0;
 }
 
-.stgs-toolbar-title {
-  display: block;
-  width: 100%;
+.fieldLabel {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-right: 4px;
 }
-.stgs-toolbar-item {
+
+.fieldInput {
+  width: 50px;
+  height: 40px;
   border: none;
   border: 1px solid var(--theme-text_1);
-  padding: 10px 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+.fieldInput:focus {
+  box-shadow: var(--theme-focus_shadow);
+  outline: var(--theme-focus_outline);
+}
+.fieldInput::-webkit-outer-spin-button,
+.fieldInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
   margin: 0;
+}
+.fieldInput[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.btnSubmit {
+  --btnTxt: #fff;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
   min-height: 44px;
-  font-weight: 600;
-  background: transparent;
-  color: inherit;
+  padding: 8px 20px;
+  background-color: var(--theme-primary);
+  border-radius: 4px;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--btnTxt);
+  text-align: center;
+  transition: color 250ms;
 }
 
-/** 💡 2/2 Probably only these 4 selectors
- need to be changed to keep the same styles */
-.stgs-toolbar input {
-  opacity: 0;
-  position: absolute;
+/* ... disabled styles moved to the top ... */
+
+.btnSubmit:focus:not(:focus-visible) {
+  outline: none;
 }
 
-.stgs-toolbar input:focus + .stgs-toolbar-item {
+.btnSubmit:focus-visible {
   box-shadow: var(--theme-focus_shadow);
   outline: var(--theme-focus_outline);
 }
 
-.stgs-toolbar input:checked + .stgs-toolbar-item {
-  background-color: var(--theme-primary);
-  color: var(--theme-bg_1);
+/* loading indicator */
+.btnSubmit::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.7em;
+  height: 0.7em;
+  top: calc(50% - 0.5em);
+  left: calc(50% - 0.5em);
+  border: 2px var(--btnTxt);
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-style: solid;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 250ms;
 }
 
-.stgs-toolbar input:disabled + .stgs-toolbar-item {
-  opacity: 0.6;
-  cursor: not-allowed;
+.btnSubmit[data-loading="true"] {
+  color: transparent;
+  pointer-events: none;
+}
+.btnSubmit[data-loading="true"]::after {
+  opacity: 1;
+  animation: rotate 750ms linear infinite;
+}
+
+.btnSubmit[data-loading="true"] .btnSubmit-text {
+  visibility: hidden;
+}
+
+.formStatus {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  font-size: 1.3rem;
+  color: green;
+  margin-top: 6px;
+}
+
+.terms {
+  position: relative;
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+.tooltipArea {
+  position: relative;
+}
+
+.tooltipBox {
+  position: absolute;
+  width: 104px;
+  bottom: 100%;
+  left: calc(50% - 52px);
+  padding-bottom: 4px; /* use padding to preserve hover when moving cursor between the tooltip button and the tooltipItself */
+
+  opacity: 0;
+  visibility: hidden;
+
+  /* delay 250ms to give time to fade out */
+  transition: opacity 250ms, visibility 1ms 250ms;
+}
+
+.tooltipArea.isActive:hover .tooltipBox,
+.tooltipArea.isActive:focus-within .tooltipBox {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 250ms;
+}
+.tooltipArea.isActive:hover .tooltipBox {
+  /* delay fadein 500ms to prevent accidental hovers */
+  transition: opacity 250ms 500ms;
+}
+
+.tooltipItself {
+  display: block;
+  background: hsl(266deg 100% 15%);
+  color: hsl(266deg 100% 96%);
+  line-height: 1.2;
+  padding: 6px 8px;
+  font-size: 1.3rem;
+  border-radius: 4px;
+  text-align: center;
+  -webkit-font-smoothing: initial;
+  -moz-osx-font-smoothing: initial;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.resultsArea {
+  width: 100%;
+  min-height: 100px;
+  border: 1px dotted var(--theme-primary);
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

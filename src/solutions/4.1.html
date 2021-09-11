@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
-🧩 4.1: On-demand changes
-🎯 Goal: Improve the accessibility of each setting
+🧩 4.1: Loading states
+🎯 Goal: Improve A11Y of the the loading state
 -->
 <html lang="en">
 
@@ -16,125 +16,149 @@
 
 <body>
   <main class="content">
-    <h1 class="title-xl">On-demand changes</h1>
+    <h1 class="title-xl">Loading states</h1>
 
-    <div class="g-card stgs js-caseToggle" data-sound="off" data-theme="light" data-size="md">
-      <!-- CASE #1 - Theme selector -->
-      <div class="part">
-        <!-- Solution:
-                - Replace the input with a button.
-                - Why: inputs are meant to hold a "value" and be submited afterwards through
-                a "conventional form". This change happens immediately, so,
-                *in my opinion* it makes more sense to use an actual toggle button. -->
-        <button class="stgs-toggleTheme js-theme" aria-pressed="false">
-          Dark theme
-        </button>
-      </div>
-
-      <!-- CASE #2 - Sound on/off -->
-      <div class="part">
-        <!-- Solution:
-          - Keep the aria-pressed
-          - Update visual name to be more understandable about the action.
-          - Override the button name with a fixed name for AT. That way,
-          it's always the same and it's not contracditory with the state.
-        -->
-        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
-          <span class="sr-only">Enable Sound</span>
-          <span class="off" aria-hidden="true">
-            <span>🔊</span> Enable sound
-          </span>
-          <span class="on" aria-hidden="true">
-            <span>🤐</span> Disable sound
-          </span>
-        </button>
-      </div>
-
-
-      <!-- CASE #3 (BONUS) - Text size -->
-      <div class="part">
-        <!-- Solution:
-          - Replace native inputs for buttons with role="radio".
-            - The SR will recognize the related options inside radiogroup. 
-          - Improvement: A even more complete solution would be to include
-          support for navigation using arrow keys.
-          Read exercise references about toolbars for further details.
-        -->
-        <div class="stgs-toolbar" role="radiogroup">
-          <legend class="stgs-toolbar-title">Text size</legend>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="sm">
-            Small
-          </button>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="true" data-value="md">
-            Medium
-          </button>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-checked="false" data-value="lg">
-            Large
-          </button>
-          <button class="stgs-toolbar-item js-size" role="radio" aria-disabled="true">
-            Custom (PRO)
-          </button>
+    <div class="demo g-card">
+      <form class="area js-form" novalidate>
+        <div class="areaStart">
+          <div class="field">
+            <label for="fieldCount" class="fieldLabel">Page <span class="sr-only">number</span></label>
+            <input id="fieldCount" class="fieldInput js-tickets" type="text" pattern="[0-9]+" placeholder="0"
+              required />
+          </div>
         </div>
 
-        <p>Check a <a href="https://www.w3.org/TR/wai-aria-practices/examples/toolbar/toolbar.html" class="link">Toolbar
-            example</a>,
-          following WAI ARIA practices.</p>
+        <div class="areaEnd">
+          <div class="tooltipArea isActive js-tooltip">
+            <!-- 💡 BONUS 1/2 Use aria-disabled instead of disabled, so that people with keyboard
+              can still see the tooltip when focusing the button -->
+            <button type="submit" class="btnSubmit js-btnSubmit" aria-disabled="true" aria-describedby="disabledReason">
+              <span class="btnSubmit-text">Get products</span>
+            </button>
+
+            <div role="tooltip" class="tooltipBox" id="disabledReason">
+              <span class="tooltipItself">Choose from page 1 to 9</span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="resultsArea">
+        <p class="js-resultEmpty">No products yet.</p>
+
+        <!-- 💡 Use aria-live to let the user know about the loading.
+        Do NOT use it on the element that will contain the loaded content,
+        otherwise the AT would announce the entire content, which can be annoying. -->
+        <p class="js-resultLoader" aria-live="assertive">
+          <!-- Loading message - Added by JS -->
+        </p>
+
+        <div class="js-resultValue">
+          <!-- List of products - Added by JS -->
+        </div>
       </div>
+
+      <p>A <a href="#fake-link" class="link">dummy link</a> for demo.</p>
     </div>
+
   </main>
 
   <script>
-    const elCase = document.getElementsByClassName('js-caseToggle')[0];
-    const elSound = document.getElementsByClassName('js-sound')[0];
-    const elTheme = document.getElementsByClassName('js-theme')[0];
-    const elsSize = document.getElementsByClassName('js-size');
+    const elForm = document.querySelector(".js-form");
+    const elBtnSubmit = document.querySelector(".js-btnSubmit");
+    const elTickets = document.querySelector(".js-tickets");
+    const elTooltip = document.querySelector('.js-tooltip');
 
-    const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
-    const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
+    const elresultLoader = document.querySelector('.js-resultLoader');
+    const elresultEmpty = document.querySelector('.js-resultEmpty');
+    const elresultValue = document.querySelector('.js-resultValue');
 
-    // 💡 Case #1 (theme)
-    elTheme.addEventListener('click', function (e) {
-      const isPressed = elTheme.getAttribute('aria-pressed') === 'true';
-      elTheme.setAttribute("aria-pressed", !isPressed);
-      elCase.setAttribute('data-theme', isPressed ? 'light' : 'dark')
-    })
+    let formCount = 0;
+    let isSubmitting = false;
 
-    // 💡 Case #2 (sound)
-    elSound.addEventListener('click', function () {
-      const isPressed = elSound.getAttribute('aria-pressed') === 'true';
-      elSound.setAttribute("aria-pressed", !isPressed);
+    const checkTicketsValidation = () => formCount >= 1 && formCount <= 9;
 
-      // 🍀🔇 You can comment this to disable the sound
-      if (!isPressed) {
-        audioOn.play();
+    elBtnSubmit.addEventListener("click", handleBtnClick);
+    elTickets.addEventListener("keyup", handleCountChange);
+    elTickets.addEventListener("change", handleCountChange);
+
+    elForm.addEventListener("submit", handleFormSubmit);
+
+    function handleCountChange(event) {
+      formCount = Number(event.target.value);
+      const hasValidTickets = checkTicketsValidation();
+
+      if (hasValidTickets) {
+        // 💡 BONUS 2/2 Updated attribute from disabled to aria-disabled
+        elBtnSubmit.setAttribute("aria-disabled", "false");
+        elTooltip.classList.remove("isActive");
       } else {
-        audioOff.play()
+        elBtnSubmit.setAttribute("aria-disabled", "true");
+        elTooltip.classList.add("isActive");
       }
-    })
+    }
 
-    // 💡 Case #3 (Text size)
-    // Manually set/unset the select size value
-    Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
-      // If the option is disabled, ignore click.
-      const isDisabled = ignoreIfDisabled(e)
-      if (isDisabled) return false
+    function handleBtnClick(event) {
+      // Do nothing. The submit happens at handleFormSubmit()
+    }
 
-      // If it's already active, ignore click too.
-      const isPressed = el.getAttribute('aria-checked') === 'true';
-      if (isPressed) { return }
+    async function handleFormSubmit(event) {
+      event.preventDefault(); // avoid native form submit (page refresh)
 
-      // Otherwise, mark the option as active...
-      const currentValue = elCase.getAttribute('data-size');
-      el.setAttribute("aria-checked", 'true');
-      elCase.setAttribute('data-size', el.getAttribute('data-value'));
+      // 💡 BONUS 3/3 Verify if button has aria-disabled="true"
+      const isBtnDisabled = ignoreIfDisabled(event)
 
-      // ...and unpress previously pressed size
-      if (currentValue) {
-        document.querySelector(`.js-size[data-value="${currentValue}"]`).setAttribute('aria-checked', 'false')
+      if (isBtnDisabled) {
+        console.log("Disabled submit prevented");
+        return;
       }
-    }))
+
+      if (isSubmitting) {
+        console.log("Double submit prevented");
+        return;
+      }
+
+      isSubmitting = true;
+
+      elBtnSubmit.setAttribute("data-loading", "true");
+
+      elresultEmpty.classList.add('js-isHidden')
+      elresultValue.innerHTML = ''; // clean prev results
+
+      elresultLoader.innerHTML = 'Loading products...'
+      elresultLoader.classList.remove('sr-only')
+
+      await fakeWaitTime(2500);
+
+      // Display the results!
+      elresultValue.innerHTML = listOfResults(formCount);
+
+
+      // 💡 Solution 2/2
+      // Announce to AT that it's ready
+      elresultLoader.innerHTML = 'Products loaded!'
+      // But hide it visually to respect design specs...
+      // Note: Remove sr-only when loading starts (line 129)
+      elresultLoader.classList.add('sr-only')
+
+      elBtnSubmit.setAttribute("data-loading", "false");
+
+      isSubmitting = false;
+    }
+
+    function fakeWaitTime(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function listOfResults(count) {
+      // This is very dummy, but I hope you get the idea.
+      return `<ul>
+        ${Array.from(Array(10), (_, i) => `<li>Product ${count}${i}</li>`).join('')}
+      </ul>`
+    }
 
     function ignoreIfDisabled(event) {
+      // The JS is already done for you!
       const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
 
       if (isDisabled) {

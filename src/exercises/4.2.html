@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+🧩 4.2: On-demand changes
+🎯 Goal: Improve the accessibility of each setting
+-->
+<html lang="en">
+
+<head>
+  <title>Exercise #4.2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <link rel="stylesheet" href="4.2.css">
+</head>
+
+<body>
+  <script>
+    function ignoreIfDisabled(event) {
+      const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
+
+      if (isDisabled) {
+        event.preventDefault();
+        event.target.blur(); // prevent focus on click.
+        console.log('disabled - click ignored')
+        return true
+      }
+
+      return false
+    }
+  </script>
+
+  <main class="content">
+    <h1 class="title-xl">On-demand changes</h1>
+
+    <div class="g-card stgs js-caseToggle" data-sound="off" data-theme="light" data-size="md">
+
+      <!-- CASE #1 - Theme selector -->
+      <div class="part">
+        <!-- 💡
+          This visually looks like a checkbox, but what makes an element
+          a toggle button vs a checkbox?
+          P.S. Read "Tips about moments of action" for further hints.
+        -->
+        <label class="stgs-toggleTheme">
+          <input type="checkbox" id="darkTheme" class="js-theme" />
+          <span class="stgs-toggleTheme-fakeCheck"></span>
+          Dark theme
+        </label>
+      </div>
+
+      <!-- CASE #2 - Sound on/off -->
+      <div class="part">
+        <!-- 💡 Check the Accessibiliy tree of this button. The default
+          name is "Sound off, not pressed". Does that mean the sound is off or on? 
+          How can we make it clear using ARIA and .sr-only?
+          P.S. Read "Tips about dynamic names and states" for further hints.
+        -->
+        <button class="stgs-btnOnOff js-sound" aria-pressed="false">
+          <span class="off">
+            <span aria-hidden="true">🤐</span> Sound off
+          </span>
+          <span class="on">
+            <span aria-hidden="true">🔊</span> Sound on
+          </span>
+        </button>
+      </div>
+
+      <!-- CASE #3 (BONUS) - Text size -->
+      <div class="part">
+        <!-- 💡
+          This visually looks like a checkbox, but what makes an element
+          a toggle button vs a checkbox?
+
+          P.S.1 Read "Tips about keyboard navigation" for further hints.
+          P.S.2 To solve this you may need a good junk of HTML & JS changes.
+        -->
+        <fieldset class="stgs-toolbar">
+          <span class="stgs-toolbar-title">Text size</span>
+
+          <input id="size-sm" class="js-size" type="radio" name="size" value="sm" />
+          <label for="size-sm" class="stgs-toolbar-item">
+            Small
+          </label>
+
+          <input id="size-md" class="js-size" type="radio" name="size" value="md" checked />
+          <label for="size-md" class="stgs-toolbar-item">
+            Medium
+          </label>
+
+          <input id="size-lg" class="js-size" type="radio" name="size" value="lg" />
+          <label for="size-lg" class="stgs-toolbar-item">
+            Large
+          </label>
+
+          <input id="size-pro" class="js-size" type="radio" name="size" value="pro" disabled />
+          <label for="size-pro" class="stgs-toolbar-item isDisabled">
+            Custom (PRO)
+          </label>
+        </fieldset>
+
+        <p>Check a <a href="https://www.w3.org/TR/wai-aria-practices/examples/toolbar/toolbar.html" class="link">Toolbar
+            example</a>,
+          following WAI ARIA practices.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const elCaseToggle = document.getElementsByClassName('js-caseToggle')[0];
+    const elSound = document.getElementsByClassName('js-sound')[0];
+    const elTheme = document.getElementsByClassName('js-theme')[0];
+    const elsSize = document.getElementsByClassName('js-size');
+
+    const audioOn = new Audio('https://freesound.org/data/previews/504/504847_9961300-lq.mp3');
+    const audioOff = new Audio('https://freesound.org/data/previews/324/324659_2901073-lq.mp3');
+
+    // 💡 Case #1 (theme): Changes needed
+    elTheme.addEventListener('change', function (e) {
+      elCaseToggle.setAttribute('data-theme', e.target.checked ? 'dark' : 'light')
+    })
+
+    // 💡 Case #2 (sound): Changes not needed
+    elSound.addEventListener('click', function () {
+      const isPressed = elSound.getAttribute('aria-pressed') === 'true';
+      elSound.setAttribute("aria-pressed", !isPressed);
+
+      // 🍀🔇 You can comment this to disable the sound
+      if (!isPressed) {
+        audioOn.play();
+      } else {
+        audioOff.play()
+      }
+    })
+
+    // 💡 Case #3 (Text size): Many changes needed.
+    Array.from(elsSize).forEach(el => el.addEventListener('click', function (e) {
+      elCaseToggle.setAttribute('data-size', e.target.value)
+    }))
+  </script>
+</body>
+
+</html>

@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+
 <!--
-🧩 3.3: Loading states
-🎯 Goal: Improve A11Y of the the loading state
+🧩 3.3: Accessible forms
+🎯 Goal: Build an accessible form
+
+Notes:
+- You don't need to change or remove CSS classes.
 -->
+
 <html lang="en">
 
 <head>
@@ -11,164 +16,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/theme.css">
-  <link rel="stylesheet" href="3.3.css">
 </head>
 
 <body>
   <main class="content">
-    <h1 class="title-xl">Loading states</h1>
+    <h1 class="title-xl">Accessible Forms</h1>
 
-    <div class="demo g-card">
-      <form class="area js-form" novalidate>
-        <div class="areaStart">
-          <div class="field">
-            <label for="fieldCount" class="fieldLabel">Page <span class="sr-only">number</span></label>
-            <input id="fieldCount" class="fieldInput js-tickets" type="text" pattern="[0-9]+" placeholder="0"
-              required />
-          </div>
-        </div>
+    <form class="g-card form js-formItself" aria-labelledby="formTitle">
+      <h2 id="formTitle" class="title-lg">Form: Web lover profile</h2>
 
-        <div class="areaEnd">
-          <div class="tooltipArea isActive js-tooltip">
-            <!-- 💡 BONUS 1/2 Use aria-disabled instead of disabled, so that people with keyboard
-              can still see the tooltip when focusing the button -->
-            <button type="submit" class="btnSubmit js-btnSubmit" aria-disabled="true" aria-describedby="disabledReason">
-              <span class="btnSubmit-text">Get products</span>
-            </button>
-
-            <div role="tooltip" class="tooltipBox" id="disabledReason">
-              <span class="tooltipItself">Choose from page 1 to 9</span>
-            </div>
-          </div>
-        </div>
-      </form>
-
-      <div class="resultsArea">
-        <p class="js-resultEmpty">No products yet.</p>
-
-        <!-- 💡 Use aria-live to let the user know about the loading.
-        Do NOT use it on the element that will contain the loaded content,
-        otherwise the AT would announce the entire content, which can be annoying. -->
-        <p class="js-resultLoader" aria-live="assertive">
-          <!-- Loading message - Added by JS -->
-        </p>
-
-        <div class="js-resultValue">
-          <!-- List of products - Added by JS -->
-        </div>
+      <!-- Case #1 - Required inputs
+      -->
+      <div class="field">
+        <label class="field-txt" for="nickname">
+          Nickname <span class="u-danger" aria-hidden="true">*</span>
+        </label>
+        <!-- Bonus #2 - Input types
+          🍀 When dealing with numbers that don't make sense as a "stepper"
+          Prefer using inputmode.
+        -->
+        <input type="text" id="nickname" class="js-fieldNickname" aria-required="true" aria-describedby="jsYearError">
+        <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
       </div>
 
-      <p>A <a href="#fake-link" class="link">dummy link</a> for demo.</p>
-    </div>
+      <!-- Case #2 - Group checkbox/radio
+        🍀 In radio/checkboxes, wrap the related inputs
+        in a <fieldset> and use <legend> to mark the main label
+      -->
+      <fieldset class="field">
+        <legend class="field-txt">Favorite theme</legend>
+        <label class="inputRadio">
+          <input type="radio" name="theme" value="dark">
+          <span>Dark</span>
+        </label>
+        <label class="inputRadio">
+          <input type="radio" name="theme" value="light">
+          <span>Light</span>
+        </label>
+        <!-- Case #2.1 - label as a wrapper, or not.
+          🍀 When you need to keep the input and label separated, make sure
+          the interaction area includes the surrounding spaces
+          (ex use paddings instead of margins)
+        -->
+        <input id="themeDepends" type="radio" name="theme" value="whatever">
+        <label for="themeDepends" class="inputRadio">
+          <span>It depends</span>
+        </label>
+      </fieldset>
 
+      <!-- Case #3 - Numeric inputs -->
+      <div class="field">
+        <label class="field-txt" for="firstPC">
+          Year of your first computer
+        </label>
+        <!-- Bonus #2 - Input types  
+          🍀 When dealing with numbers that don't make sense to
+          be a "stepper", prefer using inputmode.
+        -->
+        <input type="text" id="firstPC" inputmode="numeric" pattern="[0-9]*" class="js-fieldYear">
+      </div>
+
+      <!-- Case #4.1
+        💡 In fields with descriptions, use aria-describedby to connect both.
+        🍀 In fields with multiple actions (eg input + button), the label cannot
+          wrap everything because it will cause A11Y issues in some browsers and AT.
+      -->
+      <div class="field">
+        <label for="uPass" class="field-txt">Worst password ever</label>
+        <input type="password" id="uPass" class="js-secretInput" aria-describedby="pwHint">
+        <button type="button" class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
+        <span class="field-tip" id="pwHint">
+          The password usually is dumb and short.
+        </span>
+      </div>
+
+      <!-- 💡 Case #4.2 - Inputs descriptions p1
+        🍀 In fields with hints that contain links, it's also recommended to put the hint
+          outside the label to prevent interaction issues with some assistive technologies-->
+      <span class="u-block" id="a11yLabelStart">
+        Caring about <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">web
+          accessibility</a> is my duty as web creator.
+      </span>
+      <label class="field">
+        <input type="checkbox" aria-labelledby="a11yLabelStart a11yLabelEnd" />
+        <span id="a11yLabelEnd">I agree with this sentence.</span>
+      </label>
+
+
+      <!-- 💡 Live Regions (4.1)
+        🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
+        In this case "assertive" is better because we are announcing something
+        important related to the current task.
+        "assertive" also works well for inline error messages that show up when
+        the user leaves (blur) an input that is still invalid.
+      -->
+      <div class="form-footer">
+        <p class="formMsg js-formFeedback" aria-live="assertive"></p>
+        <!-- 💡 Aim to write texts that reflect the full form intent/context -->
+        <button class="btn btnPrimary js-btnSubmit">Save profile</button>
+      </div>
+    </form>
   </main>
 
   <script>
-    const elForm = document.querySelector(".js-form");
-    const elBtnSubmit = document.querySelector(".js-btnSubmit");
-    const elTickets = document.querySelector(".js-tickets");
-    const elTooltip = document.querySelector('.js-tooltip');
+    // The JS part is already done for you.
 
-    const elresultLoader = document.querySelector('.js-resultLoader');
-    const elresultEmpty = document.querySelector('.js-resultEmpty');
-    const elresultValue = document.querySelector('.js-resultValue');
+    // -----
+    // Toggle password visibility
+    const elSecretBtn = document.getElementsByClassName('js-secretBtn')[0]
+    const elSecretInput = document.getElementsByClassName('js-secretInput')[0]
 
-    let formCount = 0;
-    let isSubmitting = false;
+    elSecretBtn.addEventListener('click', function () {
+      console.log('Toggle password clicked')
+      const isPressed = elSecretBtn.getAttribute("aria-pressed") === 'true';
+      // 1.toggle the button status visually and semantically
+      elSecretBtn.textContent = isPressed ? '👀' : '🙈'
+      elSecretBtn.setAttribute("aria-pressed", !isPressed) // 💡 #4.2.
+      // 2. toggle input type
+      elSecretInput.setAttribute("type", isPressed ? 'password' : 'text');
+    })
 
-    const checkTicketsValidation = () => formCount >= 1 && formCount <= 9;
+    // -----
+    // Listen for "submit" button click
+    const elBtnSubmit = document.getElementsByClassName('js-btnSubmit')[0]
+    document.getElementsByClassName('js-btnSubmit')[0].addEventListener('click', function () {
+      console.log('Submit clicked')
+    })
 
-    elBtnSubmit.addEventListener("click", handleBtnClick);
-    elTickets.addEventListener("keyup", handleCountChange);
-    elTickets.addEventListener("change", handleCountChange);
+    // -----
+    // Listen for form submission
+    const elFormItself = document.getElementsByClassName('js-formItself')[0]
+    const elFormFeedback = document.getElementsByClassName('js-formFeedback')[0]
+    const elFieldNickname = document.getElementsByClassName('js-fieldNickname')[0]
 
-    elForm.addEventListener("submit", handleFormSubmit);
+    elFormItself.addEventListener('submit', (e) => {
+      e.preventDefault()
+      console.log('Form submitting...')
 
-    function handleCountChange(event) {
-      formCount = Number(event.target.value);
-      const hasValidTickets = checkTicketsValidation();
+      updateFormMsg() // clear the form msg
 
-      if (hasValidTickets) {
-        // 💡 BONUS 2/2 Updated attribute from disabled to aria-disabled
-        elBtnSubmit.setAttribute("aria-disabled", "false");
-        elTooltip.classList.remove("isActive");
-      } else {
-        elBtnSubmit.setAttribute("aria-disabled", "true");
-        elTooltip.classList.add("isActive");
+      // Check if input tabs has a valid value
+      if (!Number(elFieldNickname.value)) {
+        updateInlineError(elFieldNickname, true, '⚠️ The nickname is required.')
+        updateFormMsg('invalid')
+        return
+      }
+      updateFormMsg('success')
+    })
+
+    function updateFormMsg(status) {
+      switch (status) {
+        case 'invalid':
+          elFormFeedback.classList.add('u-danger')
+          elFormFeedback.classList.remove('u-success')
+          elFormFeedback.innerHTML = 'Ups! There are invalid fields, please review them.'
+          break;
+        case 'success':
+          elFormFeedback.classList.remove('u-danger')
+          elFormFeedback.classList.add('u-success')
+          elFormFeedback.innerHTML = 'All good, thank you!'
+          break;
+        default:
+          elFormFeedback.classList.remove('u-invalid', 'u-success')
+          elFormFeedback.innerHTML = ''
+          break;
       }
     }
 
-    function handleBtnClick(event) {
-      // Do nothing. The submit happens at handleFormSubmit()
-    }
+    function updateInlineError(field, hasError, errorMsg) {
+      elFieldNickname.nextElementSibling.innerText = errorMsg || '';
+      elFieldNickname.nextElementSibling.style.display = hasError ? 'block' : 'none';
 
-    async function handleFormSubmit(event) {
-      event.preventDefault(); // avoid native form submit (page refresh)
+      // 💡 Update aria-invalid attribute
+      field.setAttribute('aria-invalid', hasError)
 
-      // 💡 BONUS 3/3 Verify if button has aria-disabled="true"
-      const isBtnDisabled = ignoreIfDisabled(event)
+      if (hasError) {
+        // Listen for future field changes ...
+        field.removeEventListener('keyup', handleChange)
+        field.addEventListener('keyup', handleChange)
 
-      if (isBtnDisabled) {
-        console.log("Disabled submit prevented");
-        return;
+        field.removeEventListener('change', handleChange)
+        field.addEventListener('change', handleChange)
+
+        // ... and remove error if it's valid again!
+        function handleChange(e) {
+          if (!!elFieldNickname.value) {
+            updateInlineError(e.target, false)
+            field.removeEventListener('change', handleChange)
+            field.removeEventListener('keyup', handleChange)
+          }
+        }
       }
-
-      if (isSubmitting) {
-        console.log("Double submit prevented");
-        return;
-      }
-
-      isSubmitting = true;
-
-      elBtnSubmit.setAttribute("data-loading", "true");
-
-      elresultEmpty.classList.add('js-isHidden')
-      elresultValue.innerHTML = ''; // clean prev results
-
-      elresultLoader.innerHTML = 'Loading products...'
-      elresultLoader.classList.remove('sr-only')
-
-      await fakeWaitTime(2500);
-
-      // Display the results!
-      elresultValue.innerHTML = listOfResults(formCount);
-
-
-      // 💡 Solution 2/2
-      // Announce to AT that it's ready
-      elresultLoader.innerHTML = 'Products loaded!'
-      // But hide it visually to respect design specs...
-      // Note: Remove sr-only when loading starts (line 129)
-      elresultLoader.classList.add('sr-only')
-
-      elBtnSubmit.setAttribute("data-loading", "false");
-
-      isSubmitting = false;
-    }
-
-    function fakeWaitTime(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
-    function listOfResults(count) {
-      // This is very dummy, but I hope you get the idea.
-      return `<ul>
-        ${Array.from(Array(10), (_, i) => `<li>Product ${count}${i}</li>`).join('')}
-      </ul>`
-    }
-
-    function ignoreIfDisabled(event) {
-      // The JS is already done for you!
-      const isDisabled = event.target.getAttribute('aria-disabled') === 'true';
-
-      if (isDisabled) {
-        event.preventDefault();
-        event.target.blur(); // prevent focus on click.
-        console.log('disabled - click ignored')
-        return true
-      }
-
-      return false
     }
   </script>
 </body>
