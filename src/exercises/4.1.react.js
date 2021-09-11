@@ -10,10 +10,6 @@ function Exercise() {
   async function handleSubmit(e) {
     e.preventDefault(); // avoid native form submit (page refresh)
 
-    if (!isFormSubmitActive) {
-      return false;
-    }
-
     setIsLoadingProducts(true);
     setProductsError(null);
 
@@ -21,7 +17,7 @@ function Exercise() {
       const productsList = await fetchProducts(page);
       setProcuts(productsList);
     } catch (err) {
-      const errorMessage = `Page failed. Technical error: ${err.message}`;
+      const errorMessage = `Ups, something went wrong.`;
       setProductsError(errorMessage);
     } finally {
       setIsLoadingProducts(false);
@@ -33,11 +29,13 @@ function Exercise() {
       <h1 className="title-xl">Loading states</h1>
 
       <div className="demo g-card">
+        {/* 🍀 Everything is okay with the form itself.
+        For this exercise, focus just on the results area :) */}
         <form className="area" noValidate onSubmit={handleSubmit}>
           <div className="areaStart">
             <div className="field">
               <label htmlFor="page" className="fieldLabel">
-                Page <span className="sr-only">number</span>
+                Page
               </label>
               <input
                 id="page"
@@ -48,7 +46,7 @@ function Exercise() {
                 placeholder="0"
                 required
                 value={page}
-                onChange={(e) => setPage(e.target.value)}
+                onChange={(e) => setPage(Number(e.target.value))}
               />
             </div>
           </div>
@@ -59,7 +57,7 @@ function Exercise() {
                 type="submit"
                 className="btnSubmit"
                 data-loading={isLoadingProducts}
-                aria-disabled={!isFormSubmitActive}
+                disabled={!isFormSubmitActive}
                 aria-describedby={isFormValid ? "" : "disabledReason"}
               >
                 <span className="btnSubmit-text">Get products</span>
@@ -76,21 +74,19 @@ function Exercise() {
           {/* Empty State */}
           {products.length === 0 && isProductsOkay && <p>No products yet.</p>}
 
+          {/* 💡 Below it's the multiple dynamic states.
+          Create the necessary live regions to ensure the
+          dynamic content is announced by assistive technologies. */}
+
           {/* Loading state */}
-          {isLoadingProducts && (
-            <p aria-live="assertive">Loading products...</p>
-          )}
+          {isLoadingProducts && <p>Loading products...</p>}
 
           {/* Error state */}
-          {productsError && <p aria-live="assertive">{productsError}</p>}
+          {productsError && <p>{productsError}</p>}
 
           {/* Products list */}
           {products.length > 0 && isProductsOkay && (
             <div>
-              {/* 💡 Broadcast a summary of the loaded state */}
-              <p aria-live="assertive" className="sr-only">
-                {`Page ${page} loaded with ${products.length} products.`}
-              </p>
               <ul>
                 {products.map((product) => (
                   <li key={product.id}>Product {product.id}</li>
@@ -112,12 +108,13 @@ function Exercise() {
   );
 }
 
-/* You can ignore the code below. */
+/* ============================== *\
+\* You can ignore the code below. */
 
 async function fetchProducts(page) {
   console.log("Loading products from page:", page);
 
-  if (page == 7) {
+  if (page === 7) {
     // Simulate a problem with this page for demo purposes.
     await fakeWaitTime(500);
     throw Error("Page 7 is unstable.");

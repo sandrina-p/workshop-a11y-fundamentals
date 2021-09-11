@@ -39,8 +39,8 @@ there is a dummy search mechanism that loads a set of results.</p>
 <p>Visually, it's perceivable when the result is being loaded and when it's finished. But what about people using screen readers. How can we do it?</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of the loading state for people with visual impairments.</p>
 <ul>
-<li>Exercise: <a href="../exercises/4.1.html">Default</a> or <a href="../exercises/4.1.react.html">React</a></li>
-<li>Solution: <a href="../solutions/4.1.html">Default</a> or <a href="../solutions/4.1.react.html">React</a></li>
+<li>Standard: <a href="../exercises/4.1.html">exercise</a> and <a href="../solutions/4.1.html">solution</a></li>
+<li>React: <a href="../exercises/4.1.react.html">exercise</a> and <a href="../solutions/4.1.react.html">solution</a></li>
 </ul>
 <p><details>
 <summary>🍀 Toggle hint #1:</summary></p>
@@ -51,6 +51,7 @@ Remember <code>.sr-only</code>? It's the perfect time to use it!</p>
 <h2 id="bonus1">Bonus #1</h2>
 <p>Using the cursor, you may have noticed that a tooltip is shown on button hover. Now, try to do the same using the keyboard only.</p>
 <p>That's not possilbe because the button is disabled using <code>disabled</code> attribute. How can we solve this? Prevent the click interaction, but still allowing the focus interaction.</p>
+<p>P.S. The CSS is the same for both exercise alternatives.</p>
 <p><details>
 <summary>🍀 Toggle hint #1:</summary>
 There is an attribute <code>aria-disabled="true"</code> that we can use.</p>
@@ -65,7 +66,7 @@ ARIA only purpose is to add extra semantics to an element. It never, <em>ever</e
 <ul>
 <li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
 <li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
-<li><a href="TODO-LINK-CSS">Making disabled Buttons more inclusive</a> (to be published soon)</li>
+<li><a href="https://css-tricks.com/making-disabled-buttons-more-inclusive/">Making disabled Buttons more inclusive</a></li>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
