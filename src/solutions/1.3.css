@@ -1,92 +1,261 @@
-/*  ---------------------------------------- *\
-|*    You do not need to touch this file     *|
-|*     but you can see how it was made.      *|
-\** ---------------------------------------- */
+@import url("../assets/normalize.css");
 
-/* Case 1 */
-.case1 {
-  position: relative;
-  width: 100%;
-  background: black;
-  padding: 0;
+:root {
+  --theme-text_0: hsl(0deg 0% 20%);
+  --theme-text_1: hsl(0deg 0% 44%);
+  --theme-bg_0: hsl(27deg 39% 95%);
+  --theme-bg_1: hsl(0deg 0% 100%);
+  --theme-primary: hsl(266deg 100% 61%);
+  --theme-primary_smooth: hsl(266deg 100% 92%);
+  /* 💡 Updated color to respects AA level */
+  --theme-secondary: hsl(26deg 100% 38%);
+  --theme-success: green;
 }
 
-.case1-img {
+/* 💡 Dark theme colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-text_0: hsl(0deg 0% 89%);
+    --theme-text_1: hsl(0deg 0% 68%);
+    --theme-bg_0: hsl(280deg 3% 23%);
+    --theme-bg_1: hsl(288deg 6% 17%);
+    --theme-primary: hsl(266deg 100% 75%);
+    --theme-primary_smooth: hsl(266deg 100% 31%);
+    --theme-secondary: hsl(26deg 100% 68%);
+    --theme-success: greenyellow;
+  }
+}
+
+html {
+  /* 💡 Convert font-size to rem with easy calcs */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "IBMPlexSans", sans-serif;
+  background-color: var(--theme-bg_0);
+  color: var(--theme-text_0);
+  box-sizing: border-box;
+  font-weight: 400;
+  /* 💡 Here's the first fixed unit (px) to converted to rem */
+  font-size: 1.6rem;
+
+  /* 💡 BONUS #2 bigger line-height */
+  line-height: 1.5;
+}
+
+body * {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+  position: relative;
+  margin: 0 auto;
+  max-width: 480px;
+  padding: 64px 16px;
+}
+
+.card {
+  position: relative;
+  padding: 24px 16px;
+  background-color: var(--theme-bg_1);
+  border: 1px solid var(--theme-primary);
+  box-shadow: 2px 2px var(--theme-primary_smooth);
+  border-radius: 3px;
+  margin: 24px 0;
+}
+
+.card p {
+  margin: 0;
+  /* 💡 BONUS #2 keep the text aligned to the start */
+  /* text-align: justify; */
+}
+
+.tag {
+  color: var(--theme-secondary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.title-xl {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.title-md {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 32px 0 8px;
+  line-height: 1.2;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+}
+
+.list li {
+  margin: 4px 0;
+}
+
+/* 💡 To meet WCAG 1.4.1 (Use of color)
+  we can't use color as the only way to give meaning */
+.list li[data-status="no"]::before {
+  content: "●";
+  color: var(--theme-text_1);
+  font-family: sans-serif;
+}
+
+.list li[data-status="yes"]::before {
+  /* 💡 With ✓, the shape is different regardless of the color */
+  content: "✓";
+  color: var(--theme-success);
+  font-family: sans-serif;
+}
+
+.list li[data-status="no"] {
+  color: var(--theme-text_1);
+}
+
+@media (min-width: 480px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .list > * {
+    flex-basis: 50%;
+  }
+}
+
+.btnBell {
+  display: flex;
+  align-items: center;
+  min-height: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 16px;
+  background-color: var(--theme-bg_0);
+  color: var(--theme-text_0);
+  border: 2px solid var(--theme-primary);
+  cursor: pointer;
+}
+
+.btnBell:hover {
+  opacity: 0.8;
+}
+
+.btnBell-svg {
+  width: 16px;
+  max-height: 16px;
+  fill: currentColor;
+  margin-right: 8px;
+
+  /* 🍀 We can create a visual difference
+  to communicate something without using animations */
+  fill: var(--theme-primary);
+  transform: rotate(10deg);
+}
+
+/* 💡 Take a no-motion-by-default approach.
+  Using media queries
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .btnBell {
+    animation: zoom 3s infinite;
+  }
+
+  .btnBell-svg {
+    fill: currentColor;
+    transform: rotate(0deg);
+    animation: shake 3s infinite;
+  }
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  /* background: var(--theme-text_0); */
+}
+
+.footer::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background: var(--theme-text_0);
 }
 
-.case1-text {
+.footer-text {
   position: relative;
+  text-align: center;
   margin: 0;
-  padding: 40px 24px;
-  font-size: 3.2rem;
-  color: white;
-  text-shadow: 1px 1px 3px #00000080;
+  font-size: 1.3rem;
+  /** 🍀 Some A11Y debug tools might mark this as color contrast issue.
+  It's a false positive caused by the ::before pseudo-element above */
+  color: var(--theme-bg_0);
+  opacity: 0.7;
+
+  /* 💡 BONUS #2 set max text width */
+  max-width: 80ch;
 }
 
-/* Case 2 */
-.case2 {
-  display: flex;
+.footer-text a {
+  color: inherit;
 }
 
-.case2 img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+/*  ----------------------------------------- *\
+|*  You do not need to touch the code below   *|
+|*     but you can see how it was made.       *|
+\** ----------------------------------------- */
+
+@keyframes shake {
+  40%,
+  60% {
+    transform: rotate(0deg);
+  }
+
+  42.5%,
+  57.5% {
+    transform: rotate(10deg);
+  }
+
+  45%,
+  50%,
+  55% {
+    transform: rotate(-20deg);
+  }
+
+  47.5%,
+  52.5% {
+    transform: rotate(20deg);
+  }
 }
 
-.case2-content {
-  margin-left: 16px;
-}
+@keyframes zoom {
+  0%,
+  45%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
 
-.case2-name {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.case2-quote {
-  font-style: italic;
-}
-
-.case2-quote::before,
-.case2-quote::after {
-  content: "";
-}
-
-/* Case 3 */
-.case3 {
-  max-width: 250px;
-  border: 1px solid #6f6f6f;
-  padding: 16px;
-}
-
-.case3 figure {
-  margin: 0;
-}
-
-.case3-img {
-  width: 100%;
-  display: block;
-}
-
-.case3-caption {
-  font-style: italic;
-  font-size: 1.4rem;
-  margin-top: 4px;
-}
-
-/* Case 4 */
-.case4 {
-  display: flex;
-  align-items: center;
-}
-
-.case4-text {
-  margin-left: 4px;
+  50% {
+    transform: scale(1.25);
+  }
 }

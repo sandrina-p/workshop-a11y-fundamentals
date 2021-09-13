@@ -10,7 +10,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
   font-size: 1.8rem;
   border: none;
   padding: 8px 24px;
@@ -49,26 +48,76 @@
 
 /* ------- TEXT INPUT -------  */
 
+.fieldArea {
+  max-width: 200px;
+}
+
+.fieldLabel {
+  display: block;
+  font-weight: 600;
+  /* 💡 Bonus #3 Margins are not included
+  in the interactive area, but paddings are! */
+  margin-bottom: 8px;
+}
+
 .textInput {
   width: 100%;
-  max-width: 200px;
   height: 32px;
   padding: 4px 8px;
-  font-size: inherit;
-  border: none;
   border-radius: 4px;
   border: 1px solid var(--theme-text_1);
 }
 
-.textInput:hover,
-.textInput:focus {
+/* 💡 Input focus styles */
+
+.textInput:hover {
   border-color: var(--theme-primary);
 }
 
-/* 💡 add .textInput styles here!
-- How does the input looks like when disabled or focused? Try it out! 
-- Tip: Change the border color on hover or focus
-*/
+/* 💡 Improve the focus indicator with something more visible */
+.textInput:focus {
+  /* ... */
+}
 
-/* 💡 Bonus #2
+/* ----- */
+
+/* 💡 Bonus #3
 - You can use var(--theme-primary) for the color */
+
+/* ------- BUTTON CLOSE -------  */
+
+.c-btnCorner {
+  all: unset;
+  position: absolute;
+  --cornerOffset: 16px;
+  bottom: var(--cornerOffset);
+  right: var(--cornerOffset);
+}
+
+.c-btnCorner-area {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: var(--theme-text_0);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* 💡 The hover indicator has enough contrast,
+so the focus can be exactly the same */
+.c-btnCorner-area:hover {
+  background-color: var(--theme-primary);
+  color: var(--theme-bg_0);
+  transition: background-color 150ms, color 150ms;
+}
+
+.c-btnCorner svg {
+  width: 9px;
+  margin-left: 1px;
+  fill: currentColor;
+}

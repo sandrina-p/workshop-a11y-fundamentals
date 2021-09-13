@@ -20,12 +20,12 @@
 <h1 id="33accessibleforms">3.3. Accessible forms</h1>
 <h2 id="introduction">Introduction</h2>
 <p>When talking about the accessibility of a form, usually we are talking about their accessibility regarding people who use screen readers or keyboards. However <strong>everyone benefits from a well-organized and usable form</strong>, especially those with cognitive disabilities. Forms should be clear and intuitive.</p>
-<p>When building forms, we should make sure that:</p>
+<p>When building forms, we need to ensure that:</p>
 <ul>
 <li>Every form control has a label</li>
-<li>Explicit required form fields</li>
-<li>Explicit formatting requirements</li>
-<li>Forms are keyboard accessible</li>
+<li>Required fields are explicit</li>
+<li>Requirements / errors are understandable</li>
+<li>Forms are navigatable by keyboard</li>
 </ul>
 <p>First things first, a form control must always have a respective label.</p>
 <pre><code class="html language-html">&lt;!-- Option A: Use for and id to connect both elements --&gt;
@@ -39,30 +39,14 @@
   &lt;input type="text" /&gt;
 &lt;/label&gt;
 </code></pre>
-<p>If we do that with every form element, it's already a step forward! There's a lot more about <a href="https://webaim.org/techniques/forms/">creating accessible forms</a>, that we'll practice today.</p>
+<p>If we ensure these labels in every form element, it's already a half way done!</p>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.3.html">exercise page</a>, there are a few form controls. Each one has a particular accessibility issue.</p>
 <p><strong>🎯 Goal:</strong> Make the form accessible for keyboard and screen readers.</p>
 <p><strong>Hint 1:</strong> SR users usually <a href="https://twitter.com/a_sandrina_p/status/1382811701796614148">prefer to fill forms using <code>Tab</code> key</a>. Do the same to detect A11Y issues.</p>
-<p><strong>Hint 2:</strong> Use the Accessibility Tree tab on DevTools, to know how a form control is announced.</p>
+<p><strong>Hint 2:</strong> Use the Accessibility Tree tab on DevTools to know how a form control is announced.</p>
 <h2 id="bonus">Bonus</h2>
-<h3 id="1arialiveregions">#1 ARIA Live regions</h3>
-<p>When submitting the form, a feedback message is displayed, based on the submission result (success or invalid).</p>
-<p>Although these changes are perceivable to those who can see the page, that's not the case for those who use a screen reader.</p>
-<p>ARIA live regions fill this gap helping to expose this dynamic content. There are two tipes:</p>
-<ul>
-<li><code>aria-live="assertive"</code> or <code>role="alert"</code>: The content is announced immediately when added to the DOM.</li>
-</ul>
-<pre><code class="html language-html">&lt;p aria-live="assertive"&gt;Some fields are still still invalid.&lt;/p&gt;
-</code></pre>
-<ul>
-<li><code>aria-live="polite"</code> or <code>role="status"</code>: The content is announced when there's nothing else to be announced. Use it when this does not influence the user main task.</li>
-</ul>
-<pre><code class="html language-html">&lt;p aria-live="polite"&gt;Playing now: "Pink Floyd - Time"&lt;/p&gt;
-</code></pre>
-<p><strong>🎯 Goal:</strong> Explicit mark the form feedback messages as live regions.</p>
-<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise, the code is ready to follow the approach #3.</p>
-<h3 id="2betterinputnumbers">#2 Better input numbers</h3>
+<h3 id="1betterinputnumbers">#1 Better input numbers</h3>
 <p>In one of the fields, we used <code>type="number"</code> to benefit from
 virtual keyboard. However, that approach still has some A11Y issues that can be overcomed with another strategy:</p>
 <pre><code class="html language-html">&lt;input type="text" inputmode="numeric" pattern="^[0-9.]*$" /&gt;
@@ -71,12 +55,12 @@ virtual keyboard. However, that approach still has some A11Y issues that can be 
 <h4 id="references">References:</h4>
 <ul>
 <li><a href="https://css-tricks.com/everything-you-ever-wanted-to-know-about-inputmode/">Everything you need to know about <code>inputmode</code></a></li>
-<li><a href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">Why the Gov UK changed the input type for numbers</a></li>
+<li><a href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">Why the Gov UK changed the input type of numbers</a></li>
 </ul>
-<h3 id="3usingbuttonsinsideforms">#3 Using buttons inside forms</h3>
+<h3 id="2usingbuttonsinsideforms">#2 Using buttons inside forms</h3>
 <p><em>This is already done, but let me explain this common form mistake:</em></p>
 <ol>
-<li>Go to the exercise page, to both <code>&lt;button&gt;</code> elements and remove <code>type</code> attribute.</li>
+<li>In the exercise page, please remove <code>type</code> attribute from both <code>&lt;button&gt;</code> (password toggle and submit).</li>
 </ol>
 <p>This creates 2 bugs:</p>
 <ul>
@@ -88,6 +72,11 @@ virtual keyboard. However, that approach still has some A11Y issues that can be 
 When a button inside a <code>&lt;form&gt;</code> is clicked, the form will look for the first "submit" button and trigger it.
 In this form, the first button is the password toggle. That's why when we click it, it submits the form too.</p>
 <p><strong>Takeaway:</strong> Always explicit the button type (<code>type="button"</code> or <code>type="submit"</code>) when used inside forms to avoid unwanted form submissions.</p>
+<h3 id="3formfeedback">#3 Form feedback</h3>
+<p>Already here? <em>You were fast!</em></p>
+<p>When submitting the form, a feedback message is displayed, based on the form result.
+However, although these changes are perceivable to those who can see the page, that's not the case for those who use a screen reader. How would we solve this?</p>
+<p>To solve this, we first need to learn about Live Regions. That's what will explore in the next exercise, and then come back to this one to apply the lessons learned. ^.^</p>
 <hr />
 <h2 id="furtherreading">Further reading</h2>
 <ul>

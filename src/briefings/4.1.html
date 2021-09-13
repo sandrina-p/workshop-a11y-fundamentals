@@ -19,32 +19,39 @@
   
 <h1 id="41loadingstates">4.1. Loading states</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Until now, we have been exploring fairly simple cases, but there are some patterns that are all but straightforward:</p>
-<p>In A11Y, some patterns may have multiple solutions. Each approach has positive and negative consequences. Once you find a solution, look for other solutions and balance them. We should <strong>aim for understanding their impacts and assume the trade-offs</strong> rather than pretending they don't exist.</p>
-<hr />
 <p>Nowadays <a href="https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a">loading skeletons</a> are everywhere to inform the user that the page or some part of it is being loaded.</p>
-<p>These are perceivable visually but the same ain't true for the people with vision impairment.</p>
+<p>These are perceivable visually but the same ain't true for the people with vision impairmen, or those who use a screen reader.</p>
+<p>ARIA Live Regions fill this gap helping to expose this dynamic content. There are two tipes:</p>
+<ul>
+<li><code>aria-live="assertive"</code> or <code>role="alert"</code>: The content is announced immediately when added to the DOM.</li>
+</ul>
+<pre><code class="html language-html">&lt;p aria-live="assertive"&gt;The credentials are incorrect.&lt;/p&gt;
+</code></pre>
+<ul>
+<li><code>aria-live="polite"</code> or <code>role="status"</code>: The content is announced when there's nothing else to be announced. Use it when this does not influence the user main task.</li>
+</ul>
+<pre><code class="html language-html">&lt;p aria-live="polite"&gt;Playing now: "Pink Floyd - Time"&lt;/p&gt;
+</code></pre>
+<p>Here's a <a href="https://codepen.io/vloux/details/jxPrWy">codepen example</a> exploring multiple ways of using <code>aria-live</code>. In this exercise, the code is ready to follow the approach #3.</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/4.1.html">exercise page</a>,
+<p>In the exercise page,
 there is a dummy search mechanism that loads a set of results.</p>
-<p>Visually it's perceivable when the result is being loaded and when it's finished. But what about people using screen readers. How can we do it?</p>
+<p>Visually, it's perceivable when the result is being loaded and when it's finished. But what about people using screen readers. How can we do it?</p>
 <p><strong>🎯 Goal:</strong> Improve the accessibility of the loading state for people with visual impairments.</p>
+<ul>
+<li>Standard: <a href="../exercises/4.1.html">exercise</a> and <a href="../solutions/4.1.html">solution</a></li>
+<li>React: <a href="../exercises/4.1.react.html">exercise</a> and <a href="../solutions/4.1.react.html">solution</a></li>
+</ul>
 <p><details>
 <summary>🍀 Toggle hint #1:</summary></p>
-<p>We already learned about Live Regions using <code>aria-live</code>. Using those, remember to announce both loading states:</p>
-<ol>
-<li>When the result start to be loaded (The visual message "Products loading…")</li>
-<li>When the result is ready.
-</details></li>
-</ol>
-<p><details>
-<summary>🍀 Toggle hint #2:</summary></p>
-<p>The designs don't include a visual message, but we can still add that using a visually hidden element. Remember <code>.sr-only</code>? It's the perfect time to use it!</p>
+<p>The designs don't include a visual message when the loading is finished…
+Remember <code>.sr-only</code>? It's the perfect time to use it!</p>
 <p></details></p>
 <p></details></p>
 <h2 id="bonus1">Bonus #1</h2>
 <p>Using the cursor, you may have noticed that a tooltip is shown on button hover. Now, try to do the same using the keyboard only.</p>
 <p>That's not possilbe because the button is disabled using <code>disabled</code> attribute. How can we solve this? Prevent the click interaction, but still allowing the focus interaction.</p>
+<p>P.S. The CSS is the same for both exercise alternatives.</p>
 <p><details>
 <summary>🍀 Toggle hint #1:</summary>
 There is an attribute <code>aria-disabled="true"</code> that we can use.</p>
@@ -59,7 +66,7 @@ ARIA only purpose is to add extra semantics to an element. It never, <em>ever</e
 <ul>
 <li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
 <li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
-<li><a href="TODO-LINK-CSS">Making disabled Buttons more inclusive</a> (to be published soon)</li>
+<li><a href="https://css-tricks.com/making-disabled-buttons-more-inclusive/">Making disabled Buttons more inclusive</a></li>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>

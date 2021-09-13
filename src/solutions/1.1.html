@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--
-🧩 1.1: Appearance
-🎯 Goal: Make the page follow appearance guidelines.
+🧩 1.1: Semantic HTML
+🎯 Goal: Improve the HTML by using semantic elements.
 
 Notes:
-- The HTML is correct, you only need to change the CSS
+- The order or elements is correct. You only need to change the elements tags.
+- You don't need to change or remove CSS classes.
 -->
-
 <html lang="en">
 
 <head>
@@ -15,62 +15,96 @@ Notes:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="../assets/theme.css">
   <link rel="stylesheet" href="1.1.css">
 </head>
 
 <body>
-  <main class="content">
+  <div>
+    <header>
+      <nav>
+        <!-- 💡 Besides the nav, it's good to group the link in a <ul>.
+          This would allow AT tools to announce its size (3 links) -->
+        <ul class="company-links">
+          <li>
+            <a href="#fake" class="link">Home</a>
+          </li>
+          <li>
+            <a href="#fake" class="link">All plants</a>
+          </li>
+          <li>
+            <a href="#fake" class="link">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="content">
+      <div class="g-card">
+        <div class="header">
+          <!-- 💡 The markup has the correct order semantically,
+          and, thanks to CSS, it also looks good! -->
+          <h1 class="title-xl header-plantName">
+            Monstera Deliciosa
+          </h1>
+          <p class="header-tag tagSecondary">On Sale</p>
+        </div>
 
-    <div class="card">
-      <div>
-        <span class="tag">Breaking news</span>
-        <h1 class="title-xl">Fat cats love you</h1>
+        <div class="info">
+          <h2 class="visually-hidden">Characteristics</h2>
+          <!-- 💡 Another approach would be using Definition Lists (dl)
+          but the support isn't great yet :( -->
+          <ul class="topic info-part">
+            <li class="topic-item">
+              <span class="topic-key">Family</span>
+              <span class="topic-value title-lg">Araceae</span>
+            </li>
+            <li class="topic-item">
+              <span class="topic-key">Temperature</span>
+              <span class="topic-value title-lg">20ºC</span>
+            </li>
+            <li class="topic-item">
+              <span class="topic-key">Water</span>
+              <span class="topic-value title-lg">1/week</span>
+            </li>
+          </ul>
+
+          <div class="media info-part">
+            <img class="media-img" src="../assets/imgs/monstera.png" alt="a plant in a vase">
+          </div>
+        </div>
+
+        <section class="details">
+          <div class="details-part">
+            <h2 class="visually-hidden">Details</h2>
+            <p class="details-text">Monstera deliciosa, also known as the Swiss cheese plant, is a species of flowering
+              plant native to tropical forests of southern Mexico, south to Panama.</p>
+          </div>
+
+          <div class="details-part">
+            <div class="price">
+              <p class="price-original">
+                <span class="visually-hidden">Old price:</span>
+                $40.00
+              </p>
+              <p class="price-final title-lg">
+                <span class="visually-hidden">New price:</span>
+                $30.00
+              </p>
+            </div>
+            <button class="btn btnPrimary js-addToCart">Add to cart</button>
+          </div>
+        </section>
       </div>
-      <div>
-        <p>
-          Cat ipsum. Instead of drinking water from the cat bowl, make sure to <strong>steal water</strong> from the
-          toilet sleeps.
-          Stretch out on bed find empty spot in cupboard and sleep all day.
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <p>Checklist before getting a cat:</p>
-      <ul class="list">
-        <li data-status="yes">
-          Food and water bowls
-        </li>
-        <li data-status="no">
-          Cat bed to sleep
-        </li>
-        <li data-status="yes">
-          Toys and time to play
-        </li>
-        <li data-status="yes">
-          Happy home
-        </li>
-      </ul>
-    </div>
-
-    <button class="btnBell">
-      <svg class="btnBell-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
-        <path
-          d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z">
-        </path>
-      </svg>
-      1 new message
-    </button>
-  </main>
-
-  <footer class="footer">
-    <p class="footer-text">
-      This was generated from <a href="http://www.catipsum.com/" class="footer-link"><span>Cat
-          Ipsum</span></a>, a
-      website with funnier dummy texts. That means, this new is fake and not a fact. All cats love
-      you, no matter their weight.
-    </p>
-  </footer>
+    </main>
+  </div>
 </body>
+
+<!-- You can ignore the code below. -->
+<script>
+  const elExpand = document.getElementsByClassName('js-addToCart')[0]
+  elExpand.addEventListener('click', function () {
+    alert('This would add the plant to the cart.')
+  })
+</script>
 
 </html>

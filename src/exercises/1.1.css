@@ -1,183 +1,18 @@
-@import url("../assets/normalize.css");
-
-:root {
-  --theme-text_0: hsl(0deg 0% 20%);
-  --theme-text_1: hsl(0deg 0% 44%);
-  --theme-bg_0: hsl(27deg 39% 95%);
-  --theme-bg_1: hsl(0deg 0% 100%);
-  --theme-primary: hsl(266deg 100% 61%);
-  --theme-primary_smooth: hsl(266deg 100% 92%);
-  --theme-secondary: hsl(26deg 100% 68%);
-  --theme-success: green;
-}
-
-html {
-  /* 💡 Change font-size so that 1rem = 10px */
-}
-
-body {
-  font-family: "IBMPlexSans", sans-serif;
-  background-color: var(--theme-bg_0);
-  color: var(--theme-text_0);
-  box-sizing: border-box;
-  font-weight: 400;
-  /* 💡 Here's the first fixed unit to converted */
-  font-size: 16px;
-  line-height: 20px;
-}
-
-body * {
-  box-sizing: inherit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.content {
-  position: relative;
-  margin: 0 auto;
-  max-width: 480px;
-  padding: 64px 16px;
-}
-
-.card {
-  position: relative;
-  padding: 24px 16px;
-  background-color: var(--theme-bg_1);
-  border: 1px solid var(--theme-primary);
-  box-shadow: 2px 2px var(--theme-primary_smooth);
-  border-radius: 3px;
-  margin: 24px 0;
-}
-
-.card p {
-  margin: 0;
-  text-align: justify;
-}
-
-.tag {
-  /* 💡 Does this color respects AA level? */
-  color: var(--theme-secondary);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 14px;
-}
-
-.title-xl {
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 33.6px;
-  margin: 0 0 8px;
-}
-
-.title-md {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 32px 0 8px;
-  line-height: 21.6px;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 4px 0;
-}
-
-.list li {
-  margin: 4px 0;
-}
-
-/* 💡 To meet WCAG 1.4.1 (Use of color)
-  we cant use color as the only way to give meaning */
-.list li[data-status="no"]::before {
-  content: "●";
-  color: #9c9c9c;
-}
-
-.list li[data-status="yes"]::before {
-  /* 💡 We can replace this with ✓ check character */
-  content: "●";
-  color: green;
-}
-
-.list li[data-status="no"] {
-  color: var(--theme-text_1);
-}
-
-@media (min-width: 480px) {
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .list > * {
-    flex-basis: 50%;
-  }
-}
-
-.btnBell {
+/*  💡 Bonus #1 - reorder the title and sale tag */
+.header {
   display: flex;
-  align-items: center;
-  min-height: 35px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 3px;
-  padding: 8px 16px;
-  background-color: var(--theme-bg_0);
-  color: var(--theme-text_0);
-  border: 2px solid var(--theme-primary);
-  cursor: pointer;
-  /* 💡 Motion 1/2 */
-  animation: zoom 3s infinite;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.btnBell:hover {
-  opacity: 0.8;
-}
-
-.btnBell-svg {
-  width: 16px;
-  max-height: 16px;
-  fill: currentColor;
-  margin-right: 8px;
-  /* 💡 Motion 2/2 */
-  animation: shake 3s infinite;
-}
-
-.footer {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 16px;
-  /* background: var(--theme-text_0); */
-}
-
-.footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--theme-text_0);
-}
-
-.footer-text {
-  position: relative;
-  text-align: center;
+.header-tag {
   margin: 0;
-  font-size: 13px;
-  /** 🍀 Some A11Y debug tools might mark this as color contrast issue.
-  It's a false positive caused by the ::before pseudo-element above */
-  color: var(--theme-bg_0);
-  opacity: 0.7;
 }
 
-.footer-text a {
-  color: inherit;
+/* 💡 Bonus #2: Add the needed CSS to the class below: */
+/* Note: This class is the same as ".sr-only" during the next exercises */
+.visually-hidden {
+  /* ... */
 }
 
 /*  ----------------------------------------- *\
@@ -185,38 +20,133 @@ body * {
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
 
-@keyframes shake {
-  40%,
-  60% {
-    transform: rotate(0deg);
-  }
-
-  42.5%,
-  57.5% {
-    transform: rotate(10deg);
-  }
-
-  45%,
-  50%,
-  55% {
-    transform: rotate(-20deg);
-  }
-
-  47.5%,
-  52.5% {
-    transform: rotate(20deg);
-  }
+.title-h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.2;
 }
 
-@keyframes zoom {
-  0%,
-  45%,
-  60%,
-  100% {
-    transform: scale(1);
-  }
+.title-h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
 
-  50% {
-    transform: scale(1.25);
-  }
+.title-h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.text-sm {
+  font-size: 1.4rem;
+}
+
+/* ------- Header -------  */
+
+.company-links {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 16px;
+  margin: 0 0 -90px;
+}
+
+.company-links a {
+  margin: 0 8px;
+}
+
+/* ------- Main -------  */
+
+.tagSecondary {
+  padding: 2px 4px;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: #ffe6d2;
+  color: #a75000;
+  line-height: 1;
+}
+
+.header-plantName {
+  margin-bottom: 16px;
+}
+
+/* ------- Info -------  */
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.info-part {
+  flex: 1;
+}
+
+.topic {
+  margin: 0;
+  padding: 0;
+}
+
+.topic-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.topic-key {
+  font-size: 1.4rem;
+  color: #595959;
+}
+
+.topic-value {
+  margin: 4px 0;
+}
+
+.media {
+  text-align: center;
+}
+
+.media-img {
+  max-width: 100%;
+}
+
+/* ------- Details & CTA -------  */
+
+.details {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--theme-primary);
+}
+
+.details-part:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.details-text {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.price {
+  line-height: 1;
+}
+
+.price-original {
+  text-decoration: line-through;
+  opacity: 0.7;
+  margin: 0 0 4px;
+}
+
+.price-final {
+  margin-bottom: 0;
 }

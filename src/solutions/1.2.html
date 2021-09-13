@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--
-🧩 1.2: Semantic HTML
-🎯 Goal: Improve the HTML by using semantic elements.
+🧩 1.2: Meaningful images
+🎯 Goal: Improve the images descriptions
 
 Notes:
-- The order or elements is correct. You only need to change the elements tags.
+- The elements are correct. You only need to add / change alt="" attributes.
 - You don't need to change or remove CSS classes.
 -->
 <html lang="en">
@@ -20,70 +20,53 @@ Notes:
 </head>
 
 <body>
-  <main>
-    <div class="content">
-      <div class="g-card">
-        <div class="header">
-          <h1 class="title-xl header-plantName">
-            Monstera Deliciosa
-          </h1>
-          <p class="header-tag tagSecondary">On Sale</p>
-        </div>
+  <main class="content">
 
-        <div class="info">
-          <h2 class="visually-hidden">Characteristics</h2>
-          <ul class="topic info-part">
-            <li class="topic-item">
-              <span class="topic-key">Family</span>
-              <span class="topic-value title-lg">Araceae</span>
-            </li>
-            <li class="topic-item">
-              <span class="topic-key">Temperature</span>
-              <span class="topic-value title-lg">20º (70F)</span>
-            </li>
-            <li class="topic-item">
-              <span class="topic-key">Water</span>
-              <span class="topic-value title-lg">1/week</span>
-            </li>
-          </ul>
+    <h1 class="title-xl title">Meaningful images</h1>
 
-          <div class="media info-part">
-            <img class="media-img" src="../assets/imgs/monstera.png" alt="the plant in a white vase">
-          </div>
-        </div>
+    <!-- Case #1 -->
+    <div class="g-card case1">
+      <!-- 💡 When the graphics used only for aesthical purposes, leave an empty alt. -->
+      <img class="case1-img" src="../assets/imgs/piano-1.jpg" alt="" />
+      <h2 class="case1-text">Start your piano classes today!</h2>
+    </div>
 
-        <div class="details">
-          <div class="details-part">
-            <h2 class="details-title title-md">Details</h2>
-            <p class="details-text">Monstera deliciosa, also known as the Swiss cheese plant, is a species of flowering
-              plant native to tropical forests of southern Mexico, south to Panama.</p>
-          </div>
-
-          <div class="details-part">
-            <div class="price">
-              <p class="price-original">
-                <span class="visually-hidden">Old price:</span>
-                $40.00
-              </p>
-              <p class="price-final title-lg">
-                <span class="visually-hidden">New price:</span>
-                $30.00
-              </p>
-            </div>
-            <button class="btn btnPrimary js-addToCart">Add to cart</button>
-          </div>
-        </div>
+    <!-- Case #2 -->
+    <div class="g-card case2">
+      <!-- 💡 When the avatar is immediately described (in this case the name)
+        the alt text would be redundant. So, it's better to leave the alt empty. -->
+      <img src="../assets/imgs/mozart-1.jpg" alt="" />
+      <div class="case2-content">
+        <span class="case2-name">Wolfgang Amadeus Mozart</span>
+        <q class="case2-quote" cite="https://www.goodreads.com/quotes/49752-the-music-is-not-in-the-notes-but-in-the">
+          The music is not in the notes, but in the silence between.
+        </q>
       </div>
     </div>
+
+
+    <!-- Case #3 -->
+    <div class="g-card case3">
+      <!-- 💡 In figures, usually the caption describes what the image is about.
+        Therefore the alt text should describe how the image looks like. -->
+      <figure>
+        <img class="case3-img" src="../assets/imgs/mozart-2.jpg" alt="Mozart standing in front of his piano" />
+        <figcaption class="case3-caption">
+          Anonymous portrait of the child Mozart, possibly by Pietro Antonio Lorenzoni; painted in 1763.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Case #4 -->
+    <a class="g-card case4" href="https://soundcloud.com/hasnaa-tabra/sets/classical-music">
+      <!-- 💡 In this link case, the alt should complement the link purpose, not the img itself.
+        In this case, it's not needed to say it's an "icon" or "logo".
+        🍀 What about empty alt? Then, the user wouldn't know the link destiny is soundclound.
+      -->
+      <img class="case4-img" src="../assets/imgs/soundcloud.jpg" alt="Soundcloud" />
+      <span class="case4-text">Classical music playlist</span>
+    </a>
   </main>
 </body>
-
-<!-- You can ignore the code below. -->
-<script>
-  const elExpand = document.getElementsByClassName('js-addToCart')[0]
-  elExpand.addEventListener('click', function () {
-    alert('This would add the plant to the cart.')
-  })
-</script>
 
 </html>

@@ -69,6 +69,11 @@
   padding-bottom: 0;
 }
 
+.menu a {
+  display: block;
+  padding: 4px 0;
+}
+
 /* ------- CHECKBOX -------  */
 
 .c-checkbox:hover + :last-child::before {

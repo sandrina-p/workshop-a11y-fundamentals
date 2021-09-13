@@ -1,126 +1,92 @@
-/*  ------- Solving Bonus 1:
-- 💡Your solution may require to change .header or .header-tag
-*/
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+/*  ---------------------------------------- *\
+|*    You do not need to touch this file     *|
+|*     but you can see how it was made.      *|
+\** ---------------------------------------- */
+
+/* Case 1 */
+.case1 {
+  position: relative;
+  width: 100%;
+  background: black;
+  padding: 0;
 }
 
-.header-tag {
-  order: -1;
-  margin: 0;
-}
-
-/* ------- Solving Bonus 2: ------- */
-/* Note: This is the same as .sr-only during the next exercises */
-.visually-hidden {
+.case1-img {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/*  ----------------------------------------- *\
-|*  You do not need to touch the code below   *|
-|*     but you can see how it was made.       *|
-\** ----------------------------------------- */
-
-.tagSecondary {
-  padding: 2px 4px;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 600;
-  background-color: #ffe6d2;
-  color: #a75000;
-  line-height: 1;
-}
-
-/* ------- Header -------  */
-
-.header-plantName {
-  margin-bottom: 16px;
-}
-
-/* ------- Info -------  */
-
-.info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 16px 0;
-}
-
-.info-part {
-  flex: 1;
-}
-
-.topic {
+.case1-text {
+  position: relative;
   margin: 0;
-  padding: 0;
+  padding: 40px 24px;
+  font-size: 3.2rem;
+  color: white;
+  text-shadow: 1px 1px 3px #00000080;
 }
 
-.topic-item {
+/* Case 2 */
+.case2 {
   display: flex;
-  flex-direction: column;
-  margin: 0 0 16px;
-  padding: 0;
 }
 
-.topic-key {
+.case2 img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.case2-content {
+  margin-left: 16px;
+}
+
+.case2-name {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.case2-quote {
+  font-style: italic;
+}
+
+.case2-quote::before,
+.case2-quote::after {
+  content: "";
+}
+
+/* Case 3 */
+.case3 {
+  max-width: 250px;
+  border: 1px solid #6f6f6f;
+  padding: 16px;
+}
+
+.case3 figure {
+  margin: 0;
+}
+
+.case3-img {
+  width: 100%;
+  display: block;
+}
+
+.case3-caption {
+  font-style: italic;
   font-size: 1.4rem;
-  color: #595959;
+  margin-top: 4px;
 }
 
-.topic-value {
-  margin: 4px 0;
-}
-
-.media {
-  text-align: center;
-}
-
-.media-img {
-  max-width: 100%;
-}
-
-/* ------- Details & CTA -------  */
-
-.details {
-  border-top: 1px solid #9b78de;
-  padding-top: 16px;
-}
-
-.details-title {
-  margin-bottom: 8px;
-}
-
-.details-part:nth-child(2) {
+/* Case 4 */
+.case4 {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
 }
 
-.details-text {
-  line-height: 1.5;
-  font-size: 1.4rem;
-}
-
-.price {
-  line-height: 1;
-}
-
-.price-original {
-  text-decoration: line-through;
-  opacity: 0.7;
-  margin: 0 0 4px;
-}
-
-.price-final {
-  margin-bottom: 0;
+.case4-text {
+  margin-left: 4px;
 }
