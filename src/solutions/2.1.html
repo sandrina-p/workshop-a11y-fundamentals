@@ -32,17 +32,30 @@
       <!-- Case #2 -->
       <div class="part">
         <p>
-          If you are lost, you can <a class="c-link" href="../index.html">Go Home</a> and start over.
+          <!-- 💡 Bonus #2 - Increase the link target size, by including more words -->
+          If you are lost, you can <a class="c-link" href="../index.html">go back Home</a> and start over.
         </p>
       </div>
 
       <!-- Case #3 -->
       <div class="part">
-        <label class="field">
-          <span class="field-txt">Your nickname</span>
-          <input class="textInput" type="text" placeholder="webLover">
-        </label>
+        <div class="fieldArea">
+          <label for="nickname" class="fieldLabel">Your nickname</label>
+          <input id="nickname" class="textInput" type="text" placeholder="webLover">
+        </div>
       </div>
+
+      <!-- Case #4 -->
+      <button class="c-btnCorner">
+        <span class="sr-only">Next tip (dummy)</span>
+        <div class="c-btnCorner-area">
+          <svg viewbox="0 0 256 512">
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z">
+            </path>
+          </svg>
+        </div>
+      </button>
     </div>
   </main>
 

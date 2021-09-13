@@ -9,7 +9,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
   font-size: 1.8rem;
   border: none;
   padding: 8px 24px;
@@ -18,6 +17,9 @@
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  /* 💡 Bonus #2 Ensure WCAG 2.5.5 */
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .c-btnPrimary:hover {
@@ -25,7 +27,6 @@
 }
 
 /* 💡 Link focus styles + Bonus #1.1 */
-/* --- Without polyfill --- */
 .c-btnPrimary:focus:not(:focus-visible) {
   outline: none;
 }
@@ -36,17 +37,18 @@
 }
 
 /* 💡 Link focus styles + Bonus #1.2 */
-/* --- With polyfill --- */
-/*
-.js-focus-visible .c-btnPrimary:focus {
+/* --- 
+ Note: For demo purposes, you'll need to update
+ the HTML class from c-btnPrimary to c-btnPrimaryJS
+--- */
+.js-focus-visible .c-btnPrimaryJS:focus {
   outline: none;
 }
 
-.c-btnPrimary:focus.focus-visible {
+.c-btnPrimaryJS:focus.focus-visible {
   box-shadow: var(--theme-focus_shadow);
   outline: var(--theme-focus_outline);
 }
-*/
 
 /* ------- LINK -------  */
 
@@ -68,9 +70,20 @@
 
 /* ------- FORM INPUTS -------  */
 
+.fieldArea {
+  max-width: 200px;
+}
+
+.fieldLabel {
+  display: block;
+  font-weight: 600;
+  /* 💡 Bonus #3 Use padding instead of margin to
+  be included in the interactive area */
+  padding-bottom: 8px;
+}
+
 .textInput {
   width: 100%;
-  max-width: 200px;
   height: 32px;
   padding: 4px 8px;
   border-radius: 4px;
@@ -88,7 +101,60 @@
   outline: var(--theme-focus_outline);
 }
 
-/* 💡 Bonus #2 */
-.field:focus-within .field-txt {
+/* 💡 Bonus #3 */
+.fieldArea:focus-within .fieldLabel {
   color: var(--theme-primary);
+}
+
+/* ------- BUTTON CLOSE -------  */
+
+.c-btnCorner {
+  all: unset;
+  position: absolute;
+  --cornerOffset: 16px;
+  bottom: var(--cornerOffset);
+  right: var(--cornerOffset);
+}
+
+.c-btnCorner-area {
+  position: relative;
+  /* 💡 Bonus #2 - Ensure at least 24x24
+  to comply with WCAG 2.5.8 (Draft WCAG 2.2) */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--theme-text_0);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* 🍀 The hover indicator has enough contrast,
+so the focus can be exactly the same */
+.c-btnCorner-area:hover,
+.c-btnCorner:focus .c-btnCorner-area {
+  background-color: var(--theme-primary);
+  color: var(--theme-bg_0);
+  transition: background-color 150ms, color 150ms;
+}
+
+.c-btnCorner svg {
+  width: 9px;
+  margin-left: 1px;
+  fill: currentColor;
+}
+
+/* 💡🍀 Bonus #2 - Extra trick to to be applied to "corner buttons"
+Use a pseudo selector to increase the interactive area (44x44),
+even if visually the button looks smaller (24x24px). */
+.c-btnCorner::before {
+  content: "";
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  bottom: calc(var(--cornerOffset) * -1);
+  right: calc(var(--cornerOffset) * -1);
 }

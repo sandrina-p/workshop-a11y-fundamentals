@@ -33,12 +33,12 @@
       <!-- Case #2 -->
       <div class="part">
         <p>
-          If you are lost, you can
+          If you are lost, you can get back
           <!-- 💡 Try to open this link in a new tab. You can't.
               That's one of the main diffs/disavantages from button to anchor.
               Refactor this to be a standard <a> link.
             -->
-          <button class="c-link js-link">get back Home</button>
+          <button class="c-link js-link">Home</button>
           and start over.
         </p>
 
@@ -53,12 +53,24 @@
 
       <!-- Case #3 -->
       <div class="part">
-        <label class="field">
+        <div class="fieldArea">
           <!-- 💡 Improve focus indicator -->
-          <span class="field-txt">Your nickname</span>
-          <input class="textInput" type="text" placeholder="webLover">
-        </label>
+          <label for="nickname" class="fieldLabel">Your nickname</label>
+          <input id="nickname" class="textInput" type="text" placeholder="webLover">
+        </div>
       </div>
+
+      <!-- Case #4 -->
+      <button class="c-btnCorner">
+        <span class="sr-only">Next tip (dummy)</span>
+        <div class="c-btnCorner-area">
+          <svg viewbox="0 0 256 512">
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z">
+            </path>
+          </svg>
+        </div>
+      </button>
     </div>
   </main>
 

@@ -33,21 +33,21 @@
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/2.1.html">exercise page</a>,
 there are a couple of interactive elements. However, we can't easily access them through the keyboard.</p>
-<p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard with <code>:hover</code> and <code>:focus</code>.</p>
+<p><strong>🎯 Goal:</strong> Make all interactive elements accessible by keyboard, using <code>:focus</code>.</p>
 <p><strong>🍀 Tip:</strong> You can use <code>Tab</code> and <code>Shift + Tab</code> to go forward and backward respectively across the interactive elements.</p>
 <p>There aren't any explicit design requirements, so you can go <em>free-style</em>!
 Adding some opacity or changing the color are common design approaches.</p>
 <p><strong>Safari Note:</strong> By default <code>Tab</code> doesn't work on links and buttons. Activate those in <em>Settings > Advanced > [✓] Press tab to highlight each item on a web page</em>.</p>
 <h2 id="bonus">Bonus</h2>
 <h3 id="11focusonlywhenusingthekeyboard">#1.1 Focus only when using the keyboard</h3>
-<p>Another reason to hide the focus indicator on buttons and links is that the focus is triggered when clicking them.</p>
-<p>We can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> comes in!</p>
+<p>Another common reason to hide the focus indicator on buttons and links is that the focus indicator is triggered when we click them.</p>
+<p>The good news is that we can ignore the focus when using the mouse and show it only when using the keyboard, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>:focus-visible</code></a> pseudo element!</p>
 <pre><code class="css language-css">/* Remove the outline for mouse users with modern browsers */
 button:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* Add the focus indicator when interacted with keyboard */
+/* Show the focus when interacted with keyboard */
 button:focus-visible {
   outline: 3px solid tomato;
 }
@@ -55,7 +55,7 @@ button:focus-visible {
 <p><strong>🎯 Goal:</strong> Add <code>:focus-visible</code> to the interactive elements.</p>
 <p><details>
 <summary>🍀 Toggle hint about inputs</summary></p>
-<p>In inputs the focus-visible is always triggered, even on click. That's not a bug, but rather the <a href="https://github.com/WICG/focus-visible/issues/131">spec's expected behavior</a>.</p>
+<p>In inputs, the focus-visible is always triggered, even on click. That's not a bug, but rather the <a href="https://github.com/WICG/focus-visible/issues/131">spec's expected behavior</a>.</p>
 <blockquote>
   <p>UA (Browser User Agents) typically display focus indicators on text fields any time they’re focused, to draw attention to the fact that keyboard input will affect their contents.</p>
 </blockquote>
@@ -65,7 +65,9 @@ button:focus-visible {
 <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
 </code></pre>
-<pre><code class="css language-css">/* Hide the focus after the polyfill is added */
+<p>This polyfill adds the class <code>.js-focus-visible</code> to the interactive element when
+the focus should be visibile. We will use it instead of <code>:focus-visible</code> selector.</p>
+<pre><code class="css language-css">/* Remove the outline for mouse users, once the JS is loaded  */
 .js-focus-visible button:focus {
   outline: none;
 }
@@ -75,29 +77,42 @@ button:focus-visible {
   outline: 3px solid tomato;
 }
 </code></pre>
-<p><strong>🎯 Goal:</strong> Refactor the focus to include the <code>focus-visible.js</code> polyfill.</p>
-<p><strong>🍀 Tip:</strong> When using styles dependent on JS, take into account websites without JS. The prefix <code>.js-focus-visible</code> ensures we only customize the focus if the polyfill is working, leaving the default one intact in case the JS doesn't load.</p>
-<h3 id="2stylingbasedonchildfocus">#2 Styling based on child focus</h3>
-<p>Imagine a new design requirement to the input field:</p>
+<p><strong>🎯 Goal:</strong> Refactor <code>:focus-visible</code> to use <code>focus-visible.js</code> instead.</p>
+<p><strong>🍀 Tip:</strong> When using styles dependent on JS, take into account websites without JS. The prefix <code>.js-focus-visible</code> ensures we only customize the focus if the polyfill is working, leaving the default focus as it is in case the JS doesn't load.</p>
+<h3 id="2targetsize">#2 Target size</h3>
+<p>Have you noticed how small some of the buttons are? These tiny elements can be frustrating specially in a mobile device.</p>
+<p>Part of A11Y is to ensure people can easily interact with elements in <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html#benefits">multiple situations</a>.
+WCAG contains 2 success criterion about this topic: <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG 2.5.5</a> and the new <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">WCAG 2.5.8 (draft)</a>. Even though, we can look at accessibility beyond guidelines.</p>
+<p><strong>🎯 Goal:</strong> Using your best judgment, increase the target size of the interactive elements.</p>
+<p>Some suggestions:</p>
 <ul>
-<li>When focusing the input, the text "Nickname" turns purple.</li>
+<li>Main button: Increase size to comply with WCAG 2.5.5</li>
+<li>"home" link: Add more words to increase its width</li>
+<li>Corner button: Increase size to comply with WCAG 2.5.8, regardless of where it's used.</li>
 </ul>
+<h3 id="3stylingbasedonchildfocus">#3 Styling based on child focus</h3>
+<p>Imagine a new design requirement to the input field:</p>
+<blockquote>
+  <p>On input focus, the text "Nickname" turns purple.</p>
+</blockquote>
 <p>There's a CSS pseudo-selector that allow us to style an element when it contains a focused element. It's called <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within#css"><code>:focus-within</code></a></p>
-<p><strong>🎯 Goal:</strong> Use <code>:focus-within</code> to solve the new design requirement.</p>
-<p><strong>🍀 Tip:</strong> When using styles dependent on JavaScript, take into account websites without Javascript.</p>
+<p><strong>🎯 Goal:</strong> Use <code>:focus-within</code> to solve the new design requirement. This bonus can be solved without Javascript.</p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
 <li><a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A complete guide to links and buttons</a></li>
+<li><a href="https://www.sarasoueidan.com/blog/focus-indicators/">A guide to design WCAG-compliant focus indicators</a></li>
 <li><a href="https://css-tricks.com/the-focus-visible-trick/">The not focus-visible trick</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"><code>focus-visible</code> MDN spec</a></li>
 <li><a href="https://github.com/WICG/focus-visible/issues/131">Why input fields always have focus-visible</a></li>
-<li><a href="https://www.sarasoueidan.com/blog/focus-indicators/">A guide to design WCAG-compliant focus indicators</a></li>
+<li><a href="https://css-tricks.com/looking-at-wcag-2-5-5-for-better-target-sizes/">Looking at WCAG 2.5.5 for Better Target Sizes</a></li>
 <li><a href="https://twitter.com/argyleink/status/1274364131928309762?s=21">Use CSS to lint invalid links</a></li>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
 <li><a href="https://www.w3.org/TR/WCAG21/#keyboard">WCAG 2.1.1 Keyboard - Level A</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 2.4.7 Focus visible - Level AA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#target-size">WCAG 2.5.5 Target size - Level AAA</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">WCAG 2.5.8 Target size minimum - Level AA</a> (WCAG 2.2 (Draft)).</li>
 </ul>
 
 </main>
