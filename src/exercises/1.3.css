@@ -88,8 +88,6 @@ body * {
   margin: 4px 0;
 }
 
-/* 💡 To meet WCAG 1.4.1 (Use of color)
-  we can't use color as the only way to give meaning */
 .list li[data-status="no"]::before {
   content: "●";
   color: #9c9c9c;
@@ -97,7 +95,11 @@ body * {
 }
 
 .list li[data-status="yes"]::before {
-  /* 💡 We can replace this with ✓ check character */
+  /* 💡 The color constrast is good here,
+  but what about the usage of the color itself?
+  To meet WCAG 1.4.1 (Use of color), color cannot be
+  used as the only way to give meaning... The shape must
+  be different too. Here you can use "✓" instead.  */
   content: "●";
   color: var(--theme-success);
   font-family: sans-serif;
@@ -116,6 +118,15 @@ body * {
   .list > * {
     flex-basis: 50%;
   }
+}
+
+.note {
+  margin: -16px 0 24px;
+  font-size: 14px;
+  text-align: center;
+  /* 💡 This color doesn't work well with bg_1.
+  You can change the color value or create a new one */
+  color: var(--theme-text_1);
 }
 
 .btnBell {

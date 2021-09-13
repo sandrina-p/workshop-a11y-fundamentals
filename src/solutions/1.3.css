@@ -2,12 +2,13 @@
 
 :root {
   --theme-text_0: hsl(0deg 0% 20%);
-  --theme-text_1: hsl(0deg 0% 44%);
+  /* 💡 Updated text_1 to comply AA level when used with bg_1 */
+  --theme-text_1: hsl(0deg 0% 42%);
   --theme-bg_0: hsl(27deg 39% 95%);
   --theme-bg_1: hsl(0deg 0% 100%);
   --theme-primary: hsl(266deg 100% 61%);
   --theme-primary_smooth: hsl(266deg 100% 92%);
-  /* 💡 Updated color to respects AA level */
+  /* 💡 Updated secondary to comply with AA level */
   --theme-secondary: hsl(26deg 100% 38%);
   --theme-success: green;
 }
@@ -16,7 +17,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --theme-text_0: hsl(0deg 0% 89%);
-    --theme-text_1: hsl(0deg 0% 68%);
+    --theme-text_1: hsl(0deg 0% 64%);
     --theme-bg_0: hsl(280deg 3% 23%);
     --theme-bg_1: hsl(288deg 6% 17%);
     --theme-primary: hsl(266deg 100% 75%);
@@ -106,8 +107,6 @@ body * {
   margin: 4px 0;
 }
 
-/* 💡 To meet WCAG 1.4.1 (Use of color)
-  we can't use color as the only way to give meaning */
 .list li[data-status="no"]::before {
   content: "●";
   color: var(--theme-text_1);
@@ -115,7 +114,9 @@ body * {
 }
 
 .list li[data-status="yes"]::before {
-  /* 💡 With ✓, the shape is different regardless of the color */
+  /* 💡 With ✓, the shape between yes/no is
+  different regardless of the used color,
+  ensuring WCAG 1.4.1 is met */
   content: "✓";
   color: var(--theme-success);
   font-family: sans-serif;
@@ -134,6 +135,15 @@ body * {
   .list > * {
     flex-basis: 50%;
   }
+}
+
+.note {
+  margin: -16px 0 24px;
+  font-size: 1.4rem;
+  text-align: center;
+  /* 💡 The color was changed. Check variables
+  list at the top for further notes */
+  color: var(--theme-text_1);
 }
 
 .btnBell {
