@@ -41,14 +41,19 @@
 </code></pre>
 <p>If we ensure these labels in every form element, it's already a half way done!</p>
 <h2 id="exercise">Exercise</h2>
-<p>In the <a href="../exercises/3.3.html">exercise page</a>, there are a few form controls. Each one has a particular accessibility issue.</p>
+<p>In the exercise page, there are a few form controls. Each one has a particular accessibility issue.</p>
 <p><strong>🎯 Goal:</strong> Make the form accessible for keyboard and screen readers.</p>
+<ul>
+<li>Full: <a href="../exercises/3.3.html">exercise</a> and <a href="../solutions/3.3.html">solution</a></li>
+<li>Short: <a href="../exercises/3.3-short.html">exercise</a> and <a href="../solutions/3.3-short.html">solution</a></li>
+</ul>
 <p><strong>Hint 1:</strong> SR users usually <a href="https://twitter.com/a_sandrina_p/status/1382811701796614148">prefer to fill forms using <code>Tab</code> key</a>. Do the same to detect A11Y issues.</p>
 <p><strong>Hint 2:</strong> Use the Accessibility Tree tab on DevTools to know how a form control is announced.</p>
 <h2 id="bonus">Bonus</h2>
+<p><strong>⚠️ Important:</strong> In the short version exercise, jump to <a href="#3formfeedback">bonus #3</a>.</p>
 <h3 id="1betterinputnumbers">#1 Better input numbers</h3>
 <p>In one of the fields, we used <code>type="number"</code> to benefit from
-virtual keyboard. However, that approach still has some A11Y issues that can be overcomed with another strategy:</p>
+the virtual keyboard. However, that approach still has some A11Y issues that can be overcomed with another strategy:</p>
 <pre><code class="html language-html">&lt;input type="text" inputmode="numeric" pattern="^[0-9.]*$" /&gt;
 </code></pre>
 <p>That pattern accepts numbers and dots (eg 10, 15.50).</p>
@@ -75,8 +80,8 @@ In this form, the first button is the password toggle. That's why when we click 
 <h3 id="3formfeedback">#3 Form feedback</h3>
 <p>Already here? <em>You were fast!</em></p>
 <p>When submitting the form, a feedback message is displayed, based on the form result.
-However, although these changes are perceivable to those who can see the page, that's not the case for those who use a screen reader. How would we solve this?</p>
-<p>To solve this, we first need to learn about Live Regions. That's what will explore in the next exercise, and then come back to this one to apply the lessons learned. ^.^</p>
+Although these changes are perceivable to those who can see the page, that's not the case for those who use a screen reader. How would we solve this?</p>
+<p>To solve this, we first need to learn about Live Regions. That's what will explore in the <a href="/briefings/4.1.html">next exercise</a>. You can take a pick there and use it to solve this exercise.</p>
 <hr />
 <h2 id="furtherreading">Further reading</h2>
 <ul>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<!--
+🧩 3.3: Accessible forms (short)
+🎯 Goal: Build an accessible form
+
+Notes:
+- You don't need to change or remove CSS classes.
+-->
+
+<html lang="en">
+
+<head>
+  <title>Exercise #3.3 (short)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/theme.css">
+</head>
+
+<!-- 🍀 You can remove the blurry effect -->
+
+<body style="filter: blur(4px)">
+  <main class="content">
+    <h1 class="title-xl">Accessible Forms</h1>
+
+    <form class="g-card form js-formItself" aria-labelledby="formTitle">
+      <h2 id="formTitle" class="title-lg">Form: Web lover profile</h2>
+
+      <!-- Case #1 - Required input with a description text
+        - 💡 1/4 Use aria-required to mark an input as required.
+        - 💡 2/4 Use aria-invalid to mark an input value as invalid. The JS code
+                  needs to be changed too. Look for #1-3/4 on line ~188.
+        - 💡 4/4 Use aria-describedby to connect the input description to the text.
+                🍀 aria-labelledby="" can accept multiple ids!
+      -->
+      <div class="field">
+        <label class="field-txt" for="nickname">
+          Nickname <span class="u-danger">*</span>
+        </label>
+        <input type="text" id="nickname" class="js-fieldNickname">
+        <span class="field-error"></span> <!-- innerText added by JS -->
+        <span class="field-tip">
+          Your alternative name to be used in the web world
+        </span>
+      </div>
+
+      <!-- Case #2 - Group checkbox/radio
+        🍀 In checkboxes/radios,related inputs must be wrapped
+        in a <fieldset> and use <legend> to mark the main label
+      -->
+      <div class="field">
+        <p class="field-txt">Account</p>
+        <label class="inputRadio">
+          <input type="radio" name="account" value="basic">
+          <span>Basic</span>
+        </label>
+
+        <input type="radio" name="account" value="premium" id="premium">
+        <label for="premium" class="inputRadio">
+          <span>Premium</span>
+        </label>
+      </div>
+
+      <!-- 💡 Live Regions (Bonus #3.1) -->
+      <!-- 🍀 Mark the dynamic feedback with aria-live. -->
+      <div class="form-footer">
+        <p class="formMsg js-formFeedback"></p>
+        <button class="btn btnPrimary js-btnSubmit">Create</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // The JS part is already done for you.
+
+    // -----
+    // Listen for "submit" button click
+    const elBtnSubmit = document.getElementsByClassName('js-btnSubmit')[0]
+    document.getElementsByClassName('js-btnSubmit')[0].addEventListener('click', function () {
+      console.log('Submit clicked')
+    })
+
+    // -----
+    // Listen for form submission
+    const elFormItself = document.getElementsByClassName('js-formItself')[0]
+    const elFormFeedback = document.getElementsByClassName('js-formFeedback')[0]
+    const elFieldNickname = document.getElementsByClassName('js-fieldNickname')[0]
+
+    elFormItself.addEventListener('submit', (e) => {
+      e.preventDefault()
+      console.log('Form submitting...')
+
+      updateFormMsg() // clear the form msg
+
+      // Check if nickname is valid
+      if (!elFieldNickname.value) {
+        updateInlineError(elFieldNickname, true, '⚠️ The nickname is required.')
+        updateFormMsg('invalid')
+        return
+      }
+      updateFormMsg('success')
+    })
+
+    function updateFormMsg(status) {
+      switch (status) {
+        case 'invalid':
+          elFormFeedback.classList.add('u-danger')
+          elFormFeedback.classList.remove('u-success')
+          elFormFeedback.innerHTML = 'Ups! There are invalid fields, please review them.'
+          break;
+        case 'success':
+          elFormFeedback.classList.remove('u-danger')
+          elFormFeedback.classList.add('u-success')
+          elFormFeedback.innerHTML = 'All good, thank you!'
+          break;
+        default:
+          elFormFeedback.classList.remove('u-invalid', 'u-success')
+          elFormFeedback.innerHTML = ''
+          break;
+      }
+    }
+
+    function updateInlineError(field, hasError, errorMsg) {
+      elFieldNickname.nextElementSibling.innerText = errorMsg || '';
+      elFieldNickname.nextElementSibling.style.display = hasError ? 'block' : 'none';
+
+      // 💡 #1-3/4 Uncomment to update the aria-invalid attribute
+      // field.setAttribute('aria-invalid', hasError)
+
+      if (hasError) {
+        // Listen for future field changes ...
+        field.removeEventListener('keyup', handleChange)
+        field.addEventListener('keyup', handleChange)
+
+        field.removeEventListener('change', handleChange)
+        field.addEventListener('change', handleChange)
+
+        // ... and remove error if it's valid again!
+        function handleChange(e) {
+          if (!!elFieldNickname.value) {
+            updateInlineError(e.target, false)
+            field.removeEventListener('change', handleChange)
+            field.removeEventListener('keyup', handleChange)
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

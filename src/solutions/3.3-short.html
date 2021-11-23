@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-🧩 3.3: Accessible forms
+🧩 3.3: Accessible forms (short)
 🎯 Goal: Build an accessible form
 
 Notes:
@@ -11,7 +11,7 @@ Notes:
 <html lang="en">
 
 <head>
-  <title>Solution #3.3</title>
+  <title>Solution #3.3 (short)</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap" rel="stylesheet">
@@ -25,14 +25,23 @@ Notes:
     <form class="g-card form js-formItself" aria-labelledby="formTitle">
       <h2 id="formTitle" class="title-lg">Form: Web lover profile</h2>
 
-      <!-- Case #1 - Required inputs
+      <!-- Case #1 - Required input with a description text
+        - 💡 1/4 Use aria-required to mark an input as required.
+        - 💡 2/4 Use aria-invalid to mark an input value as invalid. The JS code
+                  needs to be changed too. Look for #3.2 on line ~188.
+        - 💡 4/4 Use aria-describedby to connect the input description to the text.
+                🍀 aria-labelledby="" can accept multiple ids!
       -->
       <div class="field">
         <label class="field-txt" for="nickname">
           Nickname <span class="u-danger" aria-hidden="true">*</span>
         </label>
-        <input type="text" id="nickname" class="js-fieldNickname" aria-required="true" aria-invalid="true"
-          aria-describedby="jsNameError">
+        <input type="text" id="nickname" class="js-fieldNickname" aria-required="true" aria-invalid="false"
+          aria-describedby="jsNicknameError nnHint">
+        <span class="field-error" id="jsNicknameError"></span> <!-- innerText added by JS -->
+        <span class="field-tip" id="nnHint">
+          Your alternative name to be used in the web world
+        </span>
       </div>
 
       <!-- Case #2 - Group checkbox/radio
@@ -40,64 +49,21 @@ Notes:
         in a <fieldset> and use <legend> to mark the main label
       -->
       <fieldset class="field">
-        <legend class="field-txt">Favorite theme</legend>
+        <legend class="field-txt">Account</legend>
         <label class="inputRadio">
-          <input type="radio" name="theme" value="dark">
-          <span>Dark</span>
-        </label>
-        <label class="inputRadio">
-          <input type="radio" name="theme" value="light">
-          <span>Light</span>
+          <input type="radio" name="account" value="basic">
+          <span>Basic</span>
         </label>
         <!-- Case #2.1 - label as a wrapper, or not.
           🍀 When you need to keep the input and label separated, make sure
           the interaction area includes the surrounding spaces
           (ex use paddings instead of margins)
         -->
-        <input id="themeDepends" type="radio" name="theme" value="whatever">
-        <label for="themeDepends" class="inputRadio">
-          <span>It depends</span>
+        <input id="premium" type="radio" name="account" value="premium">
+        <label for="premium" class="inputRadio">
+          <span>Premium</span>
         </label>
       </fieldset>
-
-      <!-- Case #3 - Numeric inputs -->
-      <div class="field">
-        <label class="field-txt" for="firstPC">
-          Year of your first computer
-        </label>
-        <!-- Bonus #2 - Input types  
-          🍀 When dealing with numbers that don't make sense to
-          be a "stepper", prefer using inputmode.
-        -->
-        <input type="text" id="firstPC" inputmode="numeric" pattern="[0-9]*" class="js-fieldYear">
-      </div>
-
-      <!-- Case #4.1
-        💡 In fields with descriptions, use aria-describedby to connect both.
-        🍀 In fields with multiple actions (eg input + button), the label cannot
-          wrap everything because it will cause A11Y issues in some browsers and AT.
-      -->
-      <div class="field">
-        <label for="uPass" class="field-txt">Worst password ever</label>
-        <input type="password" id="uPass" class="js-secretInput" aria-describedby="pwHint">
-        <button type="button" class="js-secretBtn" aria-pressed="false" aria-label="Show password">👀</button>
-        <span class="field-tip" id="pwHint">
-          The password usually is dumb and short.
-        </span>
-      </div>
-
-      <!-- 💡 Case #4.2 - Inputs descriptions p1
-        🍀 In fields with hints that contain links, it's also recommended to put the hint
-          outside the label to prevent interaction issues with some assistive technologies-->
-      <span class="u-block" id="a11yLabelStart">
-        Caring about <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">web
-          accessibility</a> is my duty as web creator.
-      </span>
-      <label class="field">
-        <input type="checkbox" aria-labelledby="a11yLabelStart a11yLabelEnd" />
-        <span id="a11yLabelEnd">I agree with this sentence.</span>
-      </label>
-
 
       <!-- 💡 Live Regions (Bonus #3.3)
         🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
@@ -108,29 +74,13 @@ Notes:
       -->
       <div class="form-footer">
         <p class="formMsg js-formFeedback" aria-live="assertive"></p>
-        <!-- 💡 Aim to write texts that reflect the full form intent/context -->
-        <button class="btn btnPrimary js-btnSubmit">Save profile</button>
+        <button class="btn btnPrimary js-btnSubmit">Create profile</button>
       </div>
     </form>
   </main>
 
   <script>
     // The JS part is already done for you.
-
-    // -----
-    // Toggle password visibility
-    const elSecretBtn = document.getElementsByClassName('js-secretBtn')[0]
-    const elSecretInput = document.getElementsByClassName('js-secretInput')[0]
-
-    elSecretBtn.addEventListener('click', function () {
-      console.log('Toggle password clicked')
-      const isPressed = elSecretBtn.getAttribute("aria-pressed") === 'true';
-      // 1.toggle the button status visually and semantically
-      elSecretBtn.textContent = isPressed ? '👀' : '🙈'
-      elSecretBtn.setAttribute("aria-pressed", !isPressed) // 💡 #4.2.
-      // 2. toggle input type
-      elSecretInput.setAttribute("type", isPressed ? 'password' : 'text');
-    })
 
     // -----
     // Listen for "submit" button click
