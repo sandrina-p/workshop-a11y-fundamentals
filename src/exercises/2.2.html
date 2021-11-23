@@ -18,7 +18,7 @@
   <!-- CASE #1 - Sidebar -->
   <header class="headerFixed">
     <nav>
-      <button class="menu-btn btn btnPrimary js-navTrigger" aria-pressed="false">
+      <button class="menu-btn btn btnPrimary js-navTrigger">
         Menu
       </button>
 
@@ -84,6 +84,7 @@
   </main>
 </body>
 
+
 <script>
   /*  ----------------------------------------- *\
   |*  You do not need to touch the code below   *|
@@ -95,13 +96,22 @@
   const elCoolTarget = document.getElementsByClassName('js-coolTarget')[0]
 
   elCoolTrigger.addEventListener('click', function () {
-    const isPressed = elCoolTrigger.getAttribute('aria-pressed') === 'true'
+    const isPressed = elCoolTrigger.getAttribute('aria-expanded') === 'true'
 
-    elCoolTrigger.setAttribute('aria-pressed', !isPressed)
+    elCoolTrigger.setAttribute('aria-expanded', !isPressed)
 
     const method = isPressed ? 'remove' : 'add';
     elCoolTarget.classList[method]('isVisible');
   })
+
+  // 🍀 These are some needed ARIA attributes needed in a toggle button.
+  // Don't worry about it, we'll explore them in the "Screen Readers" module.
+  // Disclaimer: They could be on HTML directly, but I moved it to the JS part
+  // to not distract your attention during the exercise :) 
+  elCoolTrigger.setAttribute('aria-expanded', 'false')
+  elCoolTrigger.setAttribute('aria-haspopup', 'true')
+  elCoolTrigger.setAttribute('aria-controls', 'toggleTarget')
+  elCoolTarget.setAttribute('id', 'toggleTarget')
 </script>
 
 </html>

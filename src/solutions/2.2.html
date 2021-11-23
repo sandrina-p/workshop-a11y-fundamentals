@@ -23,7 +23,7 @@
     <script src="../assets/polyfill-inert.js"></script>
 
     <nav>
-      <button class="menu-btn btn btnPrimary js-navTrigger" aria-haspopup="true" aria-pressed="false">
+      <button class="menu-btn btn btnPrimary js-navTrigger">
         Menu
       </button>
 
@@ -52,7 +52,17 @@
 
           // 💡 Sidebar[3/3] Here's the JS needed to toggle the inert attr value.
           elNavTarget.inert = isVisible
+
+          elNavTrigger.setAttribute('aria-expanded', 'false')
         })
+
+        // 🍀 These are some needed ARIA attributes needed in a toggle button.
+        // Don't worry about it, we'll explore them in the "Screen Readers" module.
+        // Disclaimer: It could be on HTML directly, but I moved it to the JS part
+        // to not distract your attention during the exercise :) 
+        elNavTrigger.setAttribute('aria-haspopup', 'true')
+        elNavTrigger.setAttribute('aria-controls', 'menuTarget')
+        elNavTarget.setAttribute('id', 'menuTarget')
       </script>
     </nav>
   </header>
@@ -90,7 +100,6 @@
 </body>
 
 <script>
-
   /*  ----------------------------------------- *\
   |*  You do not need to touch the code below   *|
   |*     but you can see how it was made.       *|
@@ -101,19 +110,19 @@
   const elCoolTarget = document.getElementsByClassName('js-coolTarget')[0]
 
   elCoolTrigger.addEventListener('click', function () {
-    const isPressed = elCoolTrigger.getAttribute('aria-pressed') === 'true'
+    const isPressed = elCoolTrigger.getAttribute('aria-expanded') === 'true'
 
-    elCoolTrigger.setAttribute('aria-pressed', !isPressed)
+    elCoolTrigger.setAttribute('aria-expanded', !isPressed)
 
     const method = isPressed ? 'remove' : 'add';
     elCoolTarget.classList[method]('isVisible');
   })
 
   // 🍀 These are some needed ARIA attributes needed in a toggle button.
-  // Don't worry about it, we'll explore them in a later module.
-  // Disclaimer: They could be on HTML directly, but I moved it to the JS part
+  // Don't worry about it, we'll explore them in the "Screen Readers" module.
+  // Disclaimer: It could be on HTML directly, but I moved it to the JS part
   // to not distract your attention during the exercise :) 
-  elCoolTrigger.setAttribute('aria-pressed', 'false')
+  elCoolTrigger.setAttribute('aria-expanded', 'false')
   elCoolTrigger.setAttribute('aria-haspopup', 'true')
   elCoolTrigger.setAttribute('aria-controls', 'toggleTarget')
   elCoolTarget.setAttribute('id', 'toggleTarget')
