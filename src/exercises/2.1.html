@@ -3,7 +3,7 @@
 🧩 2.1: Interactive elements
 🎯 Goal: Make all interactive elements accessible by keyboard.
 
-- Note: The HTML is correct, you only need to change the CSS
+- Note: Most of the work is on the CSS side.
 -->
 <html lang="en">
 
@@ -62,6 +62,7 @@
 
       <!-- Case #4 -->
       <button class="c-btnCorner">
+        <!-- 💡 Improve focus indicator -->
         <span class="sr-only">Next tip (dummy)</span>
         <div class="c-btnCorner-area">
           <svg viewbox="0 0 256 512">
@@ -74,7 +75,7 @@
     </div>
   </main>
 
-  <!-- 💡 BONUS #1.1. Add focus-visible polyfill -->
+  <!-- 💡 BONUS #1.2. Add focus-visible polyfill -->
   <!-- <script src="../assets/polyfill-focus-visible.js"></script> -->
 </body>
 

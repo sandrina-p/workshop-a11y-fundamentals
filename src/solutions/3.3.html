@@ -31,11 +31,8 @@ Notes:
         <label class="field-txt" for="nickname">
           Nickname <span class="u-danger" aria-hidden="true">*</span>
         </label>
-        <!-- Bonus #2 - Input types
-          🍀 When dealing with numbers that don't make sense as a "stepper"
-          Prefer using inputmode.
-        -->
-        <input type="text" id="nickname" class="js-fieldNickname" aria-required="true" aria-describedby="jsYearError">
+        <input type="text" id="nickname" class="js-fieldNickname" aria-required="true" aria-invalid="true"
+          aria-describedby="jsYearError">
         <span class="field-error" id="jsYearError"></span> <!-- innerText added by JS -->
       </div>
 
