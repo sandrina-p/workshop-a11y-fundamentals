@@ -23,16 +23,20 @@
 <p>Screen Readers users usually navigate the page through <em>headings</em> and <em>landmarks</em>. We already know the importance of a solid heading structure. Now let's talk about landmarks.</p>
 <p>Landmarks identify sections of a page, which allows SR users to orient themselves in the page and jump directly to them.</p>
 <p>Some elements are landmarks by default, such as <code>&lt;main&gt;</code> and <code>&lt;nav&gt;</code>. However, in many cases, we need to explicitly add a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Landmark_roles">landmark role</a>.</p>
-<pre><code class="html language-html">&lt;!-- It's sounds redundant but it's needed! --&gt;
-&lt;header role="banner"&gt;...&lt;/header&gt;
+<pre><code class="html language-html">&lt;!-- Announced as "header" or "banner" by screen readers --&gt;
+&lt;header&gt;...&lt;/header&gt;
 
-&lt;!-- An extra label should be added when a
-landmark is used multiple times. --&gt;
+&lt;!-- When a landmark is used multiple times
+an extra label should be added --&gt;
 &lt;nav aria-label="website"&gt;...&lt;/nav&gt;
 &lt;nav aria-label="Table of Contents"&gt;...&lt;/nav&gt;
 </code></pre>
-<p>We can also create custom landmarks with <code>role="region"</code> to mark important parts of the page.</p>
-<pre><code class="html language-html">&lt;div role="region" aria-label="Recommended"&gt;...&lt;/div&gt;
+<p>We can also create custom landmarks to mark important parts of the page.</p>
+<pre><code class="html language-html">&lt;div role="region" aria-label="recommended"&gt;...&lt;/div&gt;
+
+&lt;!-- or --&gt;
+
+&lt;section aria-label="recommended"&gt;...&lt;/section&gt;
 </code></pre>
 <h2 id="exercise">Exercise</h2>
 <p>In the <a href="../exercises/3.2.html">exercise page</a>,
