@@ -21,7 +21,7 @@ body {
   color: var(--theme-text_0);
   box-sizing: border-box;
   font-weight: 400;
-  /* 💡 Here's the first fixed unit to converted */
+  /* 💡 Here's the first fixed unit to convert */
   font-size: 16px;
   line-height: 20px;
 }
