@@ -37,7 +37,7 @@
         Navigation shortcuts
       </h1>
 
-      <div class="g-card">
+      <section class="g-card">
         <label class="field">
           <span class="field-txt">Your name</span>
           <input type="text" placeholder="ex: Web Lover">
@@ -50,7 +50,99 @@
           Learn more about <a href="https://webaim.org/techniques/skipnav/" class="link">Skip Navigation Links</a>
           technique.
         </p>
-      </div>
+      </section>
+
+      <section>
+        <!-- 💡 BONUS #2 -->
+        <!-- #2 1/2 On button click, scroll (and focus) to this title -->
+        <h2 class="listTitle js-title">A list of things</h2>
+        <p>
+          Learn more about <a class="link"
+            href="https://ashleemboyer.com/blog/accessible-smooth-scroll-to-top-buttons-with-little-code">accessible
+            scroll-to-top buttons</a>.
+        </p>
+        <ul>
+          <li>Thing 1</li>
+          <li>Thing 2</li>
+          <li>Thing 3</li>
+          <li>Thing 4</li>
+          <li>Thing 5</li>
+          <li>Thing 6</li>
+          <li>Thing 7</li>
+          <li>Thing 8</li>
+          <li>Thing 9</li>
+          <li>Thing 10</li>
+          <li>Thing 11</li>
+          <li>Thing 12</li>
+          <li>Thing 13</li>
+          <li>Thing 14</li>
+          <li>Thing 15</li>
+          <li>Thing 16</li>
+          <li>Thing 17</li>
+          <li>Thing 18</li>
+          <li>Thing 19</li>
+          <li>Thing 20</li>
+          <li>Thing 21</li>
+          <li>Thing 22</li>
+          <li>Thing 23</li>
+          <li>Thing 24</li>
+          <li>Thing 25</li>
+          <li>Thing 26</li>
+          <li>Thing 27</li>
+          <li>Thing 28</li>
+          <li>Thing 29</li>
+          <li>Thing 30</li>
+          <li>Thing 31</li>
+          <li>Thing 32</li>
+          <li>Thing 33</li>
+          <li>Thing 34</li>
+          <li>Thing 35</li>
+          <li>Thing 36</li>
+          <li>Thing 37</li>
+          <li>Thing 38</li>
+          <li>Thing 39</li>
+          <li>Thing 40</li>
+          <li>Thing 41</li>
+          <li>Thing 42</li>
+          <li>Thing 43</li>
+          <li>Thing 43</li>
+          <li>Thing 44</li>
+          <li>Thing 45</li>
+          <li>Thing 46</li>
+          <li>Thing 47</li>
+          <li>Thing 48</li>
+          <li>Thing 49</li>
+          <li>Thing 50</li>
+        </ul>
+        <div class="listBottom">
+          <button class="btn btnCircle js-backToTop">
+            <span class="sr-only">Back to Top</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" aria-hidden="true">
+              <path
+                d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"
+                class=""></path>
+            </svg>
+          </button>
+        </div>
+
+        <script>
+          // 🍀 BONUS #2 - The JS is pretty much done for you...
+          const elBtnBackToTop = document.getElementsByClassName('js-backToTop')[0];
+          const elTitle = document.getElementsByClassName('js-title')[0];
+
+          elBtnBackToTop.addEventListener('click', () => {
+            const titlePosition = elTitle.getBoundingClientRect().top + window.pageYOffset - 45;
+
+            window.scrollTo({
+              top: titlePosition,
+              behavior: 'smooth' // 💡 Bonus #3 - You'll need to write the JS by yourself.
+            });
+
+            // 💡 #2 2/2 Focus the elTitle using the .focus() method.
+            // ...
+          })
+        </script>
+      </section>
     </main>
   </div>
 </body>

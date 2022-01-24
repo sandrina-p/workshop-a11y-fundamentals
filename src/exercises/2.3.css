@@ -16,10 +16,25 @@
   animation: ring 1500ms;
 }
 
+/* 💡 Bonus #2 */
+.listTitle:focus {
+  /* ...custom styles... */
+}
+
 /*  ----------------------------------------- *\
 |*  You do not need to touch the code below   *|
 |*     but you can see how it was made.       *|
 \** ----------------------------------------- */
+
+.listBottom {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnCircle svg {
+  width: 16px;
+  fill: currentColor;
+}
 
 @-webkit-keyframes ring {
   30%,
