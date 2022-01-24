@@ -50,7 +50,7 @@
   width: 150px;
   height: 100%;
   padding-top: 50px;
-  background: var(--theme-primary_smooth);
+  background: var(--theme-bg_1);
   border-left: 3px solid var(--theme-primary);
   transform: translateX(100%);
   transition: transform 300ms;
