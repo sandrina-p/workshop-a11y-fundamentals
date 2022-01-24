@@ -80,16 +80,22 @@ Notes:
               plant native to tropical forests of southern Mexico, south to Panama.</p>
           </div>
 
+
           <div class="details-part">
             <div class="price">
+              <!-- 💡 On VoiceVocer the SR announces the price differently
+                depending on how we structure the price:  -->
               <p class="price-original">
-                <span class="visually-hidden">Old price:</span>
-                $40.00
+                <!-- "Old [pause] price column, dolar four zero, point zero zero  -->
+                <span class="visually-hidden">Old price</span> $40.00
               </p>
               <p class="price-final title-lg">
-                <span class="visually-hidden">New price:</span>
-                $30.00
+                <!-- "New price: thirty dolars and zero zero cents  -->
+                <span class="visually-hidden">New price: $30.00</span>
+                <span aria-hidden="true">$30.00</span>
               </p>
+              <!-- 💡 Insight: When formating sentences with signs
+                that influence pronunciation (:, ?: $), double-check with screen reader its annoucement -->
             </div>
             <button class="btn btnPrimary js-addToCart">Add to cart</button>
           </div>
