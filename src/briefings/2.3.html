@@ -29,17 +29,16 @@
 &lt;main id="main"&gt;...&lt;/main&gt;
 </code></pre>
 <p>We can visually hide the skip links by default and only show it when focused.</p>
-<pre><code class="css language-css">.skipLink {
-  /* hide visually the link */
-  opacity: 0;
-  /* make it unreachable by mouse */
-  pointer-events: none;
+<pre><code class="css language-css">.skipLink:not(:focus) {
+  /* hide visually the link using .sr-only styles */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  /* rest of .sr-only styles... */
 }
 
 .skipLink:focus {
-  /* show the link on focus */
-  opacity: 1;
-  pointer-events: default;
+  /* link styles when it's focused */
 }
 </code></pre>
 <p>This skip link must be one of the first elements in the DOM to be quickly accessed through the keyboard.</p>

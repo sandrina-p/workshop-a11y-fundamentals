@@ -35,10 +35,9 @@
 .c-checkbox input {
   /* 💡 Write your solution here!
   We shouldn't use display:none, right?
-  Instead let's hide the element visually only */
   /* display: none; */
-  opacity: 0;
-  position: absolute;
+  /* 🍀 The solution is on the HTML */
+  outline: none;
 }
 
 /*  ----------------------------------------- *\

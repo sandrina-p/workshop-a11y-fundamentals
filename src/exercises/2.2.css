@@ -9,7 +9,7 @@
 }
 
 .c-checkbox input {
-  /* 💡 We shouldn't use display:none, right?  */
+  /* 💡 We shouldn't use display:none, right? */
   display: none;
 }
 

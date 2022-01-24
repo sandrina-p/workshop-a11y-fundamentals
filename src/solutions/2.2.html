@@ -75,8 +75,9 @@
     <!-- CASE #2 - Custom input -->
     <div class="g-card">
       <label class="c-checkbox">
-        <!-- 💡 1/1 No need to change the HTML. The fix is done on the CSS file -->
-        <input type="checkbox">
+        <!-- 💡 1/1 Use .sr-only it's the highlest tested solution by the A11Y community -->
+        <!-- Do not use opacity: 0 because it doesn't work everywhere.  -->
+        <input type="checkbox" class="sr-only">
         <span>I mark solo checkboxes without reading them.</span>
       </label>
       <p>Creating <a href="#fake-link" class="link">custom checkboxes</a> is cool!</p>
