@@ -274,7 +274,8 @@ address {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0, 0, 0, 0); /* old browsers */
+  clip-path: inset(50%); /* modern browsers */
   border: 0;
 }
 
