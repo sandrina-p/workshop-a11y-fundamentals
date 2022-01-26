@@ -65,7 +65,7 @@ button:focus-visible {
 </blockquote>
 <p></details></p>
 <h4 id="12focusacrossbrowsers">#1.2 Focus across browsers</h4>
-<p>Some browsers do not support <code>:focus-visible</code> yet (eg Safari). So, for full support we need use the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a> instead.</p>
+<p>Some browsers do not support <code>:focus-visible</code> yet (eg Safari). So, for full support we need the polyfill <a href="https://github.com/WICG/focus-visible">focus-visible.js</a> instead.</p>
 <pre><code class="html language-html">&lt;!-- Include the polyfill at the bottom of the page --&gt;
 &lt;script src="../assets/polyfill-focus-visible.js"&gt;&lt;/script&gt;
 </code></pre>
@@ -117,6 +117,16 @@ WCAG contains 2 success criterion about this topic: <a href="https://www.w3.org/
 <li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 2.4.7 Focus visible - Level AA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#target-size">WCAG 2.5.5 Target size - Level AAA</a></li>
 <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">WCAG 2.5.8 Target size minimum - Level AA</a> (WCAG 2.2 (Draft)).</li>
+</ul>
+<h2 id="exercisetakeaways">Exercise takeaways</h2>
+<p><details>
+<summary>(After the exercise) Reveal takeaways</summary></p>
+<ul>
+<li>Links are meant for navigation. Buttons for in-page actions.</li>
+<li>Include custom focus indicators with strong contrast in your interactive elements.</li>
+<li>Provide a confortable interactive area in elements next to each other.</li>
+<li>Use <code>:focus-visible</code> and <code>:focus-whitin</code> to enhance the keyboard navigation.
+</details></li>
 </ul>
 
 </main>
