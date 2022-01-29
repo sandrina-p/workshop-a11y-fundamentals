@@ -19,14 +19,14 @@
   
 <h1 id="31meaningfulcontent">3.1. Meaningful content</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Every content has to provide three essential pieces of information to explain its purpose:</p>
+<p>Every content needs to provide 3 pieces of information:</p>
 <ul>
 <li><strong>Role</strong> - The type of element. E.g a button, a heading or a list.</li>
 <li><strong>Name</strong> - The text to identify / describe the element.</li>
 <li><strong>State</strong> - Applicable in dynamic elements. E.g. A button is pressed or a menu is opened.</li>
 </ul>
 <p>For sighted people, the page visual appearance can be enough to understand an element's purpose. However, the same might not happen to people relying on AT (Assistive Technologies) Screen Readers.</p>
-<p>Most of the time, <em>role</em> and <em>name</em> are automatically included through semantic HTML. However, sometimes that's not enough.</p>
+<p>Most of the time, <em>role</em> and <em>name</em> are automatically included through semantic HTML. Let's see an example where that's not true:</p>
 <pre><code class="html language-html">&lt;!-- Bad --&gt;
 &lt;button&gt;X&lt;/button&gt;
 &lt;!-- Announced: "X, button" --&gt;
@@ -70,6 +70,16 @@ there are multiple cases where some pieces of information were forgotten or misu
 <li><a href="https://www.w3.org/TR/WCAG21/#focus-visible">WCAG 3.1.6 Pronunciation - Level AAA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">WCAG 2.4.8 Link Purpose - Level A</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">WCAG 2.4.9 Link Purpose (Link Only) - Level AAA</a></li>
+</ul>
+<h2 id="exercisetakeaways">Exercise takeaways</h2>
+<p><details>
+<summary>(After the exercise) Reveal takeaways</summary></p>
+<ul>
+<li>Use <code>ARIA</code> as last resource. Prefer HTML elements whenever possible.</li>
+<li>When creating an element, always ask yourself "Is its name, role and state accessibles?"</li>
+<li>Use a Screen Reader when testing new user interfaces.</li>
+<li>Ensure the content is meaningful when accessed without colors, styles, or images.
+</details></li>
 </ul>
 
 </main>
