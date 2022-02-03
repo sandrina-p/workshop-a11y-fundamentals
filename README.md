@@ -77,7 +77,7 @@ My favorite cheatsheet of keyboard shortcuts:
 - [VO and NVDA cheatsheet](https://dequeuniversity.com/screenreaders/survival-guide)
 - [Orca cheatsheet](https://help.gnome.org/users/orca/stable/commands_controlling_orca.html.en).
 
-I encourage you to use this [playground](https://sgwvk.csb.app/) to practice.
+I encourage you to [practice with this playground](https://sgwvk.csb.app/).
 
 **Tip:** While the SR is speaking, press `Control` key to force it to stop reading it. This might help you to reduce the annoying/frustration feeling while exploring it.
 
