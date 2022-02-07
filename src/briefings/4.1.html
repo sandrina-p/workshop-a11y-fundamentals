@@ -22,8 +22,8 @@
 <p>Until now, we have been exploring fairly simple cases, but there are some patterns that aren't that straightforward:</p>
 <p>In A11Y, some patterns may have multiple solutions. Each approach has positive and negative consequences. Once you find a solution, look for other solutions and balance them. We should <strong>aim for understanding the impacts and assume the trade-offs</strong> rather than pretending they don't exist.</p>
 <hr />
-<p>One of those patterns are <a href="https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a">loading skeletons</a>. We use them let the user know that the page or some part of it is being loaded.</p>
-<p>These are perceivable visually but the same ain't true for the people with vision impairmen, or those who use a screen reader.</p>
+<p>One of those patterns are <a href="https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a">loading skeletons</a>, which are used to show that the page or some part of it is being loaded.</p>
+<p>These are perceivable visually but the same ain't true for the people with vision impairment, or those who use a screen reader.</p>
 <p>ARIA Live Regions fill this gap helping to expose this dynamic content. There are two tipes:</p>
 <ul>
 <li><code>aria-live="assertive"</code> or <code>role="alert"</code>: The content is announced immediately when added to the DOM.</li>
@@ -67,9 +67,12 @@ ARIA only purpose is to add extra semantics to an element. It never, <em>ever</e
 <p></details></p>
 <h2 id="furtherreading">Further reading</h2>
 <ul>
+<li><a href="https://css-tricks.com/making-disabled-buttons-more-inclusive/">Making disabled buttons more inclusive</a></li>
 <li><a href="https://adrianroselli.com/2020/11/more-accessible-skeletons.html">More accessible loading skeletons</a></li>
-<li><a href="https://github.com/w3c/aria-practices/issues">Aria Practices</a></li>
-<li><a href="https://css-tricks.com/making-disabled-buttons-more-inclusive/">Making disabled Buttons more inclusive</a></li>
+<li><a href="https://www.scottohara.me/blog/2022/02/05/dynamic-results.html">Considering dynamic results and content</a></li>
+<li><a href="https://bitsofco.de/using-aria-live/">Using <code>aria-live</code></a></li>
+<li><a href="https://codepen.io/vloux/details/jxPrWy"><code>aria-live</code> codepen demo</a></li>
+<li><a href="https://medium.com/dev-channel/why-authors-should-avoid-aria-relevant-5d3164fab1e3">The problems of <code>aria-relevant</code></a></li>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
@@ -77,6 +80,17 @@ ARIA only purpose is to add extra semantics to an element. It never, <em>ever</e
 <li><a href="https://www.w3.org/TR/WCAG21/#on-focus">WCAG 3.2.1 Predictable On Focus - Level A</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#on-input">WCAG 3.2.2 Predictable On Input - Level A</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 4.1.3 Status Messages - Level AA</a></li>
+</ul>
+<h2 id="exercisetakeaways">Exercise takeaways</h2>
+<p><details>
+<summary>(After the exercise) Reveal takeaways</summary></p>
+<ul>
+<li>Use live regions to announce dynamic content, such as loading states and feedback messages.</li>
+<li>Be mindful of the number of live regions. Announcing too many live messages will be annoying.</li>
+<li>Write short messages in the live regions. Do no add <code>aria-live</code> around interactive elements or list of elements, as it does more harm than good.</li>
+<li><code>aria-live</code> does not work if added to an existing DOM element. (see <a href="https://codepen.io/vloux/details/jxPrWy">example 2</a>).</li>
+<li>You know what's better than a disabled button? Not disabling buttons at all.
+</details></li>
 </ul>
 
 </main>
