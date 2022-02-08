@@ -71,8 +71,12 @@
 }
 
 .case3-img {
-  width: 100%;
   display: block;
+  width: 100%;
+  aspect-ratio: 1.25;
+  background: #2b260f; /* mozart bg color */
+  color: white;
+  padding: 16px;
 }
 
 .case3-caption {
