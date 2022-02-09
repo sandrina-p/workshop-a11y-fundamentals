@@ -108,7 +108,7 @@ li::before {
   align-items: baseline;
 }
 
-.subTopic-heading h3 {
+.subTopic-heading h4 {
   line-height: inherit;
   font-weight: inherit;
   font-size: inherit;
