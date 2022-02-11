@@ -119,6 +119,7 @@
 }
 
 .c-checkbox :last-child::after {
+  font-family: sans-serif;
   content: "✓";
   line-height: 1;
   font-size: 14px;

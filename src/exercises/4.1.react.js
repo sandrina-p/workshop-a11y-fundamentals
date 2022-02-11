@@ -1,3 +1,10 @@
+/*
+  🍀 Some things to know about this:
+  - Everything is fine with the form. Focus on the results area.
+  - You can change the loading time at line 130.
+  - The page "7" will throw a results error.
+*/
+
 function Exercise() {
   const [page, setPage] = React.useState(""); // input page value
   const [products, setProcuts] = React.useState([]);
