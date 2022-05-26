@@ -62,7 +62,7 @@ At some point, we'll also use the following extensions:
 
 - [Colour contrast checker](https://colourcontrast.cc/) - Chrome only
 - [Web Developer](https://chrispederick.com/work/web-developer/) - Chrome or Firefox
-- [headingsMap](https://www.learningapps.co.uk/moodle/xertetoolkits/play.php?template_id=1309#page1section3) - Chrome or Firefox
+- [HeadingsMap](https://rumoroso.bitbucket.io/) - Chrome or Firefox
 
 ## Screen Readers
 
