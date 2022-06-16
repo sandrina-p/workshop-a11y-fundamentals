@@ -142,6 +142,6 @@ Here are some guidelines for things that are **OK** and **Not OK** based on this
 
 ## Copyright
 
-&copy; 2021 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved.
+&copy; 2022 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved.
 
 **This material cannot be used for workshops, training, or any other form of instructing or teaching, without express written consent.**
