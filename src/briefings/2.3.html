@@ -51,10 +51,13 @@ let's create a "Skip Navigation" link to jump directly to the main section of th
 <h3 id="1targetstyling">#1 Target styling</h3>
 <p>When creating skip links using id <code>#</code>, we can style using the CSS pseudo-selector <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:target"><code>:target</code></a>.</p>
 <p><strong>🎯 Goal:</strong> Use <code>:target</code> to style the main area when it's focused.</p>
-<p>Limitation: With this approach, you'll notice the target animation only works once. Because the <code>#main</code> selector is added to the page URL, when triggered again it will be ignored, unless the URL no longer contains that selector. To overcome this, JS would be required.</p>
+<p><details>
+<summary>CSS Limitation</summary></p>
+<p>With this approach, you'll notice the target animation only works once. Because the <code>#main</code> selector is added to the page URL, when triggered again it will be ignored, unless the URL no longer contains that selector. To overcome this, JS would be required.</p>
+<p></details></p>
 <h3 id="2usingtabindex">#2 Using Tabindex</h3>
 <p>We can create "Skip Navigation" for other scenarios. For example, in a "Back to Top" shortcut.</p>
-<p>Usually people implement this widget with a scroll mechanism but forget about the keyboard aspect.</p>
+<p>Usually people implement this widget with a scroll mechanism however they forget about the keyboard aspect.</p>
 <p><strong>🎯 Goal:</strong> In the "Back to Top", add keyboard support by using <code>tabindex</code> and JavaScript.</p>
 <p><details>
 <summary>🍀 Toggle hint #1 - JS focus behavior</summary></p>
@@ -62,7 +65,7 @@ let's create a "Skip Navigation" link to jump directly to the main section of th
 <p></details></p>
 <h3 id="3scrollbehaviors">#3 Scroll behaviors</h3>
 <p>The scroll to top is <code>smooth</code>, always. Based on what we've learned so far, do you think this behavior is inclusive?</p>
-<p>That's right… it doesn't respect the user's motion preferences! In JavaSacript is possible to detect if a media query matches, using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">window.matchMedia()</a>.</p>
+<p>As we've learned so far, this doesn't respect the user's motion preferences! In JavaSacript is possible to detect if a media query matches, using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia">window.matchMedia()</a>.</p>
 <p><strong>🎯 Goal:</strong> Modify the scroll behavior to respect the user preference.</p>
 <p><details>
 <summary>🍀 Toggle hint #1 - Using JS media</summary></p>
@@ -70,7 +73,7 @@ let's create a "Skip Navigation" link to jump directly to the main section of th
 <pre><code class="js language-js">const motionReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (motionReduced.matches) {
-  /* ... */
+  /* your javascript */
 }
 </code></pre>
 <p></details></p>

@@ -5,7 +5,7 @@
 
 Notes:
 - The order or elements is correct. You only need to change the elements tags.
-- You don't need to change or remove CSS classes.
+- You don't need to change or remove any CSS class.
 -->
 <html lang="en">
 
@@ -86,16 +86,16 @@ Notes:
               <!-- 💡 On VoiceVocer the SR announces the price differently
                 depending on how we structure the price:  -->
               <p class="price-original">
-                <!-- "Old [pause] price column, dolar four zero, point zero zero  -->
-                <span class="visually-hidden">Old price</span> $40.00
+                <!-- Announced: "Old price column, dolar four zero, point zero zero  -->
+                <span class="visually-hidden">Old price:</span> $40.00
               </p>
               <p class="price-final title-lg">
-                <!-- "New price: thirty dolars and zero zero cents  -->
+                <!-- Announced: "New price: thirty dolars and zero zero cents"  -->
                 <span class="visually-hidden">New price: $30.00</span>
                 <span aria-hidden="true">$30.00</span>
               </p>
               <!-- 💡 Insight: When formating sentences with signs
-                that influence pronunciation (:, ?: $), double-check with screen reader its annoucement -->
+                that influence pronunciation (:, ?, $), double-check how SR announce it -->
             </div>
             <button class="btn btnPrimary js-addToCart">Add to cart</button>
           </div>
