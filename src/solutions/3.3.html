@@ -75,7 +75,7 @@ Notes:
         <input type="text" id="firstPC" inputmode="numeric" pattern="[0-9]*" class="js-fieldYear">
       </div>
 
-      <!-- Case #3.1
+      <!-- Case #4.1
         💡 In fields with descriptions, use aria-describedby to connect both.
         🍀 In fields with multiple actions (eg input + button), the label cannot
           wrap everything because it will cause A11Y issues in some browsers and AT.
@@ -89,7 +89,7 @@ Notes:
         </span>
       </div>
 
-      <!-- 💡 Case #3.2 - Inputs descriptions p1
+      <!-- 💡 Case #4.2 - Inputs descriptions p1
         🍀 In fields with hints that contain links, it's also recommended to put the hint
           outside the label to prevent interaction issues with some assistive technologies-->
       <span class="u-block" id="a11yLabelStart">
@@ -102,7 +102,7 @@ Notes:
       </label>
 
 
-      <!-- 💡 Live Regions (Bonus #3.3)
+      <!-- 💡 Live Regions (Bonus #4.3)
         🍀 Mark the dynamic feedback with aria-live. It can be polite or assertive.
         In this case "assertive" is better because we are announcing something
         important related to the current task.
