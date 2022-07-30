@@ -108,6 +108,15 @@ src/
 - **Guidance & tips:** Through the exercises, you'll find the light bulb emoji 💡 to guide you, and the lucky clover emoji 🍀 with extra tips for you to apply right away.
 - **Solutions:** Although all the exercises have explained solutions, check them as a last resource. If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
 
+### Not a programmer?
+
+It's totally fine you don't know how HTML, CSS or JS in depth. As long you can read the basic code, you'll be able to follow along with the exercises.
+
+If you don't know any code at all, I got you covered too.
+All the exercises are done in small groups of 3-4 people and I'll make sure to include you in a group with other programmers for you to collaborate along.
+
+Besides the "coding" part, the exercises also include resources suitable for designers and Product Managers, which you are more than welcome to read while the group is coding.
+
 ---
 
 ## License
