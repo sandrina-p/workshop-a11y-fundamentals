@@ -8,6 +8,8 @@ Hi there! I'm [Sandrina Pereira](https://twitter.com/a_sandrina_p) and I believe
 
 These are the material resources for my [Web Accessibility Fundamentals workshop](https://www.sandrina-p.net/workshop-a11y/).
 
+Currenly, I'm avaliable for booking private workshops with you your team. Feel free to reach out!
+
 ## Pre-Workshop requirements
 
 To get the most out of the workshop, please do the following things in advance.
@@ -25,7 +27,7 @@ The better prepared you are for the workshop, the more you will learn from it!
 
 ### Recommended
 
-Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before proceeding. Otherwise jump to the next _Alternatives_ section.
+Install [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) before proceeding. Otherwise jump to the next _Alternative_ section.
 
 ```bash
 # Clone the repository
@@ -49,7 +51,7 @@ Open [http://localhost:5000/](http://localhost:5000/) and you are ready to go!
 
 - [Download the project](https://github.com/sandrina-p/workshop-a11y-fundamentals/archive/main.zip) and open `src/index.html`. You are ready to go!
 
-## Developer extensions
+## Browser extensions
 
 Additionally to the codebase, we'll explore multiple browser extensions. Kindly install them ahead of time.
 
@@ -66,7 +68,7 @@ At some point, we'll also use the following extensions:
 
 ## Screen Readers
 
-We'll explore SR (Screen Reader) at the 3rd session of the workshop. During a remote workshop it's not practical to teach everyone how to use a SR. For that reason, please take some time (20-30 minutes) to practice in advance, with the help of these friendly video tutorials:
+We'll explore SR (Screen Reader) during the workshop. In a remote workshop it's not practical to teach everyone how to use a SR. For that reason, please take some time (20-30 minutes) to practice in advance, with the help of these friendly video tutorials:
 
 - Mac: You'll use VO (Voice Over) [Watch VO introduction](https://www.youtube.com/watch?v=5R-6WvAihms&t=198s).
 - Windows: Install [NVDA](https://www.nvaccess.org/) and [watch NVDA introduction](https://www.youtube.com/watch?v=Jao3s_CwdRU).
@@ -102,9 +104,9 @@ src/
   index.html  # Home page
 ```
 
-**Expectations:**
+### Expectations:
 
-- **Time value:** I don't expect you to complete the entire exercise on time. The main goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the materials.
+- **Time value:** I don't expect you to complete all the exercises on time. The main goal is to introduce you to new things, to make you think about them, and ask me questions as we go through the materials.
 - **Guidance & tips:** Through the exercises, you'll find the light bulb emoji 💡 to guide you, and the lucky clover emoji 🍀 with extra tips for you to apply right away.
 - **Solutions:** Although all the exercises have explained solutions, check them as a last resource. If you take a peek at the solution before even trying, you'll be sabotaging your own learning. It's okay to struggle while you solve the exercise. It's part of the learning process. :)
 
@@ -146,6 +148,6 @@ Here are some guidelines for things that are **OK** and **Not OK** based on this
 
 ## Copyright
 
-&copy; 2022 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved.
+&copy; 2022 [Sandrina Pereira](https://www.sandrina-p.net/), All Rights Reserved, under [BSD 3-Clause License](LICENSE.txt).
 
 **This material cannot be used for workshops, training, or any other form of instructing or teaching, without express written consent.**
