@@ -86,14 +86,17 @@ body {
 <p>In the <a href="../exercises/1.2.html" target="_blank">exercise page</a>, there are multiple accessibility problems related to color and proportions:</p>
 <ul>
 <li>Color: Some text has not enough color contrast.</li>
-<li>Size: The text size is written with absolute units.</li>
+<li>Size: The text size is in absolute units (<code>px</code>).</li>
 <li>Motion: The notification bell animation can be annoying to some people.</li>
 </ul>
 <p><strong>🎯 Goal:</strong> Make the page follow appearance guidelines that respect level AA.</p>
-<p><strong>Hint 1:</strong> Use a <a href="#extensions">browser extension</a> to help you detect color contrast issues.</p>
-<p><strong>Hint 2:</strong> Use the DevTools color picker to find a color that respects level AA.</p>
-<p><strong>Hint 3:</strong> Customize your browser font size to see how the content is displayed as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</p>
-<p><strong>Hint 4:</strong> In Chrome, you can emulate a motion settings. In Dev Tools, go to Settings &gt; Rendering. Scroll down until "Emulate CSS media" section and select the preferred motion setting. <a href="https://stackoverflow.com/a/59709067/4737729">Change in other browsers</a></p>
+<p><strong>Hints:</strong></p>
+<ul>
+<li>Use a <a href="#extensions">browser extension</a> to help you detect color contrast issues.</li>
+<li>Use the DevTools color picker to find a color that respects level AA.</li>
+<li>Customize your browser font size to see how the content is displayed as you update the code from absolute to relative units. Go to <em>Settings > Appearance > Font Size</em>. (Chrome and Firefox)</li>
+<li>In Chrome, you can emulate a motion settings. In Dev Tools, go to Settings &gt; Rendering. Scroll down until "Emulate CSS media" section and select the preferred motion setting. <a href="https://stackoverflow.com/a/59709067/4737729">Change in other browsers</a></li>
+</ul>
 <div></div>
 <h2 id="bonusachievinglevelaaa">Bonus - Achieving Level AAA</h2>
 <h3 id="1colortheming">1. Color Theming</h3>
@@ -125,13 +128,16 @@ body {
 </ul>
 <h3 id="articles">Articles</h3>
 <ul>
-<li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color contrast accessibility</a></li>
-<li><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">The complete guide to dark mode on the web</a>.</li>
-<li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">Why you shouldn't "just use pixels"</a></li>
-<li><a href="https://blog.usejournal.com/dont-use-rem-em-for-paddings-margins-and-more-94e19026b000">Don’t use rem/em for paddings, margins and more</a></li>
+<li><a href="https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/">The myths of color contrast accessibility</a> 📖</li>
+<li><a href="https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/">The truth about pixels and accessibility</a></li>
 <li><a href="https://tatianamac.com/posts/prefers-reduced-motion/">prefers-reduced-motion: Taking a no-motion-first approach</a></li>
 <li><a href="https://www.scottohara.me/blog/2019/03/26/a-warning-about-warnings.html">A note about automated accessibility "warnings"</a></li>
+<li><a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">The complete guide to dark mode on the web</a>.</li>
 </ul>
+<!--
+- [Why you shouldn't "just use pixels"](https://engageinteractive.co.uk/blog/em-vs-rem-vs-px)
+- [Don’t use rem/em for paddings, margins and more](https://blog.usejournal.com/dont-use-rem-em-for-paddings-margins-and-more-94e19026b000)
+  -->
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
 <li><a href="https://www.w3.org/TR/WCAG21/#use-of-color">WCAG 1.4.1 Use of color - Level A</a></li>
@@ -139,6 +145,7 @@ body {
 <li><a href="https://www.w3.org/TR/WCAG21/#contrast-enhanced">WCAG 1.4.6 Contrast (Enhanced) - Level AAA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#resize-text">WCAG 1.4.4 Resize text - Level AA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">WCAG 1.4.8 Visual Presentation - Level AAA</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/#reflow">WCAG 1.4.10 Reflow - Level AA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#text-spacing">WCAG 1.4.12 Text spacing - Level AA</a></li>
 <li><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">WCAG 2.3.3 Animation from interactions - Level AAA</a></li>
 </ul>
@@ -146,12 +153,12 @@ body {
 <p><details>
 <summary>(After the exercise) Reveal takeaways</summary></p>
 <ul>
-<li>Color: Most color contrast issues can be catched automatically.</li>
-<li>Color: Include a "Colors Guide" in your Design System, showing correct and common wrong combinations.</li>
+<li>Color: Most of color contrast issues can be detected automatically.</li>
+<li>Color: Include a "Colors Guide" in your Design System, showing do's and don'ts in color combinations.</li>
 <li>Proportions: Prefer relative units for text and containers sizes.</li>
-<li>Proportions: Ensure the page is responsive up to 200% zoom.</li>
-<li>Animations: Adopt a no-motion-first approach. Only add motion if it's clear the user has no preferences.</li>
-<li>Custom preferences: When creating a preference toggle (e.g. dark theme), ensure its initial value matches the user preferences, and it keeps the selected option on page refresh.
+<li>Proportions: Ensure the page is responsive at least up to 200% zoom.</li>
+<li>Animations: Adopt a no-motion-first approach. Only add motion for users with no preference.</li>
+<li>Custom preferences: When creating a preference toggle (e.g. dark theme), ensure its initial value matches the default user preferences, and it persits on page refresh.
 </details></li>
 </ul>
 
