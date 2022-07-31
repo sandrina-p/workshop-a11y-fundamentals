@@ -8,7 +8,7 @@ Hi there! I'm [Sandrina Pereira](https://twitter.com/a_sandrina_p) and I believe
 
 These are the material resources for my [Web Accessibility Fundamentals workshop](https://www.sandrina-p.net/workshop-a11y/).
 
-Currenly, I'm avaliable for booking private workshops with you your team. Feel free to reach out!
+<!-- Currenly, I'm avaliable for booking private workshops with you your team. Feel free to reach out! -->
 
 ## Pre-Workshop requirements
 
