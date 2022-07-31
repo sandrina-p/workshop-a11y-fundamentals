@@ -11,6 +11,12 @@
   /* 💡 Updated secondary to comply with AA level */
   --theme-secondary: hsl(26deg 100% 38%);
   --theme-success: green;
+
+  /* 💡 Convert the fixed font sizes to rem */
+  --theme-text-title: 2.8rem;
+  --theme-text-lg: 1.8rem;
+  --theme-text-md: 1.6rem;
+  --theme-text-sm: 1.4rem;
 }
 
 /* 💡 Dark theme colors */
@@ -38,11 +44,9 @@ body {
   color: var(--theme-text_0);
   box-sizing: border-box;
   font-weight: 400;
-  /* 💡 Here's the first fixed unit (px) to converted to rem */
-  font-size: 1.6rem;
-
+  font-size: var(--theme-text-md);
   /* 💡 BONUS #2 bigger line-height */
-  line-height: 1.5;
+  line-height: 1.5; /* original 1.25 */
 }
 
 body * {
@@ -54,7 +58,9 @@ body * {
 .content {
   position: relative;
   margin: 0 auto;
-  max-width: 480px;
+  /* 💡 rem is better because the "width" is indirectly related to the text inside it. */
+  /* max-width: 480px; */
+  max-width: 48rem;
   padding: 64px 16px;
 }
 
@@ -78,23 +84,23 @@ body * {
   color: var(--theme-secondary);
   margin-bottom: 4px;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: var(--theme-text-sm);
   font-weight: 600;
   line-height: 1;
 }
 
 .title-xl {
-  font-size: 2.8rem;
-  font-weight: 600;
+  font-size: var(--theme-text-title);
   line-height: 1.2;
+  font-weight: 600;
   margin: 0 0 8px;
 }
 
 .title-md {
-  font-size: 1.8rem;
+  font-size: var(--theme-text-lg);
+  line-height: 1.2;
   font-weight: 600;
   margin: 32px 0 8px;
-  line-height: 1.2;
 }
 
 .list {
@@ -126,20 +132,9 @@ body * {
   color: var(--theme-text_1);
 }
 
-@media (min-width: 480px) {
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .list > * {
-    flex-basis: 50%;
-  }
-}
-
 .note {
   margin: -16px 0 24px;
-  font-size: 1.4rem;
+  font-size: var(--theme-text-sm);
   text-align: center;
   /* 💡 The color was changed. Check variables
   list at the top for further notes */
@@ -227,6 +222,22 @@ body * {
 
 .footer-text a {
   color: inherit;
+}
+
+/* 💡 Similar to font-size, breakpoints need to be in "rem"
+to ensure the text fits well based on the applied zoom 
+P.S. the "62.5%" trick does not influce @media, so it needs to be the x/16 math, 
+30rem = 480px/16
+*/
+@media (min-width: 30rem) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .list > * {
+    flex-basis: 50%;
+  }
 }
 
 /*  ----------------------------------------- *\

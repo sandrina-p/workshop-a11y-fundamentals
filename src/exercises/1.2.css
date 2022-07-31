@@ -9,6 +9,12 @@
   --theme-primary_smooth: hsl(266deg 100% 92%);
   --theme-secondary: hsl(26deg 100% 68%);
   --theme-success: green;
+
+  /* 💡 Convert the fixed font sizes to rem */
+  --theme-text-title: 28px;
+  --theme-text-lg: 18px;
+  --theme-text-md: 16px;
+  --theme-text-sm: 14px;
 }
 
 html {
@@ -21,9 +27,9 @@ body {
   color: var(--theme-text_0);
   box-sizing: border-box;
   font-weight: 400;
-  /* 💡 Here's the first fixed unit to convert */
-  font-size: 16px;
-  line-height: 20px;
+  font-size: var(--theme-text-md);
+  /* 💡 Prefer uniteless line-height for easier math. */
+  line-height: 20px; /* 20/16 = 1.25 */
 }
 
 body * {
@@ -59,23 +65,23 @@ body * {
   color: var(--theme-secondary);
   margin-bottom: 4px;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: var(--theme-text-sm);
   font-weight: 600;
-  line-height: 14px;
+  line-height: 1;
 }
 
 .title-xl {
-  font-size: 28px;
+  font-size: var(--theme-text-title);
+  line-height: 1.2;
   font-weight: 600;
-  line-height: 33.6px;
   margin: 0 0 8px;
 }
 
 .title-md {
-  font-size: 18px;
+  font-size: var(--theme-text-lg);
+  line-height: 1.2;
   font-weight: 600;
   margin: 32px 0 8px;
-  line-height: 21.6px;
 }
 
 .list {
@@ -109,23 +115,12 @@ body * {
   color: var(--theme-text_1);
 }
 
-@media (min-width: 480px) {
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .list > * {
-    flex-basis: 50%;
-  }
-}
-
 .note {
   margin: -16px 0 24px;
-  font-size: 14px;
+  font-size: var(--theme-text-sm);
   text-align: center;
-  /* 💡 This color doesn't work well with bg_1.
-  You can change the color value or create a new one */
+  /* 💡 This color doesn't work well with --theme-bg_1.
+  You could either change the color or create a new variable */
   color: var(--theme-text_1);
 }
 
@@ -133,7 +128,7 @@ body * {
   display: flex;
   align-items: center;
   min-height: 35px;
-  font-size: 16px;
+  font-size: var(--theme-text-md);
   font-weight: 600;
   border: none;
   border-radius: 3px;
@@ -182,7 +177,7 @@ body * {
   position: relative;
   text-align: center;
   margin: 0;
-  font-size: 13px;
+  font-size: var(--theme-text-sm);
   /** 🍀 Some A11Y debug tools might mark this as color contrast issue.
   It's a false positive caused by the ::before pseudo-element above */
   color: var(--theme-bg_0);
@@ -191,6 +186,18 @@ body * {
 
 .footer-text a {
   color: inherit;
+}
+
+/* 💡 Now that font-size is rem, should media queries be too? */
+@media (min-width: 480px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .list > * {
+    flex-basis: 50%;
+  }
 }
 
 /*  ----------------------------------------- *\
