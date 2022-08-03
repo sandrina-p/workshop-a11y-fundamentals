@@ -72,6 +72,7 @@ There's no better way to discover it than by using it yourself with a screen rea
 <li><a href="http://matatk.agrip.org.uk/landmarks/">Landmarks browser extension</a></li>
 <li>A 2020 study to the top 1 million webpages revelated that <a href="https://webaim.org/projects/million/#languages">~29% of the websites</a> didn't specify the document language.</li>
 <li><a href="https://www.smashingmagazine.com/2020/01/html5-article-section/">HTML5 deep dive into article and section</a></li>
+<li><a href="https://www.smashingmagazine.com/2022/07/article-section-elements-accessibility/">article vs section: how to choose the right one</a></li>
 </ul>
 <h3 id="wcagsuccesscriterion">WCAG Success Criterion</h3>
 <ul>
@@ -84,10 +85,11 @@ There's no better way to discover it than by using it yourself with a screen rea
 <p><details>
 <summary>(After the exercise) Reveal takeaways</summary></p>
 <ul>
-<li>Landmarks allow people using SR to quickly discover to the main regions of the page.</li>
+<li>Landmarks allow people using AT to quickly discover the most common parts of of the page.</li>
+<li>As a designer, consider drawing the landmarks and its titles in the mockups. #invisibleCopy</li>
 <li>When using multiple <code>&lt;nav&gt;</code>, use <code>aria-label</code> to distinguish them.</li>
 <li><code>&lt;section&gt;</code> is not a landmark, unless it has <code>aria-label</code> attribute with the landmark title.</li>
-<li>The language of the page must always be set with attribute <code>lang</code> to tell the SR how to red the content properly.
+<li>The language of the page must always be set with attribute <code>lang</code> to tell the SR how to read the content properly.
 </details></li>
 </ul>
 
