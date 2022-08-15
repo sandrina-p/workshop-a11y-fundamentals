@@ -81,9 +81,11 @@ My favorite cheatsheet of keyboard shortcuts:
 
 I encourage you to [practice with this playground](https://sgwvk.csb.app/).
 
+Good luck 🤞
+
 **Tip:** While the SR is speaking, press `Control` key to force it to stop reading it. This might help you to reduce the annoying/frustration feeling while exploring it.
 
-Good luck 🤞
+**MacOS Tipt:** Go to Settings > Accessibility > Voice Over Utility > Web > General. Uncheck "Automatically speak the webpage".
 
 ## Workshop Dynamic
 

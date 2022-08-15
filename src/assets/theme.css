@@ -23,7 +23,7 @@
 
 html {
   font-size: 62.5%;
-  --theme-width: 530px;
+  --theme-width: 53rem;
   --theme-text_0: hsl(0deg 0% 20%);
   --theme-text_1: hsl(0deg 0% 44%);
   --theme-bg_0: hsl(27deg 39% 95%);
